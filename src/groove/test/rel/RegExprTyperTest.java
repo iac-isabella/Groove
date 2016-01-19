@@ -1,15 +1,15 @@
 /* GROOVE: GRaphs for Object Oriented VErification
  * Copyright 2003--2011 University of Twente
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- * http://www.apache.org/licenses/LICENSE-2.0 
- * 
- * Unless required by applicable law or agreed to in writing, 
- * software distributed under the License is distributed on an 
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
- * either express or implied. See the License for the specific 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  *
  * $Id: RegExprTyperTest.java 5485 2014-07-23 17:41:40Z rensink $
@@ -94,14 +94,12 @@ public class RegExprTyperTest {
         for (TypeEdge edge : implicitType.edgeSet()) {
             String label = edge.label().toString();
             if (label.equals("flag:a2")) {
-                implicitVars.put(new LabelVar(xFlag, EdgeRole.FLAG),
-                    Collections.singleton(edge));
+                implicitVars.put(new LabelVar(xFlag, EdgeRole.FLAG), Collections.singleton(edge));
             } else if (label.equals("type:A2")) {
                 implicitVars.put(new LabelVar(xType, EdgeRole.NODE_TYPE),
                     Collections.singleton(edge));
             } else if (label.equals("aToB")) {
-                implicitVars.put(new LabelVar(xBin, EdgeRole.BINARY),
-                    Collections.singleton(edge));
+                implicitVars.put(new LabelVar(xBin, EdgeRole.BINARY), Collections.singleton(edge));
             }
         }
         implicitTyper = new RegExprTyper(implicitType, implicitVars);
@@ -110,11 +108,9 @@ public class RegExprTyperTest {
         for (TypeEdge edge : explicitType.edgeSet()) {
             String label = edge.label().toString();
             if (label.equals("flag:a2")) {
-                explicitVars.put(new LabelVar(xFlag, EdgeRole.FLAG),
-                    Collections.singleton(edge));
+                explicitVars.put(new LabelVar(xFlag, EdgeRole.FLAG), Collections.singleton(edge));
             } else if (label.equals("aToB")) {
-                explicitVars.put(new LabelVar(xBin, EdgeRole.BINARY),
-                    Collections.singleton(edge));
+                explicitVars.put(new LabelVar(xBin, EdgeRole.BINARY), Collections.singleton(edge));
             }
         }
         explicitVars.put(new LabelVar(xType, EdgeRole.NODE_TYPE),
@@ -153,29 +149,10 @@ public class RegExprTyperTest {
         this.implicit = true;
         TypeNode[][] n2 = {{Top, Top}};
         equals("type:A", n2);
-        TypeNode[][] e2 =
-            { {Top, Top}, {Top, IInt}, {Top, IReal}, {Top, IString},
-                {Top, IBool}};
+        TypeNode[][] e2 = { {Top, Top}, {Top, IInt}, {Top, IReal}, {Top, IString}, {Top, IBool}};
         equals("aTo", e2);
         TypeNode[][] f2 = {{Top, Top}};
         equals("flag:a2", f2);
-    }
-
-    /** Tests the construction of the empty expression. */
-    @Test
-    public void testEmpty() {
-        this.implicit = false;
-        TypeNode[][] n1 =
-            { {A, A}, {A, A1}, {A, A2}, {A1, A}, {A1, A1}, {A1, A2}, {A2, A},
-                {A2, A1}, {A2, A2}, {B, B}, {B, B1}, {B1, B}, {B1, B1}, {C, C},
-                {D, D}, {XInt, XInt}, {XReal, XReal}, {XString, XString},
-                {XBool, XBool}};
-        equals("=", n1);
-        this.implicit = true;
-        TypeNode[][] n2 =
-            { {Top, Top}, {IInt, IInt}, {IReal, IReal}, {IString, IString},
-                {IBool, IBool}};
-        equals("=", n2);
     }
 
     /** Tests the construction of sharp labels. */
@@ -195,8 +172,7 @@ public class RegExprTyperTest {
         this.implicit = false;
         TypeNode[][] n1 = {{A2, A2}};
         equals("type:?xType", n1);
-        TypeNode[][] e1 =
-            { {A, B}, {A, B1}, {A1, B}, {A1, B1}, {A2, B}, {A2, B1}};
+        TypeNode[][] e1 = { {A, B}, {A, B1}, {A1, B}, {A1, B1}, {A2, B}, {A2, B1}};
         equals("?xBin", e1);
         TypeNode[][] f1 = {{A2, A2}};
         equals("flag:?xFlag", f1);
@@ -213,9 +189,7 @@ public class RegExprTyperTest {
         equals("type:?", n2);
         TypeNode[][] f2 = {};
         equals("flag:?[^a,a1,a2]", f2);
-        TypeNode[][] e2 =
-            { {Top, Top}, {Top, IInt}, {Top, IReal}, {Top, IString},
-                {Top, IBool}};
+        TypeNode[][] e2 = { {Top, Top}, {Top, IInt}, {Top, IReal}, {Top, IString}, {Top, IBool}};
         equals("?", e2);
     }
 
@@ -231,8 +205,7 @@ public class RegExprTyperTest {
     @Test
     public void testChoice() {
         this.implicit = false;
-        TypeNode[][] x =
-            { {C, A}, {C, A1}, {C, A2}, {B1, A2}, {D, D}, {A1, A1}};
+        TypeNode[][] x = { {C, A}, {C, A1}, {C, A2}, {B1, A2}, {D, D}, {A1, A1}};
         equals("cToA | b1ToA2 | type:D | flag:a1", x);
     }
 
@@ -287,8 +260,7 @@ public class RegExprTyperTest {
     }
 
     private Map<TypeNode,Set<TypeNode>> r(TypeNode[][] m) {
-        Map<TypeNode,Set<TypeNode>> result =
-            new HashMap<TypeNode,Set<TypeNode>>();
+        Map<TypeNode,Set<TypeNode>> result = new HashMap<TypeNode,Set<TypeNode>>();
         for (TypeNode[] p : m) {
             assert p.length == 2;
             Set<TypeNode> image = result.get(p[0]);

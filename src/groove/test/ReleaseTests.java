@@ -25,7 +25,7 @@ import org.junit.runners.Suite;
  * @version $Revision: 5479 $
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({CheckinTests.class, GrammarsTest.class, ImagerTest.class})
+@Suite.SuiteClasses({CheckinTests.class, ImagerTest.class})
 public class ReleaseTests {
     // Empty by design.
 }
