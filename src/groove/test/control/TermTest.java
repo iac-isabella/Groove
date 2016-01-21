@@ -53,18 +53,18 @@ public class TermTest extends CtrlTester {
         Term a = this.a;
         Term b = this.b;
         Term c = this.c;
-        equal("a;", a);
-        equal("{}", epsilon());
-        equal("{ a; b; }", a.seq(b));
-        equal("a|b;", a.or(b));
-        equal("choice { a; } or b;", a.or(b));
-        equal("a*;", a.star());
-        equal("a+;", a.seq(a.star()));
-        equal("#a;", a.alap());
-        equal("while (a) { b; }", a.whileDo(b));
-        equal("if (a) b;", a.ifOnly(b));
-        equal("if (a) b; else c;", a.ifElse(b, c));
-        equal("try b; else c;", b.tryElse(c));
+        verifyEquality("a;", a);
+        verifyEquality("{}", epsilon());
+        verifyEquality("{ a; b; }", a.seq(b));
+        verifyEquality("a|b;", a.or(b));
+        verifyEquality("choice { a; } or b;", a.or(b));
+        verifyEquality("a*;", a.star());
+        verifyEquality("a+;", a.seq(a.star()));
+        verifyEquality("#a;", a.alap());
+        verifyEquality("while (a) { b; }", a.whileDo(b));
+        verifyEquality("if (a) b;", a.ifOnly(b));
+        verifyEquality("if (a) b; else c;", a.ifElse(b, c));
+        verifyEquality("try b; else c;", b.tryElse(c));
     }
 
     @Test
@@ -73,8 +73,8 @@ public class TermTest extends CtrlTester {
         Term b = this.b;
         Term c = this.c;
         Term d = this.d;
-        equal("a; other;", a.seq(b.or(c).or(d)));
-        equal("a; any;", a.seq(a.or(b).or(c).or(d)));
+        verifyEquality("a; other;", a.seq(b.or(c).or(d)));
+        verifyEquality("a; any;", a.seq(a.or(b).or(c).or(d)));
     }
 
     @Test
@@ -87,7 +87,7 @@ public class TermTest extends CtrlTester {
         return p.epsilon();
     }
 
-    void equal(String program, Term term) {
+    void verifyEquality(String program, Term term) {
         assertEquals(term, buildTerm(program));
     }
 

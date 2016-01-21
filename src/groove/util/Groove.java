@@ -343,8 +343,8 @@ public class Groove {
         try {
             url = file.toURI().toURL();
         } catch (MalformedURLException e) {
-            throw new IllegalArgumentException(String.format(
-                "File '%s' cannot be converted to URL", file));
+            throw new IllegalArgumentException(
+                String.format("File '%s' cannot be converted to URL", file));
         }
         return url;
     }
@@ -434,16 +434,19 @@ public class Groove {
     // Platform dependent information.
 
     /** Detect if we are on Windows.  */
-    public static final boolean IS_PLATFORM_WINDOWS =
-        System.getProperty("os.name").toLowerCase().indexOf("windows") > -1;
+    public static final boolean IS_PLATFORM_WINDOWS = System.getProperty("os.name")
+        .toLowerCase()
+        .indexOf("windows") > -1;
 
     /** Detect if we are on Mac.  */
-    public static final boolean IS_PLATFORM_MAC =
-        System.getProperty("os.name").toLowerCase().indexOf("mac os x") > -1;
+    public static final boolean IS_PLATFORM_MAC = System.getProperty("os.name")
+        .toLowerCase()
+        .indexOf("mac os x") > -1;
 
     /** Detect if we are on Linux.  */
-    public static final boolean IS_PLATFORM_LINUX =
-        System.getProperty("os.name").toLowerCase().indexOf("linux") > -1;
+    public static final boolean IS_PLATFORM_LINUX = System.getProperty("os.name")
+        .toLowerCase()
+        .indexOf("linux") > -1;
 
     static {
         /** Make sure default action names are all in English. */

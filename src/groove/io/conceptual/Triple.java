@@ -79,15 +79,15 @@ public class Triple<L,M,R> {
         }
 
         final Triple<?,?,?> other = (Triple<?,?,?>) o;
-        return equal(getLeft(), other.getLeft())
-            && equal(getRight(), other.getRight())
-            && equal(getMiddle(), other.getMiddle());
+        return isEqual(getLeft(), other.getLeft())
+            && isEqual(getRight(), other.getRight())
+            && isEqual(getMiddle(), other.getMiddle());
     }
 
     /**
      * @return true if Triples contain the same elements
      */
-    public static final boolean equal(Object o1, Object o2) {
+    public static final boolean isEqual(Object o1, Object o2) {
         if (o1 == null) {
             return o2 == null;
         }

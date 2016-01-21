@@ -31,5 +31,5 @@ public class Null {
     }
 
     /** Parser for {@link Null}. */
-    public static Parser<Null> PARSER = NullParser.instance(Null.class);
+    public static final Parser<Null> PARSER = NullParser.instance(Null.class);
 }

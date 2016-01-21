@@ -29,7 +29,7 @@ public class BoolValue extends LiteralValue {
 
     private final boolean m_value;
 
-    /** 
+    /**
      * Returns the fixed representation of a given boolean value.
      * @param value the value to be represented
      * @return either {@link #TRUE} or {@link #FALSE}, depending on {@code value}
@@ -39,7 +39,7 @@ public class BoolValue extends LiteralValue {
     }
 
     /** Representation of the boolean value {@code true}. */
-    public static BoolValue TRUE = new BoolValue(true);
+    public static final BoolValue TRUE = new BoolValue(true);
     /** Representation of the boolean value {@code false}. */
-    public static BoolValue FALSE = new BoolValue(false);
+    public static final BoolValue FALSE = new BoolValue(false);
 }

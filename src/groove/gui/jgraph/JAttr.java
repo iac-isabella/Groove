@@ -85,16 +85,16 @@ public class JAttr {
     public static final int EXTRA_BORDER_SPACE = 6;
 
     /** Node radius for nodified edges. */
-    static final public Dimension NODE_EDGE_DIMENSION = new Dimension(6, 6);
+    public static final Dimension NODE_EDGE_DIMENSION = new Dimension(6, 6);
 
     /** The height of the adornment text box. */
     public static final int ADORNMENT_HEIGHT = 12;
     /** The font used for adornment text. */
     public static final Font ADORNMENT_FONT = Options.getLabelFont();
     /** Foreground (= border) colour of the rubber band selector. */
-    static public final Color RUBBER_FOREGROUND = new Color(150, 150, 150);
+    public static final Color RUBBER_FOREGROUND = new Color(150, 150, 150);
     /** Foreground (= border) colour of the rubber band selector. */
-    static public final Color RUBBER_BACKGROUND = new Color(100, 212, 224, 40);
+    public static final Color RUBBER_BACKGROUND = new Color(100, 212, 224, 40);
 
     /** Line width used for emphasised cells. */
     public static final int EMPH_WIDTH = 3;
@@ -105,9 +105,9 @@ public class JAttr {
      * Static flag determining if gradient background paint should be used.
      * Gradient paint looks better, but there is a performance hit.
      */
-    static final private boolean GRADIENT_PAINT = false;
+    private static final boolean GRADIENT_PAINT = false;
     /** Key value for vertex shapes in the attribute map. */
-    static public String SHAPE_KEY = "vertexShape";
+    public static final String SHAPE_KEY = "vertexShape";
 
     /** Creates a stroke with a given line width and dash pattern. */
     public static Stroke createStroke(float width, float[] dash) {

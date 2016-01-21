@@ -190,12 +190,14 @@ public class StatisticsReporter extends AExplorationReporter {
     private String getCacheReconstructionDistribution() {
         List<Integer> sizes = new ArrayList<Integer>();
         boolean finished = false;
-        for (int incarnation = 1; !finished; incarnation++) {
+        int incarnation = 1;
+        while (!finished) {
             int size = CacheReference.getFrequency(incarnation);
             finished = size == 0;
             if (!finished) {
                 sizes.add(size);
             }
+            incarnation++;
         }
         return Groove.toString(sizes.toArray());
     }

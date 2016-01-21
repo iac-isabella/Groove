@@ -494,16 +494,18 @@ public class QualName implements Comparable<QualName> {
     private static String PARSE_ERROR_ILLEGAL_TAIL = "is not allowed in identifiers";
 
     /** Constant for a parse error for empty strings. */
-    public static String PARSE_ERROR_EMPTY = "empty identifiers are not allowed";
+    public static final String PARSE_ERROR_EMPTY = "empty identifiers are not allowed";
 
     /** Constant for a parse error for strings that begin with a separator. */
-    public static String PARSE_ERROR_SEPARATOR_BEGIN = "identifiers may not begin with a separator";
+    public static final String PARSE_ERROR_SEPARATOR_BEGIN =
+        "identifiers may not begin with a separator";
 
     /** Constant for a parse error for strings that end with a separator. */
-    public static String PARSE_ERROR_SEPARATOR_END = "identifiers may not end with a separator";
+    public static final String PARSE_ERROR_SEPARATOR_END =
+        "identifiers may not end with a separator";
 
     /** Constant for a parse error for strings with consecutive separators. */
-    public static String PARSE_ERROR_SEPARATOR_CONSECUTIVE =
+    public static final String PARSE_ERROR_SEPARATOR_CONSECUTIVE =
         "identifiers may not have consecutive separators";
 
 }

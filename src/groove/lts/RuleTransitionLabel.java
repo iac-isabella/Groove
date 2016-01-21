@@ -127,7 +127,8 @@ public class RuleTransitionLabel extends ALabel implements ActionLabel {
      */
     public String text(boolean anchored) {
         StringBuilder result = new StringBuilder();
-        for (int i = getStep().getSource().getSwitchStack().size(); i < getStep().getSwitchStack().size() - 1; i++) {
+        for (int i = getStep().getSource().getSwitchStack().size(); i < getStep().getSwitchStack()
+            .size() - 1; i++) {
             Switch sw = getStep().getSwitchStack().get(i);
             result.append(sw.getName());
             result.append('/');
@@ -184,7 +185,8 @@ public class RuleTransitionLabel extends ALabel implements ActionLabel {
     public int compareTo(Label obj) {
         if (!(obj instanceof ActionLabel)) {
             throw new IllegalArgumentException(String.format("Can't compare %s and %s",
-                this.getClass(), obj.getClass()));
+                this.getClass(),
+                obj.getClass()));
         }
         int result = super.compareTo(obj);
         if (result != 0) {
@@ -264,7 +266,7 @@ public class RuleTransitionLabel extends ALabel implements ActionLabel {
     }
 
     /** Flag controlling whether transition labels are normalised. */
-    public static boolean REUSE_LABELS = true;
+    public static final boolean REUSE_LABELS = true;
     /** Global empty set of nodes. */
     static private final HostNode[] EMPTY_NODE_ARRAY = new HostNode[0];
 }

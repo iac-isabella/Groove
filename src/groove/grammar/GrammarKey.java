@@ -408,7 +408,7 @@ public enum GrammarKey implements PropertyKey<Object>, GrammarChecker {
             return result;
         }
 
-        public static ActionPolicyChecker instance = new ActionPolicyChecker();
+        public static final ActionPolicyChecker instance = new ActionPolicyChecker();
     }
 
     /** Checks the value for the {@link GrammarKey#EXPLORATION} key. */
@@ -419,6 +419,6 @@ public enum GrammarKey implements PropertyKey<Object>, GrammarChecker {
             return result;
         }
 
-        public static ExplorationChecker instance = new ExplorationChecker();
+        public static final ExplorationChecker instance = new ExplorationChecker();
     }
 }

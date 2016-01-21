@@ -394,7 +394,10 @@ abstract public class ConfigDialog<C> extends JDialog {
         int answer =
             JOptionPane.showConfirmDialog(this,
                 String.format("Configuration '%s' has been modified. Save changes?",
-                    getSelectedName(), getName()), null, JOptionPane.YES_NO_CANCEL_OPTION);
+                    getSelectedName(),
+                    getName()),
+                null,
+                JOptionPane.YES_NO_CANCEL_OPTION);
         if (answer == JOptionPane.YES_OPTION) {
             saveConfig();
         } else if (answer == JOptionPane.NO_OPTION) {
@@ -618,8 +621,10 @@ abstract public class ConfigDialog<C> extends JDialog {
      */
     String generateNewName(String basis) {
         String result = basis;
-        for (int i = 1; this.configMap.containsKey(result); i++) {
+        int i = 1;
+        while (this.configMap.containsKey(result)) {
             result = basis + i;
+            i++;
         }
         return result;
     }
@@ -774,7 +779,8 @@ abstract public class ConfigDialog<C> extends JDialog {
             int answer =
                 JOptionPane.showConfirmDialog(ConfigDialog.this,
                     String.format("Delete configuration '%s'?", getSelectedName(), getName()),
-                    null, JOptionPane.YES_NO_OPTION);
+                    null,
+                    JOptionPane.YES_NO_OPTION);
             return answer == JOptionPane.YES_OPTION;
         }
 
@@ -895,7 +901,7 @@ abstract public class ConfigDialog<C> extends JDialog {
         }
 
         /** Sets the name error to a given value.
-         * @param category the category of the error; only used to distinguish errors 
+         * @param category the category of the error; only used to distinguish errors
          * @param error the error text; if {@code null} or empty, the error is reset
          */
         void setError(Object category, String error) {

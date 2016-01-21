@@ -1,15 +1,15 @@
 /* GROOVE: GRaphs for Object Oriented VErification
  * Copyright 2003--2011 University of Twente
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- * http://www.apache.org/licenses/LICENSE-2.0 
- * 
- * Unless required by applicable law or agreed to in writing, 
- * software distributed under the License is distributed on an 
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
- * either express or implied. See the License for the specific 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  *
  * $Id: GxlUtil.java 5479 2014-07-19 12:20:13Z rensink $
@@ -242,7 +242,7 @@ public class GxlUtil {
         }
     }
 
-    public static String g_gxlTypeGraphURI = "http://www.gupro.de/GXL/gxl-1.0.gxl";
+    public static final String g_gxlTypeGraphURI = "http://www.gupro.de/GXL/gxl-1.0.gxl";
 
     public static final JAXBContext g_context;
     public static final Marshaller g_marshaller;
@@ -322,7 +322,7 @@ public class GxlUtil {
     }
 
     private static EdgeWrapper getWrapper(Map<NodeType,NodeWrapper> nodes,
-            Map<EdgeType,EdgeWrapper> edges, EdgeType edge) {
+        Map<EdgeType,EdgeWrapper> edges, EdgeType edge) {
         if (edges.containsKey(edge)) {
             return edges.get(edge);
         }
@@ -356,7 +356,17 @@ public class GxlUtil {
     }
 
     public enum AttrTypeEnum {
-        STRING, BOOL, INT, FLOAT, LOCATOR, ENUM, BAG, SET, SEQ, TUP, AUTO //automatically try to determine the correct type when applicable
+        STRING,
+        BOOL,
+        INT,
+        FLOAT,
+        LOCATOR,
+        ENUM,
+        BAG,
+        SET,
+        SEQ,
+        TUP,
+        AUTO //automatically try to determine the correct type when applicable
     }
 
     public static Object getAttribute(TypedElementType elem, String name, AttrTypeEnum type) {
@@ -427,7 +437,7 @@ public class GxlUtil {
     }
 
     public static void setAttribute(TypedElementType elem, String name, Object value,
-            AttrTypeEnum type) {
+        AttrTypeEnum type) {
         List<AttrType> attrs = elem.getAttr();
         AttrType attr = null;
         // If attr already exists, use that instead
