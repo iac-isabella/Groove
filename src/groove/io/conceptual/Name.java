@@ -43,6 +43,14 @@ public class Name implements Serializable {
         return this.m_name;
     }
 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.m_name == null) ? 0 : this.m_name.hashCode());
+        return result;
+    }
+
     /**
      * Equal if o is a Name with same name string, or o is a String with same contents as toString();
      */
@@ -60,4 +68,5 @@ public class Name implements Serializable {
         return false;
         //return ((Name) o).m_name.equals(this.m_name);
     }
+
 }

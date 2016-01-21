@@ -1,15 +1,15 @@
 /* GROOVE: GRaphs for Object Oriented VErification
  * Copyright 2003--2011 University of Twente
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- * http://www.apache.org/licenses/LICENSE-2.0 
- * 
- * Unless required by applicable law or agreed to in writing, 
- * software distributed under the License is distributed on an 
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
- * either express or implied. See the License for the specific 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  *
  * $Id: VisualAttributeMap.java 5479 2014-07-19 12:20:13Z rensink $
@@ -40,7 +40,7 @@ import org.jgraph.graph.AttributeMap;
 import org.jgraph.graph.Edge.Routing;
 import org.jgraph.graph.GraphConstants;
 
-/** 
+/**
  * Attribute map associated with a {@link VisualMap}.
  * Changes in this map are propagated back to the VisualMap,
  * if they correspond to controlled {@link VisualKey}s.
@@ -59,7 +59,7 @@ public class VisualAttributeMap extends AttributeMap {
     }
 
     /**
-     * Notifies the attribute map that a visual key change has occurred, 
+     * Notifies the attribute map that a visual key change has occurred,
      * which may require refreshing the attribute map;
      * @param key the key whose value has changed in the visual map
      */
@@ -72,7 +72,7 @@ public class VisualAttributeMap extends AttributeMap {
     }
 
     /**
-     * Notifies the attribute map that a set of key change have occurred, 
+     * Notifies the attribute map that a set of key change have occurred,
      * which may require refreshing the attribute map;
      * @param keys the keys whose values have changed in the visual map
      */
@@ -164,6 +164,32 @@ public class VisualAttributeMap extends AttributeMap {
     public synchronized int hashCode() {
         refreshIfRequired();
         return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof VisualAttributeMap)) {
+            return false;
+        }
+        VisualAttributeMap other = (VisualAttributeMap) obj;
+        if (this.changedKeys == null) {
+            if (other.changedKeys != null) {
+                return false;
+            }
+        } else if (!this.changedKeys.equals(other.changedKeys)) {
+            return false;
+        }
+        if (this.visuals == null) {
+            if (other.visuals != null) {
+                return false;
+            }
+        } else if (!this.visuals.equals(other.visuals)) {
+            return false;
+        }
+        return true;
     }
 
     /* Overridden to make sure the backing map is kept in sync. */
@@ -281,7 +307,7 @@ public class VisualAttributeMap extends AttributeMap {
 
     /**
      * Transfers the value for a given visual key into this attribute map,
-     * without recursively triggering updates in the map. 
+     * without recursively triggering updates in the map.
      */
     @SuppressWarnings("unchecked")
     private void putVisual(VisualKey key, Object value) {

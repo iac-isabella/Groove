@@ -1,15 +1,15 @@
 /* GROOVE: GRaphs for Object Oriented VErification
  * Copyright 2003--2011 University of Twente
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- * http://www.apache.org/licenses/LICENSE-2.0 
- * 
- * Unless required by applicable law or agreed to in writing, 
- * software distributed under the License is distributed on an 
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
- * either express or implied. See the License for the specific 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  *
  * $Id: QuantifierCountChecker.java 5479 2014-07-19 12:20:13Z rensink $
@@ -42,12 +42,11 @@ import java.util.Set;
  * quantifier for its total number of actual matches (taking its submatches
  * into account) and passing down a match binding the count attribute node
  * of the quantifier to that value.
- * 
+ *
  * @author Arash Jalali
  * @version $Revision $
  */
-public class QuantifierCountChecker extends ReteNetworkNode implements
-        ReteStateSubscriber {
+public class QuantifierCountChecker extends ReteNetworkNode implements ReteStateSubscriber {
 
     private Condition condition;
     private RuleElement[] pattern;
@@ -67,7 +66,7 @@ public class QuantifierCountChecker extends ReteNetworkNode implements
 
     /**
      * Inidicates if the latest valid count matches have been
-     * sent down to the successors. 
+     * sent down to the successors.
      */
     private boolean updatesSent = false;
 
@@ -82,8 +81,7 @@ public class QuantifierCountChecker extends ReteNetworkNode implements
      */
     public QuantifierCountChecker(ReteNetwork network, Condition condition) {
         super(network);
-        assert condition.getOp() == Op.FORALL
-            && (condition.getCountNode() != null);
+        assert condition.getOp() == Op.FORALL && (condition.getCountNode() != null);
         this.condition = condition;
         makePattern();
         getPatternLookupTable(); //Just to fill out the pattern index
@@ -121,8 +119,7 @@ public class QuantifierCountChecker extends ReteNetworkNode implements
 
     @Override
     public boolean equals(Object obj) {
-        return (obj instanceof ReteNetworkNode)
-            && this.equals((ReteNetworkNode) obj);
+        return (obj instanceof ReteNetworkNode) && this.equals((ReteNetworkNode) obj);
     }
 
     @Override
@@ -134,8 +131,7 @@ public class QuantifierCountChecker extends ReteNetworkNode implements
     /**
      * This method should not to be called by any one.
      */
-    public void receive(ReteNetworkNode source, int repeatIndex,
-            AbstractReteMatch match) {
+    public void receive(ReteNetworkNode source, int repeatIndex, AbstractReteMatch match) {
         throw new UnsupportedOperationException();
     }
 
@@ -145,7 +141,7 @@ public class QuantifierCountChecker extends ReteNetworkNode implements
     }
 
     /**
-     * The condition checker n-node associated with 
+     * The condition checker n-node associated with
      * the universal quantifier condition which this
      * n-node is supposed to count the matches of.
      */
@@ -154,7 +150,7 @@ public class QuantifierCountChecker extends ReteNetworkNode implements
     }
 
     /**
-     * Set the associated condition checker for the universal quantifier  
+     * Set the associated condition checker for the universal quantifier
      */
     public void setUniversalQuantifierChecker(ConditionChecker cc) {
         assert cc.getCondition().equals(this.condition);
@@ -162,7 +158,7 @@ public class QuantifierCountChecker extends ReteNetworkNode implements
     }
 
     /**
-     * Utility method for easy retrieval of the count node 
+     * Utility method for easy retrieval of the count node
      * of the associated condition.
      */
     public VariableNode getCountNode() {
@@ -233,8 +229,9 @@ public class QuantifierCountChecker extends ReteNetworkNode implements
             this.universalQuantifierChecker.getActiveConflictsetAnchors(false);
         if (this.conditionMatcher == null) {
             this.conditionMatcher =
-                this.getOwner().getOwnerEngine().createMatcher(
-                    this.universalQuantifierChecker.getCondition(), null, null);
+                this.getOwner()
+                    .getOwnerEngine()
+                    .createMatcher(this.universalQuantifierChecker.getCondition(), null, null);
         }
         if (activeAnchors != null) {
             for (RuleToHostMap anchor : activeAnchors) {
@@ -252,8 +249,11 @@ public class QuantifierCountChecker extends ReteNetworkNode implements
         if (this.condition.getCountNode().getConstant() == null) {
             Algebra<Integer> intAlgebra = JavaIntAlgebra.instance;
             ValueNode countNode =
-                this.getOwner().getOwnerEngine().getNetwork().getHostFactory().createNode(
-                    intAlgebra, intAlgebra.toValueFromJava(0));
+                this.getOwner()
+                    .getOwnerEngine()
+                    .getNetwork()
+                    .getHostFactory()
+                    .createNode(intAlgebra, intAlgebra.toValueFromJava(0));
             this.dummyMatch = new ReteCountMatch(this, countNode);
         } else {
             this.dummyMatch = null;
@@ -265,17 +265,21 @@ public class QuantifierCountChecker extends ReteNetworkNode implements
         ReteCountMatch countMatch = null;
         List<TreeMatch> matchList = new ArrayList<TreeMatch>();
         Collector<TreeMatch,?> collector = Collector.newCollector(matchList);
-        this.conditionMatcher.traverse(
-            this.getOwner().getOwnerEngine().getNetwork().getState().getHostGraph(),
-            anchor, collector);
+        this.conditionMatcher.traverse(this.getOwner()
+            .getOwnerEngine()
+            .getNetwork()
+            .getState()
+            .getHostGraph(), anchor, collector);
         Algebra<Integer> intAlgebra = JavaIntAlgebra.instance;
         ValueNode vn =
-            this.getOwner().getOwnerEngine().getNetwork().getHostFactory().createNode(
-                intAlgebra, intAlgebra.toValueFromJava(matchList.size()));
+            this.getOwner()
+                .getOwnerEngine()
+                .getNetwork()
+                .getHostFactory()
+                .createNode(intAlgebra, intAlgebra.toValueFromJava(matchList.size()));
         if (this.getCountNode().hasConstant()) {
             if (this.getCountNode().getConstant().equals(vn.getTerm())) {
-                countMatch =
-                    new ReteCountMatch(this, getAnchorNodes(anchor), vn);
+                countMatch = new ReteCountMatch(this, getAnchorNodes(anchor), vn);
             }
         } else {
             countMatch = new ReteCountMatch(this, getAnchorNodes(anchor), vn);
@@ -300,8 +304,8 @@ public class QuantifierCountChecker extends ReteNetworkNode implements
 
     /**
      * Determines if this quantifier count checker produces different count
-     * values for different given higher level anchors. 
-     * 
+     * values for different given higher level anchors.
+     *
      * If the return
      * value of this method is <code>true</code> then it means this checker
      * n-node will only produce one count match.

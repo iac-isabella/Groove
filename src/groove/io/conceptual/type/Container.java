@@ -139,6 +139,17 @@ public class Container extends Type {
     }
 
     @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.m_containingField == null) ? 0 : this.m_containingField.hashCode());
+        result = prime * result + ((this.m_contentType == null) ? 0 : this.m_contentType.hashCode());
+        result = prime * result + ((this.m_ctype == null) ? 0 : this.m_ctype.hashCode());
+        result = prime * result + ((this.m_parent == null) ? 0 : this.m_parent.hashCode());
+        return result;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (!(o instanceof Container)) {
             return false;
