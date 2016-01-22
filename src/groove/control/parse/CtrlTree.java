@@ -251,7 +251,8 @@ public class CtrlTree extends ParseTree<CtrlTree,Namespace> {
                     // the action list to which this action should be added
                     List<Call> actions = prioMap.get(action.getPriority());
                     if (actions == null) {
-                        prioMap.put(action.getPriority(), actions = new ArrayList<Call>());
+                        actions = new ArrayList<Call>();
+                        prioMap.put(action.getPriority(), actions);
                     }
                     actions.add(call);
                 }

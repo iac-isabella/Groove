@@ -236,7 +236,8 @@ public class Template {
             Location pred = link.getKey();
             Set<CtrlVar> newPredVars = changeMap.get(pred);
             if (newPredVars == null) {
-                changeMap.put(pred, newPredVars = new HashSet<CtrlVar>());
+                newPredVars = new HashSet<CtrlVar>();
+                changeMap.put(pred, newPredVars);
             }
             Set<CtrlVar> outVars = link.getValue();
             if (!outVars.isEmpty()) {
@@ -266,8 +267,9 @@ public class Template {
                 result.addBackLink(loc, attempt.onSuccess(), EMPTY_VAR_SET);
                 result.addBackLink(loc, attempt.onFailure(), EMPTY_VAR_SET);
                 for (SwitchStack swit : attempt) {
-                    result.addBackLink(loc, swit.onFinish(),
-                        swit.getBottomCall().getOutVars().keySet());
+                    result.addBackLink(loc, swit.onFinish(), swit.getBottomCall()
+                        .getOutVars()
+                        .keySet());
                 }
             }
         }
@@ -362,7 +364,8 @@ public class Template {
         private void addBackLink(Location source, Location target, Set<CtrlVar> outVars) {
             BackRecord targetRecord = get(target);
             if (targetRecord == null) {
-                put(target, targetRecord = new BackRecord());
+                targetRecord = new BackRecord();
+                put(target, targetRecord);
             }
             assert targetRecord != null;
             Set<CtrlVar> linkVars = targetRecord.get(source);

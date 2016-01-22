@@ -1,15 +1,15 @@
 /* GROOVE: GRaphs for Object Oriented VErification
  * Copyright 2003--2011 University of Twente
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- * http://www.apache.org/licenses/LICENSE-2.0 
- * 
- * Unless required by applicable law or agreed to in writing, 
- * software distributed under the License is distributed on an 
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
- * either express or implied. See the License for the specific 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  *
  * $Id: HostEdgeStore.java 5479 2014-07-19 12:20:13Z rensink $
@@ -21,7 +21,7 @@ import java.util.Map;
 
 /**
  * Convenience type for a deterministic map from
- * generic key types to sets of edges. 
+ * generic key types to sets of edges.
  * @author Arend Rensink
  * @version $Revision $
  */
@@ -31,19 +31,18 @@ public final class HostEdgeStore<K> extends LinkedHashMap<K,HostEdgeSet> {
         // empty
     }
 
-    /** Copies a given store. 
+    /** Copies a given store.
      * A flag indicates if the image edge sets should also be copied (rather than shared)
      * @param deepCopy if {@code true}, the image sets are also copied
      */
     public HostEdgeStore(HostEdgeStore<K> original, boolean deepCopy) {
         for (Map.Entry<K,HostEdgeSet> entry : original.entrySet()) {
             HostEdgeSet image = entry.getValue();
-            put(entry.getKey(), deepCopy ? HostEdgeSet.newInstance(image)
-                    : image);
+            put(entry.getKey(), deepCopy ? HostEdgeSet.newInstance(image) : image);
         }
     }
 
-    /** 
+    /**
      * Adds a given key to the map, with an initially empty set of edges.
      */
     public boolean addKey(K key) {
@@ -63,7 +62,8 @@ public final class HostEdgeStore<K> extends LinkedHashMap<K,HostEdgeSet> {
         HostEdgeSet result = get(key);
         if (result != null) {
             if (refresh) {
-                put(key, result = HostEdgeSet.newInstance(result));
+                result = HostEdgeSet.newInstance(result);
+                put(key, result);
             }
             result.remove(edge);
         }
@@ -81,7 +81,8 @@ public final class HostEdgeStore<K> extends LinkedHashMap<K,HostEdgeSet> {
     public HostEdgeSet addEdge(K key, HostEdge edge, boolean refresh) {
         HostEdgeSet result = get(key);
         if (refresh || result == null) {
-            put(key, result = HostEdgeSet.newInstance(result));
+            result = HostEdgeSet.newInstance(result);
+            put(key, result);
         }
         result.add(edge);
         return result;

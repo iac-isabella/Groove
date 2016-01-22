@@ -335,8 +335,8 @@ public class GrammarModel implements Observer {
     public void setStartGraph(AspectGraph startGraph) {
         assert startGraph != null;
         if (startGraph.getRole() != GraphRole.HOST) {
-            throw new IllegalArgumentException(String.format(
-                "Prospective start graph '%s' is not a graph", startGraph));
+            throw new IllegalArgumentException(
+                String.format("Prospective start graph '%s' is not a graph", startGraph));
         }
         this.startGraphModel = new HostModel(this, startGraph);
         this.isExternalStartGraphModel = true;
@@ -410,8 +410,10 @@ public class GrammarModel implements Observer {
         getPrologEnvironment();
         for (ResourceModel<?> prologModel : getResourceSet(PROLOG)) {
             for (FormatError error : prologModel.getErrors()) {
-                this.errors.add("Error in prolog program '%s': %s", prologModel.getFullName(),
-                    error, prologModel);
+                this.errors.add("Error in prolog program '%s': %s",
+                    prologModel.getFullName(),
+                    error,
+                    prologModel);
             }
         }
         // check if all resource names are valid identifiers
@@ -449,7 +451,9 @@ public class GrammarModel implements Observer {
                 }
             } catch (FormatException exc) {
                 for (FormatError error : exc.getErrors()) {
-                    errors.add("Error in rule '%s': %s", ruleModel.getFullName(), error,
+                    errors.add("Error in rule '%s': %s",
+                        ruleModel.getFullName(),
+                        error,
                         ruleModel.getSource());
                 }
             }
@@ -583,7 +587,8 @@ public class GrammarModel implements Observer {
             Object source = sourceEntry.getValue();
             ResourceModel<?> model = modelMap.get(name);
             if (model == null || model.getSource() != source) {
-                modelMap.put(name, model = createModel(kind, name));
+                model = createModel(kind, name);
+                modelMap.put(name, model);
                 // collect the active rules
             }
             if (kind == RULE && GraphInfo.isEnabled((AspectGraph) model.getSource())) {

@@ -465,7 +465,8 @@ public class Condition implements Fixable {
     private <K,V> void addResolver(Map<K,List<V>> map, K key, V value) {
         List<V> entry = map.get(key);
         if (entry == null) {
-            map.put(key, entry = new ArrayList<V>());
+            entry = new ArrayList<V>();
+            map.put(key, entry);
         }
         entry.add(value);
     }

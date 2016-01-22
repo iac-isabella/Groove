@@ -1,15 +1,15 @@
 /* GROOVE: GRaphs for Object Oriented VErification
  * Copyright 2003--2011 University of Twente
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- * http://www.apache.org/licenses/LICENSE-2.0 
- * 
- * Unless required by applicable law or agreed to in writing, 
- * software distributed under the License is distributed on an 
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
- * either express or implied. See the License for the specific 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  *
  * $Id$
@@ -44,7 +44,7 @@ public class ExprTreeParser extends groove.util.parse.TermTreeParser<ExprTree.Ex
      * {@code assign} and {@code test} may not be simultaneously true
      * @param assign if {@code true}, the parser expects a top-level assignment
      * @param test if {@code true}, the parser allows legacy test expressions
-     * (having a "=" on the top level), which is converted to  
+     * (having a "=" on the top level), which is converted to
      */
     private ExprTreeParser(boolean assign, boolean test) {
         super(new ExprTree(getAtom()), getOpList());
@@ -209,11 +209,13 @@ public class ExprTreeParser extends groove.util.parse.TermTreeParser<ExprTree.Ex
         Operator sortOp, OpKind opKind, String symbol) {
         Map<OpKind,ExprOp> opMap = mapMap.get(symbol);
         if (opMap == null) {
-            mapMap.put(symbol, opMap = new EnumMap<OpKind,ExprTree.ExprOp>(OpKind.class));
+            opMap = new EnumMap<OpKind,ExprTree.ExprOp>(OpKind.class);
+            mapMap.put(symbol, opMap);
         }
         ExprOp result = opMap.get(opKind);
         if (result == null) {
-            opMap.put(opKind, result = new ExprOp(opKind, symbol, sortOp.getArity()));
+            result = new ExprOp(opKind, symbol, sortOp.getArity());
+            opMap.put(opKind, result);
             opList.add(result);
         }
         result.add(sortOp);
@@ -226,14 +228,14 @@ public class ExprTreeParser extends groove.util.parse.TermTreeParser<ExprTree.Ex
         return parse(ASSIGN_PARSER, input);
     }
 
-    /** Parses a given input as an expression, with or without legacy test syntax. 
+    /** Parses a given input as an expression, with or without legacy test syntax.
      * @throws FormatException if there is a parse error.
      */
     static public ExprTree parseExpr(String input, boolean test) throws FormatException {
         return parse(test ? TEST_PARSER : EXPR_PARSER, input);
     }
 
-    /** Parses a given input with a given parser. 
+    /** Parses a given input with a given parser.
      * @throws FormatException if there is a parse error.
      */
     static private ExprTree parse(ExprTreeParser parser, String input) throws FormatException {

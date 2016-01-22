@@ -182,7 +182,8 @@ public class RuleGraph extends NodeSetEdgeSetGraph<RuleNode,RuleEdge> {
     private Set<RuleElement> addKey(Map<LabelVar,Set<RuleElement>> map, LabelVar var) {
         Set<RuleElement> result = map.get(var);
         if (result == null) {
-            map.put(var, result = new HashSet<RuleElement>());
+            result = new HashSet<RuleElement>();
+            map.put(var, result);
         }
         return result;
     }

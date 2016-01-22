@@ -93,7 +93,8 @@ public class ContainmentChecker implements TypeChecker {
                 Record source = getRecord(edge.source());
                 List<Record> targets = connect.get(source);
                 if (targets == null) {
-                    connect.put(source, targets = new ArrayList<Record>());
+                    targets = new ArrayList<Record>();
+                    connect.put(source, targets);
                 }
                 targets.add(getRecord(edge.target()));
             }
@@ -104,7 +105,8 @@ public class ContainmentChecker implements TypeChecker {
     private Record getRecord(HostNode node) {
         Record result = this.recordMap.get(node);
         if (result == null) {
-            this.recordMap.put(node, result = new Record(node));
+            result = new Record(node);
+            this.recordMap.put(node, result);
         }
         return result;
     }

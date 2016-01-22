@@ -1,15 +1,15 @@
 /* GROOVE: GRaphs for Object Oriented VErification
  * Copyright 2003--2007 University of Twente
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- * http://www.apache.org/licenses/LICENSE-2.0 
- * 
- * Unless required by applicable law or agreed to in writing, 
- * software distributed under the License is distributed on an 
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
- * either express or implied. See the License for the specific 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  *
  * $Id: HostFactory.java 5485 2014-07-23 17:41:40Z rensink $
@@ -41,7 +41,7 @@ import java.util.Map;
  * @version $Revision $
  */
 public class HostFactory extends StoreFactory<HostNode,HostEdge,TypeLabel> {
-    /** 
+    /**
      * Constructor for a fresh factory, based on a given type factory.
      * @param typeFactory the (non-{@code null}) type factory to be used
      */
@@ -63,8 +63,7 @@ public class HostFactory extends StoreFactory<HostNode,HostEdge,TypeLabel> {
     private DefaultHostNodeFactory getTopNodeFactory() {
         assert getTypeGraph().isImplicit();
         if (this.topNodeFactory == null) {
-            this.topNodeFactory =
-                (DefaultHostNodeFactory) nodes(getTypeFactory().getTopNode());
+            this.topNodeFactory = (DefaultHostNodeFactory) nodes(getTypeFactory().getTopNode());
         }
         return this.topNodeFactory;
     }
@@ -115,8 +114,10 @@ public class HostFactory extends StoreFactory<HostNode,HostEdge,TypeLabel> {
     @Override
     public HostEdge createEdge(HostNode source, Label label, HostNode target) {
         TypeEdge type =
-            getTypeFactory().createEdge(source.getType(), (TypeLabel) label,
-                target.getType(), false);
+            getTypeFactory().createEdge(source.getType(),
+                (TypeLabel) label,
+                target.getType(),
+                false);
         assert type != null;
         return createEdge(source, type, target);
     }
@@ -127,23 +128,21 @@ public class HostFactory extends StoreFactory<HostNode,HostEdge,TypeLabel> {
         return storeEdge(edge);
     }
 
-    /** 
+    /**
      * This method is not appropriate;
      * use {@link #newEdge(HostNode, TypeEdge, HostNode, int)} instead.
      */
     @Override
-    protected HostEdge newEdge(HostNode source, Label label, HostNode target,
-            int nr) {
+    protected HostEdge newEdge(HostNode source, Label label, HostNode target, int nr) {
         throw new UnsupportedOperationException();
     }
 
-    /** 
+    /**
      * Callback factory method to create a new edge object.
      * This will then be compared with the edge store to replace it by its
      * canonical representative.
      */
-    protected HostEdge newEdge(HostNode source, TypeEdge type, HostNode target,
-            int nr) {
+    protected HostEdge newEdge(HostNode source, TypeEdge type, HostNode target, int nr) {
         assert type.getGraph() == getTypeGraph();
         return new DefaultHostEdge(source, type, target, nr);
     }
@@ -176,10 +175,10 @@ public class HostFactory extends StoreFactory<HostNode,HostEdge,TypeLabel> {
     /** The type factory used for creating node and edge types. */
     private final TypeFactory typeFactory;
 
-    /** 
+    /**
      * Method to normalise an array of host nodes.
-     * Normalised arrays reuse the same array object for an 
-     * array containing the same nodes. 
+     * Normalised arrays reuse the same array object for an
+     * array containing the same nodes.
      */
     public HostNode[] normalise(HostNode[] nodes) {
         if (this.normalHostNodeMap == null) {
@@ -188,7 +187,8 @@ public class HostFactory extends StoreFactory<HostNode,HostEdge,TypeLabel> {
         List<HostNode> nodeList = Arrays.asList(nodes);
         HostNode[] result = this.normalHostNodeMap.get(nodeList);
         if (result == null) {
-            this.normalHostNodeMap.put(nodeList, result = nodes);
+            result = nodes;
+            this.normalHostNodeMap.put(nodeList, result);
             normaliseCount++;
         } else {
             normaliseGain++;
@@ -282,8 +282,7 @@ public class HostFactory extends StoreFactory<HostNode,HostEdge,TypeLabel> {
 
         @Override
         protected ValueNode newNode(int nr) {
-            TypeNode type =
-                getTypeFactory().getDataType(this.algebra.getSort());
+            TypeNode type = getTypeFactory().getDataType(this.algebra.getSort());
             return new ValueNode(nr, this.algebra, this.value, type);
         }
 

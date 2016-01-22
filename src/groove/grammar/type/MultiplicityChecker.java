@@ -58,7 +58,8 @@ public class MultiplicityChecker implements TypeChecker {
         for (TypeNode node : dir.origin(edge).getSubtypes()) {
             List<Check> nodeChecks = this.checks.get(node);
             if (nodeChecks == null) {
-                this.checks.put(node, nodeChecks = new ArrayList<Check>());
+                nodeChecks = new ArrayList<Check>();
+                this.checks.put(node, nodeChecks);
             }
             nodeChecks.add(check);
         }

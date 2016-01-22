@@ -352,7 +352,8 @@ public enum AspectKind {
     public static Map<String,String> getNodeDocMap(GraphRole role) {
         Map<String,String> result = nodeDocMapMap.get(role);
         if (result == null) {
-            nodeDocMapMap.put(role, result = computeNodeDocMap(role));
+            result = computeNodeDocMap(role);
+            nodeDocMapMap.put(role, result);
         }
         return result;
     }
@@ -364,7 +365,8 @@ public enum AspectKind {
     public static Map<String,String> getEdgeDocMap(GraphRole role) {
         Map<String,String> result = edgeDocMapMap.get(role);
         if (result == null) {
-            edgeDocMapMap.put(role, result = computeEdgeDocMap(role));
+            result = computeEdgeDocMap(role);
+            edgeDocMapMap.put(role, result);
         }
         return result;
     }

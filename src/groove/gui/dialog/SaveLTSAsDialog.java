@@ -229,10 +229,11 @@ public class SaveLTSAsDialog {
      */
     private JTextField getDirField() {
         if (this.dirField == null) {
-            final JTextField result = this.dirField = new JTextField(this.currentDirectory);
+            this.dirField = new JTextField(this.currentDirectory);
+            final JTextField result = this.dirField;
             result.setColumns(20);
-            result.getDocument().addDocumentListener(
-                new DirectoryFieldListener(result, "Destination must be a valid directory"));
+            result.getDocument().addDocumentListener(new DirectoryFieldListener(result,
+                "Destination must be a valid directory"));
         }
         return this.dirField;
     }
@@ -245,9 +246,10 @@ public class SaveLTSAsDialog {
      */
     private JTextField getLTSPatternField() {
         if (this.ltsPatternField == null) {
-            final JTextField result = this.ltsPatternField = new JTextField(PLACEHOLDER + ".gxl");
-            result.getDocument().addDocumentListener(
-                new EmptyFieldListener(result, "LTS name pattern should not be empty"));
+            this.ltsPatternField = new JTextField(PLACEHOLDER + ".gxl");
+            final JTextField result = this.ltsPatternField;
+            result.getDocument().addDocumentListener(new EmptyFieldListener(result,
+                "LTS name pattern should not be empty"));
         }
         return this.ltsPatternField;
     }
@@ -260,11 +262,10 @@ public class SaveLTSAsDialog {
      */
     private JTextField getStatePatternField() {
         if (this.statePatternField == null) {
-            final JTextField result =
-                this.statePatternField = new JTextField("s" + PLACEHOLDER + ".gst");
-            result.getDocument().addDocumentListener(
-                new PlaceholderFieldListener(result, String.format(
-                    "State name pattern should contain '%s'", PLACEHOLDER)));
+            this.statePatternField = new JTextField("s" + PLACEHOLDER + ".gst");
+            final JTextField result = this.statePatternField;
+            result.getDocument().addDocumentListener(new PlaceholderFieldListener(result,
+                String.format("State name pattern should contain '%s'", PLACEHOLDER)));
         }
         return this.statePatternField;
     }
@@ -336,8 +337,7 @@ public class SaveLTSAsDialog {
             case NUMBER:
                 text = "Number all states with:";
                 tip =
-                    String.format(
-                        "If ticked, all states will be labelled, with '%s' replaced by the state number",
+                    String.format("If ticked, all states will be labelled, with '%s' replaced by the state number",
                         PLACEHOLDER);
                 break;
             case TRANSIENT:
@@ -357,9 +357,9 @@ public class SaveLTSAsDialog {
             case RECIPE:
                 text = "Mark recipe stages with:";
                 tip =
-                    String.format(
-                        "If ticked, recipe stages will included and optionally labelled, "
-                            + "with '%s' replaced by the recipe name", PLACEHOLDER);
+                    String.format("If ticked, recipe stages will included and optionally labelled, "
+                        + "with '%s' replaced by the recipe name",
+                        PLACEHOLDER);
                 break;
             case START:
                 text = "Mark start state with:";
@@ -410,7 +410,8 @@ public class SaveLTSAsDialog {
                 break;
             case NUMBER:
                 message =
-                    String.format("%s label must contain placeholde '%s'", flag.getDescription(),
+                    String.format("%s label must contain placeholde '%s'",
+                        flag.getDescription(),
                         PLACEHOLDER);
                 listener = new PlaceholderFieldListener(textField, message);
                 break;

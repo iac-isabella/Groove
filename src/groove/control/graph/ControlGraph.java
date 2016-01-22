@@ -154,7 +154,8 @@ public class ControlGraph extends NodeSetEdgeSetGraph<ControlNode,ControlEdge> {
         ControlGraph graph, Map<P,ControlNode> nodeMap, P pos, Queue<P> fresh) {
         ControlNode result = nodeMap.get(pos);
         if (result == null) {
-            nodeMap.put(pos, result = new ControlNode(graph, pos));
+            result = new ControlNode(graph, pos);
+            nodeMap.put(pos, result);
             fresh.add(pos);
             if (pos.isStart()) {
                 graph.setStart(result);

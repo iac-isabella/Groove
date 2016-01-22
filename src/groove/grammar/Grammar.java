@@ -200,7 +200,8 @@ public class Grammar {
         Set<Action> priorityRuleSet = this.priorityActionMap.get(priority);
         // if there is not yet any rule with this priority, create a set
         if (priorityRuleSet == null) {
-            this.priorityActionMap.put(priority, priorityRuleSet = createActionSet());
+            priorityRuleSet = createActionSet();
+            this.priorityActionMap.put(priority, priorityRuleSet);
         }
         priorityRuleSet.add(action);
         this.actions.add(action);
@@ -376,7 +377,7 @@ public class Grammar {
     @Override
     public boolean equals(Object obj) {
         return (obj instanceof Grammar) && getStartGraph().equals(((Grammar) obj).getStartGraph())
-                && super.equals(obj);
+            && super.equals(obj);
     }
 
     /** Combines the hash codes of the rule system and the start graph. */
@@ -414,7 +415,7 @@ public class Grammar {
      * ordering is from high to low priority.
      */
     private final SortedMap<Integer,Set<Action>> priorityActionMap =
-            new TreeMap<Integer,Set<Action>>(Action.PRIORITY_COMPARATOR);
+        new TreeMap<Integer,Set<Action>>(Action.PRIORITY_COMPARATOR);
     /**
      * Set of all actions, collected separately for purposes of speedup.
      * @see #getActions()

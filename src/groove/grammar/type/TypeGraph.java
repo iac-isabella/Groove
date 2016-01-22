@@ -689,7 +689,8 @@ public class TypeGraph extends NodeSetEdgeSetGraph<TypeNode,TypeEdge> implements
                     vars.add(var);
                     Set<TypeNode> varTypes = varTypesMap.get(var);
                     if (varTypes == null) {
-                        varTypesMap.put(var, varTypes = new HashSet<TypeNode>(types));
+                        varTypes = new HashSet<TypeNode>(types);
+                        varTypesMap.put(var, varTypes);
                     }
                     guard.filter(varTypes);
                 } else {
@@ -1431,11 +1432,13 @@ public class TypeGraph extends NodeSetEdgeSetGraph<TypeNode,TypeEdge> implements
         void put(TypeNode source, TypeNode target, TypeEdge edge) {
             Map<TypeNode,TypeEdge[]> outEdgeMap = get(edge.label());
             if (outEdgeMap == null) {
-                put(edge.label(), outEdgeMap = new HashMap<TypeNode,TypeEdge[]>());
+                outEdgeMap = new HashMap<TypeNode,TypeEdge[]>();
+                put(edge.label(), outEdgeMap);
             }
             TypeEdge[] targetEdges = outEdgeMap.get(source);
             if (targetEdges == null) {
-                outEdgeMap.put(source, targetEdges = new TypeEdge[getFactory().getMaxNodeNr() + 1]);
+                targetEdges = new TypeEdge[getFactory().getMaxNodeNr() + 1];
+                outEdgeMap.put(source, targetEdges);
             }
             targetEdges[target.getNumber()] = edge;
         }

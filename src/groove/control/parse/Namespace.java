@@ -126,7 +126,8 @@ public class Namespace implements ParseInfo {
     private Set<String> getFromMap(Map<String,Set<String>> map, String key) {
         Set<String> result = map.get(key);
         if (result == null) {
-            map.put(key, result = new HashSet<String>());
+            result = new HashSet<String>();
+            map.put(key, result);
             result.add(key);
         }
         return result;
@@ -274,7 +275,8 @@ public class Namespace implements ParseInfo {
 
     @Override
     public String toString() {
-        return String.format("Namespace for %s, defining %s", getControlName(),
+        return String.format("Namespace for %s, defining %s",
+            getControlName(),
             this.callableMap.keySet());
     }
 

@@ -104,7 +104,8 @@ public abstract class CtrlPar {
     public static Var wild(CtrlType type, int nr) {
         List<Var> typeVars = wildMap.get(type);
         if (typeVars == null) {
-            wildMap.put(type, typeVars = new ArrayList<Var>());
+            typeVars = new ArrayList<Var>();
+            wildMap.put(type, typeVars);
         }
         for (int i = typeVars.size(); i <= nr; i++) {
             typeVars.add(new Var(CtrlVar.wild(type, i), false));

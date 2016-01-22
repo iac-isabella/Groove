@@ -135,7 +135,8 @@ public class CompositeControlModel extends ResourceModel<Automaton> {
                         String subruleName = subrule.getFullName();
                         Set<String> recipes = this.ruleRecipeMap.get(subruleName);
                         if (recipes == null) {
-                            this.ruleRecipeMap.put(subruleName, recipes = new HashSet<String>());
+                            recipes = new HashSet<String>();
+                            this.ruleRecipeMap.put(subruleName, recipes);
                         }
                         recipes.add(recipe.getFullName());
                     }
@@ -175,7 +176,9 @@ public class CompositeControlModel extends ResourceModel<Automaton> {
                 if (entry.getKey() == null) {
                     result.add("Error in implicit control: %s", error);
                 } else {
-                    result.add("Error in control program '%s': %s", entry.getKey(), error,
+                    result.add("Error in control program '%s': %s",
+                        entry.getKey(),
+                        error,
                         FormatError.control(entry.getKey()));
                 }
             }

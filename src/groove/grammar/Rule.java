@@ -81,8 +81,9 @@ public class Rule implements Action, Fixable {
         this.coRoot = coRoot;
         this.lhs = condition.getPattern();
         this.rhs = rhs;
-        assert coRoot == null || rhs().nodeSet().containsAll(coRoot.nodeSet()) : String.format(
-            "RHS nodes %s do not contain all co-root values %s", rhs().nodeSet(), coRoot.nodeSet());
+        assert coRoot == null || rhs().nodeSet().containsAll(coRoot.nodeSet()) : String.format("RHS nodes %s do not contain all co-root values %s",
+            rhs().nodeSet(),
+            coRoot.nodeSet());
     }
 
     /** Returns the condition with which this rule is associated. */
@@ -129,12 +130,13 @@ public class Rule implements Action, Fixable {
      */
     public void setParent(Rule parent, int[] level) {
         testFixed(false);
-        assert getCoRoot() != null : String.format(
-            "Sub-rule at level %s must have a non-trivial co-root map", Arrays.toString(level));
+        assert getCoRoot() != null : String.format("Sub-rule at level %s must have a non-trivial co-root map",
+            Arrays.toString(level));
         if (parent != null) {
-            assert parent.rhs().nodeSet().containsAll(getCoRoot().nodeSet()) : String.format(
-                "Rule '%s': Parent nodes %s do not contain all co-roots %s", getFullName(),
-                parent.rhs().nodeSet(), getCoRoot().nodeSet());
+            assert parent.rhs().nodeSet().containsAll(getCoRoot().nodeSet()) : String.format("Rule '%s': Parent nodes %s do not contain all co-roots %s",
+                getFullName(),
+                parent.rhs().nodeSet(),
+                getCoRoot().nodeSet());
         }
         this.parent = parent;
     }
@@ -289,8 +291,9 @@ public class Rule implements Action, Fixable {
             }
             derivedSig.add(par);
         }
-        assert derivedSig.equals(sig) : String.format(
-            "Declared signature %s differs from derived signature %s", sig, derivedSig);
+        assert derivedSig.equals(sig) : String.format("Declared signature %s differs from derived signature %s",
+            sig,
+            derivedSig);
     }
 
     /** Returns the signature of the rule. */
@@ -509,7 +512,8 @@ public class Rule implements Action, Fixable {
             result = this.matcherMap.get(initPars);
             if (result == null) {
                 Anchor seed = new Anchor(seedMap.nodeMap().keySet());
-                this.matcherMap.put(initPars, result = createMatcher(seed));
+                result = createMatcher(seed);
+                this.matcherMap.put(initPars, result);
             }
         } else {
             result = getMatcher();
@@ -574,7 +578,8 @@ public class Rule implements Action, Fixable {
             for (RuleEdge eraserEdge : lhs().edgeSet(eraserNode)) {
                 boolean removed = danglingEdges.remove(match.getEdge(eraserEdge));
                 assert removed : String.format("Match %s not present in incident edges %s",
-                    match.getEdge(eraserEdge), host.edgeSet(erasedNode));
+                    match.getEdge(eraserEdge),
+                    host.edgeSet(erasedNode));
             }
             if (!danglingEdges.isEmpty()) {
                 result = false;

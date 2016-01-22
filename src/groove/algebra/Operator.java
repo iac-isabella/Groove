@@ -22,7 +22,7 @@ import java.util.Map;
  * Class encoding an operator declaration in a {@link Signature}.
  */
 public class Operator {
-    /** 
+    /**
      * Constructs an operator from a given method.
      * It is assumed that the method has only generic type variables as
      * parameter and result types, and that for each such type variable <code>Xxx</code>
@@ -40,16 +40,17 @@ public class Operator {
         this.parameterTypes = new ArrayList<Sort>();
         for (int i = 0; i < this.arity; i++) {
             if (!(methodParameterTypes[i] instanceof TypeVariable<?>)) {
-                throw new IllegalArgumentException(String.format(
-                    "Method '%s' should only have generic parameter types", method.getName()));
+                throw new IllegalArgumentException(
+                    String.format("Method '%s' should only have generic parameter types",
+                        method.getName()));
             }
             String typeName = ((TypeVariable<?>) methodParameterTypes[i]).getName();
             this.parameterTypes.add(Sort.getKind(typeName.toLowerCase()));
         }
         Type returnType = method.getGenericReturnType();
         if (!(returnType instanceof TypeVariable<?>)) {
-            throw new IllegalArgumentException(String.format(
-                "Method '%s' should have generic return type", method.getName()));
+            throw new IllegalArgumentException(
+                String.format("Method '%s' should have generic return type", method.getName()));
         }
         String typeName = ((TypeVariable<?>) returnType).getName();
         this.returnType = Sort.getKind(typeName.toLowerCase());
@@ -88,9 +89,9 @@ public class Operator {
 
     private final int arity;
 
-    /** 
+    /**
      * Returns the parameter type names of this operator.
-     * The type names are actually the names of the defining signatures. 
+     * The type names are actually the names of the defining signatures.
      */
     public List<Sort> getParamTypes() {
         return this.parameterTypes;
@@ -98,7 +99,7 @@ public class Operator {
 
     private final List<Sort> parameterTypes;
 
-    /** 
+    /**
      * Returns the result type name of this operator.
      * The type name is actually the name of the defining signature.
      */
@@ -164,7 +165,7 @@ public class Operator {
         return getFullName() + Groove.toString(this.parameterTypes.toArray(), "(", ")", ",");
     }
 
-    /** 
+    /**
      * Constructs and returns a new composite term consisting of this
      * operator applied to a sequence of arguments.
      */
@@ -172,8 +173,8 @@ public class Operator {
         return new CallExpr(this, args);
     }
 
-    /** 
-     * Returns the method from a given signature class with a given name. 
+    /**
+     * Returns the method from a given signature class with a given name.
      * This method is supposed to implement an operator, and should therefore be
      * declared exactly once, as a public abstract method.
      */
@@ -186,23 +187,29 @@ public class Operator {
         for (Method method : methods) {
             if (method.getName().equals(name)) {
                 if (result != null) {
-                    throw new IllegalArgumentException(java.lang.String.format(
-                        "Operator overloading for '%s:%s' not allowed", sigName, name));
+                    throw new IllegalArgumentException(
+                        java.lang.String.format("Operator overloading for '%s:%s' not allowed",
+                            sigName,
+                            name));
                 }
                 result = method;
             }
         }
         if (result == null) {
-            throw new IllegalArgumentException(java.lang.String.format(
-                "No method found for operator '%s:%s'", sigName, name));
+            throw new IllegalArgumentException(
+                java.lang.String.format("No method found for operator '%s:%s'", sigName, name));
         }
         if (!Modifier.isAbstract(result.getModifiers())) {
-            throw new IllegalArgumentException(java.lang.String.format(
-                "Method for operator '%s:%s' should be abstract", sigName, name));
+            throw new IllegalArgumentException(
+                java.lang.String.format("Method for operator '%s:%s' should be abstract",
+                    sigName,
+                    name));
         }
         if (!Modifier.isPublic(result.getModifiers())) {
-            throw new IllegalArgumentException(java.lang.String.format(
-                "Method for operator '%s:%s' should be public", sigName, name));
+            throw new IllegalArgumentException(
+                java.lang.String.format("Method for operator '%s:%s' should be public",
+                    sigName,
+                    name));
         }
         return result;
     }
@@ -268,14 +275,16 @@ public class Operator {
         if (symbol != null) {
             List<Operator> ops = opLookupMap.get(symbol);
             if (ops == null) {
-                opLookupMap.put(symbol, ops = new ArrayList<Operator>());
+                ops = new ArrayList<Operator>();
+                opLookupMap.put(symbol, ops);
             }
             ops.add(op);
         }
         String opName = op.getName();
         List<Operator> ops = opLookupMap.get(opName);
         if (ops == null) {
-            opLookupMap.put(opName, ops = new ArrayList<Operator>());
+            ops = new ArrayList<Operator>();
+            opLookupMap.put(opName, ops);
         }
         ops.add(op);
     }

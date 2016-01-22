@@ -768,8 +768,8 @@ public class RuleModel extends GraphBasedModel<Rule> implements Comparable<RuleM
                 AspectKind kind = metaNode.getKind();
                 Condition.Op operator = kind.isExists() ? Op.EXISTS : Op.FORALL;
                 boolean positive = kind == EXISTS || kind == FORALL_POS;
-                this.metaIndexMap.put(metaNode,
-                    result = createIndex(operator, positive, metaNode, indexTree));
+                result = createIndex(operator, positive, metaNode, indexTree);
+                this.metaIndexMap.put(metaNode, result);
                 Aspect id = metaNode.getId();
                 if (id != null) {
                     String name = id.getContentString();
@@ -1122,7 +1122,8 @@ public class RuleModel extends GraphBasedModel<Rule> implements Comparable<RuleM
                 for (LabelVar var : ruleLabel.allVarSet()) {
                     Set<AspectEdge> binders = this.modelVars.get(var);
                     if (binders == null) {
-                        this.modelVars.put(var, binders = new HashSet<AspectEdge>());
+                        binders = new HashSet<AspectEdge>();
+                        this.modelVars.put(var, binders);
                     }
                     binders.add(modelEdge);
                 }
@@ -1257,7 +1258,8 @@ public class RuleModel extends GraphBasedModel<Rule> implements Comparable<RuleM
          */
         public Level2(Level1 origin, RuleModelMap modelMap) throws FormatException {
             this.factory = modelMap.getFactory();
-            Index index = this.index = origin.index;
+            this.index = origin.index;
+            Index index = this.index;
             this.modelMap = modelMap;
             this.isRule = index.isTopLevel();
             // initialise the rule data structures
@@ -1730,7 +1732,8 @@ public class RuleModel extends GraphBasedModel<Rule> implements Comparable<RuleM
         private RuleNode getNodeImage(AspectNode modelNode) throws FormatException {
             RuleNode result = this.modelMap.getNode(modelNode);
             if (result == null) {
-                this.modelMap.putNode(modelNode, result = computeNodeImage(modelNode));
+                result = computeNodeImage(modelNode);
+                this.modelMap.putNode(modelNode, result);
             }
             return result;
         }
@@ -1965,7 +1968,8 @@ public class RuleModel extends GraphBasedModel<Rule> implements Comparable<RuleM
                     assert image != null;
                     RuleEdge globalImage = this.globalTypeMap.getEdge(key);
                     if (globalImage == null) {
-                        this.globalTypeMap.putEdge(key, globalImage = image);
+                        globalImage = image;
+                        this.globalTypeMap.putEdge(key, globalImage);
                     }
                     result.addEdgeContext(globalImage);
                 }

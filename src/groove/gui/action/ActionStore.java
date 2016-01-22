@@ -140,8 +140,8 @@ public class ActionStore implements SimulatorListener {
     public CancelEditAction getCancelEditAction(ResourceKind resource) {
         CancelEditAction result = this.cancelEditActionMap.get(resource);
         if (result == null) {
-            this.cancelEditActionMap.put(resource, result =
-                new CancelEditAction(this.simulator, resource));
+            result = new CancelEditAction(this.simulator, resource);
+            this.cancelEditActionMap.put(resource, result);
             result.refresh();
         }
         return result;
@@ -183,7 +183,8 @@ public class ActionStore implements SimulatorListener {
     public CopyAction getCopyAction(ResourceKind resource) {
         CopyAction result = this.copyActionMap.get(resource);
         if (result == null) {
-            this.copyActionMap.put(resource, result = new CopyAction(this.simulator, resource));
+            result = new CopyAction(this.simulator, resource);
+            this.copyActionMap.put(resource, result);
         }
         return result;
     }
@@ -299,8 +300,8 @@ public class ActionStore implements SimulatorListener {
         // lazily create the action
         CheckLTLAction result = this.checkLTLMap.get(strategy);
         if (result == null) {
-            this.checkLTLMap.put(strategy, result =
-                new CheckLTLAction(this.simulator, strategy, name));
+            result = new CheckLTLAction(this.simulator, strategy, name);
+            this.checkLTLMap.put(strategy, result);
         }
 
         return result;
@@ -649,8 +650,8 @@ public class ActionStore implements SimulatorListener {
     public SaveAction getSaveAction(ResourceKind resource) {
         SaveAction result = this.saveActionMap.get(resource);
         if (result == null) {
-            this.saveActionMap.put(resource, result =
-                new SaveAction(this.simulator, resource, false));
+            result = new SaveAction(this.simulator, resource, false);
+            this.saveActionMap.put(resource, result);
         }
         return result;
     }
@@ -665,8 +666,8 @@ public class ActionStore implements SimulatorListener {
     public SaveAction getSaveAsAction(ResourceKind resource) {
         SaveAction result = this.saveAsActionMap.get(resource);
         if (result == null) {
-            this.saveAsActionMap.put(resource, result =
-                new SaveAction(this.simulator, resource, true));
+            result = new SaveAction(this.simulator, resource, true);
+            this.saveAsActionMap.put(resource, result);
             result.refresh();
         }
         return result;

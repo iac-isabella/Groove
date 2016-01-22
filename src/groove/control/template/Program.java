@@ -233,7 +233,8 @@ public class Program implements Fixable {
     private Collection<Template> getTemplateEntry(String controlName) {
         Collection<Template> result = this.templateMap.get(controlName);
         if (result == null) {
-            this.templateMap.put(controlName, result = new ArrayList<Template>());
+            result = new ArrayList<Template>();
+            this.templateMap.put(controlName, result);
         }
         return result;
     }

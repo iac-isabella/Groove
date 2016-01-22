@@ -151,10 +151,11 @@ public class TemplateBuilder {
             // set the initial location
             TermKey initKey = new TermKey(init, new HashSet<Term>(), new HashSet<CtrlVar>());
             Location start = this.result.getStart();
-            Map<TermKey,Location> locMap =
-                this.locMap = new HashMap<TemplateBuilder.TermKey,Location>();
+            this.locMap = new HashMap<TemplateBuilder.TermKey,Location>();
+            Map<TermKey,Location> locMap = this.locMap;
             locMap.put(initKey, start);
-            Deque<TermKey> fresh = this.freshSwitch = new LinkedList<TermKey>();
+            this.freshSwitch = new LinkedList<TermKey>();
+            Deque<TermKey> fresh = this.freshSwitch;
             fresh.add(initKey);
             this.freshVerdict = new LinkedList<TermKey>();
         }
@@ -403,7 +404,8 @@ public class TemplateBuilder {
             LocationKey key = new LocationKey(loc);
             Cell cell = cellMap.get(key);
             if (cell == null) {
-                cellMap.put(key, cell = new Cell());
+                cell = new Cell();
+                cellMap.put(key, cell);
             }
             cell.add(loc);
         }
@@ -425,7 +427,8 @@ public class TemplateBuilder {
                 Record<Cell> rec = append(locRecords.get(loc.getNumber()), orig);
                 Cell locCell = split.get(rec);
                 if (locCell == null) {
-                    split.put(rec, locCell = new Cell());
+                    locCell = new Cell();
+                    split.put(rec, locCell);
                 }
                 locCell.add(loc);
             }

@@ -200,7 +200,8 @@ public class Frame implements Position<Frame,Step>, Fixable {
     /** Returns the set of rule calls that have been tried since the prime frame. */
     public Set<Call> getPastCalls() {
         if (this.pastCalls == null) {
-            Set<Call> result = this.pastCalls = new HashSet<Call>();
+            this.pastCalls = new HashSet<Call>();
+            Set<Call> result = this.pastCalls;
             for (CallStack attempt : getPastAttempts()) {
                 result.add(attempt.peek());
             }

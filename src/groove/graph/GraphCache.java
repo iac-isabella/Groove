@@ -361,7 +361,8 @@ public class GraphCache<N extends Node,E extends GEdge<N>> {
     private void addToNodeEdgeMap(Map<N,Set<E>> currentMap, N node, E edge) {
         Set<E> edgeSet = currentMap.get(node);
         if (edgeSet == null) {
-            currentMap.put(node, edgeSet = createSmallEdgeSet());
+            edgeSet = createSmallEdgeSet();
+            currentMap.put(node, edgeSet);
         }
         edgeSet.add(edge);
     }
