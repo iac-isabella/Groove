@@ -28,7 +28,7 @@ import java.util.NoSuchElementException;
  * @author Arend Rensink
  * @version $Revision: 5479 $
  */
-abstract public class TransformIterator<T,U> implements Iterator<U> {
+public abstract class TransformIterator<T,U> implements Iterator<U> {
     /**
      * Constructs a transforming iterator from a given iterator.
      * @param inner The inner iterator for this filter iterator

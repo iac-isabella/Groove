@@ -33,7 +33,7 @@ import org.jgraph.JGraph;
 import org.jgraph.graph.DefaultGraphModel.GraphModelEdit;
 
 /** Display tab component showing a graph-based resource. */
-final public class GraphTab extends ResourceTab implements UndoableEditListener {
+public final class GraphTab extends ResourceTab implements UndoableEditListener {
     /**
      * Constructs the instance of this tab for a given simulator and
      * resource kind.
@@ -103,7 +103,7 @@ final public class GraphTab extends ResourceTab implements UndoableEditListener 
     }
 
     @Override
-    final public boolean isEditor() {
+    public final boolean isEditor() {
         return false;
     }
 

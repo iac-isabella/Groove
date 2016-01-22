@@ -86,7 +86,7 @@ public class CacheReference<C> extends SoftReference<C> {
      * @return <code>true</code> if the reference is currently strong.
      * @see #setSoft()
      */
-    final public boolean isStrong() {
+    public final boolean isStrong() {
         return this.strong;
     }
 
@@ -94,7 +94,7 @@ public class CacheReference<C> extends SoftReference<C> {
      * Sets the reference to soft. Afterwards, the reference can be collected.
      * @see #isStrong()
      */
-    final public void setSoft() {
+    public final void setSoft() {
         if (this.holder != null) {
             assert !this.strong || this.referent != null : "Referent cannot be null for strong reference";
             this.strong = false;
@@ -108,13 +108,13 @@ public class CacheReference<C> extends SoftReference<C> {
      * words, the numer of times the cache has been cleared. The first instance
      * of the reference thus has incarnation count <code>0</code>.
      */
-    final public int getIncarnation() {
+    public final int getIncarnation() {
         return this.incarnation;
     }
 
     /** Sets the appropriate <code>null</code> reference in the holder. */
     @Override
-    final public void clear() {
+    public final void clear() {
         super.clear();
         updateCleared();
     }
@@ -136,7 +136,7 @@ public class CacheReference<C> extends SoftReference<C> {
      * Factory method to create a null reference with the strength (strong or
      * soft) of this reference, and incarnation count set to 0.
      */
-    final public CacheReference<C> newNullReference() {
+    public final CacheReference<C> newNullReference() {
         return getNullInstance(this.strong, 0);
     }
 
@@ -144,7 +144,7 @@ public class CacheReference<C> extends SoftReference<C> {
      * Returns a (shared) null reference with the strength (strong or soft) and
      * the incarnation count of this reference.
      */
-    final public CacheReference<C> getNullReference(boolean strong) {
+    public final CacheReference<C> getNullReference(boolean strong) {
         return getNullInstance(strong, this.incarnation);
     }
 

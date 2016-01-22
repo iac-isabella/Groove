@@ -57,7 +57,7 @@ public abstract class Predicate<X> {
     public abstract boolean eval(X value);
 
     /** Predicate class for graph states. */
-    abstract public static class StatePredicate extends Predicate<GraphState> {
+    public abstract static class StatePredicate extends Predicate<GraphState> {
         /** Constructor for subclassing. */
         protected StatePredicate() {
             super(true);
@@ -65,7 +65,7 @@ public abstract class Predicate<X> {
     }
 
     /** Predicate class for rule transitions. */
-    abstract public static class TransitionPredicate extends Predicate<GraphTransition> {
+    public abstract static class TransitionPredicate extends Predicate<GraphTransition> {
         /** Constructor for subclassing. */
         protected TransitionPredicate() {
             super(false);

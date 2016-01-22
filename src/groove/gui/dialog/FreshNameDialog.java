@@ -38,7 +38,7 @@ import javax.swing.event.DocumentListener;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class FreshNameDialog<Name> {
+public abstract class FreshNameDialog<Name> {
     /**
      * Constructs a dialog instance, given a set of existing names (that should
      * not be used) as well as a suggested value for the new name.

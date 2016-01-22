@@ -36,7 +36,7 @@ import org.fife.ui.rtextarea.RTextScrollPane;
  * The tab also offers the functionality to edit the resource.
  * @author Arend Rensink
  */
-final public class TextTab extends ResourceTab {
+public final class TextTab extends ResourceTab {
     /**
      * Creates an initially empty text area.
      * @param display the display on which this editor is placed.

@@ -85,7 +85,7 @@ public class ResourceDisplay extends Display implements SimulatorListener {
      * Returns the panel holding all display tabs.
      * This may or may not be the same as #getDisplayPanel().
      */
-    final public JTabbedPane getTabPane() {
+    public final JTabbedPane getTabPane() {
         if (this.tabPane == null) {
             this.tabPane = createTabPane();
         }
@@ -619,7 +619,7 @@ public class ResourceDisplay extends Display implements SimulatorListener {
      * Callback method to construct the label for a given (named) graph
      * that should be used in the label list.
      */
-    final public Icon getListIcon(String name) {
+    public final Icon getListIcon(String name) {
         Icon result;
         if (this.editorMap.containsKey(name)) {
             result = Icons.getListEditIcon(getResourceKind());
@@ -701,7 +701,7 @@ public class ResourceDisplay extends Display implements SimulatorListener {
     }
 
     /** Indicates if a given (named) resource has errors. */
-    final public boolean hasError(String name) {
+    public final boolean hasError(String name) {
         boolean result;
         if (this.editorMap.containsKey(name)) {
             result = this.editorMap.get(name).hasErrors();

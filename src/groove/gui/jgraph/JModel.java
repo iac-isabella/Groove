@@ -54,7 +54,7 @@ import org.jgraph.graph.ParentMap;
  * @author Arend Rensink
  * @version $Revision: 5650 $
  */
-abstract public class JModel<G extends Graph> extends DefaultGraphModel {
+public abstract class JModel<G extends Graph> extends DefaultGraphModel {
     /**
      * Creates a new GraphJModel instance on top of a given GraphJGraph, with given
      * node and edge attributes, and an indication whether self-edges should be

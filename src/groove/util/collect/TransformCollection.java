@@ -29,7 +29,7 @@ import java.util.Iterator;
  * @author Arend Rensink
  * @version $Revision: 5479 $
  */
-abstract public class TransformCollection<T,U> extends AbstractCollection<U> {
+public abstract class TransformCollection<T,U> extends AbstractCollection<U> {
     /** Constructs a set transforming a given inner set. */
     public TransformCollection(Collection<T> inner) {
         this.inner = inner;

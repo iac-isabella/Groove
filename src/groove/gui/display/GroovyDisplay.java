@@ -45,7 +45,7 @@ import org.codehaus.groovy.control.CompilationFailedException;
  * @author Harold
  * @version $x$
  */
-final public class GroovyDisplay extends ResourceDisplay {
+public final class GroovyDisplay extends ResourceDisplay {
     /**
      * @param simulator
      *            The Simulator the panel is added to.

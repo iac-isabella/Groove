@@ -25,7 +25,7 @@ import groove.graph.Node;
  * @author Arend Rensink
  * @version $Revision $
  */
-final public class LookupEntry {
+public final class LookupEntry {
     /** Constructs an entry. */
     public LookupEntry(int pos, Role role) {
         this.pos = pos;

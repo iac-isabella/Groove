@@ -33,7 +33,7 @@ import java.util.List;
  */
 public abstract class Line {
     /** Converts this object to a string representation by applying a given renderer. */
-    abstract public <R extends Builder<R>> R toString(LineFormat<R> renderer);
+    public abstract <R extends Builder<R>> R toString(LineFormat<R> renderer);
 
     /**
      * Returns a flattened string rendering of this line.

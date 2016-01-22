@@ -38,7 +38,7 @@ import java.util.Map;
  * @author Arend Rensink
  * @version $Revision: 5665 $
  */
-abstract public class CertificateStrategy {
+public abstract class CertificateStrategy {
     CertificateStrategy(Graph graph) {
         this.graph = graph;
         // the graph may be null if a prototype is being constructed.
@@ -311,7 +311,7 @@ abstract public class CertificateStrategy {
      * certificate map.
      * @return <code>getPartitionMap().size()</code>
      */
-    abstract public int getNodePartitionCount();
+    public abstract int getNodePartitionCount();
 
     /**
      * Factory method; returns a certificate strategy for a given graph.
@@ -320,13 +320,13 @@ abstract public class CertificateStrategy {
      * @return a fresh certificate strategy for <tt>graph</tt>
      * @see #getStrength()
      */
-    abstract public CertificateStrategy newInstance(Graph graph, boolean strong);
+    public abstract CertificateStrategy newInstance(Graph graph, boolean strong);
 
     /**
      * Returns the strength of the strategy:
      * A strong strategy will spend more effort in avoiding false negatives.
      */
-    abstract public boolean getStrength();
+    public abstract boolean getStrength();
 
     /** The graph for which certificates are to be computed. */
     private final Graph graph;

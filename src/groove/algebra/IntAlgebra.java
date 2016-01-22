@@ -37,7 +37,7 @@ public abstract class IntAlgebra<Int,Real,Bool,String> extends IntSignature<Int,
      * @throws IllegalArgumentException if the parameter is not of type {@link Integer}
      */
     @Override
-    final public Int toValueFromJava(Object value) {
+    public final Int toValueFromJava(Object value) {
         if (!(value instanceof Integer)) {
             throw new IllegalArgumentException(
                 java.lang.String.format("Native int type is %s, not %s",
@@ -55,5 +55,5 @@ public abstract class IntAlgebra<Int,Real,Bool,String> extends IntSignature<Int,
 
     /* Specialises the return type to Integer. */
     @Override
-    abstract public Integer toJavaValue(Object value);
+    public abstract Integer toJavaValue(Object value);
 }

@@ -27,7 +27,7 @@ import java.util.Set;
  * @author Arend Rensink
  * @version $Revision: 5665 $
  */
-abstract public class AElementMap<SN extends Node,SE extends Edge,TN extends Node,TE extends Edge>
+public abstract class AElementMap<SN extends Node,SE extends Edge,TN extends Node,TE extends Edge>
     implements ElementMap, Cloneable {
     /**
      * Constructs an empty map.

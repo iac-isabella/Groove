@@ -166,7 +166,7 @@ public class Quad<T,U,V,W> implements Fixable {
      * {@link #two()}, {@link #three()} and {@link #four()} fields.
      */
     @Override
-    final public int hashCode() {
+    public final int hashCode() {
         if (this.hashCode == 0) {
             int prime = 31;
             int result = this.one == null ? 0 : this.one.hashCode();

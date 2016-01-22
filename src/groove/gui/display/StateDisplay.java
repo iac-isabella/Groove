@@ -250,7 +250,7 @@ public class StateDisplay extends Display implements SimulatorListener {
     private ErrorListPanel errorPanel;
 
     /** Returns the JGraph component of the state display. */
-    final public AspectJGraph getJGraph() {
+    public final AspectJGraph getJGraph() {
         AspectJGraph result = this.jGraph;
         if (result == null) {
             result = this.jGraph = new AspectJGraph(getSimulator(), getKind(), false);

@@ -36,7 +36,7 @@ public abstract class GraphIO<G extends Graph> {
      * If {@code false}, {@link #saveGraph(Graph, File)} and {@link #doSaveGraph(Graph, File)}
      * will throw {@link UnsupportedOperationException}s. 
      */
-    abstract public boolean canSave();
+    public abstract boolean canSave();
 
     /**
      * Saves a graph to file.
@@ -79,7 +79,7 @@ public abstract class GraphIO<G extends Graph> {
     /**
      * Loads a graph from an input stream.
      */
-    abstract public G loadGraph(InputStream in) throws FormatException,
+    public abstract G loadGraph(InputStream in) throws FormatException,
         IOException;
 
     /** Deletes a file together with further information (such as layout info). */

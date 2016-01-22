@@ -383,7 +383,7 @@ public class LTLStrategy extends Strategy implements ExploreIterator {
     }
 
     /** Returns the record for this model checking run. */
-    final public Record getRecord() {
+    public final Record getRecord() {
         return this.record;
     }
 

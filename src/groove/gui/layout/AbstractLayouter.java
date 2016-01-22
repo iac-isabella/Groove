@@ -45,7 +45,7 @@ import org.jgraph.graph.VertexView;
  * @author Arend Rensink
  * @version $Revision: 5479 $
  */
-abstract public class AbstractLayouter implements Layouter {
+public abstract class AbstractLayouter implements Layouter {
     /**
      * Constructor to create a dummy, prototype layout action. Proper layout
      * actions are created using <tt>newInstance(MyJGraph)</tt>

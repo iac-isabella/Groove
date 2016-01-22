@@ -252,7 +252,7 @@ public class MultiLabel {
         /**
          * Returns the correct orientation for a given vector.
          */
-        abstract public Orient getOrient(int dx, int dy);
+        public abstract Orient getOrient(int dx, int dy);
 
         /**
          * Returns the correct orientation for a line between given

@@ -73,12 +73,12 @@ public abstract class AJVertex<G extends Graph,JG extends JGraph<G>,JM extends J
     private Node node;
 
     @Override
-    final public boolean isLayoutable() {
+    public final boolean isLayoutable() {
         return this.layoutable;
     }
 
     @Override
-    final public boolean setLayoutable(boolean layedOut) {
+    public final boolean setLayoutable(boolean layedOut) {
         boolean result = layedOut != this.layoutable;
         if (result) {
             this.layoutable = layedOut;

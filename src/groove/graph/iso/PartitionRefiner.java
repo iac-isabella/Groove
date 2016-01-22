@@ -401,7 +401,7 @@ public class PartitionRefiner extends CertificateStrategy {
          * Returns the current certificate value.
          */
         @Override
-        final public int getValue() {
+        public final int getValue() {
             return this.value;
         }
 

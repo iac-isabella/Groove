@@ -458,13 +458,13 @@ public class CheckboxTree extends JTree {
      */
     public static abstract class TreeNode extends DefaultMutableTreeNode {
         /** Indicates if this tree node should have an associated checkbox. */
-        abstract public boolean hasCheckbox();
+        public abstract boolean hasCheckbox();
 
         /** Indicates if the associated checkbox is currently selected. */
-        abstract public boolean isSelected();
+        public abstract boolean isSelected();
 
         /** Signals to this node that the corresponding checkbox has been selected. */
-        abstract public void setSelected(boolean selected);
+        public abstract void setSelected(boolean selected);
     }
 
 }

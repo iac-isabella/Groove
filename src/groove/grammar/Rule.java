@@ -355,7 +355,7 @@ public class Rule implements Action, Fixable {
      * Tests if this condition is ground and has a match to a given host graph.
      * Convenience method for <code>getMatchIter(host, null).hasNext()</code>
      */
-    final public boolean hasMatch(HostGraph host) {
+    public final boolean hasMatch(HostGraph host) {
         return this.condition.isGround() && getMatch(host, null) != null;
     }
 
@@ -715,7 +715,7 @@ public class Rule implements Action, Fixable {
     }
 
     /** Returns an array of nodes isolated in the left hand side. */
-    final public RuleNode[] getIsolatedNodes() {
+    public final RuleNode[] getIsolatedNodes() {
         if (this.isolatedNodes == null) {
             this.isolatedNodes = computeIsolatedNodes();
         }
@@ -738,7 +738,7 @@ public class Rule implements Action, Fixable {
     /**
      * Indicates if this rule has mergers.
      */
-    final public boolean hasMergers() {
+    public final boolean hasMergers() {
         if (!this.hasMergersSet) {
             this.hasMergers = computeHasMergers();
             this.hasMergersSet = true;
@@ -1032,7 +1032,7 @@ public class Rule implements Action, Fixable {
     /**
      * Returns the creator edges between reader nodes.
      */
-    final public RuleEdge[] getSimpleCreatorEdges() {
+    public final RuleEdge[] getSimpleCreatorEdges() {
         if (this.simpleCreatorEdges == null) {
             this.simpleCreatorEdges = computeSimpleCreatorEdges();
         }
@@ -1077,7 +1077,7 @@ public class Rule implements Action, Fixable {
     /**
      * Returns the RHS edges that are not images of an LHS edge.
      */
-    final public RuleEdge[] getCreatorEdges() {
+    public final RuleEdge[] getCreatorEdges() {
         if (this.creatorEdges == null) {
             this.creatorEdges = computeCreatorEdges();
         }
@@ -1102,7 +1102,7 @@ public class Rule implements Action, Fixable {
     /**
      * Returns the RHS nodes that are not images of an LHS node.
      */
-    final public RuleNode[] getCreatorNodes() {
+    public final RuleNode[] getCreatorNodes() {
         if (this.creatorNodes == null) {
             this.creatorNodes = computeCreatorNodes();
         }

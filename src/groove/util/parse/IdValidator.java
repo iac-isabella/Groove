@@ -53,7 +53,7 @@ public abstract class IdValidator {
     }
 
     /** Tests if a given character is suitable as first character for a variable name. */
-    abstract public boolean isIdentifierStart(char c);
+    public abstract boolean isIdentifierStart(char c);
 
     /** Tests if a given character is suitable as middle character of a variable name. */
     abstract boolean isIdentifierPart(char c);

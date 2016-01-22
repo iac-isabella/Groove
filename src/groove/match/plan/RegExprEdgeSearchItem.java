@@ -53,7 +53,7 @@ class RegExprEdgeSearchItem extends AbstractSearchItem {
     }
 
     @Override
-    final public Record createRecord(Search search) {
+    public final Record createRecord(Search search) {
         if (isSingular(search)) {
             return createSingularRecord(search);
         } else {

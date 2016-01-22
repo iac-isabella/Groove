@@ -33,7 +33,7 @@ import java.util.Stack;
  * transitions of its parent. Subclasses must decide on the order of the pool;
  * e.g., breadth-first or depth-first.
  */
-abstract public class ClosingStrategy extends GTSStrategy {
+public abstract class ClosingStrategy extends GTSStrategy {
     @Override
     public GraphState doNext() {
         GraphState state = getNextState();

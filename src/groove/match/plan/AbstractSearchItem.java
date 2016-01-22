@@ -133,7 +133,7 @@ abstract class AbstractSearchItem implements SearchItem {
     }
 
     @Override
-    final public boolean isRelevant() {
+    public final boolean isRelevant() {
         return this.relevant;
     }
 
@@ -255,7 +255,7 @@ abstract class AbstractSearchItem implements SearchItem {
         }
 
         @Override
-        final public boolean isRelevant() {
+        public final boolean isRelevant() {
             return AbstractSearchItem.this.isRelevant();
         }
 
@@ -279,17 +279,17 @@ abstract class AbstractSearchItem implements SearchItem {
          * Always returns <code>true</code>.
          */
         @Override
-        final public boolean isSingular() {
+        public final boolean isSingular() {
             return true;
         }
 
         @Override
-        final public boolean isEmpty() {
+        public final boolean isEmpty() {
             return this.state == State.EMPTY;
         }
 
         @Override
-        final public boolean next() {
+        public final boolean next() {
             State nextState = null;
             switch (this.state) {
             case START:
@@ -318,7 +318,7 @@ abstract class AbstractSearchItem implements SearchItem {
         }
 
         @Override
-        final public void repeat() {
+        public final void repeat() {
             if (this.state.isWritten()) {
                 erase();
             }
@@ -326,7 +326,7 @@ abstract class AbstractSearchItem implements SearchItem {
         }
 
         @Override
-        final public void reset() {
+        public final void reset() {
             if (this.state.isWritten()) {
                 erase();
             }
@@ -375,12 +375,12 @@ abstract class AbstractSearchItem implements SearchItem {
 
         /** This implementation returns <code>false</code>. */
         @Override
-        final public boolean isSingular() {
+        public final boolean isSingular() {
             return false;
         }
 
         @Override
-        final public boolean isEmpty() {
+        public final boolean isEmpty() {
             return this.state == State.EMPTY;
         }
 
@@ -391,7 +391,7 @@ abstract class AbstractSearchItem implements SearchItem {
          * Calls {@link #reset()} if no such image is found.
          */
         @Override
-        final public boolean next() {
+        public final boolean next() {
             State nextState;
             switch (this.state) {
             case EMPTY:
@@ -463,7 +463,7 @@ abstract class AbstractSearchItem implements SearchItem {
         }
 
         @Override
-        final public void repeat() {
+        public final void repeat() {
             if (this.state.isWritten()) {
                 erase();
             }
@@ -471,7 +471,7 @@ abstract class AbstractSearchItem implements SearchItem {
         }
 
         @Override
-        final public void reset() {
+        public final void reset() {
             if (this.state.isWritten()) {
                 erase();
             }

@@ -38,7 +38,7 @@ import java.util.Map;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class GroovePredicates {
+public abstract class GroovePredicates {
     /** Adds a line to the declaration currently being built up. */
     protected void s(String line) {
         this.text.append(line);

@@ -25,7 +25,7 @@ import java.util.Arrays;
  * @author Arend Rensink
  * @version $Revision: 5479 $
  */
-final public class TreeIntSet implements IntSet {
+public final class TreeIntSet implements IntSet {
     /**
      * Number of bits involved in the root.
      */

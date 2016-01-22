@@ -44,19 +44,19 @@ import javax.swing.undo.UndoableEditSupport;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class SystemStore extends UndoableEditSupport {
+public abstract class SystemStore extends UndoableEditSupport {
     /**
      * Returns the name of this store.
      * @return the name of this store; cannot be <code>null</code> or empty.
      */
-    abstract public String getName();
+    public abstract String getName();
 
     /**
      * Returns the location of this store. The location uniquely identifies the
      * place from where the store was obtained.
      * @return the location of this store; cannot be <code>null</code> or empty.
      */
-    abstract public Object getLocation();
+    public abstract Object getLocation();
 
     /** Checks if the store is empty. */
     public boolean isEmpty() {
@@ -80,7 +80,7 @@ abstract public class SystemStore extends UndoableEditSupport {
      * Immutable view on the name-to-aspect graph map of a given graph-based resource kind.
      * @param kind the kind of resource for which the map is requested
      */
-    abstract public Map<String,AspectGraph> getGraphs(ResourceKind kind);
+    public abstract Map<String,AspectGraph> getGraphs(ResourceKind kind);
 
     /**
      * Adds or replaces a set of graph-based resources in the store.
@@ -91,7 +91,7 @@ abstract public class SystemStore extends UndoableEditSupport {
      * @return old (replaced) resources
      * @throws IOException if an error occurred while storing the rule
      */
-    abstract public Collection<AspectGraph> putGraphs(ResourceKind kind,
+    public abstract Collection<AspectGraph> putGraphs(ResourceKind kind,
             Collection<AspectGraph> graphs, boolean layout) throws IOException;
 
     /**
@@ -101,14 +101,14 @@ abstract public class SystemStore extends UndoableEditSupport {
      * @return the named resources, insofar they existed
      * @throws IOException if the store is immutable
      */
-    abstract public Collection<AspectGraph> deleteGraphs(ResourceKind kind,
+    public abstract Collection<AspectGraph> deleteGraphs(ResourceKind kind,
             Collection<String> names) throws IOException;
 
     /** 
      * Immutable view on the name-to-text map of a given text-based resource kind. 
      * @param kind the kind of resource for which the map is requested
      */
-    abstract public Map<String,String> getTexts(ResourceKind kind);
+    public abstract Map<String,String> getTexts(ResourceKind kind);
 
     /**
      * Adds or replaces a set of text-based resources in the store.
@@ -117,7 +117,7 @@ abstract public class SystemStore extends UndoableEditSupport {
      * @return old (replaced) resources
      * @throws IOException if an error occurred while storing the rule
      */
-    abstract public Map<String,String> putTexts(ResourceKind kind,
+    public abstract Map<String,String> putTexts(ResourceKind kind,
             Map<String,String> texts) throws IOException;
 
     /**
@@ -127,7 +127,7 @@ abstract public class SystemStore extends UndoableEditSupport {
      * @return the named resources, insofar they existed
      * @throws IOException if the store is immutable
      */
-    abstract public Map<String,String> deleteTexts(ResourceKind kind,
+    public abstract Map<String,String> deleteTexts(ResourceKind kind,
             Collection<String> names) throws IOException;
 
     /**
@@ -139,32 +139,32 @@ abstract public class SystemStore extends UndoableEditSupport {
      * @param newName the intended new name of the rule (non-null)
      * @throws IOException if an error occurred while storing the renamed rule
      */
-    abstract public void rename(ResourceKind kind, String oldName,
+    public abstract void rename(ResourceKind kind, String oldName,
             String newName) throws IOException;
 
     /** The system properties object in the store (non-null). */
-    abstract public GrammarProperties getProperties();
+    public abstract GrammarProperties getProperties();
 
     /**
      * Replaces the system properties in the store
      * @param properties the new system properties object
      * @throws IOException if an error occurred while storing the properties
      */
-    abstract public void putProperties(GrammarProperties properties)
+    public abstract void putProperties(GrammarProperties properties)
         throws IOException;
 
     /**
      * Changes a label into another in all relevant elements of the store.
      * @throws IOException if an error occurred while storing the properties
      */
-    abstract public void relabel(TypeLabel oldLabel, TypeLabel newLabel)
+    public abstract void relabel(TypeLabel oldLabel, TypeLabel newLabel)
         throws IOException;
 
     /**
      * Reloads all data from the persistent storage into this store. Should be
      * called once immediately after construction of the store.
      */
-    abstract public void reload() throws IOException;
+    public abstract void reload() throws IOException;
 
     /**
      * Saves the content of this grammar store to a given file, and returns the
@@ -173,7 +173,7 @@ abstract public class SystemStore extends UndoableEditSupport {
      *         already exists, or if something goes wrong during saving. If an
      *         exception is thrown, any partial results are deleted.
      */
-    abstract public SystemStore save(File file, boolean clearDir)
+    public abstract SystemStore save(File file, boolean clearDir)
         throws IOException;
 
     /** Returns a grammar model backed up by this store. */
@@ -199,7 +199,7 @@ abstract public class SystemStore extends UndoableEditSupport {
      * {@link IOException}s.
      * @return <code>true</code> if the store is modifiable
      */
-    abstract public boolean isModifiable();
+    public abstract boolean isModifiable();
 
     /** Indicates if edits are currently added to the undo list. */
     public boolean isUndoSuspended() {

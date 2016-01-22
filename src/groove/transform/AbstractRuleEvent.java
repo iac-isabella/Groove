@@ -168,7 +168,7 @@ public abstract class AbstractRuleEvent<R extends Rule,C extends AbstractRuleEve
     }
 
     @Override
-    final public Proof getMatch(final HostGraph source) {
+    public final Proof getMatch(final HostGraph source) {
         assert isCorrectFor(source);
         // visitor that selects a proof that corresponds to this event
         Visitor<TreeMatch,Proof> matchVisitor = new Visitor<TreeMatch,Proof>() {

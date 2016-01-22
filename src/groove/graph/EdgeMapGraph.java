@@ -29,7 +29,7 @@ import java.util.Set;
  * @author Arend Rensink
  * @version $Revision: 5479 $ $Date: 2008-01-30 09:32:51 $
  */
-abstract public class EdgeMapGraph<N extends Node,E extends GEdge<N>> extends AGraph<N,E> implements
+public abstract class EdgeMapGraph<N extends Node,E extends GEdge<N>> extends AGraph<N,E> implements
 Cloneable {
     /**
      * Constructs a new, empty Graph with a given graph role.

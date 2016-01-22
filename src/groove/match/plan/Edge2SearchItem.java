@@ -162,7 +162,7 @@ class Edge2SearchItem extends AbstractSearchItem {
     }
 
     @Override
-    final public Record createRecord(groove.match.plan.PlanSearchStrategy.Search search) {
+    public final Record createRecord(groove.match.plan.PlanSearchStrategy.Search search) {
         if (isPreMatched(search)) {
             // the edge is unexpectedly pre-matched
             return createDummyRecord();

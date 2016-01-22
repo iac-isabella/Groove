@@ -158,7 +158,7 @@ public class Condition implements Fixable {
      * Returns the subset of the root nodes that are certainly
      * bound before the condition has to be matched.
      */
-    final public Set<RuleNode> getInputNodes() {
+    public final Set<RuleNode> getInputNodes() {
         if (this.inputNodes == null) {
             this.inputNodes = computeInputNodes();
         }
@@ -629,7 +629,7 @@ public class Condition implements Fixable {
      * @return {@code true} if there is a rule associated with this condition
      * @see #getRule()
      */
-    final public boolean hasRule() {
+    public final boolean hasRule() {
         return getRule() != null;
     }
 

@@ -37,7 +37,7 @@ public abstract class StringAlgebra<String,Bool,Int> extends StringSignature<Str
      * @throws IllegalArgumentException if the parameter is not of type {@link java.lang.String}
      */
     @Override
-    final public String toValueFromJava(Object value) {
+    public final String toValueFromJava(Object value) {
         if (!(value instanceof java.lang.String)) {
             throw new IllegalArgumentException(java.lang.String.format(
                 "Native int type is %s, not %s", java.lang.String.class.getSimpleName(),

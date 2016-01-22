@@ -23,7 +23,7 @@ import java.util.Collection;
  * @param <T> the type of the objects to be visited
  * @param <R> the type of the result of the visitor 
  */
-abstract public class Visitor<T,R> {
+public abstract class Visitor<T,R> {
     /** Constructs a visitor with a {@code null} result object. */
     protected Visitor() {
         // empty
@@ -55,7 +55,7 @@ abstract public class Visitor<T,R> {
      * @return {@code false} if no more objects need to be visited
      * @see #isContinue()
      */
-    final public boolean visit(T object) {
+    public final boolean visit(T object) {
         assert !isDisposed() && isContinue();
         if (!process(object)) {
             finish();
@@ -64,7 +64,7 @@ abstract public class Visitor<T,R> {
     }
 
     /** Returns the result of the visits. */
-    final public R getResult() {
+    public final R getResult() {
         return this.result;
     }
 

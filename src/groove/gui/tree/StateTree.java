@@ -572,10 +572,10 @@ public class StateTree extends JTree implements SimulatorListener {
         }
 
         /** Returns the number. */
-        abstract public int getNumber();
+        public abstract int getNumber();
 
         /** Indicates if a given number satisfies the constraints of this node. */
-        abstract public boolean contains(int number);
+        public abstract boolean contains(int number);
     }
 
     /**

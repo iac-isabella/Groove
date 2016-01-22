@@ -53,7 +53,7 @@ public final class HostNodeSet extends HostNodeTreeHashSet {
      * Factory method to copy a given set of host nodes or create a new one.
      * @param set the set to be copied; if {@code null}, a fresh empty set is returned.
      */
-    final public static HostNodeSet newInstance(Collection<HostNode> set) {
+    public final static HostNodeSet newInstance(Collection<HostNode> set) {
         HostNodeSet result;
         if (set == null) {
             result = new HostNodeSet();

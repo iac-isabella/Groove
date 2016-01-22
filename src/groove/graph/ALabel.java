@@ -26,12 +26,12 @@ import groove.util.line.Line;
  */
 public abstract class ALabel implements Cloneable, Label {
     @Override
-    final public String text() {
+    public final String text() {
         return toLine().toFlatString();
     }
 
     @Override
-    final public Line toLine() {
+    public final Line toLine() {
         if (this.line == null) {
             this.line = computeLine();
         }
@@ -88,7 +88,7 @@ public abstract class ALabel implements Cloneable, Label {
 
     /** The hash code is computed by {@link #computeHashCode()}. */
     @Override
-    final public int hashCode() {
+    public final int hashCode() {
         // lazy computation because the object may not have been initialised
         // otherwise
         if (this.hashCode == 0) {

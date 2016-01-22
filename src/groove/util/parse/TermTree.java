@@ -35,7 +35,7 @@ import java.util.Stack;
  * @author Arend Rensink
  * @version $Id$
  */
-abstract public class TermTree<O extends Op,T extends TermTree<O,T>> extends DefaultFixable
+public abstract class TermTree<O extends Op,T extends TermTree<O,T>> extends DefaultFixable
     implements Fallible {
     /**
      * Constructs an initially argument- and content-free expression

@@ -38,7 +38,7 @@ import javax.swing.JToolBar;
  * @author Arend Rensink
  * @version $Revision $
  */
-final public class RuleDisplay extends ResourceDisplay {
+public final class RuleDisplay extends ResourceDisplay {
     /**
      * Constructs a panel for a given simulator.
      */

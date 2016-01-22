@@ -166,7 +166,7 @@ public interface GraphTransition extends GEdge<GraphState> {
         ;
 
         /** Indicates if a given graph transition belongs to this class. */
-        abstract public boolean admits(GraphTransition trans);
+        public abstract boolean admits(GraphTransition trans);
 
         /** Returns one of four classes of transitions, depending
          * on whether internal and absent transitions are to be included or not.

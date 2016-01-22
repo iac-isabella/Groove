@@ -386,7 +386,7 @@ public abstract class AbstractReteMatch implements VarMap {
     }
 
     @Override
-    final public synchronized int hashCode() {
+    public final synchronized int hashCode() {
         if (this.hashCode == 0) {
             int result = computeHashCode();
             this.hashCode = result == 0 ? 1 : result;

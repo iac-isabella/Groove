@@ -31,7 +31,7 @@ import java.util.Set;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class MapSet<K,E> extends AbstractSet<E> implements Set<E> {
+public abstract class MapSet<K,E> extends AbstractSet<E> implements Set<E> {
     @Override
     public Iterator<E> iterator() {
         return new AbstractNestedIterator<E>() {

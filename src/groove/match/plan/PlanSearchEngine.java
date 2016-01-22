@@ -211,7 +211,7 @@ public class PlanSearchEngine extends SearchEngine {
          * available item comparators.
          */
         @Override
-        final public int compare(SearchItem o1, SearchItem o2) {
+        public final int compare(SearchItem o1, SearchItem o2) {
             int result = 0;
             Iterator<Comparator<SearchItem>> comparatorIter = getComparators().iterator();
             while (result == 0 && comparatorIter.hasNext()) {

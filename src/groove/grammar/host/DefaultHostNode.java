@@ -65,7 +65,7 @@ public class DefaultHostNode extends ANode implements HostNode {
     }
 
     @Override
-    final public TypeNode getType() {
+    public final TypeNode getType() {
         return this.type;
     }
 

@@ -37,7 +37,7 @@ public abstract class RealAlgebra<Int,Real,Bool,String> extends RealSignature<In
      * @throws IllegalArgumentException if the parameter is not of type {@link Double}
      */
     @Override
-    final public Real toValueFromJava(Object value) {
+    public final Real toValueFromJava(Object value) {
         if (!(value instanceof Double)) {
             throw new IllegalArgumentException(
                 java.lang.String.format("Native double type is %s, not %s",

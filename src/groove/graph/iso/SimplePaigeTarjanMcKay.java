@@ -489,7 +489,7 @@ public class SimplePaigeTarjanMcKay extends CertificateStrategy {
         }
 
         @Override
-        final public Edge getElement() {
+        public final Edge getElement() {
             return this.edge;
         }
 

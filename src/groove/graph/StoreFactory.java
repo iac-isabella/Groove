@@ -27,7 +27,7 @@ import groove.util.collect.TreeHashSet;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class StoreFactory<N extends Node,E extends Edge,L extends Label> extends
+public abstract class StoreFactory<N extends Node,E extends Edge,L extends Label> extends
     ElementFactory<N,E> {
     /** Constructor for a fresh factory. */
     @SuppressWarnings("unchecked")

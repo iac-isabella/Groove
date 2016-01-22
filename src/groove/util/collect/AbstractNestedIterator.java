@@ -29,7 +29,7 @@ import java.util.NoSuchElementException;
  * @author Arend Rensink
  * @version $Revision: 5479 $
  */
-abstract public class AbstractNestedIterator<T> implements Iterator<T> {
+public abstract class AbstractNestedIterator<T> implements Iterator<T> {
     @Override
     public void remove() {
         this.latestProductiveInnerIter.remove();

@@ -53,7 +53,7 @@ import java.util.Set;
  * @author Arend Rensink
  * @version $Revision: 5665 $ $Date: 2008-03-04 11:01:33 $
  */
-final public class BasicEvent extends AbstractRuleEvent<Rule,BasicEvent.BasicEventCache> {
+public final class BasicEvent extends AbstractRuleEvent<Rule,BasicEvent.BasicEventCache> {
     /**
      * Constructs a new event on the basis of a given production rule and anchor
      * map. A further parameter determines whether information should be stored

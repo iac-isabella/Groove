@@ -8,7 +8,7 @@ import java.util.Collection;
  * Specialisation of a set of edges that relies on the 
  * edge hashcode uniquely identifying the edge.
  */
-abstract public class HostEdgeTreeHashSet extends TreeHashSet<HostEdge> {
+public abstract class HostEdgeTreeHashSet extends TreeHashSet<HostEdge> {
     /** Creates an empty edge set. */
     public HostEdgeTreeHashSet() {
         this(DEFAULT_CAPACITY);

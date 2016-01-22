@@ -28,7 +28,7 @@ import java.util.Set;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class Property<S> {
+public abstract class Property<S> {
     /** Creates an instance with <code>null</code> comment and description. */
     public Property() {
         this(null, null);
@@ -55,7 +55,7 @@ abstract public class Property<S> {
      * Indicates if this property is satisfied by a given object of type
      * <code>S</code>.
      */
-    abstract public boolean isSatisfied(S value);
+    public abstract boolean isSatisfied(S value);
 
     /**
      * Removes from a given set all values that do not satisfy this property.

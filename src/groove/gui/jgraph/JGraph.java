@@ -116,7 +116,7 @@ import org.jgraph.plaf.basic.BasicGraphUI;
  * @author Arend Rensink
  * @version $Revision: 5479 $ $Date: 2008-02-05 13:27:59 $
  */
-abstract public class JGraph<G extends Graph> extends org.jgraph.JGraph {
+public abstract class JGraph<G extends Graph> extends org.jgraph.JGraph {
     /**
      * Constructs a JGraph for a given simulator.
      * @param simulator simulator to which the JGraph belongs; may be {@code null}
@@ -272,12 +272,12 @@ abstract public class JGraph<G extends Graph> extends org.jgraph.JGraph {
     }
 
     /** Convenience method to retrieve the state of the simulator, if any. */
-    final public SimulatorModel getSimulatorModel() {
+    public final SimulatorModel getSimulatorModel() {
         return getSimulator() == null ? null : getSimulator().getModel();
     }
 
     /** Convenience method to retrieve the state of the simulator, if any. */
-    final public ActionStore getActions() {
+    public final ActionStore getActions() {
         return getSimulator() == null ? null : getSimulator().getActions();
     }
 
@@ -640,7 +640,7 @@ abstract public class JGraph<G extends Graph> extends org.jgraph.JGraph {
      * or through {@link #setFactory}
      * @return the factory to be used for this JGraph
      */
-    final public JGraphFactory<G> getFactory() {
+    public final JGraphFactory<G> getFactory() {
         if (this.factory == null) {
             this.factory = createFactory();
         }
@@ -651,7 +651,7 @@ abstract public class JGraph<G extends Graph> extends org.jgraph.JGraph {
      * Sets the factory to be used.
      * Must be called before the first invocation of {@link #getFactory()}.
      */
-    final public void setFactory(JGraphFactory<G> factory) {
+    public final void setFactory(JGraphFactory<G> factory) {
         assert this.factory == null;
         this.factory = factory;
     }
@@ -1308,7 +1308,7 @@ abstract public class JGraph<G extends Graph> extends org.jgraph.JGraph {
     }
 
     /** Returns the visual refresher used for a given visual key. */
-    final public VisualValue<?> getVisualValue(VisualKey key) {
+    public final VisualValue<?> getVisualValue(VisualKey key) {
         VisualValue<?> result = this.visualValueMap.get(key);
         if (result == null) {
             this.visualValueMap.put(key, result = getFactory().newVisualValue(key));

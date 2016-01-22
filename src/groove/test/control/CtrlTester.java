@@ -35,7 +35,7 @@ import junit.framework.Assert;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class CtrlTester {
+public abstract class CtrlTester {
     /** The directory from which grammars are loaded. */
     public static final String CONTROL_DIR = "junit/control/";
 

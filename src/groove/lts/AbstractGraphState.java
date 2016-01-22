@@ -46,7 +46,7 @@ import java.util.Set;
  * @author Arend Rensink
  * @version $Revision: 5702 $ $Date: 2008-02-20 09:25:29 $
  */
-abstract public class AbstractGraphState extends AbstractCacheHolder<StateCache> implements
+public abstract class AbstractGraphState extends AbstractCacheHolder<StateCache> implements
     GraphState {
     /**
      * Constructs a an abstract graph state.
@@ -64,13 +64,13 @@ abstract public class AbstractGraphState extends AbstractCacheHolder<StateCache>
     }
 
     @Override
-    final public Set<? extends GraphTransition> getTransitions() {
+    public final Set<? extends GraphTransition> getTransitions() {
         return getTransitions(GraphTransition.Claz.REAL);
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    final public Set<RuleTransition> getRuleTransitions() {
+    public final Set<RuleTransition> getRuleTransitions() {
         return (Set<RuleTransition>) getTransitions(GraphTransition.Claz.RULE);
     }
 
@@ -278,7 +278,7 @@ abstract public class AbstractGraphState extends AbstractCacheHolder<StateCache>
     }
 
     @Override
-    final public boolean isInternalState() {
+    public final boolean isInternalState() {
         return hasFlag(Flag.INTERNAL);
     }
 
@@ -288,7 +288,7 @@ abstract public class AbstractGraphState extends AbstractCacheHolder<StateCache>
     }
 
     @Override
-    final public boolean isTransient() {
+    public final boolean isTransient() {
         return hasFlag(Flag.TRANSIENT);
     }
 

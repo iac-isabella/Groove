@@ -684,7 +684,7 @@ public class PaigeTarjanMcKay extends CertificateStrategy {
         }
 
         @Override
-        final public Edge getElement() {
+        public final Edge getElement() {
             return this.edge;
         }
 
@@ -711,7 +711,7 @@ public class PaigeTarjanMcKay extends CertificateStrategy {
         }
 
         @Override
-        final public int getValue() {
+        public final int getValue() {
             return this.value;
         }
 

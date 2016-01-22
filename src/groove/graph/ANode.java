@@ -22,7 +22,7 @@ package groove.graph;
  * @author Arend Rensink
  * @version $Revision: 5479 $
  */
-abstract public class ANode implements Node, Cloneable {
+public abstract class ANode implements Node, Cloneable {
     /**
      * Constructs a fresh node, with an explicitly given number. Note that node
      * equality is determined by identity, but it is assumed that never two
@@ -46,7 +46,7 @@ abstract public class ANode implements Node, Cloneable {
      * @see #computeHashCode()
      */
     @Override
-    final public int hashCode() {
+    public final int hashCode() {
         if (this.hashCode == 0) {
             int result = computeHashCode();
             this.hashCode = result == 0 ? 1 : result;

@@ -51,7 +51,7 @@ public abstract class Expression {
      * The difference with {@link #toString()} is that
      * the display string does not contain type prefixes.
      */
-    final public String toDisplayString() {
+    public final String toDisplayString() {
         return toLine().toFlatString();
     }
 
@@ -60,7 +60,7 @@ public abstract class Expression {
      * The difference with {@link #toString()} is that
      * the display string does not contain type prefixes.
      */
-    final public Line toLine() {
+    public final Line toLine() {
         return toLine(OpKind.NONE);
     }
 

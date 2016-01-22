@@ -58,7 +58,7 @@ import javax.swing.event.ListDataListener;
  * @author Arend Rensink
  * @version $Revision: 5480 $
  */
-abstract public class FormulaDialog {
+public abstract class FormulaDialog {
     /**
      * Constructs an instance of the dialog for a given dialog title.
      * @param docMap mapping from syntax documentation lines to (possibly {@code null}) associated tool tips.

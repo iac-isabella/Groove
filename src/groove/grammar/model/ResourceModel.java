@@ -39,7 +39,7 @@ import java.util.Map;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class ResourceModel<R> {
+public abstract class ResourceModel<R> {
     /**
      * Creates a named resource model of a given kind.
      * @param grammar the grammar to which this resource belongs; may be {@code null}
@@ -103,7 +103,7 @@ abstract public class ResourceModel<R> {
      * This is the {@link String} or {@link AspectGraph} in the store
      * from which this model is derived.
      */
-    abstract public Object getSource();
+    public abstract Object getSource();
 
     /**
      * Indicates if this resource is currently enabled for use in the grammar.

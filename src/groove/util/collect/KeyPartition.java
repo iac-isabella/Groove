@@ -30,7 +30,7 @@ import java.util.Set;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class KeyPartition<T,U> {
+public abstract class KeyPartition<T,U> {
     /**
      * Creates an empty partition object. A parameter determines if the
      * partition may have empty cells.

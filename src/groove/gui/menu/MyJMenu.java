@@ -46,7 +46,7 @@ public class MyJMenu extends JMenu {
      * @param submenu the menu to be added to the popup menu;
      * will be destroyed as a consequence of this method call
      */
-    final public void addSubmenu(JMenu submenu) {
+    public final void addSubmenu(JMenu submenu) {
         if (submenu != null && submenu.getItemCount() > 0) {
             // add a separator if this is not the first submenu
             if (getItemCount() > 0) {
@@ -62,7 +62,7 @@ public class MyJMenu extends JMenu {
      * @param submenu the menu to be added to the popup menu;
      * will be destroyed as a consequence of this method call
      */
-    final public void addMenuItems(JMenu submenu) {
+    public final void addMenuItems(JMenu submenu) {
         if (submenu != null && submenu.getItemCount() > 0) {
             // as we move items from the submenu to the main menu
             // the submenu gets modified

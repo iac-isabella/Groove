@@ -37,7 +37,7 @@ public abstract class Boundary {
     }
 
     /** Instantiates this boundary for a given (non-{@code null}) model checking run. */
-    abstract public Boundary instantiate(Record record);
+    public abstract Boundary instantiate(Record record);
 
     /**
      * Checks whether the given transition crosses the boundary. If so, it
@@ -50,13 +50,13 @@ public abstract class Boundary {
      * @return <tt>true</tt> if the transition crosses the boundary,
      *         <tt>false</tt> otherwise
      */
-    abstract public boolean crossingBoundary(ProductTransition transition,
+    public abstract boolean crossingBoundary(ProductTransition transition,
             boolean traverse);
 
     /**
      * Increases the boundary.
      */
-    abstract public void increase();
+    public abstract void increase();
 
     /**
      * Returns the current depth of the exploration, in terms of

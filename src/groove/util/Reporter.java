@@ -101,7 +101,7 @@ public class Reporter {
      * Signals the start of a new method to be reported.
      * @require currentNesting < MAX_NESTING
      */
-    final public synchronized void start() {
+    public final synchronized void start() {
         if (REPORT) {
             long now = System.currentTimeMillis();
             this.nestedCount++;
@@ -121,7 +121,7 @@ public class Reporter {
      * Signals the restart of a method to be reported. A restart means the the
      * invocation is not counted, but the time is measured
      */
-    final public synchronized void restart() {
+    public final synchronized void restart() {
         if (REPORT) {
             long now = System.currentTimeMillis();
             if (this.currentNesting == 0) {
@@ -139,7 +139,7 @@ public class Reporter {
      * Reports the end of the most deeply nested method.
      * @require <tt>currentNesting > 0</tt>
      */
-    final public synchronized void stop() {
+    public final synchronized void stop() {
         if (REPORT) {
             this.currentNesting--;
             long now = System.currentTimeMillis();

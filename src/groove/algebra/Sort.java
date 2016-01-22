@@ -157,14 +157,14 @@ public enum Sort {
     }
 
     /** Returns the name of this sort. */
-    final public String getName() {
+    public final String getName() {
         return this.name;
     }
 
     private final String name;
 
     /** Returns a symbolic representation of the default value for this sort. */
-    abstract public Constant getDefaultValue();
+    public abstract Constant getDefaultValue();
 
     @Override
     public String toString() {

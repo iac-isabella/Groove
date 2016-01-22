@@ -144,7 +144,7 @@ DefaultGraphCell implements JCell<G> {
     }
 
     @Override
-    final public Set<Look> getLooks() {
+    public final Set<Look> getLooks() {
         if (this.looks == null) {
             this.looks = EnumSet.noneOf(Look.class);
             Look structuralLook = getStructuralLook();
@@ -167,14 +167,14 @@ DefaultGraphCell implements JCell<G> {
     }
 
     @Override
-    final public void putVisual(VisualKey key, Object value) {
+    public final void putVisual(VisualKey key, Object value) {
         assert key.getNature() != Nature.DERIVED;
         this.visuals.put(key, value);
         this.staleKeys.remove(key);
     }
 
     @Override
-    final public void putVisuals(VisualMap map) {
+    public final void putVisuals(VisualMap map) {
         for (VisualKey key : map.keySet()) {
             if (key.getNature() != Nature.DERIVED) {
                 putVisual(key, map.get(key));
@@ -192,7 +192,7 @@ DefaultGraphCell implements JCell<G> {
     }
 
     @Override
-    final public VisualMap getVisuals() {
+    public final VisualMap getVisuals() {
         if (this.looksChanged || this.looks == null) {
             // refresh the derived part of the visual map
             this.visuals.setLooks(getLooks());
@@ -235,12 +235,12 @@ DefaultGraphCell implements JCell<G> {
     private Set<VisualKey> staleKeys;
 
     @Override
-    final public boolean isGrayedOut() {
+    public final boolean isGrayedOut() {
         return getLooks().contains(Look.GRAYED_OUT);
     }
 
     @Override
-    final public boolean setGrayedOut(boolean grayedOut) {
+    public final boolean setGrayedOut(boolean grayedOut) {
         return setLook(Look.GRAYED_OUT, grayedOut);
     }
 

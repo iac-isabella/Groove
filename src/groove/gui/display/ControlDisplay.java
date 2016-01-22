@@ -43,7 +43,7 @@ import javax.swing.tree.TreePath;
  * @author Tom Staijen
  * @version $0.9$
  */
-final public class ControlDisplay extends ResourceDisplay {
+public final class ControlDisplay extends ResourceDisplay {
     /**
      * @param simulator The Simulator the panel is added to.
      */

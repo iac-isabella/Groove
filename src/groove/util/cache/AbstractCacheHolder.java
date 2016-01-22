@@ -8,7 +8,7 @@ package groove.util.cache;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class AbstractCacheHolder<C> implements CacheHolder<C> {
+public abstract class AbstractCacheHolder<C> implements CacheHolder<C> {
     /**
      * Creates a holder initialised on a given cache reference. The reference of
      * this holder is initialised to a null reference, through a call of
@@ -39,7 +39,7 @@ abstract public class AbstractCacheHolder<C> implements CacheHolder<C> {
      * @return the pre-existing cache, or a fresh cache if there was no 
      * pre-existing one and {@code create} is set, or {@code null} otherwise
      */
-    final public C getCache(boolean create) {
+    public final C getCache(boolean create) {
         C result = getCacheReference().get();
         if (result == null && create) {
             result = createCache();
@@ -60,7 +60,7 @@ abstract public class AbstractCacheHolder<C> implements CacheHolder<C> {
     /**
      * Tests if the cache is currently cleared.
      */
-    final public boolean hasCache() {
+    public final boolean hasCache() {
         return getCacheReference().get() != null;
     }
 
@@ -77,7 +77,7 @@ abstract public class AbstractCacheHolder<C> implements CacheHolder<C> {
      * {@link #isCacheCollectable()} is guaranteed to hold.
      * @see CacheReference#setSoft()
      */
-    final public void setCacheCollectable() {
+    public final void setCacheCollectable() {
         if (hasCache()) {
             getCacheReference().setSoft();
         } else {
@@ -92,17 +92,17 @@ abstract public class AbstractCacheHolder<C> implements CacheHolder<C> {
      * @return <code>true</code> if the cache reference is soft
      * @see CacheReference#isStrong()
      */
-    final public boolean isCacheCollectable() {
+    public final boolean isCacheCollectable() {
         return !getCacheReference().isStrong();
     }
 
     @Override
-    final public CacheReference<C> getCacheReference() {
+    public final CacheReference<C> getCacheReference() {
         return this.reference;
     }
 
     @Override
-    final public void setCacheReference(CacheReference<C> reference) {
+    public final void setCacheReference(CacheReference<C> reference) {
         this.reference = reference;
     }
 

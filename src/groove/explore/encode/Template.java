@@ -133,7 +133,7 @@ public abstract class Template<A> implements EncodedType<A,Serialized> {
      * @param args the values for the template arguments; must
      * be parsable as valid arguments.
      */
-    abstract public Serialized toSerialized(Object... args);
+    public abstract Serialized toSerialized(Object... args);
 
     /**
      * Creates the type-specific editor (see class TemplateEditor below).

@@ -139,7 +139,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testIsoHashCode() {
+    public final void testIsoHashCode() {
         Object[] codes = new Object[MATCH_DOM_COUNT];
         for (int i = 0; i < codes.length; i++) {
             codes[i] = this.checker.getCertifier(this.matchDom[i], true).getGraphCertificate();
@@ -165,7 +165,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testGetPartitionMap() {
+    public final void testGetPartitionMap() {
         // iso-0
         PartitionMap nodePartitionMap =
             this.checker.getCertifier(this.isoGraph[0], true).getNodePartitionMap();
@@ -191,7 +191,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testNewGraph() {
+    public final void testNewGraph() {
         GGraph newGraph = this.matchDom[0].newGraph("new graph 0");
         assertEquals(0, newGraph.nodeCount());
         assertEquals(0, newGraph.edgeCount());
@@ -202,7 +202,7 @@ public abstract class GraphTest {
      * Test for Node addNode()
      */
     @Test
-    final public void testAddNode() {
+    public final void testAddNode() {
         int oldNodeCount = this.matchDom[0].nodeCount();
         int oldEdgeCount = this.matchDom[0].edgeCount();
         PlainNode newNode = this.matchDom[0].addNode();
@@ -216,7 +216,7 @@ public abstract class GraphTest {
      * Test for BinaryEdge addEdge(Node, Label, Node)
      */
     @Test
-    final public void testAddEdgeNodeLabelNode() {
+    public final void testAddEdgeNodeLabelNode() {
         int oldNodeCount = this.matchDom[0].nodeCount();
         int oldEdgeCount = this.matchDom[0].edgeCount();
         Iterator<? extends PlainNode> nodeIter = this.matchDom[0].nodeSet().iterator();
@@ -235,7 +235,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testNodeSet() {
+    public final void testNodeSet() {
         Collection nodeSet = this.matchDom[0].nodeSet();
         assertEquals(3, nodeSet.size());
         try {
@@ -247,12 +247,12 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testNodeCount() {
+    public final void testNodeCount() {
         assertEquals(3, this.matchDom[0].nodeCount());
     }
 
     @Test
-    final public void testEdgeSet() {
+    public final void testEdgeSet() {
         Collection edgeSet = this.matchDom[0].edgeSet();
         assertEquals(2, edgeSet.size());
         try {
@@ -265,12 +265,12 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testEdgeCount() {
+    public final void testEdgeCount() {
         assertEquals(2, this.matchDom[0].edgeCount());
     }
 
     @Test
-    final public void testOutEdgeSet() {
+    public final void testOutEdgeSet() {
         Set<PlainEdge> abEdgeSet = new HashSet<PlainEdge>();
         abEdgeSet.add(this.aEdge);
         abEdgeSet.add(this.bEdge);
@@ -293,7 +293,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testLabelEdgeSet() {
+    public final void testLabelEdgeSet() {
         Set<PlainEdge> aEdgeSet = new HashSet<PlainEdge>();
         aEdgeSet.add(this.aEdge);
         Set<PlainEdge> bEdgeSet = new HashSet<PlainEdge>();
@@ -309,7 +309,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testSize() {
+    public final void testSize() {
         assertEquals(5, this.graph.size());
         this.graph.addEdge(this.aTarget, this.cLabel, this.bTarget);
         assertEquals(6, this.graph.size());
@@ -318,7 +318,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testIsEmpty() {
+    public final void testIsEmpty() {
         assertFalse(this.graph.isEmpty());
         this.graph.removeNodeSetContext(new HashSet<PlainNode>(this.graph.nodeSet()));
         assertTrue(this.graph.isEmpty());
@@ -326,7 +326,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testIsFixed() {
+    public final void testIsFixed() {
         assertFalse(this.graph.isFixed());
         this.graph.setFixed();
         assertTrue(this.graph.isFixed());
@@ -334,7 +334,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testContainsElement() {
+    public final void testContainsElement() {
         assertTrue(this.graph.containsNode(this.source));
         assertTrue(this.graph.containsEdge(this.aEdge));
         assertFalse(this.graph.containsEdge(this.graph.getFactory().createEdge(this.aTarget,
@@ -347,7 +347,7 @@ public abstract class GraphTest {
      * Test for boolean addNode(Node)
      */
     @Test
-    final public void testAddNodeNode() {
+    public final void testAddNodeNode() {
         assertFalse(this.graph.addNode(this.source));
         PlainNode newNode = this.graph.addNode();
         assertTrue(this.graph.containsNode(newNode));
@@ -358,7 +358,7 @@ public abstract class GraphTest {
      * Test for boolean addEdge(Edge)
      */
     @Test
-    final public void testAddEdgeEdge() {
+    public final void testAddEdgeEdge() {
         assertFalse(this.graph.addEdgeContext(this.aEdge));
         assertFalse(this.graph.addEdgeContext(this.graph.getFactory().createEdge(this.source,
             this.aLabel, this.aTarget)));
@@ -373,7 +373,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testAddNodeSet() {
+    public final void testAddNodeSet() {
         Set<PlainNode> nodeSet = new HashSet<PlainNode>();
         assertFalse(this.graph.addNodeSet(nodeSet));
         nodeSet.add(this.source);
@@ -385,7 +385,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testAddEdgeSet() {
+    public final void testAddEdgeSet() {
         Set<PlainEdge> edgeSet = new HashSet<PlainEdge>();
         assertFalse(this.graph.addEdgeSetContext(edgeSet));
         edgeSet.add(this.aEdge);
@@ -400,7 +400,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testRemoveNode() {
+    public final void testRemoveNode() {
         PlainNode newNode = this.graph.addNode();
         assertFalse(this.newGraph.removeNodeContext(newNode));
         this.newGraph.addNode(newNode);
@@ -412,7 +412,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testRemoveEdge() {
+    public final void testRemoveEdge() {
         PlainEdge newEdge =
             this.graph.getFactory().createEdge(this.source, this.bLabel, this.aTarget);
         assertFalse(this.graph.removeEdge(newEdge));
@@ -427,7 +427,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testRemoveNodeSet() {
+    public final void testRemoveNodeSet() {
         Set<PlainNode> nodeSet = new HashSet<PlainNode>();
         assertFalse(this.graph.removeNodeSetContext(nodeSet));
         PlainNode newNode = this.graph.addNode();
@@ -443,7 +443,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testRemoveEdgeSet() {
+    public final void testRemoveEdgeSet() {
         Set<PlainEdge> edgeSet = new HashSet<PlainEdge>();
         assertFalse(this.graph.removeEdgeSet(edgeSet));
         PlainNode newNode = this.graph.addNode();
@@ -459,7 +459,7 @@ public abstract class GraphTest {
     }
 
     @Test
-    final public void testSetFixed() {
+    public final void testSetFixed() {
         this.graph.setFixed();
         assertTrue(this.graph.isFixed());
         // fixedness of the graph is not tested, it is a precondition

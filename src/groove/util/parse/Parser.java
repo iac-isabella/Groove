@@ -34,7 +34,7 @@ import java.util.Map;
  * @author Arend Rensink
  * @version $Id $
  */
-abstract public interface Parser<T> {
+public abstract interface Parser<T> {
     /**
      * Returns a HTML-formatted description of the parsable strings, starting with uppercase.
      */
@@ -120,7 +120,7 @@ abstract public interface Parser<T> {
     public static BooleanParser boolFalse = new BooleanParser(false);
 
     /** Identity string parser. */
-    static abstract public class AbstractStringParser<S> implements Parser<S> {
+    static public abstract class AbstractStringParser<S> implements Parser<S> {
         /**
          * Constructor for subclassing.
          * @param trim if {@code true}, spaces are stripped of the values.
@@ -207,7 +207,7 @@ abstract public interface Parser<T> {
     }
 
     /** Integer parser. */
-    static abstract public class AbstractIntParser<I> implements Parser<I> {
+    static public abstract class AbstractIntParser<I> implements Parser<I> {
         /** Creates a parser, with a parameter to determine if
          * negative values are allowed.
          * @param neg if {@code true}, the parser allows negative values.

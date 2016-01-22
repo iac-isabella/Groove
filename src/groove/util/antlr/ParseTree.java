@@ -24,7 +24,7 @@ import org.antlr.runtime.tree.TreeParser;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class ParseTree<T extends ParseTree<T,I>,I extends ParseInfo> extends CommonTree {
+public abstract class ParseTree<T extends ParseTree<T,I>,I extends ParseInfo> extends CommonTree {
     /** Empty constructor for subclassing. */
     protected ParseTree() {
         // empty
@@ -57,7 +57,7 @@ abstract public class ParseTree<T extends ParseTree<T,I>,I extends ParseInfo> ex
 
     @SuppressWarnings("unchecked")
     @Override
-    final public T dupNode() {
+    public final T dupNode() {
         T result = newNode();
         result.setNode((T) this);
         return result;

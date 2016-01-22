@@ -29,24 +29,24 @@ import java.util.ArrayList;
 public abstract class Attempt<P extends Position<P,A>,A extends Attempt.Stage<P,A>> extends
     ArrayList<A> {
     /** Sets the success alternate. */
-    final public void setSuccess(P onSuccess) {
+    public final void setSuccess(P onSuccess) {
         this.onSuccess = onSuccess;
     }
 
     /** Next alternative position in case this attempt succeeds. */
-    final public P onSuccess() {
+    public final P onSuccess() {
         return this.onSuccess;
     }
 
     private P onSuccess;
 
     /** Sets the failure alternate. */
-    final public void setFailure(P onFailure) {
+    public final void setFailure(P onFailure) {
         this.onFailure = onFailure;
     }
 
     /** Next alternative position in case this attempt fails. */
-    final public P onFailure() {
+    public final P onFailure() {
         return this.onFailure;
     }
 

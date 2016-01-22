@@ -34,7 +34,7 @@ import groove.gui.look.VisualValue;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class JGraphFactory<G extends Graph> {
+public abstract class JGraphFactory<G extends Graph> {
     /** Constructs a factory for a given JGraph. */
     public JGraphFactory(JGraph<G> jGraph) {
         this.jGraph = jGraph;
@@ -52,7 +52,7 @@ abstract public class JGraphFactory<G extends Graph> {
      * @param node a (non-{@code null}) node,
      * used to determine the type of JVertex needed
      */
-    abstract public JVertex<G> newJVertex(Node node);
+    public abstract JVertex<G> newJVertex(Node node);
 
     /**
      * Creates a fresh, initialised instance of a JEdge.
@@ -60,7 +60,7 @@ abstract public class JGraphFactory<G extends Graph> {
      * @param edge a (possibly {@code null}) edge,
      * used to determine the type of JEdge needed
      */
-    abstract public JEdge<G> newJEdge(Edge edge);
+    public abstract JEdge<G> newJEdge(Edge edge);
 
     /** Constructs a new JModel suitable for the JGraph of this factory. */
     public JModel<G> newModel() {

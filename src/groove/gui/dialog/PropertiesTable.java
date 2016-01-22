@@ -139,7 +139,7 @@ public class PropertiesTable extends JTable {
      * Returns a copy of the properties object in the dialog,
      * with all default values removed.
      */
-    final public Map<String,String> getProperties() {
+    public final Map<String,String> getProperties() {
         Map<String,String> result = new HashMap<String,String>();
         // only copy non-default properties
         for (Map.Entry<String,String> entry : this.properties.entrySet()) {

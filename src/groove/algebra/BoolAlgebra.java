@@ -21,7 +21,7 @@ import groove.algebra.syntax.Expression;
 /** Abstract superclass of all boolean algebras.
  * <Bool> Representation type for boolean values
  */
-abstract public class BoolAlgebra<Bool> extends BoolSignature<Bool> implements Algebra<Bool> {
+public abstract class BoolAlgebra<Bool> extends BoolSignature<Bool> implements Algebra<Bool> {
     @Override
     @SuppressWarnings("unchecked")
     public Bool toValue(Expression term) {
@@ -33,7 +33,7 @@ abstract public class BoolAlgebra<Bool> extends BoolSignature<Bool> implements A
      * @throws IllegalArgumentException if the parameter is not of type {@link Boolean}
      */
     @Override
-    final public Bool toValueFromJava(Object value) {
+    public final Bool toValueFromJava(Object value) {
         if (!(value instanceof Boolean)) {
             throw new IllegalArgumentException(java.lang.String.format(
                 "Native boolean type is %s, not %s", Boolean.class.getSimpleName(),

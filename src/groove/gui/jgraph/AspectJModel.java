@@ -71,7 +71,7 @@ import org.jgraph.graph.ParentMap;
  * @author Arend Rensink
  * @version $Revision: 5480 $
  */
-final public class AspectJModel extends JModel<AspectGraph> {
+public final class AspectJModel extends JModel<AspectGraph> {
     /** 
      * Creates an new model, initially without a graph or grammar loaded.
      * Call {@link #setGrammar(GrammarModel)} to complete construction.

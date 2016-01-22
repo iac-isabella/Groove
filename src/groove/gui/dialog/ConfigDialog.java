@@ -62,7 +62,7 @@ import javax.swing.event.ListSelectionListener;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class ConfigDialog<C> extends JDialog {
+public abstract class ConfigDialog<C> extends JDialog {
     /**
      * Constructs a new dialog instance.
      */

@@ -38,7 +38,7 @@ import java.util.List;
  * @author Arend Rensink
  * @version $Revision: 5702 $
  */
-final public class LTSJModel extends JModel<GTS> implements GTSListener {
+public final class LTSJModel extends JModel<GTS> implements GTSListener {
     /** Creates a new model from a given LTS and set of display options. */
     LTSJModel(LTSJGraph jGraph) {
         super(jGraph);

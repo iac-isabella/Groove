@@ -13,7 +13,7 @@ import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 
 /** Manager for undo actions to the graph grammar view. */
-final public class SimulatorUndoManager extends UndoManager implements
+public final class SimulatorUndoManager extends UndoManager implements
         SimulatorListener {
     /** Creates an undo manager for the given simulator. */
     public SimulatorUndoManager(Simulator simulator) {

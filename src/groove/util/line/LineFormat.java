@@ -26,7 +26,7 @@ import java.awt.Color;
  * @author Rensink
  * @version $Revision $
  */
-abstract public class LineFormat<R extends LineFormat.Builder<R>> {
+public abstract class LineFormat<R extends LineFormat.Builder<R>> {
     /** Converts a given Line to a String representation. */
     public String toString(Line line) {
         return line.toString(this).toString();
@@ -69,19 +69,19 @@ abstract public class LineFormat<R extends LineFormat.Builder<R>> {
     }
 
     /** Constructs a coloured rendering. */
-    abstract public R applyColored(ColorType type, Color color, R subline);
+    public abstract R applyColored(ColorType type, Color color, R subline);
 
     /** Constructs a styled rendering. */
-    abstract public R applyStyled(Style style, R subline);
+    public abstract R applyStyled(Style style, R subline);
 
     /** Constructs a rendering of a horizontal rule. */
-    abstract public R createHRule();
+    public abstract R createHRule();
 
     /** Constructs a rendering of an unstructured string. */
-    abstract public R applyAtomic(String text);
+    public abstract R applyAtomic(String text);
 
     /** Callback method to create a result object. */
-    abstract public R createResult();
+    public abstract R createResult();
 
     /** Result type, to be passed around during the construction. */
     public interface Builder<R extends Builder<R>> {

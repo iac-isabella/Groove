@@ -353,7 +353,7 @@ public class RuleModel extends GraphBasedModel<Rule> implements Comparable<RuleM
      * checked.
      * @return <code>true</code> if the rule is to be matched injectively.
      */
-    final public boolean isInjective() {
+    public final boolean isInjective() {
         return GraphInfo.isInjective(getSource()) || getGrammarProperties().isInjective();
     }
 

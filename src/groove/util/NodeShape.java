@@ -420,7 +420,7 @@ public enum NodeShape {
      * may be {@code null}, in which case the centre of the bounds is used
      * @param q target point
      */
-    final public Point2D getPerimeterPoint(Rectangle2D bounds, Point2D p, Point2D q) {
+    public final Point2D getPerimeterPoint(Rectangle2D bounds, Point2D p, Point2D q) {
         Point2D result;
         double cx = bounds.getCenterX();
         double cy = bounds.getCenterY();

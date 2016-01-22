@@ -342,7 +342,7 @@ public class RuleEffect extends DefaultFixable {
      * Created nodes may be duplicated or {@code null} due to the
      * combined effect of creation, merging and deletion.
      */
-    final public HostNode[] getCreatedNodeArray() {
+    public final HostNode[] getCreatedNodeArray() {
         assert isFixed();
         List<HostNode> createdNodes = this.createdNodeList;
         int createdNodeCount = createdNodes.size();
@@ -360,7 +360,7 @@ public class RuleEffect extends DefaultFixable {
     /** Indicates if the set of removed nodes is non-empty.
      * @see #getRemovedNodes() 
      */
-    final public boolean hasRemovedNodes() {
+    public final boolean hasRemovedNodes() {
         assert isFixed();
         return this.erasedNodes != null || hasMergeMap();
     }
@@ -369,7 +369,7 @@ public class RuleEffect extends DefaultFixable {
      * Returns the (possibly {@code null}) set of removed nodes.
      * This combines the explicitly erased nodes and the merged nodes.
      */
-    final public Set<HostNode> getRemovedNodes() {
+    public final Set<HostNode> getRemovedNodes() {
         assert isFixed();
         Set<HostNode> result;
         if (hasMergeMap()) {
@@ -397,7 +397,7 @@ public class RuleEffect extends DefaultFixable {
     /** Indicates if the set of removed edges is non-empty.
      * @see #getRemovedEdges() 
      */
-    final public boolean hasRemovedEdges() {
+    public final boolean hasRemovedEdges() {
         assert isFixed();
         return this.erasedEdges != null || hasRemovedNodes();
     }
@@ -408,7 +408,7 @@ public class RuleEffect extends DefaultFixable {
      * of the removed nodes (including the merged nodes).
      * @see #getRemovedNodes()
      */
-    final public Set<HostEdge> getRemovedEdges() {
+    public final Set<HostEdge> getRemovedEdges() {
         assert isFixed();
         Set<HostEdge> result = this.erasedEdges;
         if (hasRemovedNodes()) {
@@ -433,7 +433,7 @@ public class RuleEffect extends DefaultFixable {
     private HostEdgeSet removedEdges;
 
     /** Tests if a given edge is among the explicitly erased edges. */
-    final public boolean isErasedEdge(HostEdge edge) {
+    public final boolean isErasedEdge(HostEdge edge) {
         assert isFixed();
         return this.erasedEdges != null && this.erasedEdges.contains(edge);
     }
@@ -442,7 +442,7 @@ public class RuleEffect extends DefaultFixable {
      * Indicates if the set of added nodes is non-empty.
      * @see #getAddedNodes()
      */
-    final public boolean hasAddedNodes() {
+    public final boolean hasAddedNodes() {
         assert isFixed();
         return !this.createdNodeList.isEmpty();
     }
@@ -452,7 +452,7 @@ public class RuleEffect extends DefaultFixable {
      * The nodes returned are guaranteed to be non-{@code null} and
      * without duplicates.
      */
-    final public Iterable<HostNode> getAddedNodes() {
+    public final Iterable<HostNode> getAddedNodes() {
         assert isFixed();
         Collection<HostNode> result = this.createdNodeList;
         if (!result.isEmpty() && hasMergeMap()) {
@@ -495,7 +495,7 @@ public class RuleEffect extends DefaultFixable {
      * The edges returned by the iterator are guaranteed to be
      * without duplicates and fresh w.r.t. the source graph.
      */
-    final public Iterable<HostEdge> getAddedEdges() {
+    public final Iterable<HostEdge> getAddedEdges() {
         assert isFixed();
         Iterable<HostEdge> result = null;
         final Set<HostEdge> createdEdges = this.createdEdges;

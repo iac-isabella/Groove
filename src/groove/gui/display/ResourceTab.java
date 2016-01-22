@@ -56,7 +56,7 @@ import javax.swing.event.ChangeListener;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class ResourceTab extends JPanel {
+public abstract class ResourceTab extends JPanel {
     /** Creates a panel for a given display. */
     public ResourceTab(ResourceDisplay display) {
         final Simulator simulator = display.getSimulator();
@@ -181,7 +181,7 @@ abstract public class ResourceTab extends JPanel {
     /** 
      * Callback method to notify the tab of a change in grammar. 
      */
-    abstract public void updateGrammar(GrammarModel grammar);
+    public abstract void updateGrammar(GrammarModel grammar);
 
     /** Decorates a string by adding an indication of the editor being dirty. */
     protected StringBuilder decorateText(StringBuilder text) {
@@ -192,7 +192,7 @@ abstract public class ResourceTab extends JPanel {
     }
 
     /** Returns the resource kind of this editor tab. */
-    final public ResourceKind getResourceKind() {
+    public final ResourceKind getResourceKind() {
         return this.resourceKind;
     }
 
@@ -205,7 +205,7 @@ abstract public class ResourceTab extends JPanel {
      * exists (and so the main tab was not changed)
      * @throws UnsupportedOperationException if this is an editor tab
      */
-    abstract public boolean setResource(String name);
+    public abstract boolean setResource(String name);
 
     /** 
      * Removes a resource that is currently being edited from the
@@ -215,7 +215,7 @@ abstract public class ResourceTab extends JPanel {
      * @return {@code true} if this was the currently displayed resource
      * @throws UnsupportedOperationException if this is an editor tab
      */
-    abstract public boolean removeResource(String name);
+    public abstract boolean removeResource(String name);
 
     /** 
      * Indicates if this tab is an editor tab.
@@ -239,10 +239,10 @@ abstract public class ResourceTab extends JPanel {
     }
 
     /** Indicates if the editor has unsaved changes. */
-    abstract public boolean isDirty();
+    public abstract boolean isDirty();
 
     /** Sets the status of the editor to clean. */
-    abstract public void setClean();
+    public abstract void setClean();
 
     /** 
      * Saves and optionally disposes the editor, after an optional confirmation dialog.

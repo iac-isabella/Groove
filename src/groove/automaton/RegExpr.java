@@ -59,7 +59,7 @@ import java.util.TreeMap;
  * @author Arend Rensink
  * @version $Revision: 5486 $
  */
-abstract public class RegExpr { // implements VarSetSupport {
+public abstract class RegExpr { // implements VarSetSupport {
     /**
      * Constructs a regular expression with a given operator name and operator
      * symbol. This constructor is there for subclassing purposes.
@@ -317,14 +317,14 @@ abstract public class RegExpr { // implements VarSetSupport {
      * @return a clone of this expression, or this expression itself if {@code
      *         oldLabel} did not occur
      */
-    abstract public RegExpr relabel(TypeLabel oldLabel, TypeLabel newLabel);
+    public abstract RegExpr relabel(TypeLabel oldLabel, TypeLabel newLabel);
 
     /**
      * Returns the set of labels occurring in this regular expression. These are
      * the labels that, when relabelled, result in a different expression.
      * @see #relabel(TypeLabel, TypeLabel)
      */
-    abstract public Set<TypeLabel> getTypeLabels();
+    public abstract Set<TypeLabel> getTypeLabels();
 
     /** Indicates if the regular expression accepts the empty word. */
     public abstract boolean isAcceptsEmptyWord();
@@ -453,7 +453,7 @@ abstract public class RegExpr { // implements VarSetSupport {
      * Indicates if this expression is matched by a single node
      * This is the case if it consists only of node types and flags.
      */
-    abstract public boolean isBinary();
+    public abstract boolean isBinary();
 
     /** Returns a line representing this expression typeset properly. */
     public Line toLine() {
@@ -472,7 +472,7 @@ abstract public class RegExpr { // implements VarSetSupport {
      * Returns a list of {@link RegExpr}s that are the operands of this regular
      * expression.
      */
-    abstract public List<RegExpr> getOperands();
+    public abstract List<RegExpr> getOperands();
 
     /**
      * Accept method for a calculator.

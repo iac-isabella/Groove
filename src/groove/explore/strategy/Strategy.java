@@ -54,7 +54,7 @@ public abstract class Strategy {
      * Also sets the state to be explored to {@code null},
      * meaning that exploration will start at the start state of the GTS.
      */
-    final public void setGTS(GTS gts) {
+    public final void setGTS(GTS gts) {
         this.gts = gts;
         this.startState = null;
     }
@@ -65,14 +65,14 @@ public abstract class Strategy {
      * @param state the start state for the exploration; if {@code null},
      * the GTS start state will be used
      */
-    final public void setState(GraphState state) {
+    public final void setState(GraphState state) {
         this.startState = state;
     }
 
     /**
      * Adds an acceptor to the strategy.
      */
-    final public void setAcceptor(Acceptor acceptor) {
+    public final void setAcceptor(Acceptor acceptor) {
         assert acceptor != null;
         this.acceptor = acceptor;
     }
@@ -81,7 +81,7 @@ public abstract class Strategy {
      * Plays out this strategy, until a halting condition kicks in,
      * the thread is interrupted or the acceptor signals that exploration is done.
      */
-    final public void play() {
+    public final void play() {
         assert this.gts != null : "GTS not initialised";
         assert this.acceptor != null : "Acceptor not initialised";
         this.acceptor.prepare(this.gts);
@@ -104,7 +104,7 @@ public abstract class Strategy {
     }
 
     /** Signals if the last invocation of {@link #play} finished because the thread was interrupted. */
-    final public boolean isInterrupted() {
+    public final boolean isInterrupted() {
         return this.interrupted;
     }
 
@@ -122,7 +122,7 @@ public abstract class Strategy {
 
     /** Returns the last state explored by the last invocation of {@link #play}.
      */
-    final public GraphState getLastState() {
+    public final GraphState getLastState() {
         return this.lastState;
     }
 
@@ -130,7 +130,7 @@ public abstract class Strategy {
      * Returns a message recorded after exploration.
      * The message is non-{@code null} after {@link #play()} has returned.
      */
-    final public String getMessage() {
+    public final String getMessage() {
         StringBuilder result = new StringBuilder();
         if (isInterrupted()) {
             result.append("Exploration interrupted. ");

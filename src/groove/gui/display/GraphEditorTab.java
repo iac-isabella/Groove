@@ -97,7 +97,7 @@ import org.jgraph.graph.GraphUndoManager;
  * @author Arend Rensink
  * @version $Revision: 5628 $
  */
-final public class GraphEditorTab extends ResourceTab implements GraphModelListener,
+public final class GraphEditorTab extends ResourceTab implements GraphModelListener,
     PropertyChangeListener {
     /**
      * Constructs a new tab instance.

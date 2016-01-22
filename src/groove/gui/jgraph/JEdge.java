@@ -37,13 +37,13 @@ public interface JEdge<G extends Graph> extends JCell<G> {
      * Returns the j-vertex that is the parent of the source port of this
      * j-edge.
      */
-    abstract public JVertex<G> getSourceVertex();
+    public abstract JVertex<G> getSourceVertex();
 
     /**
      * Returns the j-vertex that is the parent of the target port of this
      * j-edge.
      */
-    abstract public JVertex<G> getTargetVertex();
+    public abstract JVertex<G> getTargetVertex();
 
     /**
      * Returns the common source of the underlying graph edges.

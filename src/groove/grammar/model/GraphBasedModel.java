@@ -41,7 +41,7 @@ import java.util.Set;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class GraphBasedModel<R> extends ResourceModel<R> {
+public abstract class GraphBasedModel<R> extends ResourceModel<R> {
     /** 
      * Creates a graph-based resource model from a given source.
      * @param grammar the grammar to which this resource belongs; may be {@code null}
@@ -68,7 +68,7 @@ abstract public class GraphBasedModel<R> extends ResourceModel<R> {
      * This method should only be called if the model contains no errors.
      * @return the mapping from source graph to resource elements
      */
-    abstract public ModelMap<?,?> getMap();
+    public abstract ModelMap<?,?> getMap();
 
     /**
      * Returns the set of labels occurring in this resource.
@@ -76,7 +76,7 @@ abstract public class GraphBasedModel<R> extends ResourceModel<R> {
      * even if the resource contains errors.
      * @return the set of labels occurring in the resource.
      */
-    abstract public Set<TypeLabel> getLabels();
+    public abstract Set<TypeLabel> getLabels();
 
     /** 
      * Returns a mapping from elements of the source aspect graph to their corresponding
@@ -84,7 +84,7 @@ abstract public class GraphBasedModel<R> extends ResourceModel<R> {
      * @return a mapping from the elements of {@link #getSource()} to types in the
      * associated type graph, or {@code null} if {@link #hasErrors()} holds 
      */
-    abstract public TypeModelMap getTypeMap();
+    public abstract TypeModelMap getTypeMap();
 
     /** 
      * Transfers a collection of errors according to the
@@ -112,7 +112,7 @@ abstract public class GraphBasedModel<R> extends ResourceModel<R> {
     private final AspectGraph source;
 
     /** Mapping from source graph elements to resource elements. */
-    abstract public static class ModelMap<N extends Node,E extends Edge>
+    public abstract static class ModelMap<N extends Node,E extends Edge>
             extends AElementMap<AspectNode,AspectEdge,N,E> {
         /**
          * Creates a new map, on the basis of a given factory.

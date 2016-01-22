@@ -150,7 +150,7 @@ class NodeTypeSearchItem extends AbstractSearchItem {
     }
 
     @Override
-    final public Record createRecord(groove.match.plan.PlanSearchStrategy.Search search) {
+    public final Record createRecord(groove.match.plan.PlanSearchStrategy.Search search) {
         if (this.nodeFound) {
             return createSingularRecord(search);
         } else {

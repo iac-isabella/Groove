@@ -134,7 +134,7 @@ public abstract class AEdge<N extends Node,L extends Label> implements GEdge<N> 
      * Delegates to {@link #computeHashCode()}.
      */
     @Override
-    final public int hashCode() {
+    public final int hashCode() {
         int result = this.hashCode;
         if (result == 0) {
             result = computeHashCode();

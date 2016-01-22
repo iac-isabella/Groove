@@ -37,7 +37,7 @@ import javax.swing.ToolTipManager;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class Display extends JPanel {
+public abstract class Display extends JPanel {
     /** Creates the singleton instance for a given simulator. */
     protected Display(Simulator simulator, DisplayKind kind) {
         super(new BorderLayout());
@@ -128,14 +128,14 @@ abstract public class Display extends JPanel {
     }
 
     /** Display kind of this component. */
-    final public DisplayKind getKind() {
+    public final DisplayKind getKind() {
         return this.kind;
     }
 
     /** Returns the kind of resource displayed here,
      * or {@code null} if this display is not for a resource.
      */
-    final public ResourceKind getResourceKind() {
+    public final ResourceKind getResourceKind() {
         return this.resource;
     }
 
@@ -153,17 +153,17 @@ abstract public class Display extends JPanel {
     }
 
     /** Returns the simulator to which this display belongs. */
-    final public Simulator getSimulator() {
+    public final Simulator getSimulator() {
         return this.simulator;
     }
 
     /** Convenience method to retrieve the simulator model. */
-    final public SimulatorModel getSimulatorModel() {
+    public final SimulatorModel getSimulatorModel() {
         return getSimulator().getModel();
     }
 
     /** Convenience method to retrieve the action store. */
-    final public ActionStore getActions() {
+    public final ActionStore getActions() {
         return getSimulator().getActions();
     }
 

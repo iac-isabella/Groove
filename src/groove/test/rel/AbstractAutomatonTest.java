@@ -65,7 +65,7 @@ import org.junit.Test;
  * @version $Revision: 5480 $
  */
 @SuppressWarnings("all")
-abstract public class AbstractAutomatonTest {
+public abstract class AbstractAutomatonTest {
     /** Directory with test files (relative to the project) */
     public static final String GRAPH_TEST_DIR = "junit/graphs";
     /** Directory with test grammar (relative to the project) */

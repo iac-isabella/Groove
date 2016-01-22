@@ -27,7 +27,7 @@ import java.util.Collection;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class HostNodeTreeHashSet extends TreeHashSet<HostNode> {
+public abstract class HostNodeTreeHashSet extends TreeHashSet<HostNode> {
     /** Constructs an empty set with a given initial capacity. */
     public HostNodeTreeHashSet(int capacity) {
         super(capacity, NODE_RESOLUTION, NODE_RESOLUTION);

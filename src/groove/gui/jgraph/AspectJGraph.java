@@ -68,7 +68,7 @@ import org.jgraph.graph.PortView;
 /**
  * Extension of {@link JGraph} for {@link AspectGraph}s.
  */
-final public class AspectJGraph extends JGraph<AspectGraph> {
+public final class AspectJGraph extends JGraph<AspectGraph> {
     /**
      * Creates a new instance, for a given graph role.
      * A flag determines whether the graph is editable.

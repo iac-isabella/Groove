@@ -31,7 +31,7 @@ import java.util.List;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class Term implements Position<Term,Derivation> {
+public abstract class Term implements Position<Term,Derivation> {
     /** Constructor for a prototype term. */
     private Term(Pool<Term> pool) {
         this.pool = pool;

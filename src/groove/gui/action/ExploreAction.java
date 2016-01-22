@@ -387,7 +387,7 @@ public class ExploreAction extends SimulatorAction {
          * dispatch thread to continue.
          */
         @Override
-        final public void run() {
+        public final void run() {
             final SimulatorModel simulatorModel = getSimulatorModel();
             GTS gts = simulatorModel.getGTS();
             displayProgress(gts);

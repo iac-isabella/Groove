@@ -226,7 +226,7 @@ public class Exploration {
      * compatible with this exploration
      * @see #test(Grammar)
      */
-    final public void play(GTS gts, GraphState state) throws FormatException {
+    public final void play(GTS gts, GraphState state) throws FormatException {
         this.lastGts = gts;
         Grammar grammar = gts.getGrammar();
         // parse the strategy

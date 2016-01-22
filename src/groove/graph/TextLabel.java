@@ -25,7 +25,7 @@ import groove.util.line.Line;
  * @author Arend Rensink
  * @version $Revision: 5479 $
  */
-abstract public class TextLabel implements Label, Cloneable {
+public abstract class TextLabel implements Label, Cloneable {
     /**
      * Constructs a standard implementation of Label on the basis of a given
      * text index. For internal purposes only.
@@ -60,7 +60,7 @@ abstract public class TextLabel implements Label, Cloneable {
     }
 
     @Override
-    final public EdgeRole getRole() {
+    public final EdgeRole getRole() {
         return EdgeRole.BINARY;
     }
 

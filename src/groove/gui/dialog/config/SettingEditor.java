@@ -29,28 +29,28 @@ import javax.swing.JPanel;
  * @author Arend Rensink
  * @version $Revision $
  */
-abstract public class SettingEditor extends JPanel implements Refreshable {
+public abstract class SettingEditor extends JPanel implements Refreshable {
     /** Returns the explore key for which this is an editor. */
-    abstract public ExploreKey getKey();
+    public abstract ExploreKey getKey();
 
     /** Returns the setting kind for which this is an editor. */
-    abstract public SettingKey getKind();
+    public abstract SettingKey getKind();
 
     /** Activates the editor. */
-    abstract public void activate();
+    public abstract void activate();
 
     /**
      * Returns the content according to the current state of the editor.
      * @throws FormatException if the current state cannot be parsed.
      */
-    abstract public Setting<?,?> getSetting() throws FormatException;
+    public abstract Setting<?,?> getSetting() throws FormatException;
 
     /** Fills the editor with a certain content. */
-    abstract public void setSetting(Setting<?,?> content);
+    public abstract void setSetting(Setting<?,?> content);
 
     /** Indicates that the editor is in an erroneous state. */
-    abstract public boolean hasError();
+    public abstract boolean hasError();
 
     /** Returns the current error in the editor, if any. */
-    abstract public String getError();
+    public abstract String getError();
 }

@@ -37,12 +37,12 @@ public abstract class ALabelEdge<N extends Node> extends AEdge<N,ALabelEdge<N>> 
     }
 
     @Override
-    final public String text() {
+    public final String text() {
         return toLine().toFlatString();
     }
 
     @Override
-    final public Line toLine() {
+    public final Line toLine() {
         if (this.line == null) {
             this.line = computeLine();
         }
@@ -75,7 +75,7 @@ public abstract class ALabelEdge<N extends Node> extends AEdge<N,ALabelEdge<N>> 
     }
 
     @Override
-    abstract public EdgeRole getRole();
+    public abstract EdgeRole getRole();
 
     @Override
     protected int computeHashCode() {
