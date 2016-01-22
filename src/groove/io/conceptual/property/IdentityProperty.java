@@ -12,8 +12,8 @@ import groove.io.conceptual.type.Class;
  * @version $Revision $
  */
 public class IdentityProperty implements Property {
-    final private Class m_class;
-    final private Name[] m_fieldNames;
+    private final Class m_class;
+    private final Name[] m_fieldNames;
     private Field[] m_fields;
 
     /** Constructs a property for a given set of fields (of a given class). */

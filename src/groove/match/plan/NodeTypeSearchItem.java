@@ -354,7 +354,7 @@ class NodeTypeSearchItem extends AbstractSearchItem {
         }
 
         /** The index of the source in the search. */
-        final private int sourceIx;
+        private final int sourceIx;
         /** Images for the type variables found during {@link #init()}. */
         private final TypeElement[] varFind;
         /** Image found by the latest call to {@link #next()}, if any. */

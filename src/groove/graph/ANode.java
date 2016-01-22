@@ -91,7 +91,7 @@ public abstract class ANode implements Node, Cloneable {
     }
 
     /** Returns the prefix for the {@link #toString()} methods. */
-    abstract protected String getToStringPrefix();
+    protected abstract String getToStringPrefix();
 
     /**
      * Compares the node numbers of two nodes.

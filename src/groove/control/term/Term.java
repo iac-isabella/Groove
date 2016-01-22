@@ -131,7 +131,7 @@ public abstract class Term implements Position<Term,Derivation> {
     private Type type = null;
 
     /** Computes the position type of this term. */
-    abstract protected Type computeType();
+    protected abstract Type computeType();
 
     @Override
     public final boolean isFinal() {
@@ -179,7 +179,7 @@ public abstract class Term implements Position<Term,Derivation> {
      * @param nested if {@code true}, the nested derivation is computed,
      * otherwise only the bottom-level derivation is computed
      */
-    abstract protected DerivationAttempt computeAttempt(boolean nested);
+    protected abstract DerivationAttempt computeAttempt(boolean nested);
 
     /** Callback factory method for a list of attempts. */
     protected final DerivationAttempt createAttempt() {
@@ -210,7 +210,7 @@ public abstract class Term implements Position<Term,Derivation> {
     }
 
     /** Computes the transient depth of this symbolic location. */
-    abstract protected int computeDepth();
+    protected abstract int computeDepth();
 
     private Integer depth;
 
@@ -218,7 +218,7 @@ public abstract class Term implements Position<Term,Derivation> {
      * Indicates if the execution of this term is guaranteed to
      * be atomic.
      */
-    abstract protected boolean isAtomic();
+    protected abstract boolean isAtomic();
 
     @Override
     public final int hashCode() {

@@ -115,13 +115,13 @@ public abstract class ResourceTab extends JPanel {
     }
 
     /** Callback method to construct the area where the actual editing goes on. */
-    abstract protected JComponent getEditArea();
+    protected abstract JComponent getEditArea();
 
     /**
      * Creates an observer for the error panel that will select the
      * erroneous part of the resource upon selection of an error.
      */
-    abstract protected Observer createErrorListener();
+    protected abstract Observer createErrorListener();
 
     /**
      * Displays a list of errors, or hides the error panel if the list is empty.
@@ -323,7 +323,7 @@ public abstract class ResourceTab extends JPanel {
     }
 
     /** Saves the resource that is currently being displayed. */
-    abstract protected void saveResource();
+    protected abstract void saveResource();
 
     /** Disposes the editor, by removing it as a listener and simulator panel component. */
     public void dispose() {

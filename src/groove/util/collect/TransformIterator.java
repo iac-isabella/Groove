@@ -95,7 +95,7 @@ public abstract class TransformIterator<T,U> implements Iterator<U> {
      *         <tt>next</tt>)
      * @throws IllegalArgumentException if <tt>from</tt> is to be filtered out
      */
-    abstract protected U toOuter(T from) throws IllegalArgumentException;
+    protected abstract U toOuter(T from) throws IllegalArgumentException;
 
     /**
      * The inner iterator; set in the constructor.

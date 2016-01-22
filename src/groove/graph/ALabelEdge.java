@@ -52,7 +52,7 @@ public abstract class ALabelEdge<N extends Node> extends AEdge<N,ALabelEdge<N>> 
     private Line line;
 
     /** Callback method to compute the line returned by {@link #toLine()}. */
-    abstract protected Line computeLine();
+    protected abstract Line computeLine();
 
     /** In general, we do not expect labels to be reconstructable from a string. */
     @Override
@@ -88,7 +88,7 @@ public abstract class ALabelEdge<N extends Node> extends AEdge<N,ALabelEdge<N>> 
     }
 
     /** Computes the hash code for the label part of this edge. */
-    abstract protected int computeLabelHash();
+    protected abstract int computeLabelHash();
 
     @Override
     protected boolean isTypeEqual(Object obj) {
@@ -97,7 +97,7 @@ public abstract class ALabelEdge<N extends Node> extends AEdge<N,ALabelEdge<N>> 
 
     /* Overwritten to avoid infinite recursion. */
     @Override
-    abstract protected boolean isLabelEqual(Edge other);
+    protected abstract boolean isLabelEqual(Edge other);
 
     @Override
     protected String getLabelText() {

@@ -153,7 +153,7 @@ public abstract class StoreFactory<N extends Node,E extends Edge,L extends Label
      * This will then be compared with the edge store to replace it by its
      * canonical representative.
      */
-    abstract protected E newEdge(N source, Label label, N target, int nr);
+    protected abstract E newEdge(N source, Label label, N target, int nr);
 
     /** Callback factory method to initialise the edge store. */
     protected TreeHashSet<E> createEdgeStore() {

@@ -79,7 +79,7 @@ public abstract class FreshNameDialog<Name> {
      * Callback method to create an object of the generic name type from a
      * string.
      */
-    abstract protected Name createName(String name);
+    protected abstract Name createName(String name);
 
     /**
      * Creates a dialog and makes it visible, so that the user can choose a file

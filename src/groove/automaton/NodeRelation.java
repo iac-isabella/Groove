@@ -350,6 +350,6 @@ public class NodeRelation implements Cloneable {
             return super.toString() + ", support: " + this.support.toString();
         }
 
-        final private Set<Element> support = new HashSet<Element>();
+        private final Set<Element> support = new HashSet<Element>();
     }
 }

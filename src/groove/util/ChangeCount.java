@@ -108,7 +108,7 @@ public class ChangeCount extends Observable {
         }
 
         /** Callback method to recompute the value. */
-        abstract protected O computeValue();
+        protected abstract O computeValue();
 
         private final Tracker tracker;
         private O value;

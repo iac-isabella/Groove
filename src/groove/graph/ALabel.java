@@ -41,7 +41,7 @@ public abstract class ALabel implements Cloneable, Label {
     private Line line;
 
     /** Callback method to compute the line returned by {@link #toLine()}. */
-    abstract protected Line computeLine();
+    protected abstract Line computeLine();
 
     /** In general, we do not expect labels to be reconstructable from a string. */
     @Override

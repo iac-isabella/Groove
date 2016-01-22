@@ -98,13 +98,13 @@ public abstract class ClosingStrategy extends GTSStrategy {
     /** Callback method to retrieve the next element from the pool.
      * @return the next element, or {@code null} when the exploration is done.
      */
-    abstract protected GraphState getFromPool();
+    protected abstract GraphState getFromPool();
 
     /** Callback method to add a non-transient graph state to the pool. */
-    abstract protected void putInPool(GraphState state);
+    protected abstract void putInPool(GraphState state);
 
     /** Clears the pool, in order to prepare the strategy for reuse. */
-    abstract protected void clearPool();
+    protected abstract void clearPool();
 
     /** Listener to keep track of states added to the GTS. */
     private final ExploreListener exploreListener = new ExploreListener();

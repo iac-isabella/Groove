@@ -240,7 +240,7 @@ public abstract class FormulaDialog {
      * @return the parsed object
      * @throws FormatException if there is a parse error
      */
-    abstract protected String parse(String text) throws FormatException;
+    protected abstract String parse(String text) throws FormatException;
 
     /** The choice box */
     private MyComboBox choiceBox;

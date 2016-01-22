@@ -42,7 +42,7 @@ public abstract class Visitor<T,R> {
      * @return if {@code true}, visiting should continue with the next
      * object; if {@code false}, the visitor is finished
      */
-    abstract protected boolean process(T object);
+    protected abstract boolean process(T object);
 
     /** 
      * Visits a (non-{@code null)} object.

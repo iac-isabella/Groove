@@ -212,7 +212,7 @@ public abstract class AbstractRuleEvent<R extends Rule,C extends AbstractRuleEve
      * @return a proof constructed from {@code match} whose events equals this one,
      * or {@code null} if there is no such proof
      */
-    abstract protected Proof extractProof(TreeMatch match);
+    protected abstract Proof extractProof(TreeMatch match);
 
     /** The rule for which this is an event. */
     private final R rule;
@@ -224,7 +224,7 @@ public abstract class AbstractRuleEvent<R extends Rule,C extends AbstractRuleEve
     static final HostNode[] EMPTY_NODE_ARRAY = new HostNode[0];
 
     /** Cache holding the anchor map. */
-    abstract protected class AbstractEventCache {
+    protected abstract class AbstractEventCache {
         // nothing here
     }
 }

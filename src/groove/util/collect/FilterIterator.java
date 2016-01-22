@@ -111,7 +111,7 @@ public abstract class FilterIterator<T> implements Iterator<T> {
      * @return <tt>true</tt> if <tt>obj</tt> should be passed on to
      *         {@link #next()}
      */
-    abstract protected boolean approves(Object obj);
+    protected abstract boolean approves(Object obj);
 
     /**
      * The inner iterator, that we are filtering.

@@ -59,13 +59,13 @@ public abstract class Display extends JPanel {
     /**
      * Callback method to build the content of the display panel.
      */
-    abstract protected void buildDisplay();
+    protected abstract void buildDisplay();
 
     /**
      * Callback method to install all listeners to the display.
      * This is called after building the display.
      */
-    abstract protected void installListeners();
+    protected abstract void installListeners();
 
     /** List panel corresponding to this tab; may be {@code null}. */
     public final ListPanel getListPanel() {
@@ -94,7 +94,7 @@ public abstract class Display extends JPanel {
     /**
      * Callback method to creates a tool bar for the list panel.
      */
-    abstract protected JToolBar createListToolBar();
+    protected abstract JToolBar createListToolBar();
 
     /** Returns the name list for this display. */
     public JComponent getList() {
@@ -105,7 +105,7 @@ public abstract class Display extends JPanel {
     }
 
     /** Callback method to create the resource list. */
-    abstract protected JComponent createList();
+    protected abstract JComponent createList();
 
     /**
      * Returns the information panel of the display.
@@ -119,7 +119,7 @@ public abstract class Display extends JPanel {
     }
 
     /** Callback method to create the information panel of the display. */
-    abstract protected JComponent createInfoPanel();
+    protected abstract JComponent createInfoPanel();
 
     /** Resets the list to {@code null}, causing it to be recreated. */
     protected void resetList() {

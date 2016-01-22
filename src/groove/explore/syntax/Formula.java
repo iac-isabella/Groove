@@ -61,7 +61,7 @@ public abstract class Formula {
      * Builds the display string for this expression in the
      * result parameter.
      */
-    abstract protected Line toLine(OpKind context);
+    protected abstract Line toLine(OpKind context);
 
     /**
      * Returns a string representation from which
@@ -81,7 +81,7 @@ public abstract class Formula {
      * Callback method to create the input string for such
      * expressions that were constructed rather than parsed.
      */
-    abstract protected String createParseString();
+    protected abstract String createParseString();
 
     /** Sets the string from which this expression has been parsed. */
     public void setParseString(String parseString) {

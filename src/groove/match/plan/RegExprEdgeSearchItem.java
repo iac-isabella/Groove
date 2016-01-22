@@ -388,9 +388,9 @@ class RegExprEdgeSearchItem extends AbstractSearchItem {
         /** The index of the target in the search. */
         private final int targetIx;
         /** Indicates if the source is found before this item is invoked. */
-        final private boolean sourceFound;
+        private final boolean sourceFound;
         /** Indicates if the target is found before this item is invoked. */
-        final private boolean targetFound;
+        private final boolean targetFound;
 
         private HostNode sourcePreMatch;
         private HostNode targetPreMatch;

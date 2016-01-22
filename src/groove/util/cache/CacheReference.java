@@ -321,6 +321,6 @@ public class CacheReference<C> extends SoftReference<C> {
     /**
      * Queue for garbage collected {@link CacheReference} objects.
      */
-    static final private ReferenceQueue<Object> queue =
+    static private final ReferenceQueue<Object> queue =
         new ReferenceQueue<Object>();
 }

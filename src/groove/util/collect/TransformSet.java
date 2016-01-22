@@ -110,7 +110,7 @@ public abstract class TransformSet<T,U> extends AbstractSet<U> {
      * @param key the value from the inner set
      * @return the corresponding visible value
      */
-    abstract protected U toOuter(T key);
+    protected abstract U toOuter(T key);
 
     /**
      * Callback method to transform a value visible from outside to a value in

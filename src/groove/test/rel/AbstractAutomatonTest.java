@@ -579,7 +579,7 @@ public abstract class AbstractAutomatonTest {
     }
 
     /** Factory method for the prototype automaton implementation. */
-    abstract protected RegAut getPrototype();
+    protected abstract RegAut getPrototype();
 
     /**
      * Constructs an automaton from a regular expression.

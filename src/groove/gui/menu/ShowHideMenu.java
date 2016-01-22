@@ -274,7 +274,7 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
      * hidden).
      * </ul>
      */
-    static abstract protected class ShowHideAction<G extends Graph> extends AbstractAction {
+    static protected abstract class ShowHideAction<G extends Graph> extends AbstractAction {
         /**
          * Constructs a nameless action.
          * @param jgraph the jgraph upon which this action works
@@ -375,7 +375,7 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
          * @return <tt>true</tt> if <tt>cell</tt> should be shown/hidden by this
          *         action
          */
-        abstract protected boolean isInvolved(JCell<G> jCell);
+        protected abstract boolean isInvolved(JCell<G> jCell);
 
         /** The jgraph upon which this menu works. */
         protected final JGraph<G> jgraph;

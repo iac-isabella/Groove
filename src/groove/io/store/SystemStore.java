@@ -230,7 +230,7 @@ public abstract class SystemStore extends UndoableEditSupport {
     }
 
     /** Indicates if there was a system properties file in the store. */
-    abstract protected boolean hasSystemProperties();
+    protected abstract boolean hasSystemProperties();
 
     /** Notifies the observers with a given string value. */
     final protected void notifyObservers(Edit edit) {

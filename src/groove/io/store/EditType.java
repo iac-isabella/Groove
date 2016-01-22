@@ -26,7 +26,7 @@ public enum EditType {
         return this.name;
     }
 
-    final private String name;
+    private final String name;
 
     /** Returns the enabling or disabling name. */
     public static String getEnableName(boolean enable) {

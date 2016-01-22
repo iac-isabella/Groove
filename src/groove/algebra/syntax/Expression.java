@@ -68,7 +68,7 @@ public abstract class Expression {
      * Builds the display string for this expression in the 
      * result parameter.
      */
-    abstract protected Line toLine(OpKind context);
+    protected abstract Line toLine(OpKind context);
 
     /** 
      * Returns a string representation from which
@@ -88,7 +88,7 @@ public abstract class Expression {
      * Callback method to create the input string for such 
      * expressions that were constructed rather than parsed.
      */
-    abstract protected String createParseString();
+    protected abstract String createParseString();
 
     /** Sets the string from which this expression has been parsed. */
     public void setParseString(String parseString) {
@@ -125,7 +125,7 @@ public abstract class Expression {
     }
 
     /** Factory method to create the variable map for this expression. */
-    abstract protected Map<String,Sort> computeVarMap();
+    protected abstract Map<String,Sort> computeVarMap();
 
     /**
      * Returns an expression obtained from this one by changing all

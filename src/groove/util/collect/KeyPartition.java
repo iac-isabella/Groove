@@ -187,7 +187,7 @@ public abstract class KeyPartition<T,U> {
      * Method to retrieve a key from a value. The method should return
      * <code>null</code> if the value is not of the appropriate type.
      */
-    abstract protected T getKey(Object value);
+    protected abstract T getKey(Object value);
 
     /**
      * @return Returns the partitionMap.

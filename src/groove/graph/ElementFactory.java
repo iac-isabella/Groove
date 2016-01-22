@@ -93,7 +93,7 @@ public abstract class ElementFactory<N extends Node,E extends Edge>
      * @author rensink
      * @version $Revision $
      */
-    abstract protected class DependentNodeFactory extends
+    protected abstract class DependentNodeFactory extends
             NodeFactory<N> {
         @Override
         protected N getNode(int nr) {

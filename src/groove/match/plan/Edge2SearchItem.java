@@ -531,15 +531,15 @@ class Edge2SearchItem extends AbstractSearchItem {
         }
 
         /** The index of the edge in the search. */
-        final private int edgeIx;
+        private final int edgeIx;
         /** The index of the source in the search. */
         final int sourceIx;
         /** The index of the target in the search. */
         final int targetIx;
         /** Indicates if the source is found before this item is invoked. */
-        final private boolean sourceFound;
+        private final boolean sourceFound;
         /** Indicates if the target is found before this item is invoked. */
-        final private boolean targetFound;
+        private final boolean targetFound;
 
         private HostNode sourceSeed;
         private HostNode targetSeed;

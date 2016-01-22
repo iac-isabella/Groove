@@ -483,7 +483,7 @@ public abstract class ConfigDialog<C> extends JDialog {
             this.dialog = dialog;
         }
 
-        final private ConfigDialog<?> dialog;
+        private final ConfigDialog<?> dialog;
 
         /**
          * Notification method of the {@link ItemListener}
@@ -606,7 +606,7 @@ public abstract class ConfigDialog<C> extends JDialog {
     }
 
     /** Callback method to create a fresh configuration. */
-    abstract protected C createConfig();
+    protected abstract C createConfig();
 
     /** Callback method to extract the configuration from the current settings. */
     protected C extractConfig() {

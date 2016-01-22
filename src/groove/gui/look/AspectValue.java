@@ -39,8 +39,8 @@ public abstract class AspectValue<T> implements VisualValue<T> {
     }
 
     /** Delegate method to retrieve the visual value from an {@link AspectJVertex}. */
-    abstract protected T getForJVertex(AspectJVertex jVertex);
+    protected abstract T getForJVertex(AspectJVertex jVertex);
 
     /** Delegate method to retrieve the visual value from an {@link AspectJEdge}. */
-    abstract protected T getForJEdge(AspectJEdge jEdge);
+    protected abstract T getForJEdge(AspectJEdge jEdge);
 }

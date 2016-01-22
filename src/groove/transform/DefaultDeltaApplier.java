@@ -208,11 +208,11 @@ public class DefaultDeltaApplier implements StoredDeltaApplier {
     }
 
     /** The set of added nodes of this delta. */
-    final private HostNodeSet addedNodeSet;
+    private final HostNodeSet addedNodeSet;
     /** The set of removed nodes of this delta. */
-    final private HostNodeSet removedNodeSet;
+    private final HostNodeSet removedNodeSet;
     /** The set of added edges of this delta. */
-    final private HostEdgeSet addedEdgeSet;
+    private final HostEdgeSet addedEdgeSet;
     /** The set of removed edges of this delta. */
-    final private HostEdgeSet removedEdgeSet;
+    private final HostEdgeSet removedEdgeSet;
 }

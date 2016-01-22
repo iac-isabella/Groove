@@ -425,7 +425,7 @@ public class PartitionRefiner extends CertificateStrategy {
          * @return the freshly computed new value
          * @see #setNewValue()
          */
-        abstract protected int computeNewValue();
+        protected abstract int computeNewValue();
 
         /** Returns the element of which this is a certificate. */
         @Override

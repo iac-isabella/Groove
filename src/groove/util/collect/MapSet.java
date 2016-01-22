@@ -111,7 +111,7 @@ public abstract class MapSet<K,E> extends AbstractSet<E> implements Set<E> {
      * @param value the value to construct the key from
      * @return the non-{@code null} key for {@code value}
      */
-    abstract protected K getKey(Object value);
+    protected abstract K getKey(Object value);
 
     private final Map<K,Set<E>> map = new HashMap<K,Set<E>>();
     private int size;

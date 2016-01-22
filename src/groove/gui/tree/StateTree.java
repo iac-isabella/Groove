@@ -531,7 +531,7 @@ public class StateTree extends JTree implements SimulatorListener {
     }
 
     /** Returns the simulator to which the state list belongs. */
-    final private SimulatorModel getSimulatorModel() {
+    private final SimulatorModel getSimulatorModel() {
         return this.simulator.getModel();
     }
 

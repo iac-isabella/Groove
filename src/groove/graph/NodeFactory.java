@@ -80,7 +80,7 @@ public abstract class NodeFactory<N extends Node> {
      * @return a previously created node with number {@code nr},
      * or {@code null} if there is no such node
      */
-    abstract protected N getNode(int nr);
+    protected abstract N getNode(int nr);
 
     /**
      * Callback method from {@link #createNode()} to register a given node
@@ -94,7 +94,7 @@ public abstract class NodeFactory<N extends Node> {
      * a given (previously existing) node is suitable to be produced
      * by this factory.
      */
-    abstract protected boolean isAllowed(N node);
+    protected abstract boolean isAllowed(N node);
 
     /** Callback factory method to create a node of the right type. */
     protected abstract N newNode(int nr);

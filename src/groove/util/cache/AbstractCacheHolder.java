@@ -69,7 +69,7 @@ public abstract class AbstractCacheHolder<C> implements CacheHolder<C> {
      * object.
      * @see #getCache()
      */
-    abstract protected C createCache();
+    protected abstract C createCache();
 
     /**
      * Sets the cache to garbage collectable. This is done by making the cache

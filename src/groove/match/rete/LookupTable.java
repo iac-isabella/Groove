@@ -30,10 +30,10 @@ import java.util.HashMap;
  * @version $Revision $
  */
 public class LookupTable {
-    final private HashMap<RuleNode,LookupEntry> nodeTable =
+    private final HashMap<RuleNode,LookupEntry> nodeTable =
         new HashMap<RuleNode,LookupEntry>();
 
-    final private HashMap<RuleEdge,Integer> edgeTable =
+    private final HashMap<RuleEdge,Integer> edgeTable =
         new HashMap<RuleEdge,Integer>();
 
     /**

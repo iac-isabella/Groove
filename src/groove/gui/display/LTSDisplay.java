@@ -381,7 +381,7 @@ public class LTSDisplay extends Display implements SimulatorListener {
     /**
      * Displays a list of errors, or hides the error panel if the list is empty.
      */
-    final private void updateErrors() {
+    private final void updateErrors() {
         Collection<FormatError> errors;
         GTS gts = getJModel() == null ? null : getJModel().getGraph();
         if (gts == null) {

@@ -464,7 +464,7 @@ public abstract class RegExpr { // implements VarSetSupport {
     }
 
     /** Callback method to create the line representation for this expression. */
-    abstract protected Line computeLine();
+    protected abstract Line computeLine();
 
     private Line line;
 
@@ -497,7 +497,7 @@ public abstract class RegExpr { // implements VarSetSupport {
      * @throws FormatException if <tt>expr</tt> appears to be an expression (of
      *         the kind implemented by the class) but is malformed
      */
-    abstract protected RegExpr parseOperator(String expr) throws FormatException;
+    protected abstract RegExpr parseOperator(String expr) throws FormatException;
 
     /**
      * Tests whether a given text may be regarded as an atom, according to the
@@ -1067,13 +1067,13 @@ public abstract class RegExpr { // implements VarSetSupport {
          * @return a new infix expression based on <tt>operands</tt>
          * @require <tt>operandList.size() >= 2</tt>
          */
-        abstract protected Infix newInstance(List<RegExpr> operandList);
+        protected abstract Infix newInstance(List<RegExpr> operandList);
 
         /**
          * Calculation of the actual operation, given precalculated argumants.
          * @see #apply(RegExprCalculator)
          */
-        abstract protected <Result> Result applyInfix(RegExprCalculator<Result> visitor,
+        protected abstract <Result> Result applyInfix(RegExprCalculator<Result> visitor,
             List<Result> argsList);
 
         @Override
@@ -1186,13 +1186,13 @@ public abstract class RegExpr { // implements VarSetSupport {
          * @param operand the operand of the postfix expression
          * @return a new postfix expression based on <tt>operand</tt>
          */
-        abstract protected Postfix newInstance(RegExpr operand);
+        protected abstract Postfix newInstance(RegExpr operand);
 
         /**
          * Calculation of the actual operation, given a precalculated argumant.
          * @see #apply(RegExprCalculator)
          */
-        abstract protected <Result> Result applyPostfix(RegExprCalculator<Result> visitor,
+        protected abstract <Result> Result applyPostfix(RegExprCalculator<Result> visitor,
             Result arg);
 
         /**
@@ -1296,13 +1296,13 @@ public abstract class RegExpr { // implements VarSetSupport {
          * @param operand the operand of the prefix expression
          * @return a new prefix expression based on <tt>operand</tt>
          */
-        abstract protected Prefix newInstance(RegExpr operand);
+        protected abstract Prefix newInstance(RegExpr operand);
 
         /**
          * Calculation of the actual operation, given a precalculated argumant.
          * @see #apply(RegExprCalculator)
          */
-        abstract protected <Result> Result applyPrefix(RegExprCalculator<Result> visitor, Result arg);
+        protected abstract <Result> Result applyPrefix(RegExprCalculator<Result> visitor, Result arg);
 
         /**
          * The (single) operand of the prefix operator.
@@ -1361,7 +1361,7 @@ public abstract class RegExpr { // implements VarSetSupport {
          * Factory method for a postfix expression.
          * @return a new postfix expression based on <tt>operand</tt>
          */
-        abstract protected Constant newInstance();
+        protected abstract Constant newInstance();
     }
 
     /**

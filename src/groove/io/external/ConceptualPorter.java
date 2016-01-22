@@ -84,11 +84,11 @@ public abstract class ConceptualPorter extends AbstractExporter implements Impor
     }
 
     /** Reads in type and instance models for an instance model import. */
-    abstract protected Pair<TypeModel,InstanceModel> importInstanceModel(File file,
+    protected abstract Pair<TypeModel,InstanceModel> importInstanceModel(File file,
         GrammarModel grammar) throws ImportException;
 
     /** Reads in type and instance models for a type import. */
-    abstract protected Pair<TypeModel,InstanceModel> importTypeModel(File file, GrammarModel grammar)
+    protected abstract Pair<TypeModel,InstanceModel> importTypeModel(File file, GrammarModel grammar)
         throws ImportException;
 
     @Override
@@ -153,7 +153,7 @@ public abstract class ConceptualPorter extends AbstractExporter implements Impor
     /** Callback method obtaining an exportable object in the required format.
      * @param isHost flag indicating that we want to export an instance model
      */
-    abstract protected ExportableResource getResource(File file, boolean isHost, TypeModel tm,
+    protected abstract ExportableResource getResource(File file, boolean isHost, TypeModel tm,
         InstanceModel im) throws PortException;
 
     /** Opens a configuration dialog and returns the resulting configuration object. */

@@ -60,14 +60,14 @@ public abstract class AbstractNestedIterator<T> implements Iterator<T> {
      * @throws NoSuchElementException if there is no next inner iterator (in
      *         which case {@link #hasNextIterator()} returns <tt>false</tt>.
      */
-    abstract protected Iterator<? extends T> nextIterator();
+    protected abstract Iterator<? extends T> nextIterator();
 
     /**
      * Returns <tt>true</tt> if there is a next (inner) iterator. It
      * <tt>true</tt>, then {@link #nextIterator()} returns a valid result.
      * @return <tt>true</tt> if there is a next (inner) iterator
      */
-    abstract protected boolean hasNextIterator();
+    protected abstract boolean hasNextIterator();
 
     /**
      * Signals if {@link #currentInnerIter} has a next value.

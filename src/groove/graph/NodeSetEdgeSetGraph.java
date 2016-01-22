@@ -311,13 +311,13 @@ public class NodeSetEdgeSetGraph<N extends Node,E extends GEdge<N>> extends AGra
         }
 
         /** Callback method, invoked when an element has been added to the set. */
-        abstract protected void fireAdd(EL elem);
+        protected abstract void fireAdd(EL elem);
 
         /**
          * Callback method, invoked when an element has been removed from the
          * set.
          */
-        abstract protected void fireRemove(EL elem);
+        protected abstract void fireRemove(EL elem);
     }
 
     /**
