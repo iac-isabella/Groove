@@ -84,7 +84,7 @@ public abstract class Display extends JPanel {
     }
 
     /** Creates and returns the fixed tool bar for the label list. */
-    final protected JToolBar getListToolBar() {
+    protected final JToolBar getListToolBar() {
         if (this.listToolBar == null) {
             this.listToolBar = createListToolBar();
         }

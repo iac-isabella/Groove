@@ -180,38 +180,38 @@ public abstract class SimulatorAction extends AbstractAction implements
     }
 
     /** Returns the control panel that owns the action. */
-    final protected ControlDisplay getControlDisplay() {
+    protected final ControlDisplay getControlDisplay() {
         return (ControlDisplay) getDisplaysPanel().getDisplay(
             (DisplayKind.CONTROL));
     }
 
     /** Returns the prolog panel that owns the action. */
-    final protected PrologDisplay getPrologDisplay() {
+    protected final PrologDisplay getPrologDisplay() {
         return (PrologDisplay) getDisplaysPanel().getDisplay(DisplayKind.PROLOG);
     }
 
     /** Returns the groovy panel that owns the action. */
-    final protected GroovyDisplay getGroovyDisplay() {
+    protected final GroovyDisplay getGroovyDisplay() {
         return (GroovyDisplay) getDisplaysPanel().getDisplay(DisplayKind.GROOVY);
     }
 
     /** Returns the LTS panel that owns the action. */
-    final protected LTSDisplay getLtsDisplay() {
+    protected final LTSDisplay getLtsDisplay() {
         return (LTSDisplay) getDisplaysPanel().getDisplay(DisplayKind.LTS);
     }
 
     /** Returns the state panel that owns the action. */
-    final protected StateDisplay getStateDisplay() {
+    protected final StateDisplay getStateDisplay() {
         return (StateDisplay) getDisplaysPanel().getDisplay(DisplayKind.STATE);
     }
 
     /** Returns the (possibly {@code null}) edit type of this action.*/
-    final protected EditType getEditType() {
+    protected final EditType getEditType() {
         return this.edit;
     }
 
     /** Returns the (possibly {@code null}) grammar resource being edited by this action.*/
-    final protected ResourceKind getResourceKind() {
+    protected final ResourceKind getResourceKind() {
         return this.resource;
     }
 
@@ -246,7 +246,7 @@ public abstract class SimulatorAction extends AbstractAction implements
      * @return a type graph not occurring in the current grammar, or
      *         <code>null</code>
      */
-    final protected String askNewName(String name, boolean mustBeFresh) {
+    protected final String askNewName(String name, boolean mustBeFresh) {
         ResourceKind kind = getResourceKind();
         String title =
             String.format("Select %s%s name", mustBeFresh ? "new " : "",
@@ -268,7 +268,7 @@ public abstract class SimulatorAction extends AbstractAction implements
      * Invokes a file chooser of the right type to save a given aspect graph,
      * and returns the chosen (possibly {@code null}) file.
      */
-    final protected File askSaveResource(String name) {
+    protected final File askSaveResource(String name) {
         FileType filter = getResourceKind().getFileType();
         GrooveFileChooser chooser = GrooveFileChooser.getInstance(filter);
         chooser.setSelectedFile(new File(name));
@@ -282,7 +282,7 @@ public abstract class SimulatorAction extends AbstractAction implements
      *         replacement, neither of which can be <code>null</code>; or
      *         <code>null</code> if the dialog was cancelled.
      */
-    final protected Duo<TypeLabel> askFindSearch(TypeLabel oldLabel) {
+    protected final Duo<TypeLabel> askFindSearch(TypeLabel oldLabel) {
         FindReplaceDialog dialog =
             new FindReplaceDialog(
                 getSimulatorModel().getGrammar().getTypeGraph(), oldLabel);
@@ -307,7 +307,7 @@ public abstract class SimulatorAction extends AbstractAction implements
      * Creates and shows an {@link ErrorDialog} for a given message and
      * exception.
      */
-    final protected void showErrorDialog(Throwable exc, String message,
+    protected final void showErrorDialog(Throwable exc, String message,
             Object... args) {
         final ErrorDialog dialog =
             new ErrorDialog(getFrame(), String.format(message, args), exc);
@@ -332,7 +332,7 @@ public abstract class SimulatorAction extends AbstractAction implements
     /**
      * Checks if a given option is confirmed.
      */
-    final protected boolean confirmBehaviourOption(String option) {
+    protected final boolean confirmBehaviourOption(String option) {
         return confirmBehaviour(option, null);
     }
 
@@ -340,7 +340,7 @@ public abstract class SimulatorAction extends AbstractAction implements
      * Checks if a given option is confirmed. The question can be set
      * explicitly.
      */
-    final protected boolean confirmBehaviour(String option, String question) {
+    protected final boolean confirmBehaviour(String option, String question) {
         BehaviourOption menu =
             (BehaviourOption) getSimulator().getOptions().getItem(option);
         return menu.confirm(getFrame(), question);
@@ -350,7 +350,7 @@ public abstract class SimulatorAction extends AbstractAction implements
      * Asks whether a given existing resource, of a the kind of this action,
      * should be replaced by a newly loaded one.
      */
-    final protected boolean confirmOverwrite(String name) {
+    protected final boolean confirmOverwrite(String name) {
         return confirmOverwrite(getResourceKind(), name);
     }
 
@@ -358,7 +358,7 @@ public abstract class SimulatorAction extends AbstractAction implements
      * Asks whether a given existing resource, of a given kind,
      * should be replaced by a newly loaded one.
      */
-    final protected boolean confirmOverwrite(ResourceKind resource, String name) {
+    protected final boolean confirmOverwrite(ResourceKind resource, String name) {
         int response =
             JOptionPane.showConfirmDialog(
                 getFrame(),
@@ -372,7 +372,7 @@ public abstract class SimulatorAction extends AbstractAction implements
      * Asks whether a given existing file should be overwritten by a new
      * grammar.
      */
-    final protected boolean confirmOverwriteGrammar(File grammarFile) {
+    protected final boolean confirmOverwriteGrammar(File grammarFile) {
         if (grammarFile.exists()) {
             int response =
                 JOptionPane.showConfirmDialog(getFrame(),
@@ -387,7 +387,7 @@ public abstract class SimulatorAction extends AbstractAction implements
     /**
      * Returns the file chooser for rule (GPR) files, lazily creating it first.
      */
-    final protected JFileChooser getRuleFileChooser() {
+    protected final JFileChooser getRuleFileChooser() {
         return GrooveFileChooser.getInstance(FileType.RULE);
     }
 
@@ -395,14 +395,14 @@ public abstract class SimulatorAction extends AbstractAction implements
      * Returns the file chooser for state (GST or GXL) files, lazily creating it
      * first.
      */
-    final protected JFileChooser getStateFileChooser() {
+    protected final JFileChooser getStateFileChooser() {
         return GrooveFileChooser.getInstance(FileType.HOSTS);
     }
 
     /**
      * Return a file chooser for prolog files
      */
-    final protected JFileChooser getPrologFileChooser() {
+    protected final JFileChooser getPrologFileChooser() {
         return GrooveFileChooser.getInstance(FileType.PROLOG);
     }
 
@@ -410,7 +410,7 @@ public abstract class SimulatorAction extends AbstractAction implements
      * Returns the file chooser for grammar (GPS) files, lazily creating it
      * first.
      */
-    final protected JFileChooser getGrammarFileChooser() {
+    protected final JFileChooser getGrammarFileChooser() {
         return getGrammarFileChooser(false);
     }
 
@@ -420,7 +420,7 @@ public abstract class SimulatorAction extends AbstractAction implements
      * @param includeArchives flag to indicate if archive (ZIP and JAR) files
      * should also be recognised by the chooser
      */
-    final protected JFileChooser getGrammarFileChooser(boolean includeArchives) {
+    protected final JFileChooser getGrammarFileChooser(boolean includeArchives) {
         if (includeArchives) {
             return GrooveFileChooser.getInstance(FileType.GRAMMARS);
         } else {
@@ -431,7 +431,7 @@ public abstract class SimulatorAction extends AbstractAction implements
     /**
      * Returns the last file from which a grammar was loaded.
      */
-    final protected File getLastGrammarFile() {
+    protected final File getLastGrammarFile() {
         File result = null;
         SystemStore store = getSimulatorModel().getStore();
         Object location = store == null ? null : store.getLocation();
@@ -449,7 +449,7 @@ public abstract class SimulatorAction extends AbstractAction implements
      * @param selectedFile file for the grammar element, possibly with extension
      * @throws IOException if the name is not well-formed
      */
-    final protected String getNameInGrammar(File selectedFile)
+    protected final String getNameInGrammar(File selectedFile)
         throws IOException {
         FileType filter = getResourceKind().getFileType();
         // find out if this is within the grammar directory

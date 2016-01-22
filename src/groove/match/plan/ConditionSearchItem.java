@@ -290,7 +290,7 @@ class ConditionSearchItem extends AbstractSearchItem {
     /**
      * Search record for a graph condition.
      */
-    abstract private class PatternRecord extends SingularRecord {
+    private abstract class PatternRecord extends SingularRecord {
         /** Constructs a record for a given search. */
         public PatternRecord(Search search) {
             super(search);

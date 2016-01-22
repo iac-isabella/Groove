@@ -222,7 +222,7 @@ public abstract interface Parser<T> {
         /**
          * Indicates if negative numbers are allowed.
          */
-        final protected boolean allowsNeg() {
+        protected final boolean allowsNeg() {
             return this.neg;
         }
 

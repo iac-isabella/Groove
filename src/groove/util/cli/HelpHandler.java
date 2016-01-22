@@ -47,7 +47,7 @@ public class HelpHandler extends OptionHandler<Boolean> {
     }
 
     /** Name of the help option. */
-    public final static String NAME = "-h";
+    public static final String NAME = "-h";
     /** Usage message for the help option. */
-    public final static String USAGE = "Print this help message and exit";
+    public static final String USAGE = "Print this help message and exit";
 }

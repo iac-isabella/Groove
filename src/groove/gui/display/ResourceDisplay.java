@@ -96,7 +96,7 @@ public class ResourceDisplay extends Display implements SimulatorListener {
      * Returns the panel holding all display tabs.
      * This may or may not be the same as #getDisplayPanel().
      */
-    final protected MyTabbedPane createTabPane() {
+    protected final MyTabbedPane createTabPane() {
         return new MyTabbedPane();
     }
 

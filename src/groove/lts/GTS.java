@@ -814,19 +814,19 @@ public class GTS extends AGraph<GraphState,GraphTransition> implements Cloneable
      * Tree resolution of the state set (which is a {@link TreeHashSet}). A
      * smaller value means memory savings; a larger value means speedup.
      */
-    public final static int STATE_SET_RESOLUTION = 2;
+    public static final int STATE_SET_RESOLUTION = 2;
 
     /**
      * Tree root resolution of the state set (which is a {@link TreeHashSet}).
      * A larger number means speedup, but the memory initially reserved for the
      * set grows exponentially with this number.
      */
-    public final static int STATE_SET_ROOT_RESOLUTION = 10;
+    public static final int STATE_SET_ROOT_RESOLUTION = 10;
 
     /**
      * Number of states for which the state set should have room initially.
      */
-    public final static int INITIAL_STATE_SET_SIZE = 10000;
+    public static final int INITIAL_STATE_SET_SIZE = 10000;
 
     /** The text of the self-edge label that indicates a start state. */
     public static final String START_LABEL_TEXT = "start";

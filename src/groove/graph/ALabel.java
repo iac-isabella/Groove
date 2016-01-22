@@ -115,7 +115,7 @@ public abstract class ALabel implements Cloneable, Label {
      * Mask that is a function of the label kind,
      * and may be used to modify the label hash code.
      */
-    final protected int getKindMask() {
+    protected final int getKindMask() {
         int mask;
         switch (getRole()) {
         case NODE_TYPE:

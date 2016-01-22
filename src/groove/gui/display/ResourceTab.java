@@ -104,7 +104,7 @@ public abstract class ResourceTab extends JPanel {
     }
 
     /** Lazily creates and returns the error panel. */
-    final protected ListPanel getErrorPanel() {
+    protected final ListPanel getErrorPanel() {
         if (this.errorPanel == null) {
             this.errorPanel =
                 new ErrorListPanel(
@@ -126,7 +126,7 @@ public abstract class ResourceTab extends JPanel {
     /**
      * Displays a list of errors, or hides the error panel if the list is empty.
      */
-    final protected void updateErrors() {
+    protected final void updateErrors() {
         getErrorPanel().setEntries(getErrors());
         if (getErrorPanel().isVisible()) {
             getMainPanel().setBottomComponent(getErrorPanel());
@@ -348,7 +348,7 @@ public abstract class ResourceTab extends JPanel {
     }
 
     /** Indicates if the displayed resource is currently in an error state. */
-    final protected boolean hasErrors() {
+    protected final boolean hasErrors() {
         return !getErrors().isEmpty();
     }
 

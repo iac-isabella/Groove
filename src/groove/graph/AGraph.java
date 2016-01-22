@@ -266,7 +266,7 @@ AbstractCacheHolder<GraphCache<N,E>> implements GGraph<N,E> {
     /**
      * Returns the node counter used to number nodes distinctly.
      */
-    final protected Dispenser getNodeCounter() {
+    protected final Dispenser getNodeCounter() {
         return getCache().getNodeCounter();
     }
 

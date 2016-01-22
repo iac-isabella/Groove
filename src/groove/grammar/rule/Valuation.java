@@ -62,5 +62,5 @@ public class Valuation extends LinkedHashMap<LabelVar,TypeElement> {
     }
 
     /** The empty valuation. */
-    public final static Valuation EMPTY = new Valuation();
+    public static final Valuation EMPTY = new Valuation();
 }

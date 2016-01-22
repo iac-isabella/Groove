@@ -273,7 +273,7 @@ public class Util {
     private static final long FIFTY_MB = 1024 * 1024 * 50;
 
     /** Reads a CSV file from the resources dir and returns its contents as a String matrix. */
-    public final static List<String[]> readCSV(String name, char sep) {
+    public static final List<String[]> readCSV(String name, char sep) {
         List<String[]> result = null;
         try {
             CSVReader reader =
@@ -288,15 +288,15 @@ public class Util {
     }
 
     /** Unicode hex string for "there exists" (existential quantifier) */
-    public final static char EXISTS = '\u2203';
+    public static final char EXISTS = '\u2203';
     /** Unicode hex string for "for all" (universal quantifier) */
-    public final static char FORALL = '\u2200';
+    public static final char FORALL = '\u2200';
     /** Unicode hex string for "and" (conjunction) */
-    public final static char WEDGE = '\u2227';
+    public static final char WEDGE = '\u2227';
     /** Unicode hex string for "or" (disjunction) */
-    public final static char VEE = '\u2228';
+    public static final char VEE = '\u2228';
     /** Unicode hex string for "not" (negation) */
-    public final static char NEG = '\u00AC';
+    public static final char NEG = '\u00AC';
 
     /** Lower case letter pi. */
     public static final char LC_PI = '\u03C0';

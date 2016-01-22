@@ -338,7 +338,7 @@ public abstract class Template<A> implements EncodedType<A,Serialized> {
      * to be defined by any concrete subclass.
      * <!---------------------------------------------------------------------->
      */
-    public static abstract class Template0<X> extends Template<X> {
+    public abstract static class Template0<X> extends Template<X> {
 
         /**
          * Localized creation of the Template class (with no arguments).
@@ -377,7 +377,7 @@ public abstract class Template<A> implements EncodedType<A,Serialized> {
      * to be defined by any concrete subclass.
      * <!---------------------------------------------------------------------->
      */
-    public static abstract class Template1<X,P1> extends Template<X> {
+    public abstract static class Template1<X,P1> extends Template<X> {
 
         private final EncodedType<P1,String> type1;
         private final String name1;
@@ -435,7 +435,7 @@ public abstract class Template<A> implements EncodedType<A,Serialized> {
      * to be defined by any concrete subclass.
      * <!---------------------------------------------------------------------->
      */
-    public static abstract class Template2<X,P1,P2> extends Template<X> {
+    public abstract static class Template2<X,P1,P2> extends Template<X> {
 
         private final EncodedType<P1,String> type1;
         private final String name1;
@@ -508,7 +508,7 @@ public abstract class Template<A> implements EncodedType<A,Serialized> {
      * <!---------------------------------------------------------------------->
      * This class does not perform any typing checks
      */
-    public static abstract class TemplateN<X> extends Template<X> {
+    public abstract static class TemplateN<X> extends Template<X> {
         private final String[] typenames;
         private final EncodedType<? extends Object,String>[] encodedtypes;
 

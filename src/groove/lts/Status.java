@@ -72,7 +72,7 @@ public class Status {
     private static final int ABSENCE_SHIFT = 25;
 
     /** Maximal absence value. */
-    public final static int MAX_ABSENCE = 1 << (31 - ABSENCE_SHIFT);
+    public static final int MAX_ABSENCE = 1 << (31 - ABSENCE_SHIFT);
 
     /** Returns the (fixed) status object for a given integer representation. */
     public static Status instance(int status) {

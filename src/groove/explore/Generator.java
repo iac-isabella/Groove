@@ -343,7 +343,7 @@ public class Generator extends GrooveCmdLineTool<ExploreResult> {
     public static final String ACCEPTOR_VAR = "acc";
 
     /** Usage message for the acceptor option. */
-    public final static String ACCEPTOR_USAGE = "" + "Set the acceptor to <acc>. "
+    public static final String ACCEPTOR_USAGE = "" + "Set the acceptor to <acc>. "
         + "The acceptor determines when a state is counted as a result of the exploration. "
         + "Legal values are:\n" //
         + "    final      - When final (default)\n" //
@@ -371,11 +371,11 @@ public class Generator extends GrooveCmdLineTool<ExploreResult> {
         "Stop exploration after <num> result states (default is 0 for \"unbounded\")";
 
     /** Option name for the strategy option. */
-    public final static String STRATEGY_NAME = "-s";
+    public static final String STRATEGY_NAME = "-s";
     /** Meta-variable name for the strategy option. */
-    public final static String STRATEGY_VAR = "strgy";
+    public static final String STRATEGY_VAR = "strgy";
     /** Usage message for the strategy option. */
-    public final static String STRATEGY_USAGE = ""
+    public static final String STRATEGY_USAGE = ""
         + "Set the exploration strategy to <strgy>. Legal values are:\n"
         + "  bfs         - Breadth-first Exploration\n"
         + "  dfs         - Depth-first Exploration\n"

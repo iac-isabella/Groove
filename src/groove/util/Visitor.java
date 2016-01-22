@@ -69,12 +69,12 @@ public abstract class Visitor<T,R> {
     }
 
     /** Tests if the result object has been set. */
-    final protected boolean hasResult() {
+    protected final boolean hasResult() {
         return this.result != null;
     }
 
     /** Sets the visitor result to a given value. */
-    final protected void setResult(R result) {
+    protected final void setResult(R result) {
         this.result = result;
     }
 

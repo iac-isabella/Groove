@@ -391,7 +391,7 @@ public class MultiLabel {
         private static final Map<DirectBag,DirectBag> pool =
             new HashMap<MultiLabel.DirectBag,MultiLabel.DirectBag>();
         /** The zero element. */
-        public final static DirectBag ZERO = norm(new DirectBag());
+        public static final DirectBag ZERO = norm(new DirectBag());
     }
 
     private static final String SP = "" + Util.THIN_SPACE;

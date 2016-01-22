@@ -921,7 +921,7 @@ public class DefaultFileSystemStore extends SystemStore {
         }
 
         /** Returns a fresh set consisting of the names of a given set of graphs. */
-        final protected Set<String> getNames(Collection<AspectGraph> graphs) {
+        protected final Set<String> getNames(Collection<AspectGraph> graphs) {
             Set<String> result = new HashSet<String>();
             for (AspectGraph graph : graphs) {
                 result.add(graph.getName());

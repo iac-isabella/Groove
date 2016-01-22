@@ -61,5 +61,5 @@ public class AnyStateAcceptor extends Acceptor {
     }
 
     /** Prototype acceptor. */
-    public final static AnyStateAcceptor PROTOTYPE = new AnyStateAcceptor();
+    public static final AnyStateAcceptor PROTOTYPE = new AnyStateAcceptor();
 }

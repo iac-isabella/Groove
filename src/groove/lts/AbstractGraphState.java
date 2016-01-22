@@ -129,7 +129,7 @@ public abstract class AbstractGraphState extends AbstractCacheHolder<StateCache>
      * Returns an iterator over the outgoing transitions as stored, i.e.,
      * without encodings taken into account.
      */
-    final protected Iterator<? extends GraphTransitionStub> getTransitionStubIter() {
+    protected final Iterator<? extends GraphTransitionStub> getTransitionStubIter() {
         if (isClosed()) {
             return getStoredTransitionStubs().iterator();
         } else {

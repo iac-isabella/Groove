@@ -210,7 +210,7 @@ public class Bisimulator extends CertificateStrategy {
     /**
      * Superclass of graph element certificates.
      */
-    public static abstract class Certificate<EL extends Element> implements
+    public abstract static class Certificate<EL extends Element> implements
             CertificateStrategy.ElementCertificate<EL> {
         /** Constructs a certificate for a given graph element. */
         Certificate(EL element) {

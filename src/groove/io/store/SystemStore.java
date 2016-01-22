@@ -233,7 +233,7 @@ public abstract class SystemStore extends UndoableEditSupport {
     protected abstract boolean hasSystemProperties();
 
     /** Notifies the observers with a given string value. */
-    final protected void notifyObservers(Edit edit) {
+    protected final void notifyObservers(Edit edit) {
         this.observable.notifyObservers(edit);
     }
 

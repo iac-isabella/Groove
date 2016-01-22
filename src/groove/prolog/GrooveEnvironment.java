@@ -276,7 +276,7 @@ public class GrooveEnvironment extends Environment {
     /**
      * Atom term "no_groove_environment"
      */
-    public final static AtomTerm NO_GROOVE_ENV = AtomTerm.get("no_groove_environment");
+    public static final AtomTerm NO_GROOVE_ENV = AtomTerm.get("no_groove_environment");
 
     /** Classes of predefined Groove predicates. */
     @SuppressWarnings("unchecked")

@@ -94,7 +94,7 @@ public class PlanSearchStrategy implements SearchStrategy {
     /**
      * Retrieves the search plan for this strategy.
      */
-    final protected SearchPlan getPlan() {
+    protected final SearchPlan getPlan() {
         return this.plan;
     }
 

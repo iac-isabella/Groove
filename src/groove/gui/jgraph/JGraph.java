@@ -1303,7 +1303,7 @@ public abstract class JGraph<G extends Graph> extends org.jgraph.JGraph {
     private boolean layouting;
 
     /** Sets the visual refreshed to be used for a given visual key. */
-    final protected void setVisualValue(VisualKey key, VisualValue<?> value) {
+    protected final void setVisualValue(VisualKey key, VisualValue<?> value) {
         this.visualValueMap.put(key, value);
     }
 

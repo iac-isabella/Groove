@@ -363,7 +363,7 @@ public class PartitionRefiner extends CertificateStrategy {
     /**
      * Superclass of graph element certificates.
      */
-    public static abstract class MyCert<E extends Element> implements
+    public abstract static class MyCert<E extends Element> implements
             CertificateStrategy.ElementCertificate<E> {
         /** Constructs a certificate for a given graph element. */
         MyCert(E element) {

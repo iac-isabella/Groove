@@ -151,25 +151,25 @@ public class AntlrGrapher {
     private static final String TOKEN_NAMES = "tokenNames";
 
     /** Default label to be used for child edges. */
-    public final static TypeLabel CHILD_LABEL =
+    public static final TypeLabel CHILD_LABEL =
         TypeLabel.createBinaryLabel("child");
     /** Default label to be used for next edges. */
-    public final static TypeLabel NEXT_LABEL =
+    public static final TypeLabel NEXT_LABEL =
         TypeLabel.createBinaryLabel("next");
     /** Default label to be used for text edges. */
-    public final static TypeLabel TEXT_LABEL =
+    public static final TypeLabel TEXT_LABEL =
         TypeLabel.createBinaryLabel("text");
     /** Flag to be used for the first child. */
-    public final static TypeLabel FIRST_FLAG = TypeLabel.createLabel(
+    public static final TypeLabel FIRST_FLAG = TypeLabel.createLabel(
         EdgeRole.FLAG, "first");
     /** Flag to be used for the last child. */
-    public final static TypeLabel LAST_FLAG = TypeLabel.createLabel(
+    public static final TypeLabel LAST_FLAG = TypeLabel.createLabel(
         EdgeRole.FLAG, "last");
     /** Flag to be used for a childless token node. */
-    public final static TypeLabel LEAF_FLAG = TypeLabel.createLabel(
+    public static final TypeLabel LEAF_FLAG = TypeLabel.createLabel(
         EdgeRole.FLAG, "leaf");
     /** Type of the (abstract) top node. */
-    public final static TypeLabel TOP_TYPE = TypeLabel.createLabel(
+    public static final TypeLabel TOP_TYPE = TypeLabel.createLabel(
         EdgeRole.NODE_TYPE, "TOP$");
     /** String type label. */
     private static final TypeLabel STRING_TYPE = TypeLabel.createLabel(

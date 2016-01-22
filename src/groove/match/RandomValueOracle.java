@@ -63,7 +63,7 @@ public class RandomValueOracle implements ValueOracle {
     }
 
     /** Returns the singleton instance of this class. */
-    public final static RandomValueOracle instance() {
+    public static final RandomValueOracle instance() {
         return instance;
     }
 

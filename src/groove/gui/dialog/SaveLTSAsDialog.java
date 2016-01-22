@@ -585,7 +585,7 @@ public class SaveLTSAsDialog {
      * @author Arend Rensink
      * @version $Revision $
      */
-    abstract private class FieldListener implements DocumentListener {
+    private abstract class FieldListener implements DocumentListener {
         private final JTextField field;
         private final String message;
 

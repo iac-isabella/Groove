@@ -37,7 +37,7 @@ public class DefaultValueOracle implements ValueOracle {
     }
 
     /** Returns the singleton instance of this class. */
-    public final static DefaultValueOracle instance() {
+    public static final DefaultValueOracle instance() {
         return instance;
     }
 

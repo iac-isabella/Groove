@@ -565,7 +565,7 @@ public class StateTree extends JTree implements SimulatorListener {
     private static final int MAX_EXPANDED = 2;
 
     /** Tree node with a number that allows a binary search. */
-    abstract private static class NumberedTreeNode extends DisplayTreeNode {
+    private abstract static class NumberedTreeNode extends DisplayTreeNode {
         /** Creates a tree node with a given user object. */
         protected NumberedTreeNode(Object userObject) {
             super(userObject, true);

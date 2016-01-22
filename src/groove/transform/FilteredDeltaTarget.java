@@ -80,7 +80,7 @@ public class FilteredDeltaTarget implements DeltaTarget {
     /**
      * Returns the filtering mode of this target.
      */
-    final protected int getMode() {
+    protected final int getMode() {
         return this.mode;
     }
 

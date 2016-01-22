@@ -200,5 +200,5 @@ public class JGraphPanel<G extends Graph> extends JPanel {
      * The minimum width of the label pane. If the label list is empty, the
      * preferred width is set to the minimum width.
      */
-    public final static int MINIMUM_LABEL_PANE_WIDTH = 100;
+    public static final int MINIMUM_LABEL_PANE_WIDTH = 100;
 }

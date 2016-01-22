@@ -53,7 +53,7 @@ public final class HostEdgeSet extends HostEdgeTreeHashSet {
      * Factory method to copy a given set of host edges or create a new one.
      * @param set the set to be copied; if {@code null}, a fresh empty set is returned.
      */
-    public final static HostEdgeSet newInstance(
+    public static final HostEdgeSet newInstance(
             Collection<? extends HostEdge> set) {
         HostEdgeSet result;
         if (set == null) {

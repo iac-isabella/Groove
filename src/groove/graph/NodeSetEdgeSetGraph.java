@@ -193,7 +193,7 @@ public class NodeSetEdgeSetGraph<N extends Node,E extends GEdge<N>> extends AGra
      * Extension of <tt>Set</tt> that invokes the notify methods of the graph
      * when elements are added or deleted
      */
-    abstract private class NotifySet<EL extends Element> extends LinkedHashSet<EL> {
+    private abstract class NotifySet<EL extends Element> extends LinkedHashSet<EL> {
         /**
          * An iterator over the underlying hash set that extends
          * <tt>remove()</tt> by invoking the graph listeners.
@@ -344,13 +344,13 @@ public class NodeSetEdgeSetGraph<N extends Node,E extends GEdge<N>> extends AGra
 
         /** Delegates to {@link NodeSetEdgeSetGraph#fireAddNode(Node)} . */
         @Override
-        final protected void fireAdd(N elem) {
+        protected final void fireAdd(N elem) {
             fireAddNode(elem);
         }
 
         /** Delegates to {@link NodeSetEdgeSetGraph#fireRemoveNode(Node)} . */
         @Override
-        final protected void fireRemove(N elem) {
+        protected final void fireRemove(N elem) {
             fireRemoveNode(elem);
         }
 
@@ -380,13 +380,13 @@ public class NodeSetEdgeSetGraph<N extends Node,E extends GEdge<N>> extends AGra
 
         /** Delegates to {@link NodeSetEdgeSetGraph#fireAddEdge} . */
         @Override
-        final protected void fireAdd(E elem) {
+        protected final void fireAdd(E elem) {
             fireAddEdge(elem);
         }
 
         /** Delegates to {@link NodeSetEdgeSetGraph#fireRemoveEdge} . */
         @Override
-        final protected void fireRemove(E elem) {
+        protected final void fireRemove(E elem) {
             fireRemoveEdge(elem);
         }
     }

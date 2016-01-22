@@ -106,7 +106,7 @@ public abstract class Boundary {
     }
 
     /** Returns the model checking record associated with the boundary. */
-    final protected Record getRecord() {
+    protected final Record getRecord() {
         return this.record;
     }
 

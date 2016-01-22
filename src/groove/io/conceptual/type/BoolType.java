@@ -34,5 +34,5 @@ public class BoolType extends DataType {
 
     private static BoolType instance = new BoolType();
     /** Name of the boolean type. */
-    public final static String NAME = "bool";
+    public static final String NAME = "bool";
 }

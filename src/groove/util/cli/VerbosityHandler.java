@@ -43,10 +43,10 @@ public class VerbosityHandler extends OneArgumentOptionHandler<Verbosity> {
     }
 
     /** Name of the verbosity option. */
-    public final static String NAME = "-v";
+    public static final String NAME = "-v";
     /** Meta-variable of the verbosity option. */
-    public final static String VAR = "level";
+    public static final String VAR = "level";
     /** Usage message for the verbosity option. */
-    public final static String USAGE =
+    public static final String USAGE =
         "Set verbosity level (range = 0 to 2, default = 1)";
 }

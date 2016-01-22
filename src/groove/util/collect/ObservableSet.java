@@ -242,7 +242,7 @@ public class ObservableSet<T> extends Observable implements Set<T> {
      * from the inner Iterator class.
      */
     @Override
-    final protected synchronized void setChanged() {
+    protected final synchronized void setChanged() {
         super.setChanged();
     }
 

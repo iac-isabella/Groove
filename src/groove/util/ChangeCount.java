@@ -93,7 +93,7 @@ public class ChangeCount extends Observable {
      * @author Arend Rensink
      * @version $Revision $
      */
-    public static abstract class Derived<O> {
+    public abstract static class Derived<O> {
         /** Constructs a derived value for a given change count. */
         public Derived(ChangeCount count) {
             this.tracker = count.createTracker();

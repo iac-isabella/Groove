@@ -179,21 +179,21 @@ public enum AcceptorValue implements ParsableValue {
     private final String description;
 
     /** Specialised parameterless template that uses the strategy value's keyword, name and description. */
-    abstract private class MyTemplate0 extends Template0<Acceptor> {
+    private abstract class MyTemplate0 extends Template0<Acceptor> {
         public MyTemplate0() {
             super(AcceptorValue.this);
         }
     }
 
     /** Specialised 1-parameter template that uses the strategy value's keyword, name and description. */
-    abstract private class MyTemplate1<T1> extends Template1<Acceptor,T1> {
+    private abstract class MyTemplate1<T1> extends Template1<Acceptor,T1> {
         public MyTemplate1(SerializedParser parser, String name, EncodedType<T1,String> type) {
             super(AcceptorValue.this, parser, name, type);
         }
     }
 
     /** Specialised 2-parameter template that uses the strategy value's keyword, name and description. */
-    abstract private class MyTemplate2<T1,T2> extends Template2<Acceptor,T1,T2> {
+    private abstract class MyTemplate2<T1,T2> extends Template2<Acceptor,T1,T2> {
         public MyTemplate2(SerializedParser parser, String name1, EncodedType<T1,String> type1,
             String name2, EncodedType<T2,String> type2) {
             super(AcceptorValue.this, parser, name1, type1, name2, type2);

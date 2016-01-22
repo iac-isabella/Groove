@@ -193,12 +193,12 @@ public class FormulaParser extends TermTreeParser<LogicOp,Formula> {
     }
 
     /** Returns the singleton instance of this parser not specialised to any logic. */
-    public final static FormulaParser instance() {
+    public static final FormulaParser instance() {
         return INSTANCE;
     }
 
     /** Returns the singleton instance of this parser for CTL or LTL. */
-    public final static FormulaParser instance(Logic logic) {
+    public static final FormulaParser instance(Logic logic) {
         return logic == Logic.LTL ? LTL_INSTANCE : CTL_INSTANCE;
     }
 

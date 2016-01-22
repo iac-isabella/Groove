@@ -163,13 +163,13 @@ public abstract class StoreFactory<N extends Node,E extends Edge,L extends Label
              * we need to weaken the set's equality test.
              */
             @Override
-            final protected boolean areEqual(E o1, E o2) {
+            protected final boolean areEqual(E o1, E o2) {
                 return o1.source().equals(o2.source()) && o1.target().equals(o2.target())
                     && o1.label().equals(o2.label());
             }
 
             @Override
-            final protected boolean allEqual() {
+            protected final boolean allEqual() {
                 return false;
             }
         };

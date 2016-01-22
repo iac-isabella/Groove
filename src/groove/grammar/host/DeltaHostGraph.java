@@ -522,7 +522,7 @@ public final class DeltaHostGraph extends AGraph<HostNode,HostEdge> implements H
      * @author Arend Rensink
      * @version $Revision $
      */
-    abstract private class DataTarget implements DeltaTarget {
+    private abstract class DataTarget implements DeltaTarget {
         /** Empty constructor with correct visibility. */
         DataTarget() {
             // empty

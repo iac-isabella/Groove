@@ -79,7 +79,7 @@ DefaultGraphCell implements JCell<G> {
      * Returns the (possibly {@code null}) layout information stored for
      * a given graph node.
      */
-    final protected JVertexLayout getLayout(Node node) {
+    protected final JVertexLayout getLayout(Node node) {
         return getJModel().getLayoutMap().getLayout(node);
     }
 
@@ -87,7 +87,7 @@ DefaultGraphCell implements JCell<G> {
      * Returns the (possibly {@code null}) layout information stored for
      * a given graph edge.
      */
-    final protected JEdgeLayout getLayout(Edge edge) {
+    protected final JEdgeLayout getLayout(Edge edge) {
         return getJModel().getLayoutMap().getLayout(edge);
     }
 
@@ -183,7 +183,7 @@ DefaultGraphCell implements JCell<G> {
     }
 
     /** Recomputes and stores the value for a given visual key. */
-    final protected void refreshVisual(VisualKey key) {
+    protected final void refreshVisual(VisualKey key) {
         VisualValue<?> refresher = getRefresher(key);
         if (refresher != null) {
             this.visuals.put(key, refresher.get(this));

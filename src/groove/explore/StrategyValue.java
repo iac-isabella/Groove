@@ -363,13 +363,13 @@ public enum StrategyValue implements ParsableValue {
     private final String description;
 
     /** Set of model checking strategies. */
-    public final static EnumSet<StrategyValue> LTL_STRATEGIES = EnumSet.of(LTL,
+    public static final EnumSet<StrategyValue> LTL_STRATEGIES = EnumSet.of(LTL,
         LTL_BOUNDED,
         LTL_POCKET);
     /** Set of strategies that can be selected from the exploration dialog. */
-    public final static EnumSet<StrategyValue> DIALOG_STRATEGIES;
+    public static final EnumSet<StrategyValue> DIALOG_STRATEGIES;
     /** Special mask for development strategies only. Treated specially. */
-    public final static EnumSet<StrategyValue> DEVELOPMENT_ONLY_STRATEGIES = EnumSet.of(RETE,
+    public static final EnumSet<StrategyValue> DEVELOPMENT_ONLY_STRATEGIES = EnumSet.of(RETE,
         RETE_LINEAR,
         RETE_RANDOM,
         MINIMAX);
@@ -379,21 +379,21 @@ public enum StrategyValue implements ParsableValue {
     }
 
     /** Specialised parameterless template that uses the strategy value's keyword, name and description. */
-    abstract private class MyTemplate0 extends Template0<Strategy> {
+    private abstract class MyTemplate0 extends Template0<Strategy> {
         public MyTemplate0() {
             super(StrategyValue.this);
         }
     }
 
     /** Specialised 1-parameter template that uses the strategy value's keyword, name and description. */
-    abstract private class MyTemplate1<T1> extends Template1<Strategy,T1> {
+    private abstract class MyTemplate1<T1> extends Template1<Strategy,T1> {
         public MyTemplate1(SerializedParser parser, String name, EncodedType<T1,String> type) {
             super(StrategyValue.this, parser, name, type);
         }
     }
 
     /** Specialised 2-parameter template that uses the strategy value's keyword, name and description. */
-    abstract private class MyTemplate2<T1,T2> extends Template2<Strategy,T1,T2> {
+    private abstract class MyTemplate2<T1,T2> extends Template2<Strategy,T1,T2> {
         public MyTemplate2(SerializedParser parser, String name1, EncodedType<T1,String> type1,
             String name2, EncodedType<T2,String> type2) {
             super(StrategyValue.this, parser, name1, type1, name2, type2);
@@ -401,7 +401,7 @@ public enum StrategyValue implements ParsableValue {
     }
 
     /** Specialised 5-parameter template that uses the strategy value's keyword, name and description. */
-    abstract private class MyTemplate5<T1,T2,T3,T4,T5> extends TemplateN<Strategy> {
+    private abstract class MyTemplate5<T1,T2,T3,T4,T5> extends TemplateN<Strategy> {
         @SuppressWarnings("unchecked")
         //cast to Object won't go wrong
         public MyTemplate5(SerializedParser parser, String name1, EncodedType<T1,String> type1,

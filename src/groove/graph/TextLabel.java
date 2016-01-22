@@ -65,7 +65,7 @@ public abstract class TextLabel implements Label, Cloneable {
     }
 
     @Override
-    final protected TextLabel clone() {
+    protected final TextLabel clone() {
         return this;
     }
 
