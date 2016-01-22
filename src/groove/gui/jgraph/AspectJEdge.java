@@ -288,7 +288,7 @@ public class AspectJEdge extends AJEdge<AspectGraph,AspectJGraph,AspectJModel,As
         return COMPARATOR;
     }
 
-    private final static Comparator<Edge> COMPARATOR = new Comparator<Edge>() {
+    private static final Comparator<Edge> COMPARATOR = new Comparator<Edge>() {
         @Override
         public int compare(Edge o1, Edge o2) {
             int result = getKind(o1).compareTo(getKind(o2));

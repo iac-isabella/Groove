@@ -673,8 +673,8 @@ public class PlanSearchStrategy implements SearchStrategy {
         /** Forward influence count of the records. */
         private final int[] influenceCount;
 
-        private final static boolean PRINT_MATCHES = false;
-        private final static boolean CHECK_IMAGES = true;
+        private static final boolean PRINT_MATCHES = false;
+        private static final boolean CHECK_IMAGES = true;
     }
 
 }

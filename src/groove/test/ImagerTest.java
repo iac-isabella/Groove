@@ -36,8 +36,8 @@ import org.junit.Test;
  */
 @SuppressWarnings("javadoc")
 public class ImagerTest {
-    private final static String TEST_DIR = "junit/samples/ferryman.gps";
-    private final static String OUTPUT_DIR = "junit/try";
+    private static final String TEST_DIR = "junit/samples/ferryman.gps";
+    private static final String OUTPUT_DIR = "junit/try";
 
     private Set<String> graphFiles;
 

@@ -174,7 +174,7 @@ public class Switch implements Comparable<Switch>, Relocatable {
     }
 
     @Override
-    synchronized public Switch relocate(Relocation map) {
+    public synchronized Switch relocate(Relocation map) {
         Switch result = this.image;
         if (map != this.map) {
             this.map = map;

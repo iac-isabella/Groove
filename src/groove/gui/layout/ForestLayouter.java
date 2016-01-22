@@ -334,7 +334,7 @@ public class ForestLayouter extends AbstractLayouter {
         }
     }
 
-    private final static Comparator<JEdge<?>> edgeComparator = new Comparator<JEdge<?>>() {
+    private static final Comparator<JEdge<?>> edgeComparator = new Comparator<JEdge<?>>() {
         @Override
         public int compare(JEdge<?> o1, JEdge<?> o2) {
             int result = nodeComp.compare(o1.getTargetNode(), o2.getTargetNode());
@@ -346,8 +346,8 @@ public class ForestLayouter extends AbstractLayouter {
         }
     };
 
-    private final static NodeComparator nodeComp = NodeComparator.instance();
-    private final static Comparator<Edge> edgeComp = EdgeComparator.instance();
+    private static final NodeComparator nodeComp = NodeComparator.instance();
+    private static final Comparator<Edge> edgeComp = EdgeComparator.instance();
 
     /** Prototype instance of the forest layouter. */
     public static final ForestLayouter PROTOTYPE = new ForestLayouter();

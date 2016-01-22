@@ -23,7 +23,7 @@ public class Util {
         return groovyPresent;
     }
 
-    private final static boolean groovyPresent;
+    private static final boolean groovyPresent;
 
     static {
         boolean present = false;

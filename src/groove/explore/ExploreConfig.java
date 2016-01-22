@@ -146,6 +146,6 @@ public class ExploreConfig {
         return this.pars.equals(other.pars);
     }
 
-    private final static String OPTION = "-S ";
-    private final static String SEPARATOR = "=";
+    private static final String OPTION = "-S ";
+    private static final String SEPARATOR = "=";
 }

@@ -423,8 +423,8 @@ public class VisualAttributeMap extends AttributeMap {
     private static final Point2D[] EXTRA_LABEL_POSITIONS = {
         new Point2D.Double(IN_MULT_DIST, MULT_X), new Point2D.Double(OUT_MULT_DIST, MULT_X)};
 
-    private final static Map<Object,VisualKey> attrToVisualKeyMap;
-    private final static Map<VisualKey,String> visualToAttrKeyMap;
+    private static final Map<Object,VisualKey> attrToVisualKeyMap;
+    private static final Map<VisualKey,String> visualToAttrKeyMap;
     static {
         Map<Object,VisualKey> a2v = new HashMap<Object,VisualKey>();
         Map<VisualKey,String> v2a = new EnumMap<VisualKey,String>(VisualKey.class);
@@ -503,5 +503,5 @@ public class VisualAttributeMap extends AttributeMap {
         visualToAttrKeyMap = v2a;
     }
 
-    private final static Routing edgeRouting = new LoopRouting();
+    private static final Routing edgeRouting = new LoopRouting();
 }

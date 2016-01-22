@@ -80,7 +80,7 @@ public enum CheckPolicy {
     /** Parser that returns a policy map. */
     public static final Parser<PolicyMap> multiParser = new PolicyMapParser();
 
-    private final static char ASSIGN_CHAR = ':';
+    private static final char ASSIGN_CHAR = ':';
 
     /** Mapping from action names to policies. */
     public static class PolicyMap extends TreeMap<String,CheckPolicy> {
@@ -191,6 +191,6 @@ public enum CheckPolicy {
             return value instanceof PolicyMap && ((PolicyMap) value).isEmpty();
         }
 
-        private final static PolicyMap EMPTY = new PolicyMap();
+        private static final PolicyMap EMPTY = new PolicyMap();
     }
 }

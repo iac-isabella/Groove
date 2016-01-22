@@ -172,7 +172,7 @@ public class AntlrGrapher {
     public final static TypeLabel TOP_TYPE = TypeLabel.createLabel(
         EdgeRole.NODE_TYPE, "TOP$");
     /** String type label. */
-    private final static TypeLabel STRING_TYPE = TypeLabel.createLabel(
+    private static final TypeLabel STRING_TYPE = TypeLabel.createLabel(
         EdgeRole.NODE_TYPE, "string");
     /** Subtype edge label. */
 }

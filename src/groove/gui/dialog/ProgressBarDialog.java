@@ -48,7 +48,7 @@ public class ProgressBarDialog extends JDialog {
      * deactivated before the delay expires.
      * @param millis the delay, measured in milliseconds
      */
-    synchronized public void activate(long millis) {
+    public synchronized void activate(long millis) {
         deactivate();
         this.activation = new Timer();
         this.activation.schedule(new TimerTask() {
@@ -75,7 +75,7 @@ public class ProgressBarDialog extends JDialog {
      * Cancels the scheduled activation, if any, and sets the visibility of the
      * dialog to false.
      */
-    synchronized public void deactivate() {
+    public synchronized void deactivate() {
         if (this.activation != null) {
             this.activation.cancel();
             this.activation = null;

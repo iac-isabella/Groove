@@ -186,7 +186,7 @@ public class GraphProperties extends Properties {
         }
 
         /** Mapping from graph property key names to keys. */
-        private final static Map<String,Key> keyMap;
+        private static final Map<String,Key> keyMap;
 
         static {
             Map<String,Key> keys = new LinkedHashMap<String,Key>();

@@ -294,5 +294,5 @@ public final class GraphTab extends ResourceTab implements UndoableEditListener 
     /** Mapping from resource names to aspect models. */
     private final Map<String,AspectJModel> jModelMap = new HashMap<String,AspectJModel>();
 
-    private final static boolean DEBUG = false;
+    private static final boolean DEBUG = false;
 }

@@ -286,7 +286,7 @@ public class TabLabel extends JPanel {
     }
 
     /** Listener that arms any {@link TabButton} that the mouse comes over. */
-    private final static MouseListener buttonMouseListener = new MouseAdapter() {
+    private static final MouseListener buttonMouseListener = new MouseAdapter() {
         @Override
         public void mouseEntered(MouseEvent e) {
             Component component = e.getComponent();

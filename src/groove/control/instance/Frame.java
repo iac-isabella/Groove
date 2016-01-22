@@ -557,6 +557,6 @@ public class Frame implements Position<Frame,Step>, Fixable {
 
     private final DefaultFixable fixable = new DefaultFixable();
 
-    private final static boolean RICH_LABELS = false;
-    private final static boolean VERY_RICH_LABELS = false;
+    private static final boolean RICH_LABELS = false;
+    private static final boolean VERY_RICH_LABELS = false;
 }

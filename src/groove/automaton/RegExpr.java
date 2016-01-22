@@ -922,7 +922,7 @@ public abstract class RegExpr { // implements VarSetSupport {
     /**
      * Abstract superclass for all regular expressions that are not constants.
      */
-    abstract static protected class Composite extends RegExpr {
+    protected abstract static class Composite extends RegExpr {
         /**
          * Constructs an instance of a composite regular expression with a given
          * operator name and operator symbol. This constructor is there only for
@@ -949,7 +949,7 @@ public abstract class RegExpr { // implements VarSetSupport {
      * Abstract class modelling a sequence of (more than one) operand separated
      * by a given operator string.
      */
-    abstract static protected class Infix extends Composite {
+    protected abstract static class Infix extends Composite {
         /**
          * Creates a regular expression from an infix operator and a list of
          * operands. The operands are themselves regular expressions.
@@ -1100,7 +1100,7 @@ public abstract class RegExpr { // implements VarSetSupport {
      * Abstract class modelling a postfix operatior. This corresponds to one
      * operand followed by a operator string, fixed in the specializing class.
      */
-    abstract static protected class Postfix extends Composite {
+    protected abstract static class Postfix extends Composite {
         /**
          * Creates a prototye regular expression.
          */
@@ -1210,7 +1210,7 @@ public abstract class RegExpr { // implements VarSetSupport {
      * operator string, fixed in the specializing class, followed by one
      * operand.
      */
-    abstract static protected class Prefix extends Composite {
+    protected abstract static class Prefix extends Composite {
         /**
          * Creates a prototye regular expression.
          */
@@ -1317,7 +1317,7 @@ public abstract class RegExpr { // implements VarSetSupport {
     /**
      * Abstract class modelling a constant regular expression.
      */
-    abstract static protected class Constant extends RegExpr {
+    protected abstract static class Constant extends RegExpr {
         /**
          * Creates a prototye regular expression.
          */

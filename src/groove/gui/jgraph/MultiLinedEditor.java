@@ -249,22 +249,22 @@ public class MultiLinedEditor extends DefaultGraphCellEditor {
         /** List of autocompletions. */
         private LinkedList<String> completions = null;
 
-        private final static String AUTOCOMPLETE_STRING = "autocomplete";
-        private final static String NEWLINE_STRING = "newline";
-        private final static String STOP_EDIT_STRING = "stop";
-        private final static KeyStroke AUTOCOMPLETE_KEY = KeyStroke.getKeyStroke(KeyEvent.VK_SPACE,
+        private static final String AUTOCOMPLETE_STRING = "autocomplete";
+        private static final String NEWLINE_STRING = "newline";
+        private static final String STOP_EDIT_STRING = "stop";
+        private static final KeyStroke AUTOCOMPLETE_KEY = KeyStroke.getKeyStroke(KeyEvent.VK_SPACE,
             InputEvent.CTRL_DOWN_MASK);
-        private final static KeyStroke NEWLINE_KEY_1 = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,
+        private static final KeyStroke NEWLINE_KEY_1 = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,
             InputEvent.SHIFT_DOWN_MASK);
-        private final static KeyStroke NEWLINE_KEY_2 = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,
+        private static final KeyStroke NEWLINE_KEY_2 = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,
             InputEvent.CTRL_DOWN_MASK);
-        private final static KeyStroke STOP_EDIT_KEY_1 = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,
+        private static final KeyStroke STOP_EDIT_KEY_1 = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,
             0);
-        private final static KeyStroke STOP_EDIT_KEY_2 = KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE,
+        private static final KeyStroke STOP_EDIT_KEY_2 = KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE,
             0);
 
         /** The existing aspect prefixes. */
-        private final static List<String> prefixes = new LinkedList<String>();
+        private static final List<String> prefixes = new LinkedList<String>();
         static {
             for (AspectKind aspectKind : AspectKind.values()) {
                 String prefix = aspectKind.getPrefix();

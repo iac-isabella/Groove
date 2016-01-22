@@ -69,7 +69,7 @@ public class Status {
     /** Number of bits by which a status value has be right-shifted to get
      * the absence value.
      */
-    private final static int ABSENCE_SHIFT = 25;
+    private static final int ABSENCE_SHIFT = 25;
 
     /** Maximal absence value. */
     public final static int MAX_ABSENCE = 1 << (31 - ABSENCE_SHIFT);
@@ -85,9 +85,9 @@ public class Status {
     }
 
     /** Mask to select only the bits corresponding to {@link Flag} values. */
-    private final static int MASK = (1 << Flag.values().length) - 1;
+    private static final int MASK = (1 << Flag.values().length) - 1;
     /** Array of preconstructed {@link Status} objects. */
-    private final static Status[] store = new Status[1 << Flag.values().length];
+    private static final Status[] store = new Status[1 << Flag.values().length];
 
     /** Indicates if a given integer status representation stands for a real state. */
     public static boolean isReal(int status) {

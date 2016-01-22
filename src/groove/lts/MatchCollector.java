@@ -308,5 +308,5 @@ public class MatchCollector {
     private static int parentOutReuse;
 
     /** Debug flag for the match collector. */
-    private final static boolean DEBUG = false;
+    private static final boolean DEBUG = false;
 }

@@ -207,14 +207,14 @@ public abstract class Line {
         return empty;
     }
 
-    private final static Empty empty = new Empty();
+    private static final Empty empty = new Empty();
 
     /** Returns the (fixed) horizontal rule. */
     public static HRule hrule() {
         return hrule;
     }
 
-    private final static HRule hrule = new HRule();
+    private static final HRule hrule = new HRule();
 
     /** Returns an atomic line consisting of a given string. */
     public static Line atom(String text) {

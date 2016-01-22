@@ -390,5 +390,5 @@ public class DefaultGraphNextState extends AbstractGraphState implements GraphNe
      */
     private final HostNode[] addedNodes;
     /** Flag to switch on debugging info. */
-    private final static boolean DEBUG = false;
+    private static final boolean DEBUG = false;
 }

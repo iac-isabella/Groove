@@ -37,5 +37,5 @@ public class NodeComparator implements Comparator<Node> {
         return instance;
     }
 
-    private final static NodeComparator instance = new NodeComparator();
+    private static final NodeComparator instance = new NodeComparator();
 }

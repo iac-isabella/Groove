@@ -202,8 +202,8 @@ public class FormulaParser extends TermTreeParser<LogicOp,Formula> {
         return logic == Logic.LTL ? LTL_INSTANCE : CTL_INSTANCE;
     }
 
-    private final static FormulaParser INSTANCE = new FormulaParser();
-    private final static FormulaParser LTL_INSTANCE = new FormulaParser() {
+    private static final FormulaParser INSTANCE = new FormulaParser();
+    private static final FormulaParser LTL_INSTANCE = new FormulaParser() {
         @Override
         public Formula parse(String input) {
             Formula result = super.parse(input);
@@ -215,7 +215,7 @@ public class FormulaParser extends TermTreeParser<LogicOp,Formula> {
             return result;
         }
     };
-    private final static FormulaParser CTL_INSTANCE = new FormulaParser() {
+    private static final FormulaParser CTL_INSTANCE = new FormulaParser() {
         @Override
         public Formula parse(String input) {
             Formula result = super.parse(input);

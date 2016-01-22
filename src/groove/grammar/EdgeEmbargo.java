@@ -94,5 +94,5 @@ public class EdgeEmbargo extends Condition {
      */
     protected final RuleEdge embargoEdge;
 
-    private final static boolean CONSTRUCTOR_DEBUG = false;
+    private static final boolean CONSTRUCTOR_DEBUG = false;
 }

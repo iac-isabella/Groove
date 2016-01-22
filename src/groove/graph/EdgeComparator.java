@@ -62,5 +62,5 @@ public class EdgeComparator implements Comparator<Edge> {
         return (Comparator<E>) instance;
     }
 
-    private final static EdgeComparator instance = new EdgeComparator();
+    private static final EdgeComparator instance = new EdgeComparator();
 }

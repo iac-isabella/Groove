@@ -93,7 +93,7 @@ public class AcceptorEnumerator extends TemplateList<Acceptor> {
     }
 
     /** Map from parsable strategies to the corresponding instance of this class. */
-    private final static Map<EnumSet<AcceptorValue>,AcceptorEnumerator> instanceMap =
+    private static final Map<EnumSet<AcceptorValue>,AcceptorEnumerator> instanceMap =
         new HashMap<EnumSet<AcceptorValue>,AcceptorEnumerator>();
 
     private static final String ACCEPTOR_TOOLTIP = "<HTML>"

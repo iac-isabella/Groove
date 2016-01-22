@@ -640,7 +640,7 @@ public abstract class ConfigDialog<C> extends JDialog {
      * Callback method to create an object of the generic name type from a
      * string.
      */
-    private final static String suggestedName = "newConfig";
+    private static final String suggestedName = "newConfig";
 
     private static abstract class RefreshableAction extends javax.swing.AbstractAction implements
         Refreshable {

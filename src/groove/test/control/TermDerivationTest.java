@@ -381,7 +381,7 @@ public class TermDerivationTest {
         this.c = p.call(this.cCall);
     }
 
-    private final static Term p = Term.prototype();
+    private static final Term p = Term.prototype();
     private static final String CONTROL_DIR = "junit/control/";
     private static final boolean DEBUG = false;
 

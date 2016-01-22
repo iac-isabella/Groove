@@ -840,8 +840,8 @@ public class CtrlHelper {
     /** Name of the module in which all declared names should be placed. */
     private String packageName = "";
 
-    private final static String ANY_TEXT = CtrlParser.tokenNames[ANY].toLowerCase();
-    private final static String OTHER_TEXT = CtrlParser.tokenNames[OTHER].toLowerCase();
+    private static final String ANY_TEXT = CtrlParser.tokenNames[ANY].toLowerCase();
+    private static final String OTHER_TEXT = CtrlParser.tokenNames[OTHER].toLowerCase();
 
     /** Special exception class to signal the effect of a previously
      * detected error.

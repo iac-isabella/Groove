@@ -420,6 +420,6 @@ public class AutomatonBuildTest {
         assertFalse(String.format("%s and %s expected to be distinct", o1, o2), o1.equals(o2));
     }
 
-    private final static boolean DEBUG = false;
-    private final static boolean FULL_GRAPH = true;
+    private static final boolean DEBUG = false;
+    private static final boolean FULL_GRAPH = true;
 }

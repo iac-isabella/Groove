@@ -90,7 +90,7 @@ public class Generator extends GrooveCmdLineTool<ExploreResult> {
         };
     }
 
-    private final static String SOFT_REF_POLICY_NAME = "-XX:SoftRefLRUPolicyMSPerMB";
+    private static final String SOFT_REF_POLICY_NAME = "-XX:SoftRefLRUPolicyMSPerMB";
 
     /**
      * Compute the exploration out of the command line options.

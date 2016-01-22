@@ -203,18 +203,18 @@ class RuleTreeNode extends ResourceTreeNode implements ActionTreeNode {
     /** Flag indicating whether the rule has been tried on the displayed state. */
     private boolean tried;
 
-    private final static String INGREDIENT_SUFFIX = " : "
+    private static final String INGREDIENT_SUFFIX = " : "
         + HTMLConverter.STRONG_TAG.on("ingredient");
-    private final static String RULE_SUFFIX = " : " + HTMLConverter.STRONG_TAG.on("rule");
-    private final static Map<Role,String> roleSuffixMap;
+    private static final String RULE_SUFFIX = " : " + HTMLConverter.STRONG_TAG.on("rule");
+    private static final Map<Role,String> roleSuffixMap;
 
     /** Returns the icon map for normal or injective properties. */
     private static Map<Role,Icon> getIconMap(boolean injective) {
         return injective ? roleInjectiveIconMap : roleNormalIconMap;
     }
 
-    private final static Map<Role,Icon> roleNormalIconMap;
-    private final static Map<Role,Icon> roleInjectiveIconMap;
+    private static final Map<Role,Icon> roleNormalIconMap;
+    private static final Map<Role,Icon> roleInjectiveIconMap;
     static {
         Map<Role,String> suffixMap = roleSuffixMap = new EnumMap<Role,String>(Role.class);
         Map<Role,Icon> normalIconMap = roleNormalIconMap = new EnumMap<Role,Icon>(Role.class);

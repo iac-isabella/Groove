@@ -111,7 +111,7 @@ public class DisplayTreeNode extends DefaultMutableTreeNode {
             return stringComparator.compare(o1.toString(), o2.toString());
         }
 
-        private final static java.util.Comparator<String> stringComparator =
+        private static final java.util.Comparator<String> stringComparator =
             Strings.getNaturalComparator();
     }
 }

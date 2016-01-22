@@ -388,7 +388,7 @@ public class MultiLabel {
         }
 
         /** Pool of representatives. */
-        private final static Map<DirectBag,DirectBag> pool =
+        private static final Map<DirectBag,DirectBag> pool =
             new HashMap<MultiLabel.DirectBag,MultiLabel.DirectBag>();
         /** The zero element. */
         public final static DirectBag ZERO = norm(new DirectBag());
