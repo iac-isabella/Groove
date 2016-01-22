@@ -200,15 +200,11 @@ public class CTLMarker {
         // compute the arguments, if any
         BitSet arg1 = null;
         BitSet arg2 = null;
-        switch (token.getArity()) {
-        case 1:
-            if (token == NOT) {
-                arg1 = mark(property.getArg1());
-            }
-            break;
-        case 2:
+        if (token.getArity() == 2) {
             arg1 = mark(property.getArg1());
             arg2 = mark(property.getArg2());
+        } else if (token.getArity() == 1 && token == NOT) {
+            arg1 = mark(property.getArg1());
         }
         // compose the arguments according to the top level operator
         switch (token) {

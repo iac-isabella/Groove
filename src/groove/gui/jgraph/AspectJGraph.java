@@ -1,17 +1,17 @@
 /*
  * GROOVE: GRaphs for Object Oriented VErification Copyright 2003--2007
  * University of Twente
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
- * 
+ *
  * $Id: AspectJGraph.java 5479 2014-07-19 12:20:13Z rensink $
  */
 package groove.gui.jgraph;
@@ -167,14 +167,14 @@ public final class AspectJGraph extends JGraph<AspectGraph> {
         return this.editing && getMode() != PREVIEW_MODE;
     }
 
-    /** 
+    /**
      * Indicates if the graph being displayed is a graph state.
      */
     public boolean isForState() {
         return this.forState;
     }
 
-    /** 
+    /**
      * Returns the role of the graph being displayed.
      */
     @Override
@@ -185,11 +185,9 @@ public final class AspectJGraph extends JGraph<AspectGraph> {
     @Override
     public JMenu createPopupMenu(Point atPoint) {
         MyJMenu result = new MyJMenu("Popup");
-        switch (getGraphRole()) {
-        case HOST:
+        if (getGraphRole() == GraphRole.HOST) {
             result.add(getActions().getApplyMatchAction());
             result.addSeparator();
-            break;
         }
         Action editAction;
         if (isForState()) {
@@ -253,7 +251,9 @@ public final class AspectJGraph extends JGraph<AspectGraph> {
 
     /** Convenience method to invoke an edit of a set of visual attributes. */
     void edit(JCell<AspectGraph> jCell, VisualMap newVisuals) {
-        getModel().edit(Collections.singletonMap(jCell, newVisuals.getAttributes()), null, null,
+        getModel().edit(Collections.singletonMap(jCell, newVisuals.getAttributes()),
+            null,
+            null,
             null);
     }
 
@@ -487,7 +487,7 @@ public final class AspectJGraph extends JGraph<AspectGraph> {
          * Returns the positive index in a non-empty list of points of that
          * point which is closest to a given location.
          * @param location the location to which distances are measured.
-         * @param points the list in which the index is sought 
+         * @param points the list in which the index is sought
          * @return the index of the point (from position 1) closest to the location
          */
         protected int getClosestIndex(List<Point2D> points, Point2D location) {
@@ -815,7 +815,7 @@ public final class AspectJGraph extends JGraph<AspectGraph> {
 
     private GraphModelListener refreshListener;
 
-    /** 
+    /**
      * Repaints the graph on a model change.
      */
     private class RefreshGraphListener implements GraphModelListener {
@@ -825,7 +825,7 @@ public final class AspectJGraph extends JGraph<AspectGraph> {
         }
     }
 
-    /** 
+    /**
      * Special listener for the show bidirectional edges option, for which a
      * refresh is not enough, but a rebuild is required.
      */

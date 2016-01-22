@@ -23,6 +23,7 @@ import groove.control.CtrlPar.Var;
 import groove.control.Valuator;
 import groove.control.instance.Assignment;
 import groove.control.instance.Step;
+import groove.grammar.AnchorKind;
 import groove.grammar.Rule;
 import groove.grammar.host.AnchorValue;
 import groove.grammar.host.HostEdge;
@@ -150,19 +151,17 @@ public class MatchCollector {
             for (int i = 0; i < event.getRule().getAnchor().size(); i++) {
                 AnchorValue anchorImage = event.getAnchorImage(i);
                 HostGraph host = MatchCollector.this.state.getGraph();
-                switch (anchorImage.getAnchorKind()) {
-                case EDGE:
-                    if (!host.containsEdge((HostEdge) anchorImage)) {
-                        assert false : String.format("Edge %s does not occur in graph %s",
-                            anchorImage, host);
-                    }
-                    break;
-                case NODE:
-                    if (!(anchorImage instanceof ValueNode)
-                        && !host.containsNode((HostNode) anchorImage)) {
-                        assert false : String.format("Node %s does not occur in graph %s",
-                            anchorImage, host);
-                    }
+                boolean instanceCondition = !(anchorImage instanceof ValueNode);
+                boolean edgeCondition = !host.containsEdge((HostEdge) anchorImage);
+                if (anchorImage.getAnchorKind() == AnchorKind.EDGE && edgeCondition) {
+                    assert false : String.format("Edge %s does not occur in graph %s",
+                        anchorImage,
+                        host);
+                } else if (anchorImage.getAnchorKind() == AnchorKind.NODE && instanceCondition
+                    && edgeCondition) {
+                    assert false : String.format("Node %s does not occur in graph %s",
+                        anchorImage,
+                        host);
                 }
             }
         }

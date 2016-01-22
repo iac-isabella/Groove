@@ -1234,10 +1234,9 @@ public class MatrixAutomaton extends NodeSetEdgeSetGraph<RegNode,RegEdge> implem
          * @see #getInvEdgeSet(HostNode)
          */
         protected Collection<? extends HostEdge> getPosEdgeSet(HostNode node) {
-            switch (this.direction) {
-            case OUTGOING:
+            if (this.direction == Direction.OUTGOING) {
                 return this.graph.outEdgeSet(node);
-            default:
+            } else {
                 return this.graph.inEdgeSet(node);
             }
         }
@@ -1249,10 +1248,9 @@ public class MatrixAutomaton extends NodeSetEdgeSetGraph<RegNode,RegEdge> implem
          * @see #getPosEdgeSet(HostNode)
          */
         protected Collection<? extends HostEdge> getInvEdgeSet(HostNode node) {
-            switch (this.direction) {
-            case OUTGOING:
+            if (this.direction == Direction.OUTGOING) {
                 return this.graph.inEdgeSet(node);
-            default:
+            } else {
                 return this.graph.outEdgeSet(node);
             }
         }
@@ -1263,10 +1261,9 @@ public class MatrixAutomaton extends NodeSetEdgeSetGraph<RegNode,RegEdge> implem
          * matching.
          */
         protected HostNode getThisEnd(HostEdge edge) {
-            switch (this.direction) {
-            case OUTGOING:
+            if (this.direction == Direction.OUTGOING) {
                 return edge.source();
-            default:
+            } else {
                 return edge.target();
             }
         }
@@ -1277,10 +1274,9 @@ public class MatrixAutomaton extends NodeSetEdgeSetGraph<RegNode,RegEdge> implem
          * matching.
          */
         protected HostNode getOpposite(HostEdge edge) {
-            switch (this.direction) {
-            case OUTGOING:
+            if (this.direction == Direction.OUTGOING) {
                 return edge.target();
-            default:
+            } else {
                 return edge.source();
             }
         }
@@ -1291,10 +1287,9 @@ public class MatrixAutomaton extends NodeSetEdgeSetGraph<RegNode,RegEdge> implem
          * forward or backward matching.
          */
         protected int getOpposite(int edgeIndex) {
-            switch (this.direction) {
-            case OUTGOING:
+            if (this.direction == Direction.OUTGOING) {
                 return getTarget(edgeIndex);
-            default:
+            } else {
                 return getSource(edgeIndex);
             }
         }
@@ -1305,10 +1300,9 @@ public class MatrixAutomaton extends NodeSetEdgeSetGraph<RegNode,RegEdge> implem
          * backward matching.
          */
         protected boolean addRelated(HostNode startImage, HostNode endImage) {
-            switch (this.direction) {
-            case OUTGOING:
+            if (this.direction == Direction.OUTGOING) {
                 return this.result.add(createResult(startImage, endImage));
-            default:
+            } else {
                 return this.result.add(createResult(endImage, startImage));
             }
         }
