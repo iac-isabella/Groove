@@ -234,7 +234,7 @@ public abstract class AbstractLayouter implements Layouter {
     /**
      * Implements a layoutable that wraps a rectangle.
      */
-    static protected final class LayoutNode {
+    protected static final class LayoutNode {
         /** Constructs a new layoutable from a given vertex. */
         public LayoutNode(VertexView view) {
             this.r = (Rectangle2D) view.getBounds().clone();

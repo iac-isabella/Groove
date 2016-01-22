@@ -157,7 +157,7 @@ public class ErrorDialog extends JDialog {
      * Searches upwards in the hierarchy of parent components until it finds a
      * <tt>JFrame</tt> or <tt>null</tt>.
      */
-    static protected JFrame getParentFrame(Component component) {
+    protected static JFrame getParentFrame(Component component) {
         if (component == null || component instanceof JFrame) {
             return (JFrame) component;
         } else {

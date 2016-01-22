@@ -34,7 +34,7 @@ import junit.framework.TestCase;
 public class STSTest extends TestCase {
 
     /** Location of the samples. */
-    static protected final String INPUT_DIR = "junit/rules/sts";
+    protected static final String INPUT_DIR = "junit/rules/sts";
 
     protected HostGraph g1;
     protected HostGraph g2;

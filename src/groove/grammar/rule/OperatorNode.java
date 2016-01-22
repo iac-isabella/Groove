@@ -155,7 +155,7 @@ public class OperatorNode extends ANode implements RuleNode {
     private final Operator operator;
     private final VariableNode target;
 
-    static private final char TIMES_CHAR = '\u2a09';
+    private static final char TIMES_CHAR = '\u2a09';
     /** Type label of product nodes. */
     @SuppressWarnings("unused")
     private static final TypeLabel PROD_LABEL = TypeLabel.createLabel(EdgeRole.NODE_TYPE, ""

@@ -630,7 +630,7 @@ public class PrologDisplay extends ResourceDisplay {
      * Counter used to show the number of found solutions (so far)
      */
     private int solutionCount;
-    final static Font EDIT_FONT = new Font("Monospaced", Font.PLAIN, 12);
+    static final Font EDIT_FONT = new Font("Monospaced", Font.PLAIN, 12);
 
     /**
      * Class used to redirect the standard output stream used by prolog to the

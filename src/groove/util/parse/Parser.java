@@ -120,7 +120,7 @@ public abstract interface Parser<T> {
     public static BooleanParser boolFalse = new BooleanParser(false);
 
     /** Identity string parser. */
-    static public abstract class AbstractStringParser<S> implements Parser<S> {
+    public abstract static class AbstractStringParser<S> implements Parser<S> {
         /**
          * Constructor for subclassing.
          * @param trim if {@code true}, spaces are stripped of the values.
@@ -207,7 +207,7 @@ public abstract interface Parser<T> {
     }
 
     /** Integer parser. */
-    static public abstract class AbstractIntParser<I> implements Parser<I> {
+    public abstract static class AbstractIntParser<I> implements Parser<I> {
         /** Creates a parser, with a parameter to determine if
          * negative values are allowed.
          * @param neg if {@code true}, the parser allows negative values.

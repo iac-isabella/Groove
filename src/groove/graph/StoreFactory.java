@@ -183,8 +183,8 @@ public abstract class StoreFactory<N extends Node,E extends Edge,L extends Label
     private final TreeHashSet<E> edgeStore;
 
     /** Initial capacity of the nodes array. */
-    static protected final int INIT_CAPACITY = 100;
+    protected static final int INIT_CAPACITY = 100;
 
     /** Growth factor of the nodes array. */
-    static protected final float GROWTH_FACTOR = 2.0f;
+    protected static final float GROWTH_FACTOR = 2.0f;
 }

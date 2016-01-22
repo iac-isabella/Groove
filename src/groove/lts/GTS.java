@@ -73,7 +73,7 @@ import java.util.Set;
  */
 public class GTS extends AGraph<GraphState,GraphTransition> implements Cloneable {
     /** Debug flag controlling whether states are compared for control location equality. */
-    protected final static boolean CHECK_CONTROL_LOCATION = true;
+    protected static final boolean CHECK_CONTROL_LOCATION = true;
     /**
      * The number of transitions generated but not added (due to overlapping
      * existing transitions)
@@ -926,7 +926,7 @@ public class GTS extends AGraph<GraphState,GraphTransition> implements Cloneable
     }
 
     /** Mode type for isomorphism collapsing. */
-    static protected enum CollapseMode {
+    protected static enum CollapseMode {
         /**
          * No states should be collapsed.
          */

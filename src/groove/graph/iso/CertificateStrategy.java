@@ -400,7 +400,7 @@ public abstract class CertificateStrategy {
     /** Handle to profile {@link #computeCertificates()}. */
     public static final Reporter computeCertReporter = reporter.register("computeCertificates()");
     /** Handle to profile {@link #getNodePartitionMap()}. */
-    static protected final Reporter getPartitionReporter = reporter.register("getPartitionMap()");
+    protected static final Reporter getPartitionReporter = reporter.register("getPartitionMap()");
 
     /**
      * Type of the certificates constructed by the strategy. A value of this

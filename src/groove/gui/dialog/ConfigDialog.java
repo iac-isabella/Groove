@@ -642,7 +642,7 @@ public abstract class ConfigDialog<C> extends JDialog {
      */
     private static final String suggestedName = "newConfig";
 
-    private static abstract class RefreshableAction extends javax.swing.AbstractAction implements
+    private abstract static class RefreshableAction extends javax.swing.AbstractAction implements
         Refreshable {
         /** Constructor for subclassing. */
         protected RefreshableAction(String name) {

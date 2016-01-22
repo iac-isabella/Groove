@@ -195,7 +195,7 @@ public class CheckboxTree extends JTree {
     /**
      * Special cell renderer for nodes with optional checkboxes.
      */
-    static protected class CellRenderer extends JPanel implements TreeCellRenderer {
+    protected static class CellRenderer extends JPanel implements TreeCellRenderer {
         /**
          * Empty constructor with the correct visibility.
          * @param tree the enclosing checkbox tree
@@ -384,7 +384,7 @@ public class CheckboxTree extends JTree {
     }
 
     /** Tree cell editor to be used by subclasses of the {@link CheckboxTree}. */
-    static protected class CellEditor extends AbstractCellEditor implements TreeCellEditor {
+    protected static class CellEditor extends AbstractCellEditor implements TreeCellEditor {
         /** Constructs a new editor for the enclosing tree. */
         public CellEditor(CheckboxTree tree) {
             this.tree = tree;

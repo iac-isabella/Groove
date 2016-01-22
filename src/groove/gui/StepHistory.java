@@ -225,7 +225,7 @@ public class StepHistory implements SimulatorListener {
      * Class to record history elements without having to rely on the
      * distinction between {@link GraphState}s and {@link RuleTransition}s.
      */
-    private static abstract class HistoryAction {
+    private abstract static class HistoryAction {
         /**
          * Creates an action that consists of either setting a state or a
          * transition in the simulator.

@@ -152,7 +152,7 @@ public class GrooveFileView extends javax.swing.filechooser.FileView {
      * @param f the file to be tested
      * @return <tt>true</tt> if <code>f</code> is a control program file
      */
-    static protected boolean isControlFile(File f) {
+    protected static boolean isControlFile(File f) {
         return CONTROL.hasExtension(f);
     }
 
@@ -163,7 +163,7 @@ public class GrooveFileView extends javax.swing.filechooser.FileView {
      * @return <tt>true</tt> if <code>f</code> is a graph file
      * @require <tt>f != null</tt>
      */
-    static protected boolean isGraphFile(File f) {
+    protected static boolean isGraphFile(File f) {
         return isStateFile(f) || isGxlFile(f);
     }
 
@@ -173,7 +173,7 @@ public class GrooveFileView extends javax.swing.filechooser.FileView {
      * @return <tt>true</tt> if <code>f</code> is a state file
      * @require <tt>f != null</tt>
      */
-    static protected boolean isStateFile(File f) {
+    protected static boolean isStateFile(File f) {
         return STATE.hasExtension(f);
     }
 
@@ -183,7 +183,7 @@ public class GrooveFileView extends javax.swing.filechooser.FileView {
      * @return <tt>true</tt> if <code>f</code> is a gxl file
      * @require <tt>f != null</tt>
      */
-    static protected boolean isGxlFile(File f) {
+    protected static boolean isGxlFile(File f) {
         return GXL.hasExtension(f);
     }
 
@@ -192,7 +192,7 @@ public class GrooveFileView extends javax.swing.filechooser.FileView {
      * @param f the file to be tested
      * @return <tt>true</tt> if <code>f</code> is a prolog program file
      */
-    static protected boolean isPrologFile(File f) {
+    protected static boolean isPrologFile(File f) {
         return PROLOG.hasExtension(f);
     }
 
@@ -202,7 +202,7 @@ public class GrooveFileView extends javax.swing.filechooser.FileView {
      * @return <tt>true</tt> if <code>f</code> is a production rule file
      * @require <tt>f != null</tt>
      */
-    static protected boolean isRuleFile(File f) {
+    protected static boolean isRuleFile(File f) {
         return RULE.hasExtension(f);
     }
 
@@ -211,7 +211,7 @@ public class GrooveFileView extends javax.swing.filechooser.FileView {
      * @param f the file to be tested
      * @return <tt>true</tt> if <code>f</code> is a graph type file
      */
-    static protected boolean isTypeFile(File f) {
+    protected static boolean isTypeFile(File f) {
         return TYPE.hasExtension(f);
     }
 
@@ -222,12 +222,12 @@ public class GrooveFileView extends javax.swing.filechooser.FileView {
      * @return <tt>true</tt> if <code>f</code> is a GPS folder
      * @require <tt>f != null</tt>
      */
-    static protected boolean isGpsFolder(File f) {
+    protected static boolean isGpsFolder(File f) {
         return GRAMMAR.hasExtension(f);
     }
 
     /** Tests whether a given file is a compressed GPS. */
-    static protected boolean isCompressedGpsFolder(File f) {
+    protected static boolean isCompressedGpsFolder(File f) {
         return ZIP.hasExtension(f) || JAR.hasExtension(f);
     }
 }

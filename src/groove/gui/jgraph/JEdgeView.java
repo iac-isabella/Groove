@@ -68,7 +68,7 @@ import org.jgraph.graph.VertexView;
 public class JEdgeView extends EdgeView {
 
     /** The editor for all instances of <tt>JEdgeView</tt>. */
-    static protected final MultiLinedEditor editor = new MultiLinedEditor();
+    protected static final MultiLinedEditor editor = new MultiLinedEditor();
 
     /**
      * Constructs an edge view for a given jEdge.

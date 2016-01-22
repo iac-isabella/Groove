@@ -65,18 +65,18 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
      * Show mode for a {@link ShowHideAction}: involved cells are set to
      * visible.
      */
-    static protected final int ADD_MODE = 0;
+    protected static final int ADD_MODE = 0;
 
     /**
      * Show mode for a {@link ShowHideAction}: involved cells are hidden.
      */
-    static protected final int HIDE_MODE = 1;
+    protected static final int HIDE_MODE = 1;
 
     /**
      * Show mode for a {@link ShowHideAction}: involved cells are set to
      * visible, all others are hidden.
      */
-    static protected final int ONLY_MODE = 2;
+    protected static final int ONLY_MODE = 2;
 
     /**
      * Prefix for the action name in {@link #HIDE_MODE}.
@@ -91,7 +91,7 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
     /**
      * Prefix for the action name in {@link #ONLY_MODE}.
      */
-    static protected final String ONLY_MODE_NAME = "Show";
+    protected static final String ONLY_MODE_NAME = "Show";
     /** Name of the action to process all elements. */
     public static final String ALL_ACTION_NAME = "All";
     /** Name of the action to process only the selected elements. */
@@ -274,7 +274,7 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
      * hidden).
      * </ul>
      */
-    static protected abstract class ShowHideAction<G extends Graph> extends AbstractAction {
+    protected abstract static class ShowHideAction<G extends Graph> extends AbstractAction {
         /**
          * Constructs a nameless action.
          * @param jgraph the jgraph upon which this action works
@@ -390,7 +390,7 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
     /**
      * Action that shows/hide all nodes and edges in the graph.
      */
-    static protected class AllAction<G extends Graph> extends ShowHideAction<G> {
+    protected static class AllAction<G extends Graph> extends ShowHideAction<G> {
         /**
          * Constructs an instance of the action for a given j-graph, either for
          * showing or for hiding.
@@ -416,7 +416,7 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
     /**
      * Action that inverts the shown/hidden nodes and edges in the graph.
      */
-    static protected class InvertAction<G extends Graph> extends ShowHideAction<G> {
+    protected static class InvertAction<G extends Graph> extends ShowHideAction<G> {
         /**
          * Constructs an instance of the action for a given j-graph, either for
          * showing or for hiding.
@@ -442,7 +442,7 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
      * Action that shows all incident edges of non-hidden nodes, or hides all
      * endpoints of hidden edges.
      */
-    static protected class ContextAction<G extends Graph> extends ShowHideAction<G> {
+    protected static class ContextAction<G extends Graph> extends ShowHideAction<G> {
         /**
          * Constructs an instance of the action for a given j-graph, either for
          * showing or for hiding.
@@ -481,7 +481,7 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
     /**
      * Action that shows/hides all nodes and edges with a given label.
      */
-    static protected class LabelAction<G extends Graph> extends ShowHideAction<G> {
+    protected static class LabelAction<G extends Graph> extends ShowHideAction<G> {
         /**
          * Creates a <tt>LabelAction</tt> that tests for an explicitly given
          * label.
@@ -496,7 +496,7 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
             throws IllegalArgumentException {
             super(jgraph, showMode, "");
             putValue(NAME, label.text().length() == 0 ? Options.EMPTY_LABEL_TEXT
-                    : HTMLConverter.HTML_TAG.on(label.toLine().toHTMLString()));
+                : HTMLConverter.HTML_TAG.on(label.toLine().toHTMLString()));
             this.label = label;
         }
 
@@ -521,7 +521,7 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
      * Action that shows/hides elements on the basis of a regular expression
      * over edge labels.
      */
-    static protected class RegExprAction<G extends Graph> extends ShowHideAction<G> {
+    protected static class RegExprAction<G extends Graph> extends ShowHideAction<G> {
         /**
          * Constructs an instance of the action for a given j-graph, either for
          * showing or for hiding.
@@ -592,7 +592,7 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
      * @author Arend Rensink
      * @version $Revision: 5480 $
      */
-    static protected class SelectedAction<G extends Graph> extends ShowHideAction<G> {
+    protected static class SelectedAction<G extends Graph> extends ShowHideAction<G> {
         /**
          * Constructs an instance of the action for a given j-graph, either for
          * showing or for hiding.
@@ -620,7 +620,7 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
      * file format is one label per line.
      * @author Eduardo Zambon
      */
-    static protected class FromFileAction<G extends Graph> extends ShowHideAction<G> {
+    protected static class FromFileAction<G extends Graph> extends ShowHideAction<G> {
         /**
          * Constructs an instance of the action for a given j-graph.
          * @param jgraph the underlying j-graph
@@ -681,7 +681,7 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
      * Show/hide action based on a trace from start state to current state.
      * @author Eduardo Zambon
      */
-    static protected class TraceAction extends ShowHideAction<GTS> {
+    protected static class TraceAction extends ShowHideAction<GTS> {
         /**
          * Constructs an instance of the action for a given j-graph.
          * @param jgraph the underlying j-graph

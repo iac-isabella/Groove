@@ -192,7 +192,7 @@ public class BuchiGraph extends AGraph<BuchiLocation,BuchiTransition> implements
         return new BuchiGraph("");
     }
 
-    static private final boolean DEBUG = false;
+    private static final boolean DEBUG = false;
 
     /** 
      * Offers a modifiable view on the transitions stored in the locations 
