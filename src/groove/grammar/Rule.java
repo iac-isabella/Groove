@@ -1485,7 +1485,7 @@ public class Rule implements Action, Fixable {
      * Returns the total time doing matching-related computations. This includes
      * time spent in certificate calculation.
      */
-    static public long getMatchingTime() {
+    public static long getMatchingTime() {
         return PlanSearchStrategy.searchFindReporter.getTotalTime();
     }
 

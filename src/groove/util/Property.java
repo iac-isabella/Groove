@@ -114,12 +114,12 @@ abstract public class Property<S> {
      * Creates and returns a property that returns <code>true</code> on all
      * objects of a generic type.
      */
-    static public <T> Property<T> createTrue() {
+    public static <T> Property<T> createTrue() {
         return new True<T>();
     }
 
     /** Property subclass that always returns true. */
-    static public class True<S> extends Property<S> {
+    public static class True<S> extends Property<S> {
         /**
          * Constructs an instance with <code>null</code> description and
          * comment.
@@ -150,7 +150,7 @@ abstract public class Property<S> {
      * @author Arend Rensink
      * @version $Revision $
      */
-    static public class IsBoolean extends Property<String> {
+    public static class IsBoolean extends Property<String> {
         /**
          * Constructs an instance with a flag to indicate if the empty string
          * should be approved.
@@ -196,7 +196,7 @@ abstract public class Property<S> {
      * Properties subclass that tests whether a given value is a correct value
      * of an {@link Enum} type (passed in as a type parameter).
      */
-    static public class IsEnumValue<T extends Enum<T>> extends Property<String> {
+    public static class IsEnumValue<T extends Enum<T>> extends Property<String> {
         /**
          * Constructs an instance with a flag to indicate if the empty string
          * should be approved.
@@ -251,7 +251,7 @@ abstract public class Property<S> {
     /**
      * Property that is satisfied by any of the values from a given predetermined set.
      */
-    static public class Choice<S> extends Property<S> {
+    public static class Choice<S> extends Property<S> {
         /** Constructs a choice based on a given set of values, and a given description. */
         public Choice(String comment, S... values) {
             this.values = new HashSet<S>(Arrays.asList(values));

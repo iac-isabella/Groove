@@ -292,7 +292,7 @@ public class MatchApplier {
     /** Reporter for profiling information. */
     static private final Reporter reporter = Reporter.register(MatchApplier.class);
     /** Profiling aid for adding states. */
-    static public final Reporter addStateReporter = reporter.register("addState");
+    public static final Reporter addStateReporter = reporter.register("addState");
     /** Profiling aid for adding transitions. */
-    static public final Reporter addTransitionReporter = reporter.register("addTransition");
+    public static final Reporter addTransitionReporter = reporter.register("addTransition");
 }

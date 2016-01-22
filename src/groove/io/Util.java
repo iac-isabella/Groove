@@ -301,54 +301,54 @@ public class Util {
     /** Lower case letter pi. */
     public static final char LC_PI = '\u03C0';
     /** HTML tau symbol. */
-    static public final char LC_TAU = '\u03C4';
+    public static final char LC_TAU = '\u03C4';
     /** HTML epsilon symbol. */
-    static public final char LC_EPSILON = '\u03B5';
+    public static final char LC_EPSILON = '\u03B5';
     /** HTML lambda symbol. */
-    static public final char LC_LAMBDA = '\u03BB';
+    public static final char LC_LAMBDA = '\u03BB';
 
     /** HTML opening << quote symbol. */
-    static public final char FRENCH_QUOTES_OPEN = '\u00AB';
+    public static final char FRENCH_QUOTES_OPEN = '\u00AB';
     /** HTML closing >> quote symbol. */
-    static public final char FRENCH_QUOTES_CLOSED = '\u00BB';
+    public static final char FRENCH_QUOTES_CLOSED = '\u00BB';
     /** HTML greater than symbol. */
-    static public final char GT = '>';
+    public static final char GT = '>';
     /** HTML left angular bracket symbol. */
-    static public final char LANGLE = '<'; // &#9001;
+    public static final char LANGLE = '<'; // &#9001;
     /** HTML right angular bracket symbol. */
-    static public final char RANGLE = '>'; // &#9002;
+    public static final char RANGLE = '>'; // &#9002;
     /** HTML times symbol. */
-    static public final char TIMES = '\u00D7';
+    public static final char TIMES = '\u00D7';
     /** Unicode right-triangle symbol; large/small = ..B6/B8. */
-    static public final char RT = '\u25B8';
+    public static final char RT = '\u25B8';
     /** Unicode left-triangle symbol; large/small = ..C0/C2. */
-    static public final char LT = '\u25C2';
+    public static final char LT = '\u25C2';
     /** Unicode up-triangle symbol; large/small = ..B2/B4. */
-    static public final char UT = '\u25B4';
+    public static final char UT = '\u25B4';
     /** Unicode down-triangle symbol; large/small = ..BC/BE. */
-    static public final char DT = '\u25BE';
+    public static final char DT = '\u25BE';
     /** Unicode right-arrow symbol. */
-    static public final char RA = '\u2192';
+    public static final char RA = '\u2192';
     /** Unicode left-arrow symbol. */
-    static public final char LA = '\u2190';
+    public static final char LA = '\u2190';
     /** Unicode up-arrow symbol. */
-    static public final char UA = '\u2191';
+    public static final char UA = '\u2191';
     /** Unicode down-arrow symbol. */
-    static public final char DA = '\u2193';
+    public static final char DA = '\u2193';
     /** Unicode up-right-arrow symbol. */
-    static public final char URA = '\u2197';
+    public static final char URA = '\u2197';
     /** Unicode up-left-arrow symbol. */
-    static public final char ULA = '\u2196';
+    public static final char ULA = '\u2196';
     /** Unicode down-right-arrow symbol. */
-    static public final char DRA = '\u2198';
+    public static final char DRA = '\u2198';
     /** Unicode down-left-arrow symbol. */
-    static public final char DLA = '\u2199';
+    public static final char DLA = '\u2199';
     /** Unicode  circular arrow symbol. */
-    static public final char CA = '\u21ba';
+    public static final char CA = '\u21ba';
     /** Unicode thin space symbol. */
-    static public final char THIN_SPACE = '\u2009';
+    public static final char THIN_SPACE = '\u2009';
     /** Unicode plusminus symbol. */
-    static public final char PLUSMINUS = '\u00b1';
+    public static final char PLUSMINUS = '\u00b1';
     /** Unicode end-of-text character. */
-    static public final char EOT = '\u0003';
+    public static final char EOT = '\u0003';
 }

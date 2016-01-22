@@ -81,40 +81,40 @@ public class ShowHideMenu<G extends Graph> extends JMenu {
     /**
      * Prefix for the action name in {@link #HIDE_MODE}.
      */
-    static public final String HIDE_MODE_NAME = "Hide";
+    public static final String HIDE_MODE_NAME = "Hide";
 
     /**
      * Prefix for the action name in {@link #ADD_MODE}.
      */
-    static public final String ADD_MODE_NAME = "Add";
+    public static final String ADD_MODE_NAME = "Add";
 
     /**
      * Prefix for the action name in {@link #ONLY_MODE}.
      */
     static protected final String ONLY_MODE_NAME = "Show";
     /** Name of the action to process all elements. */
-    static public final String ALL_ACTION_NAME = "All";
+    public static final String ALL_ACTION_NAME = "All";
     /** Name of the action to process only the selected elements. */
-    static public final String SELECTED_ACTION_NAME = "Selected";
+    public static final String SELECTED_ACTION_NAME = "Selected";
     /** Name of the action to invert the hidden elements. */
-    static public final String INVERT_ACTION_NAME = "Inverse";
+    public static final String INVERT_ACTION_NAME = "Inverse";
     /** Name of the action to process the context of a given element. */
-    static public final String CONTEXT_ACTION_NAME = "Context";
+    public static final String CONTEXT_ACTION_NAME = "Context";
     /**
      * Name of the action to process elements according to a regular expression.
      */
-    static public final String REGEXPR_ACTION_NAME = "Pattern...";
+    public static final String REGEXPR_ACTION_NAME = "Pattern...";
     /** Name of the action to process elements from a file. */
-    static public final String FILE_ACTION_NAME = "All From File...";
+    public static final String FILE_ACTION_NAME = "All From File...";
     /** Name of the action to process elements by label. */
-    static public final String LABEL_MENU_NAME = "Label";
+    public static final String LABEL_MENU_NAME = "Label";
     /** Highlight trace to start state name */
     public static final String TRACE_ACTION_NAME = "Trace From Start State";
 
     /**
      * Returns the name for a show mode.
      */
-    static public String getModeName(int showMode) {
+    public static String getModeName(int showMode) {
         switch (showMode) {
         case ADD_MODE:
             return ADD_MODE_NAME;

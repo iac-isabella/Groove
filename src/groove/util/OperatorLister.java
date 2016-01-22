@@ -86,12 +86,12 @@ public class OperatorLister extends GrooveCmdLineTool<List<String[]>> {
     /**
      * Main method to produce the list of operators and exit gracefully on errors.
      */
-    static public void main(String[] args) {
+    public static void main(String[] args) {
         GrooveCmdLineTool.tryExecute(OperatorLister.class, args);
     }
 
     /** Produces the current list of operators. */
-    static public void execute(String[] args) throws Exception {
+    public static void execute(String[] args) throws Exception {
         new OperatorLister(args).start();
     }
 }

@@ -40,7 +40,7 @@ import groove.graph.GraphInfo;
 /** Converter class to aspect graphs. */
 public class GraphConverter {
     /** Constructs an aspect graph from an arbitrary graph. */
-    static public AspectGraph toAspect(Graph graph) {
+    public static AspectGraph toAspect(Graph graph) {
         AspectGraph result;
         if (graph instanceof AspectGraph) {
             result = (AspectGraph) graph;
@@ -59,7 +59,7 @@ public class GraphConverter {
      * @return the resulting aspect graph, together with an element map
      * from the type graph to the aspect graph. 
      */
-    static public TypeToAspectMap toAspectMap(TypeGraph type) {
+    public static TypeToAspectMap toAspectMap(TypeGraph type) {
         AspectGraph target = new AspectGraph(type.getName(), TYPE);
         TypeToAspectMap result = new TypeToAspectMap(target);
         for (TypeNode node : type.nodeSet()) {
@@ -108,7 +108,7 @@ public class GraphConverter {
      * @return the resulting aspect graph, together with an element map
      * from the host graph to the aspect graph. 
      */
-    static public HostToAspectMap toAspectMap(HostGraph host) {
+    public static HostToAspectMap toAspectMap(HostGraph host) {
         AspectGraph targetGraph = new AspectGraph(host.getName(), HOST);
         HostToAspectMap result = new HostToAspectMap(targetGraph);
         for (HostNode node : host.nodeSet()) {
@@ -157,7 +157,7 @@ public class GraphConverter {
      * Mapping from the elements of a host graph to those of a corresponding
      * aspect graph. For convenience, the aspect graph is bundled in with the map.  
      */
-    static public class HostToAspectMap extends
+    public static class HostToAspectMap extends
             AElementMap<HostNode,HostEdge,AspectNode,AspectEdge> {
         /**
          * Creates a new, empty map.
@@ -179,7 +179,7 @@ public class GraphConverter {
      * Mapping from the elements of a type graph to those of a corresponding
      * aspect graph. For convenience, the aspect graph is bundled in with the map.  
      */
-    static public class TypeToAspectMap extends
+    public static class TypeToAspectMap extends
             AElementMap<TypeNode,TypeEdge,AspectNode,AspectEdge> {
         /**
          * Creates a new, empty map.

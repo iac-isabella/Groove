@@ -88,7 +88,7 @@ public class ConfigAction extends SimulatorAction {
     }
 
     /** Action type. */
-    static public enum Type {
+    public static enum Type {
         /** Create a new configuration. */
         NEW("New", Icons.NEW_ICON),
         /** Save the current configuration. */

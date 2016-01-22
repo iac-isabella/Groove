@@ -442,7 +442,7 @@ public class Formula extends TermTree<LogicOp,Formula> {
      * @param text the text to be tested
      * @return {@code true} if {@code text} does not require quotes
      */
-    static public boolean isId(String text) {
+    public static boolean isId(String text) {
         return IdValidator.JAVA_ID.isValid(text);
     }
 

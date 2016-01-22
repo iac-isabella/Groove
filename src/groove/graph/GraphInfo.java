@@ -291,7 +291,7 @@ public class GraphInfo extends DefaultFixable {
      * @return the non-negative priority of {@code graph}
      * @see Key#PRIORITY
      */
-    static public int getPriority(Graph graph) {
+    public static int getPriority(Graph graph) {
         return (Integer) getProperty(graph, PRIORITY);
     }
 
@@ -300,7 +300,7 @@ public class GraphInfo extends DefaultFixable {
      * @param graph the graph to be modified; non-{@code null} and non-fixed
      * @param role the new role
      */
-    static public void setRole(Graph graph, Role role) {
+    public static void setRole(Graph graph, Role role) {
         setProperty(graph, Key.ROLE, role);
     }
 
@@ -310,7 +310,7 @@ public class GraphInfo extends DefaultFixable {
      * @return the role; may be {@code null}
      * @see Key#ROLE
      */
-    static public Role getRole(Graph graph) {
+    public static Role getRole(Graph graph) {
         return (Role) getProperty(graph, Key.ROLE);
     }
 
@@ -319,7 +319,7 @@ public class GraphInfo extends DefaultFixable {
      * @param graph the graph to be modified; non-{@code null} and non-fixed
      * @param priority the new priority value; should be non-negative
      */
-    static public void setPriority(Graph graph, int priority) {
+    public static void setPriority(Graph graph, int priority) {
         setProperty(graph, PRIORITY, priority);
     }
 
@@ -329,7 +329,7 @@ public class GraphInfo extends DefaultFixable {
      * @param graph the queried graph; non-{@code null}
      * @see Key#ENABLED
      */
-    static public boolean isEnabled(Graph graph) {
+    public static boolean isEnabled(Graph graph) {
         return (Boolean) getProperty(graph, ENABLED);
     }
 
@@ -338,7 +338,7 @@ public class GraphInfo extends DefaultFixable {
      * @param graph the graph to be modified; non-{@code null} and non-fixed
      * @param enabled the new enabledness value
      */
-    static public void setEnabled(Graph graph, boolean enabled) {
+    public static void setEnabled(Graph graph, boolean enabled) {
         setProperty(graph, ENABLED, enabled);
     }
 
@@ -348,7 +348,7 @@ public class GraphInfo extends DefaultFixable {
      * @param graph the queried graph; non-{@code null}
      * @see Key#INJECTIVE
      */
-    static public boolean isInjective(Graph graph) {
+    public static boolean isInjective(Graph graph) {
         return (Boolean) getProperty(graph, INJECTIVE);
     }
 
@@ -357,7 +357,7 @@ public class GraphInfo extends DefaultFixable {
      * @param graph the graph to be modified; non-{@code null} and non-fixed
      * @param injective the new injectivity value
      */
-    static public void setInjective(Graph graph, boolean injective) {
+    public static void setInjective(Graph graph, boolean injective) {
         setProperty(graph, INJECTIVE, injective);
     }
 
@@ -367,7 +367,7 @@ public class GraphInfo extends DefaultFixable {
      * @param graph the queried graph; non-{@code null}
      * @see Key#REMARK
      */
-    static public String getRemark(Graph graph) {
+    public static String getRemark(Graph graph) {
         return (String) getProperty(graph, Key.REMARK);
     }
 
@@ -376,7 +376,7 @@ public class GraphInfo extends DefaultFixable {
      * @param graph the graph to be modified; non-{@code null} and non-fixed
      * @param remark the remark for this graph; non-{@code null}
      */
-    static public void setRemark(Graph graph, String remark) {
+    public static void setRemark(Graph graph, String remark) {
         setProperty(graph, Key.REMARK, remark);
     }
 
@@ -387,7 +387,7 @@ public class GraphInfo extends DefaultFixable {
      * @param graph the queried graph; non-{@code null}
      * @see Key#FORMAT
      */
-    static public String getFormatString(Graph graph) {
+    public static String getFormatString(Graph graph) {
         return (String) getProperty(graph, Key.FORMAT);
     }
 
@@ -396,7 +396,7 @@ public class GraphInfo extends DefaultFixable {
      * @param graph the graph to be modified; non-{@code null} and non-fixed
      * @param formatString the format string for this graph; may be {@code null}
      */
-    static public void setFormatString(Graph graph, String formatString) {
+    public static void setFormatString(Graph graph, String formatString) {
         setProperty(graph, Key.FORMAT, formatString);
     }
 
@@ -406,7 +406,7 @@ public class GraphInfo extends DefaultFixable {
      * @param graph the queried graph; non-{@code null}
      * @see Key#TRANSITION_LABEL
      */
-    static public String getTransitionLabel(Graph graph) {
+    public static String getTransitionLabel(Graph graph) {
         return (String) getProperty(graph, Key.TRANSITION_LABEL);
     }
 
@@ -415,7 +415,7 @@ public class GraphInfo extends DefaultFixable {
      * @param graph the graph to be modified; non-{@code null} and non-fixed
      * @param label the transition label for this graph; may be {@code null}
      */
-    static public void setTransitionLabel(Graph graph, String label) {
+    public static void setTransitionLabel(Graph graph, String label) {
         setProperty(graph, Key.TRANSITION_LABEL, label);
     }
 
@@ -426,7 +426,7 @@ public class GraphInfo extends DefaultFixable {
      * @param graph the queried graph; non-{@code null}
      * @see Key#VERSION
      */
-    static public String getVersion(Graph graph) {
+    public static String getVersion(Graph graph) {
         return (String) getProperty(graph, Key.VERSION);
     }
 

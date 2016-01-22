@@ -43,8 +43,8 @@ public class JavaStringAlgebra extends AbstractStringAlgebra<Integer> {
     }
 
     /** The name of this algebra. */
-    static public final String NAME = "string";
+    public static final String NAME = "string";
     /** The singleton instance of this class. */
-    static public final JavaStringAlgebra instance =
+    public static final JavaStringAlgebra instance =
         new JavaStringAlgebra();
 }

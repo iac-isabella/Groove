@@ -29,7 +29,7 @@ public class Simulator {
      * Main method.
      * @param args list of command-line arguments
      */
-    static public void main(String[] args) {
+    public static void main(String[] args) {
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(Thread t, Throwable e) {

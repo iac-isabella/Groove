@@ -58,7 +58,7 @@ public enum ThreeValued {
     private static final Selector INSTANCE = new Selector();
 
     /** Converter between {@link String} and {@link ThreeValued}. */
-    static public class Selector extends Property<String> {
+    public static class Selector extends Property<String> {
         /**
          * Constructs and editor with given string representations for the three values.
          * @param deflt default value; if {@code null}, there is no default

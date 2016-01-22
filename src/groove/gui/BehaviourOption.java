@@ -158,22 +158,22 @@ public class BehaviourOption extends JMenu implements ItemListener {
     private final ButtonGroup answerGroup;
 
     /** Value belonging to the <i>Ask</i> choice of the menu. */
-    static public final int ASK = 0;
+    public static final int ASK = 0;
     /** Text of the <i>Ask</i> choice of the menu. */
-    static public final String ASK_TEXT = "Ask";
+    public static final String ASK_TEXT = "Ask";
     /**
      * Value belonging to the <i>Always</i> (or <i>Auto</i>) choice of the
      * menu.
      */
-    static public final int ALWAYS = 1;
+    public static final int ALWAYS = 1;
     /** Text of the <i>Always</i> choice of the menu. */
-    static public final String ALWAYS_TEXT = "Always";
+    public static final String ALWAYS_TEXT = "Always";
     /** Text of the <i>Auto</i> choice of the menu. */
-    static public final String AUTO_TEXT = "Auto";
+    public static final String AUTO_TEXT = "Auto";
     /** Value belonging to the <i>Never</i> choice of the menu. */
-    static public final int NEVER = 2;
+    public static final int NEVER = 2;
     /** Text of the <i>Never</i> choice of the menu. */
-    static public final String NEVER_TEXT = "Never";
+    public static final String NEVER_TEXT = "Never";
     /** Index of the <i>Yes</i> button of the dialog. */
     static private final int YES = 0;
     /** Text of the <i>Yes</i> button of the dialog. */
@@ -194,5 +194,5 @@ public class BehaviourOption extends JMenu implements ItemListener {
      * Property name of the selection property, with values from 0 up to the
      * number of values - 1.
      */
-    static public final String SELECTION = "selection";
+    public static final String SELECTION = "selection";
 }

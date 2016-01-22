@@ -232,7 +232,7 @@ public enum Sort {
     }
 
     /** Returns the set of all known signature names. */
-    static public Set<String> getNames() {
+    public static Set<String> getNames() {
         return Collections.unmodifiableSet(sigNameMap.keySet());
     }
 

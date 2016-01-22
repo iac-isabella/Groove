@@ -36,7 +36,7 @@ public final class SystemStoreFactory {
      * @return a store created from <code>file</code>; non-null
      * @throws IOException if a store cannot be created from <code>file</code>
      */
-    static public SystemStore newStore(File file, boolean create)
+    public static SystemStore newStore(File file, boolean create)
         throws IOException {
         SystemStore store = null;
         try {
@@ -58,7 +58,7 @@ public final class SystemStoreFactory {
      * @return a store created from <code>url</code>; non-null
      * @throws IOException if a store cannot be created from <code>url</code>
      */
-    static public SystemStore newStore(URL url) throws IOException {
+    public static SystemStore newStore(URL url) throws IOException {
         SystemStore store = null;
         try {
             store = new DefaultArchiveSystemStore(url);
@@ -82,7 +82,7 @@ public final class SystemStoreFactory {
      * @throws IOException if a store cannot be created from
      *         <code>location</code>
      */
-    static public SystemStore newStore(String location) throws IOException {
+    public static SystemStore newStore(String location) throws IOException {
         try {
             return newStore(new URL(location));
         } catch (IOException exc) {

@@ -611,7 +611,7 @@ final public class BasicEvent extends AbstractRuleEvent<Rule,BasicEvent.BasicEve
     /**
      * Returns the number of nodes that were created during rule application.
      */
-    static public int getFreshNodeCount() {
+    public static int getFreshNodeCount() {
         return freshNodeCount;
     }
 
@@ -624,17 +624,17 @@ final public class BasicEvent extends AbstractRuleEvent<Rule,BasicEvent.BasicEve
      * The start string of the anchor image description.
      * @see #getAnchorImageString()
      */
-    static public final String ANCHOR_START = "(";
+    public static final String ANCHOR_START = "(";
     /**
      * The string separating the elements in the anchor image description.
      * @see #getAnchorImageString()
      */
-    static public final String ANCHOR_SEPARATOR = ",";
+    public static final String ANCHOR_SEPARATOR = ",";
     /**
      * The end string of the anchor image description.
      * @see #getAnchorImageString()
      */
-    static public final String ANCHOR_END = ")";
+    public static final String ANCHOR_END = ")";
     /** Global empty set of nodes. */
     static private final HostNodeSet EMPTY_NODE_SET = new HostNodeSet(0);
     /** Value for {@link #freshNodeList} that indicates {@link #NONE} mode. */

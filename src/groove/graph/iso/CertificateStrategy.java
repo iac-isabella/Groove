@@ -364,7 +364,7 @@ abstract public class CertificateStrategy {
      * the computation of certificates has taken a number of iterations equal to
      * the index.
      */
-    static public List<Integer> getIterateCount() {
+    public static List<Integer> getIterateCount() {
         List<Integer> result = new ArrayList<Integer>();
         for (int element : iterateCountArray) {
             result.add(element);
@@ -396,9 +396,9 @@ abstract public class CertificateStrategy {
 
     // --------------------------- reporter definitions ---------------------
     /** Reporter instance to profile methods of this class. */
-    static public final Reporter reporter = IsoChecker.reporter;
+    public static final Reporter reporter = IsoChecker.reporter;
     /** Handle to profile {@link #computeCertificates()}. */
-    static public final Reporter computeCertReporter = reporter.register("computeCertificates()");
+    public static final Reporter computeCertReporter = reporter.register("computeCertificates()");
     /** Handle to profile {@link #getNodePartitionMap()}. */
     static protected final Reporter getPartitionReporter = reporter.register("getPartitionMap()");
 
@@ -408,7 +408,7 @@ abstract public class CertificateStrategy {
      * way. Hence, equality of certificates does not imply equality of the
      * corresponding graph elements.
      */
-    static public interface Certificate {
+    public static interface Certificate {
         /** Returns the current value of the certificate. */
         public int getValue();
 
@@ -419,18 +419,18 @@ abstract public class CertificateStrategy {
     /**
      * Certificate representing a graph element
      */
-    static public interface ElementCertificate<EL extends Element> extends Certificate {
+    public static interface ElementCertificate<EL extends Element> extends Certificate {
         /** Returns the element for which this is a certificate. */
         EL getElement();
     }
 
     /** Specialised certificate for nodes. */
-    static public interface NodeCertificate extends ElementCertificate<Node> {
+    public static interface NodeCertificate extends ElementCertificate<Node> {
         // no added functionality
     }
 
     /** Specialised certificate for edges. */
-    static public interface EdgeCertificate extends ElementCertificate<Edge> {
+    public static interface EdgeCertificate extends ElementCertificate<Edge> {
         // no added functionality
     }
 }

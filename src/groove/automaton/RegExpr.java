@@ -509,7 +509,7 @@ abstract public class RegExpr { // implements VarSetSupport {
      * @throws FormatException if the text contains a special character
      * @see #isAtom(String)
      */
-    static public void assertAtom(String text) throws FormatException {
+    public static void assertAtom(String text) throws FormatException {
         if (text.length() == 0) {
             throw new FormatException("Empty atom");
         } else {
@@ -561,7 +561,7 @@ abstract public class RegExpr { // implements VarSetSupport {
      * @return <tt>true</tt> if the text does not contain any special characters
      * @see #assertAtom(String)
      */
-    static public boolean isAtom(String text) {
+    public static boolean isAtom(String text) {
         try {
             assertAtom(text);
             return true;
@@ -571,7 +571,7 @@ abstract public class RegExpr { // implements VarSetSupport {
     }
 
     /** Tests if a character may occur in an atom. */
-    static public boolean isAtomChar(char c) {
+    public static boolean isAtomChar(char c) {
         return Character.isLetterOrDigit(c) || ATOM_CHARS.indexOf(c) >= 0;
     }
 
@@ -626,7 +626,7 @@ abstract public class RegExpr { // implements VarSetSupport {
      *         equals <code>expr</code>
      * @throws FormatException if <code>expr</code> cannot be parsed
      */
-    static public RegExpr parse(String expr) throws FormatException {
+    public static RegExpr parse(String expr) throws FormatException {
         // first test if the quoting and bracketing is correct
         StringHandler.parseExpr(expr);
         // try to parse the expression using each of the available operators in
@@ -719,7 +719,7 @@ abstract public class RegExpr { // implements VarSetSupport {
     }
 
     /** Tests this class. */
-    static public void main(String[] args) {
+    public static void main(String[] args) {
         if (args.length == 0) {
             test("");
             test("?");
@@ -751,109 +751,109 @@ abstract public class RegExpr { // implements VarSetSupport {
      * Sequential operator.
      * @see Seq
      */
-    static public final char SEQ_OPERATOR = '.';
+    public static final char SEQ_OPERATOR = '.';
     /**
      * Symbolic name of the sequential operator.
      * @see Seq
      */
-    static public final String SEQ_SYMBOLIC_NAME = "Seq";
+    public static final String SEQ_SYMBOLIC_NAME = "Seq";
     /**
      * Kleene star operator.
      * @see Star
      */
-    static public final char STAR_OPERATOR = '*';
+    public static final char STAR_OPERATOR = '*';
     /**
      * Symbolic name of the Kleene star operator.
      * @see Star
      */
-    static public final String STAR_SYMBOLIC_NAME = "Some";
+    public static final String STAR_SYMBOLIC_NAME = "Some";
     /**
      * Choice operator.
      * @see Choice
      */
-    static public final char CHOICE_OPERATOR = '|';
+    public static final char CHOICE_OPERATOR = '|';
     /**
      * Symbolic name of the choice operator.
      * @see Choice
      */
-    static public final String CHOICE_SYMBOLIC_NAME = "Or";
+    public static final String CHOICE_SYMBOLIC_NAME = "Or";
 
     /**
      * Plus ("at least one occurence") operator.
      * @see Plus
      */
-    static public final char PLUS_OPERATOR = '+';
+    public static final char PLUS_OPERATOR = '+';
     /**
      * Symbolic name of the plus ("at least one occurrence") operator.
      * @see Plus
      */
-    static public final String PLUS_SYMBOLIC_NAME = "More";
+    public static final String PLUS_SYMBOLIC_NAME = "More";
 
     /**
      * Empty constant.
      * @see Empty
      */
-    static public final char EMPTY_OPERATOR = '=';
+    public static final char EMPTY_OPERATOR = '=';
     /**
      * Symbolic name of the empty constant.
      * @see Empty
      */
-    static public final String EMPTY_SYMBOLIC_NAME = "Empty";
+    public static final String EMPTY_SYMBOLIC_NAME = "Empty";
     /**
      * Wildcard constant.
      * @see Wildcard
      */
-    static public final char WILDCARD_OPERATOR = '?';
+    public static final char WILDCARD_OPERATOR = '?';
     /**
      * Symbolic name of the wildcard constant.
      * @see Wildcard
      */
-    static public final String WILDCARD_SYMBOLIC_NAME = "Any";
+    public static final String WILDCARD_SYMBOLIC_NAME = "Any";
     /**
      * Wildcard constant.
      * @see Wildcard
      */
-    static public final char SHARP_OPERATOR = '#';
+    public static final char SHARP_OPERATOR = '#';
     /**
      * Symbolic name of the wildcard constant.
      * @see Wildcard
      */
-    static public final String SHARP_SYMBOLIC_NAME = "Sharp";
+    public static final String SHARP_SYMBOLIC_NAME = "Sharp";
     /**
      * Inverse operator.
      * @see Inv
      */
-    static public final char INV_OPERATOR = '-';
+    public static final char INV_OPERATOR = '-';
     /**
      * Symbolic name of the inverse operator.
      * @see Inv
      */
-    static public final String INV_SYMBOLIC_NAME = "Back";
+    public static final String INV_SYMBOLIC_NAME = "Back";
 
     /**
      * Negation operator.
      * @see Neg
      */
-    static public final String NEG_OPERATOR = "!";
+    public static final String NEG_OPERATOR = "!";
 
     /**
      * Symbolic name of the negation operator.
      * @see Neg
      */
-    static public final String NEG_SYMBOLIC_NAME = "Not";
+    public static final String NEG_SYMBOLIC_NAME = "Not";
 
     /**
      * Symbolic name of the atomic constant.
      * @see Atom
      */
-    static public final String ATOM_SYMBOLIC_NAME = "Atom";
+    public static final String ATOM_SYMBOLIC_NAME = "Atom";
 
     /**
      * The characters allowed in a regular expression atom, apart from letters
      * and digits.
      * @see StringHandler#isIdentifier(String)
      */
-    static public final String ATOM_CHARS = "_$-";
+    public static final String ATOM_CHARS = "_$-";
 
     /**
      * An array of prototype regular expressions, in order of increasing
@@ -1372,7 +1372,7 @@ abstract public class RegExpr { // implements VarSetSupport {
     @ToolTipHeader("Concatenation")
     @ToolTipBody({"Satisfied by a path <i>p</i> if it is the concatenation",
         "of a path <i>p1</i> satisfying %1$s, followed by a path <i>p2</i>", "satisfying %2$s"})
-    static public class Seq extends Infix {
+    public static class Seq extends Infix {
         /** Creates a sequential composition of a list of expressions. */
         public Seq(List<RegExpr> innerRegExps) {
             super("" + SEQ_OPERATOR, SEQ_SYMBOLIC_NAME, innerRegExps);
@@ -1420,7 +1420,7 @@ abstract public class RegExpr { // implements VarSetSupport {
     @Syntax("expr1 %s expr2")
     @ToolTipHeader("Choice")
     @ToolTipBody({"Satisfied by a path <i>p</i> if satisfies either %1$s or %2$s"})
-    static public class Choice extends Infix {
+    public static class Choice extends Infix {
         /** Creates a choice between a list of expressions. */
         public Choice(List<RegExpr> tokenList) {
             super("" + CHOICE_OPERATOR, CHOICE_SYMBOLIC_NAME, tokenList);
@@ -1480,7 +1480,7 @@ abstract public class RegExpr { // implements VarSetSupport {
     @ToolTipPars({"the optional role of the label: either FLAG or TYPE",
         "the optional wildcard variable name",
         "comma-separated list of labels, either containing or excluding the matched label"})
-    static public class Wildcard extends Constant {
+    public static class Wildcard extends Constant {
         /** Creates an prototype instance. */
         Wildcard() {
             this(null);
@@ -1729,7 +1729,7 @@ abstract public class RegExpr { // implements VarSetSupport {
     @Syntax("%s label")
     @ToolTipHeader("Sharp type")
     @ToolTipBody({"Satisfied only by the node type %s (and not by any subtype of it)"})
-    static public class Sharp extends Constant {
+    public static class Sharp extends Constant {
         /** Creates an instance without variable identifier. */
         public Sharp() {
             super("" + SHARP_OPERATOR, SHARP_SYMBOLIC_NAME);
@@ -1849,7 +1849,7 @@ abstract public class RegExpr { // implements VarSetSupport {
     @Syntax("%s")
     @ToolTipHeader("Equality or merging")
     @ToolTipBody({"Satisfied only by an empty path; i.e., a path not containing any edges."})
-    static public class Empty extends Constant {
+    public static class Empty extends Constant {
         /** Creates an instance of this expression. */
         public Empty() {
             super("" + EMPTY_OPERATOR, EMPTY_SYMBOLIC_NAME);
@@ -1907,7 +1907,7 @@ abstract public class RegExpr { // implements VarSetSupport {
         "In the latter case, any subtype of %2$s is also correct."})
     @ToolTipPars({"optional role: either TYPE or FLAG",
         "edge label; should be single-quoted if it contains non-identifier characters."})
-    static public class Atom extends Constant {
+    public static class Atom extends Constant {
         /**
          * Creates a new atomic expression, based on a given text.
          * @param token the text to create the atom from
@@ -2056,7 +2056,7 @@ abstract public class RegExpr { // implements VarSetSupport {
     @ToolTipHeader("Zero or more")
     @ToolTipBody({"Matched by a path <i>p</i> if it is the concatenation of multiple",
         "fragments satisfying %1$s"})
-    static public class Star extends Postfix {
+    public static class Star extends Postfix {
         /** Creates the repetition of a given regular expression. */
         public Star(RegExpr operand) {
             super("" + STAR_OPERATOR, STAR_SYMBOLIC_NAME, operand);
@@ -2096,7 +2096,7 @@ abstract public class RegExpr { // implements VarSetSupport {
     @ToolTipHeader("One or more")
     @ToolTipBody({"Matched by a path <i>p</i> if it is the concatenation of at least one",
         "fragment satisfying %1$s"})
-    static public class Plus extends Postfix {
+    public static class Plus extends Postfix {
         /** Creates a non-empty repetition of a given regular expression. */
         public Plus(RegExpr operand) {
             super("" + PLUS_OPERATOR, PLUS_SYMBOLIC_NAME, operand);
@@ -2135,7 +2135,7 @@ abstract public class RegExpr { // implements VarSetSupport {
     @Syntax("%s expr")
     @ToolTipHeader("Inversion")
     @ToolTipBody({"Matched by a path <i>p</i> that, when traversed backwards, satisfies %1$s."})
-    static public class Inv extends Prefix {
+    public static class Inv extends Prefix {
         /** Creates the inversion of a given regular expression. */
         public Inv(RegExpr operand) {
             super("" + INV_OPERATOR, INV_SYMBOLIC_NAME, operand);
@@ -2174,7 +2174,7 @@ abstract public class RegExpr { // implements VarSetSupport {
     @Syntax("%s expr")
     @ToolTipHeader("Negation")
     @ToolTipBody({"Matched by any path <i>p</i> that does <i>not</i> satisfy %1$s."})
-    static public class Neg extends Prefix {
+    public static class Neg extends Prefix {
         /** Creates the negation of a given regular expression. */
         public Neg(RegExpr operand) {
             super(NEG_OPERATOR, NEG_SYMBOLIC_NAME, operand);

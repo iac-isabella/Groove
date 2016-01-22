@@ -259,7 +259,7 @@ public class LayoutMap implements Cloneable {
     /**
      * Turns a relative label position into an absolute label position.
      */
-    static public Point2D toAbsPosition(List<Point2D> points, Point2D relPosition) {
+    public static Point2D toAbsPosition(List<Point2D> points, Point2D relPosition) {
         Rectangle bounds = toBounds(points);
         Point2D source = points.get(0);
         Point2D target = points.get(points.size() - 1);
@@ -286,7 +286,7 @@ public class LayoutMap implements Cloneable {
      * Converts a list of points to the minimal rectangle containing all of
      * them.
      */
-    static public Rectangle toBounds(List<Point2D> points) {
+    public static Rectangle toBounds(List<Point2D> points) {
         Rectangle bounds = new Rectangle();
         for (Point2D point : points) {
             bounds.add(point);
@@ -298,7 +298,7 @@ public class LayoutMap implements Cloneable {
     /**
      * Turns an absolute label position into a relative label position.
      */
-    static public Point2D toRelPosition(List<Point2D> points, Point2D absPosition) {
+    public static Point2D toRelPosition(List<Point2D> points, Point2D absPosition) {
         Rectangle bounds = toBounds(points);
         Point2D source = points.get(0);
         Point2D target = points.get(points.size() - 1);
@@ -318,7 +318,7 @@ public class LayoutMap implements Cloneable {
     }
 
     /** Main method to test the functionality of this class. */
-    static public void main(String[] args) {
+    public static void main(String[] args) {
         List<Point2D> points = new LinkedList<Point2D>();
         Point2D relPosition1 = new Point(100, 900);
         Point2D relPosition2 = new Point(1200, 50);

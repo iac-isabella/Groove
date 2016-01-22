@@ -99,7 +99,7 @@ public final class TypeLabel extends ALabel {
     private final EdgeRole role;
 
     /** Returns the node type label for a given data signature. */
-    static public final TypeLabel getLabel(Sort sigKind) {
+    public static final TypeLabel getLabel(Sort sigKind) {
         return sigLabelMap.get(sigKind);
     }
 
@@ -184,7 +184,7 @@ public final class TypeLabel extends ALabel {
      * surrounding html-tag. The string is set to bold if the label is a node
      * type and is set to italic if the label is a flag.
      */
-    static public String toHtmlString(Label label) {
+    public static String toHtmlString(Label label) {
         String result = HTMLConverter.toHtml(label.text());
         switch (label.getRole()) {
         case NODE_TYPE:
@@ -213,7 +213,7 @@ public final class TypeLabel extends ALabel {
     }
 
     /** Type label for nodes in an untyped setting. */
-    static public final TypeLabel NODE = new TypeLabel("\u03A9", EdgeRole.NODE_TYPE);
+    public static final TypeLabel NODE = new TypeLabel("\u03A9", EdgeRole.NODE_TYPE);
 
     /** 
      * Unique type factory used for creating labels statically.

@@ -180,5 +180,5 @@ public class LogReporter extends AExplorationReporter {
      * Fixed name of the gc log file. If a file with this name is found, and
      * logging is switched on, the gc log is appended to the generator log.
      */
-    static public final String GC_LOG_NAME = "gc.log";
+    public static final String GC_LOG_NAME = "gc.log";
 }

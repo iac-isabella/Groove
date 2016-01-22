@@ -35,5 +35,5 @@ public interface PropertyKey<V> extends ParsableKey<V> {
      * Start character that distinguishes system properties from user-definable
      * properties. Any string starting with this character is a system key.
      */
-    static public final String SYSTEM_KEY_PREFIX = "$";
+    public static final String SYSTEM_KEY_PREFIX = "$";
 }

@@ -49,12 +49,12 @@ import org.junit.Test;
  */
 @SuppressWarnings("all")
 public abstract class GraphTest {
-    static public final String MATCH_DOM_NAME = "match-dom-";
-    static public final String MATCH_COD_NAME = "match-cod";
-    static public final String ISO_GRAPH_NAME = "iso-";
-    static public final String GRAPH_TEST_DIR = "junit/graphs";
-    static public final int MATCH_DOM_COUNT = 4;
-    static public final int ISO_GRAPH_COUNT = 4;
+    public static final String MATCH_DOM_NAME = "match-dom-";
+    public static final String MATCH_COD_NAME = "match-cod";
+    public static final String ISO_GRAPH_NAME = "iso-";
+    public static final String GRAPH_TEST_DIR = "junit/graphs";
+    public static final int MATCH_DOM_COUNT = 4;
+    public static final int ISO_GRAPH_COUNT = 4;
 
     static private final File GraphTestDir = new File(GRAPH_TEST_DIR);
 

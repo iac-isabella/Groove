@@ -1075,24 +1075,24 @@ public class TreeHashSet<T> extends AbstractSet<T> {
      * equality.
      */
     @SuppressWarnings("unchecked")
-    static public <E> Equator<E> equalsEquator() {
+    public static <E> Equator<E> equalsEquator() {
         return EQUALS_EQUATOR;
     }
 
     /** Returns an equator which only compares hash codes to determine equality. */
     @SuppressWarnings("unchecked")
-    static public <E> Equator<E> hashCodeEquator() {
+    public static <E> Equator<E> hashCodeEquator() {
         return HASHCODE_EQUATOR;
     }
 
     /** Returns an equator which uses object identity to determine equality. */
     @SuppressWarnings("unchecked")
-    static public <E> Equator<E> identityEquator() {
+    public static <E> Equator<E> identityEquator() {
         return IDENTITY_EQUATOR;
     }
 
     /** Returns the number of {@link TreeHashSet.MyListEntry} instances. */
-    static public int getMyListEntryCount() {
+    public static int getMyListEntryCount() {
         return MyListEntry.instanceCount;
     }
 
@@ -1112,20 +1112,20 @@ public class TreeHashSet<T> extends AbstractSet<T> {
     static private int count;
 
     /** The maximum record resolution supported. */
-    static public final int MAX_RESOLUTION = 4;
+    public static final int MAX_RESOLUTION = 4;
     /**
      * The default initial capacity of the set.
      */
-    static public final int DEFAULT_CAPACITY = 16;
+    public static final int DEFAULT_CAPACITY = 16;
 
     /**
      * The default resolution of the tree branches.
      */
-    static public final int DEFAULT_RESOLUTION = 3;
+    public static final int DEFAULT_RESOLUTION = 3;
     /**
      * The default resolution of the root branch.
      */
-    static public final int DEFAULT_ROOT_RESOLUTION = 4;
+    public static final int DEFAULT_ROOT_RESOLUTION = 4;
     /**
      * Equator that calls {@link Object#hashCode()} in
      * <code>Equator.getCode(Object)</code> and
@@ -1133,7 +1133,7 @@ public class TreeHashSet<T> extends AbstractSet<T> {
      * <code>Equator.areEqual(Object, Object)</code>.
      */
     @SuppressWarnings({"rawtypes"})
-    static public final Equator EQUALS_EQUATOR = new Equator<Object>() {
+    public static final Equator EQUALS_EQUATOR = new Equator<Object>() {
         /**
          * @return <code>key.hashCode()</code>.
          */
@@ -1163,7 +1163,7 @@ public class TreeHashSet<T> extends AbstractSet<T> {
      * <code>Equator.areEqual(Object, Object)</code>.
      */
     @SuppressWarnings({"rawtypes"})
-    static public final Equator IDENTITY_EQUATOR = new Equator<Object>() {
+    public static final Equator IDENTITY_EQUATOR = new Equator<Object>() {
         /**
          * @return <code>System.identityHashCode(key)</code>
          */
@@ -1193,7 +1193,7 @@ public class TreeHashSet<T> extends AbstractSet<T> {
      * in <code>Equator.areEqual(Object, Object)</code>.
      */
     @SuppressWarnings({"rawtypes"})
-    static public final Equator HASHCODE_EQUATOR = new Equator<Object>() {
+    public static final Equator HASHCODE_EQUATOR = new Equator<Object>() {
         /**
          * @return <code>key.hashCode()</code>
          */
@@ -1222,7 +1222,7 @@ public class TreeHashSet<T> extends AbstractSet<T> {
      * {@link #EQUALS_EQUATOR}.
      */
     @SuppressWarnings({"rawtypes"})
-    static public final Equator DEFAULT_EQUATOR = EQUALS_EQUATOR;
+    public static final Equator DEFAULT_EQUATOR = EQUALS_EQUATOR;
     /**
      * Number of bytes in an <code>int</code>.
      */

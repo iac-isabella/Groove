@@ -53,15 +53,15 @@ public interface DeltaApplier {
      * Mode for {@link #applyDelta(DeltaTarget, int)} indicating that all
      * elements should be processed.
      */
-    static public final int ALL_ELEMENTS = 0;
+    public static final int ALL_ELEMENTS = 0;
     /**
      * Mode for {@link #applyDelta(DeltaTarget, int)} indicating that only nodes
      * should be processed.
      */
-    static public final int NODES_ONLY = 1;
+    public static final int NODES_ONLY = 1;
     /**
      * Mode for {@link #applyDelta(DeltaTarget, int)} indicating that only edges
      * should be processed.
      */
-    static public final int EDGES_ONLY = 2;
+    public static final int EDGES_ONLY = 2;
 }

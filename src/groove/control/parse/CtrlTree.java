@@ -459,7 +459,7 @@ public class CtrlTree extends ParseTree<CtrlTree,Namespace> {
     }
 
     /** Parses a given term, using an existing name space. */
-    static public CtrlTree parse(Namespace namespace, String term) throws FormatException {
+    public static CtrlTree parse(Namespace namespace, String term) throws FormatException {
         try {
             CtrlParser parser = createParser(namespace, term);
             CtrlTree result = (CtrlTree) parser.program().getTree();
@@ -471,7 +471,7 @@ public class CtrlTree extends ParseTree<CtrlTree,Namespace> {
     }
 
     /** Creates a parser for a given term. */
-    static public CtrlParser createParser(Namespace namespace, String term) {
+    public static CtrlParser createParser(Namespace namespace, String term) {
         return PROTOTYPE.createParser(CtrlParser.class, namespace, term);
     }
 

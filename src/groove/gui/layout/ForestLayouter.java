@@ -352,19 +352,19 @@ public class ForestLayouter extends AbstractLayouter {
     /** Prototype instance of the forest layouter. */
     public static final ForestLayouter PROTOTYPE = new ForestLayouter();
     /** Name of the layouter. */
-    static public final String ACTION_NAME = "Forest layout";
+    public static final String ACTION_NAME = "Forest layout";
     /**
      * The minimum horizontal space to between child nodes, not including node
      * width
      */
-    static public final int MIN_CHILD_DISTANCE = 60;
+    public static final int MIN_CHILD_DISTANCE = 60;
     /**
      * The minimum horizontal space to between arbitrary nodes, not including
      * node width
      */
-    static public final int MIN_NODE_DISTANCE = 40;
+    public static final int MIN_NODE_DISTANCE = 40;
     /** The vertical space between levels, excluding the node height. */
-    static public final int VERTICAL_SPACE = 40;
+    public static final int VERTICAL_SPACE = 40;
 
     private static class BranchMap extends LinkedHashMap<JVertex<?>,Set<LayoutNode>> {
         //

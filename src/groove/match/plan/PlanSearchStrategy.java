@@ -329,7 +329,7 @@ public class PlanSearchStrategy implements SearchStrategy {
     /** Reporter instance to profile matcher methods. */
     static private final Reporter reporter = Reporter.register(PlanSearchStrategy.class);
     /** Handle for profiling {@link Search#find()} */
-    static public final Reporter searchFindReporter = reporter.register("Search.find()");
+    public static final Reporter searchFindReporter = reporter.register("Search.find()");
 
     /**
      * Class implementing an instantiation of the search plan algorithm for a

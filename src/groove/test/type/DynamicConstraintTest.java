@@ -30,7 +30,7 @@ import org.junit.Test;
 /** Set of tests for dynamic type constraints. */
 public class DynamicConstraintTest {
     /** Location of the samples. */
-    static public final String INPUT_DIR = "junit/types";
+    public static final String INPUT_DIR = "junit/types";
 
     /** Tests type multiplicities. */
     @Test

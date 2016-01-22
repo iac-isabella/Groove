@@ -71,12 +71,12 @@ public class PlainEdge extends AEdge<PlainNode,PlainLabel> {
      *         <code>target</code>; the label is a {@link PlainLabel}
      * @see #createEdge(PlainNode, PlainLabel, PlainNode)
      */
-    static public PlainEdge createEdge(PlainNode source, String text, PlainNode target) {
+    public static PlainEdge createEdge(PlainNode source, String text, PlainNode target) {
         return PlainFactory.instance().createEdge(source, text, target);
     }
 
     /** Default method that uses the DefaultEdge constructor. */
-    static public PlainEdge createEdge(PlainNode source, PlainLabel label, PlainNode target) {
+    public static PlainEdge createEdge(PlainNode source, PlainLabel label, PlainNode target) {
         return PlainFactory.instance().createEdge(source, label, target);
     }
 

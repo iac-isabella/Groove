@@ -45,7 +45,7 @@ public class BigStringAlgebra extends AbstractStringAlgebra<BigInteger> {
     }
 
     /** The name of this algebra. */
-    static public final String NAME = "bstring";
+    public static final String NAME = "bstring";
     /** The singleton instance of this class. */
-    static public final BigStringAlgebra instance = new BigStringAlgebra();
+    public static final BigStringAlgebra instance = new BigStringAlgebra();
 }

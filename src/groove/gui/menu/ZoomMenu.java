@@ -37,7 +37,7 @@ import javax.swing.KeyStroke;
  */
 public class ZoomMenu extends JMenu {
     /** The menu name. */
-    static public final String ZOOM_MENU_NAME = "Zoom";
+    public static final String ZOOM_MENU_NAME = "Zoom";
 
     /**
      * Constructs a standard zoom menu with default name.

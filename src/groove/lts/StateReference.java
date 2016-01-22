@@ -70,7 +70,7 @@ public class StateReference extends CacheReference<StateCache> {
      * <code>null</code>. This is a convenience method for
      * {@link #newInstance(boolean)} with parameter <code>true</code>.
      */
-    static public StateReference newInstance(GTS gts) {
+    public static StateReference newInstance(GTS gts) {
         return newInstance(gts, true);
     }
 
@@ -82,7 +82,7 @@ public class StateReference extends CacheReference<StateCache> {
      * @return a reference that is either strong or soft, depending on
      *         <code>strong</code>
      */
-    static public StateReference newInstance(GTS gts, boolean strong) {
+    public static StateReference newInstance(GTS gts, boolean strong) {
         return new StateReference(strong, 0, null, gts);
     }
 }

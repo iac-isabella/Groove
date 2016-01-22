@@ -106,10 +106,10 @@ public class AspectParser {
     }
 
     /** Separator between aspect name and associated content. */
-    static public final char ASSIGN = '=';
+    public static final char ASSIGN = '=';
 
     /** Separator between aspect prefix and main label text. */
-    static public final char SEPARATOR = ':';
+    public static final char SEPARATOR = ':';
 
     /** Returns the singleton instance of this class. */
     public static AspectParser getInstance() {

@@ -46,7 +46,7 @@ import org.junit.Test;
 /** Set of tests for rule application. */
 public class RuleApplicationTest {
     /** Location of the samples. */
-    static public final String INPUT_DIR = "junit/rules";
+    public static final String INPUT_DIR = "junit/rules";
     static final private boolean SAVE = false;
 
     /** Tests the rules in the creators grammar. */

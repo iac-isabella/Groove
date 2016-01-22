@@ -35,7 +35,7 @@ import java.io.IOException;
  */
 public class PrologTestUtil {
     /** Location of the samples. */
-    static public final String GRAMMAR_DIR = "junit/samples";
+    public static final String GRAMMAR_DIR = "junit/samples";
 
     private static PrologEngine prologQuery;
 

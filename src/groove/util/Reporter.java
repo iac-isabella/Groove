@@ -243,7 +243,7 @@ public class Reporter {
     private int avgTimeLength;
 
     /** Returns a reporter for a given type. */
-    static public synchronized Reporter register(Class<?> type) {
+    public static synchronized Reporter register(Class<?> type) {
         Reporter result = reporters.get(type);
         if (result == null) {
             result = new Reporter(type);
@@ -259,7 +259,7 @@ public class Reporter {
      * measured by the reporters.
      * @param out the output to which the report is to be written.
      */
-    static public synchronized void report(PrintWriter out) {
+    public static synchronized void report(PrintWriter out) {
         if (REPORT) {
             // first we compute the required (maximum) field widths for the
             // method reports
@@ -320,7 +320,7 @@ public class Reporter {
     /**
      * Returns the total time spent in measuring.
      */
-    static public long getReportTime() {
+    public static long getReportTime() {
         return reportTime;
     }
 
@@ -328,28 +328,28 @@ public class Reporter {
      * Prints a report of the measured data on the standard output.
      * @see #report(PrintWriter)
      */
-    static public void report() {
+    public static void report() {
         report(new PrintWriter(System.out));
     }
 
     // ---------------------------- other constants
     // ------------------------------
     /** Length of a count field */
-    static public final int COUNT_LENGTH = 7;
+    public static final int COUNT_LENGTH = 7;
     /** Length of a time field */
-    static public final int TIME_LENGTH = 6;
+    public static final int TIME_LENGTH = 6;
     /** Indentation before every method line */
-    static public final String INDENT = "  ";
+    public static final String INDENT = "  ";
     /** Field name of the method identifier */
-    static public final String METHOD_FIELD = "m";
+    public static final String METHOD_FIELD = "m";
     /** Field name of the top method count */
-    static public final String TOP_COUNT_FIELD = "#top";
+    public static final String TOP_COUNT_FIELD = "#top";
     /** Field name of the nested method count */
-    static public final String NESTED_COUNT_FIELD = "#nest";
+    public static final String NESTED_COUNT_FIELD = "#nest";
     /** Field name of the total duration */
-    static public final String TOT_TIME_FIELD = "tot(m)";
+    public static final String TOT_TIME_FIELD = "tot(m)";
     /** Field name of the average duration */
-    static public final String AVG_TIME_FIELD = "avg(mu)";
+    public static final String AVG_TIME_FIELD = "avg(mu)";
     /** Flag to control whether execution times are reported. */
     static private final boolean TIME_METHODS = true;
     /**

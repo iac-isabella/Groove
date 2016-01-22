@@ -190,7 +190,7 @@ public class GraphPreviewDialog<G extends Graph> extends JDialog {
     }
 
     /** Creates a panel showing a preview of a given graph. */
-    static public GraphPreviewPanel createPanel(GrammarModel grammar, Graph graph) {
+    public static GraphPreviewPanel createPanel(GrammarModel grammar, Graph graph) {
         return new GraphPreviewDialog<Graph>(grammar, graph).getContent();
     }
 

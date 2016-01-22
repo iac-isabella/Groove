@@ -97,7 +97,7 @@ public class Exporters {
      * Get suitable exporter for a given file name, based on the extension.
      * Backwards compatibility function for now.
      */
-    static public Pair<FileType,Exporter> getAcceptingFormat(String filename) {
+    public static Pair<FileType,Exporter> getAcceptingFormat(String filename) {
         Pair<FileType,Exporter> result = null;
         outer: for (Exporter exporter : getExporters()) {
             if (!exporter.getFormatKinds().contains(Kind.GRAPH)) {

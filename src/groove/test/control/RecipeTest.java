@@ -47,9 +47,9 @@ import org.junit.Test;
 @SuppressWarnings("all")
 public class RecipeTest {
     /** Location of the samples. */
-    static public final String GRAMMAR = "junit/samples/recipes.gps";
+    public static final String GRAMMAR = "junit/samples/recipes.gps";
     /** Counter for the GTS. */
-    static public final GTSCounter counter = new GTSCounter();
+    public static final GTSCounter counter = new GTSCounter();
 
     @Test
     public void testAOnly() {

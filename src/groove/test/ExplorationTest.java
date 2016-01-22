@@ -48,7 +48,7 @@ import org.junit.Test;
  */
 public class ExplorationTest {
     /** Location of the samples. */
-    static public final String INPUT_DIR = "junit/samples";
+    public static final String INPUT_DIR = "junit/samples";
 
     /**
      * Record to store the data of a single test case.

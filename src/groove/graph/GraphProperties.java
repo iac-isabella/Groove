@@ -181,7 +181,7 @@ public class GraphProperties extends Properties {
         }
 
         /** Indicates if a given string corresponds to a property key. */
-        static public boolean isKey(String key) {
+        public static boolean isKey(String key) {
             return keyMap.containsKey(key);
         }
 

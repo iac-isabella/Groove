@@ -38,7 +38,7 @@ public class JavaBoolAlgebra extends AbstractBoolAlgebra {
     }
 
     /** The name of this algebra. */
-    static public final String NAME = "jbool";
+    public static final String NAME = "jbool";
     /** Singleton instance of this algebra. */
     public static final JavaBoolAlgebra instance = new JavaBoolAlgebra();
 }

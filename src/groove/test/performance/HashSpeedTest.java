@@ -66,7 +66,7 @@ public class HashSpeedTest {
         elementSet = Arrays.asList(elementArray);
     }
 
-    static public void createVersusClear(boolean create) {
+    public static void createVersusClear(boolean create) {
         Set<Integer> testSet = new HashSet<Integer>();
         for (int i = 0; i < CREATE_TRY_COUNT; i++) {
             if (create) {
@@ -82,7 +82,7 @@ public class HashSpeedTest {
         }
     }
 
-    static public void listVersusSet(int kind) {
+    public static void listVersusSet(int kind) {
         for (int i = 0; i < KIND_TRY_COUNT; i++) {
             Collection<Integer> testSet;
             Reporter measure;
@@ -152,7 +152,7 @@ public class HashSpeedTest {
         }
     }
 
-    static public void indexVersusIterator(int kind) {
+    public static void indexVersusIterator(int kind) {
         for (int i = 0; i < KIND_TRY_COUNT; i++) {
             List<Integer> testSet;
             switch (kind) {
@@ -184,7 +184,7 @@ public class HashSpeedTest {
         }
     }
 
-    static public void keyVersusEntry(boolean key) {
+    public static void keyVersusEntry(boolean key) {
         Map<Integer,Integer> testMap = new HashMap<Integer,Integer>(elementMap);
         int sum = 0;
         for (int i = 0; i < KEY_TRY_COUNT; i++) {
@@ -204,24 +204,24 @@ public class HashSpeedTest {
         }
     }
 
-    static public void testCreateVersusClear() {
+    public static void testCreateVersusClear() {
         createVersusClear(false);
         createVersusClear(true);
     }
 
-    static public void testKeyVersusEntry() {
+    public static void testKeyVersusEntry() {
         keyVersusEntry(false);
         keyVersusEntry(true);
     }
 
-    static public void testListVersusSet() {
+    public static void testListVersusSet() {
         listVersusSet(LINKED_KIND);
         listVersusSet(ARRAY_KIND);
         listVersusSet(HASH_KIND);
         listVersusSet(HACK_KIND);
     }
 
-    static public void testIndexVersusIterator() {
+    public static void testIndexVersusIterator() {
         indexVersusIterator(LINKED_KIND);
         indexVersusIterator(ARRAY_KIND);
     }

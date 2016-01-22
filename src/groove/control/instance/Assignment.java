@@ -280,7 +280,7 @@ public class Assignment {
      * @param top template location of the source frame
      * @param remaining number of switches in the target frame switch stack
      */
-    static public List<Assignment> computePops(SwitchStack stack, Location top, int remaining) {
+    public static List<Assignment> computePops(SwitchStack stack, Location top, int remaining) {
         List<Assignment> result = new ArrayList<Assignment>();
         for (int i = stack.size() - 1; i >= remaining; i--) {
             assert top.isFinal();

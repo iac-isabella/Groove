@@ -284,16 +284,16 @@ public class QualName implements Comparable<QualName> {
     /**
      * Character to separate constituent tokens (as String).
      */
-    static public final String SEPARATOR = ".";
+    public static final String SEPARATOR = ".";
     /**
      * Character to separate constituent tokens.
      */
-    static public final char SEPARATOR_CHAR = '.';
+    public static final char SEPARATOR_CHAR = '.';
 
     /** Wildcard character. */
-    static public final char WILDCARD_CHAR = '*';
+    public static final char WILDCARD_CHAR = '*';
     /** Wildcard string. */
-    static public final String WILDCARD = "" + WILDCARD_CHAR;
+    public static final String WILDCARD = "" + WILDCARD_CHAR;
 
     /**
      * Helper method. Checks if the argument is allowed as the first character

@@ -89,7 +89,7 @@ public enum LineStyle {
     }
 
     /** The default line style. */
-    static public final LineStyle DEFAULT_VALUE = ORTHOGONAL;
+    public static final LineStyle DEFAULT_VALUE = ORTHOGONAL;
 
     private static final Map<Integer,LineStyle> codeMap =
         new HashMap<Integer,LineStyle>();

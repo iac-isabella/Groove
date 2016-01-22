@@ -720,7 +720,7 @@ public class GrammarModel implements Observer {
      *         given URL
      * @throws IOException if a store can be created but not loaded
      */
-    static public GrammarModel newInstance(URL url) throws IllegalArgumentException, IOException {
+    public static GrammarModel newInstance(URL url) throws IllegalArgumentException, IOException {
         SystemStore store = SystemStoreFactory.newStore(url);
         store.reload();
         GrammarModel result = store.toGrammarModel();
@@ -732,7 +732,7 @@ public class GrammarModel implements Observer {
      * @param file the file to load the grammar from
      * @throws IOException if the store exists  does not contain a grammar
      */
-    static public GrammarModel newInstance(File file) throws IOException {
+    public static GrammarModel newInstance(File file) throws IOException {
         return newInstance(file, false);
     }
 
@@ -744,7 +744,7 @@ public class GrammarModel implements Observer {
      * @throws IOException if an error occurred while creating the store, or
      * if the store exists but does not contain a grammar
      */
-    static public GrammarModel newInstance(File file, boolean create) throws IOException {
+    public static GrammarModel newInstance(File file, boolean create) throws IOException {
         SystemStore store = SystemStoreFactory.newStore(file, create);
         store.reload();
         GrammarModel result = store.toGrammarModel();
@@ -759,7 +759,7 @@ public class GrammarModel implements Observer {
      *         given location
      * @throws IOException if a store can be created but not loaded
      */
-    static public GrammarModel newInstance(String location) throws IllegalArgumentException,
+    public static GrammarModel newInstance(String location) throws IllegalArgumentException,
         IOException {
         try {
             return newInstance(new URL(location));

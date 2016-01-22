@@ -363,7 +363,7 @@ public class StringHandler {
      * @return A new string, consisting of <tt>text</tt> preceded or followed by
      *         spaces, up to minimum length <tt>length</tt>
      */
-    static public String pad(String text, int length, boolean right) {
+    public static String pad(String text, int length, boolean right) {
         StringBuffer result = new StringBuffer(text);
         while (result.length() < length) {
             if (right) {
@@ -384,7 +384,7 @@ public class StringHandler {
      * @return A new string, with <tt>text</tt> as prefix, followed by spaces,
      *         up to minimum length <tt>length</tt>
      */
-    static public String pad(String text, int length) {
+    public static String pad(String text, int length) {
         return pad(text, length, true);
     }
 
@@ -532,7 +532,7 @@ public class StringHandler {
      *         substrings, in the order in which they appeared in the original
      *         string.
      */
-    static public Pair<String,List<String>> parseExpr(String expr) throws FormatException {
+    public static Pair<String,List<String>> parseExpr(String expr) throws FormatException {
 
         StringHandler p = StringHandler.prototype;
 
@@ -545,7 +545,7 @@ public class StringHandler {
      * {@link #PLACEHOLDER}s. This is the inverse operation of
      * {@link #parseExpr(String)}.
      */
-    static public String unparseExpr(String basis, List<String> replacements) {
+    public static String unparseExpr(String basis, List<String> replacements) {
         return prototype.unparse(basis, replacements);
     }
 
@@ -556,7 +556,7 @@ public class StringHandler {
      *         exception.
      * @see #parseExpr(String)
      */
-    static public boolean isParsable(String expr) {
+    public static boolean isParsable(String expr) {
         try {
             parseExpr(expr);
             return true;
@@ -573,7 +573,7 @@ public class StringHandler {
      *         created; or <tt>null</tt> if <tt>parsedString</tt> is improperly
      *         formatted
      */
-    static public String toString(String main, List<String> args) {
+    public static String toString(String main, List<String> args) {
         StringBuffer result = new StringBuffer();
         int placeHolderCount = 0;
         for (int c = 0; c < main.length(); c++) {
@@ -602,7 +602,7 @@ public class StringHandler {
      * <tt>new ExprParser().split(expr,split)</tt>.
      * @see #split(String,String)
      */
-    static public String[] splitExpr(String expr, String split) throws FormatException {
+    public static String[] splitExpr(String expr, String split) throws FormatException {
         return prototype.split(expr, split);
     }
 
@@ -613,7 +613,7 @@ public class StringHandler {
      * <tt>new ExprParser().split(expr,split,position)</tt>.
      * @see #split(String,String,int)
      */
-    static public String[] splitExpr(String expr, String split, int position)
+    public static String[] splitExpr(String expr, String split, int position)
         throws FormatException {
         return prototype.split(expr, split, position);
     }
@@ -630,7 +630,7 @@ public class StringHandler {
      * @return the trimmed string
      * @throws FormatException if the string could not be correctly parsed
      */
-    static public String toTrimmed(String expr, char open, char close) throws FormatException {
+    public static String toTrimmed(String expr, char open, char close) throws FormatException {
         Pair<String,List<String>> parseResult =
             new StringHandler(new char[] {open, close}).parse(expr);
         if (parseResult.one().length() != 1 || parseResult.two().get(0).charAt(0) != open) {
@@ -648,7 +648,7 @@ public class StringHandler {
      * @param specialChars the characters to be escaped
      * @return the resulting string
      */
-    static public String toEscaped(String string, Set<Character> specialChars) {
+    public static String toEscaped(String string, Set<Character> specialChars) {
         StringBuffer result = new StringBuffer();
         for (char c : string.toCharArray()) {
             // insert an ESCAPE in front of quotes or ESCAPES
@@ -667,7 +667,7 @@ public class StringHandler {
      * @param quote the quote character to be used
      * @return the quoted string
      */
-    static public String toQuoted(String string, char quote) {
+    public static String toQuoted(String string, char quote) {
         StringBuffer result = new StringBuffer();
         result.append(quote);
         result.append(toEscaped(string, Collections.singleton(quote)));
@@ -682,7 +682,7 @@ public class StringHandler {
      * @throws FormatException if {@link #toUnquoted(String, char)} does so,
      * or {@code string} does not start with a quote character
      */
-    static public String toUnquoted(String string) throws FormatException {
+    public static String toUnquoted(String string) throws FormatException {
         if (string.isEmpty()) {
             throw new FormatException("Can't unquote empty string");
         }
@@ -716,7 +716,7 @@ public class StringHandler {
      *         except the first or last, or if there are no matching begin or
      *         end quotes
      */
-    static public String toUnquoted(String string, char quote) throws FormatException {
+    public static String toUnquoted(String string, char quote) throws FormatException {
         boolean startsWithQuote = !string.isEmpty() && string.charAt(0) == quote;
         int start = startsWithQuote ? 1 : 0;
         int end = string.length();
@@ -755,7 +755,7 @@ public class StringHandler {
     }
 
     /** Main method used to test the class. Call without parameters. */
-    static public void main(String[] args) {
+    public static void main(String[] args) {
         System.out.println("Empty string: " + "".substring(0, 0));
         if (args.length == 0) {
             System.out.println("String quotation tests");
@@ -916,45 +916,45 @@ public class StringHandler {
     /**
      * Invokes {@link IdValidator#isValid(String)} on {@link #ID_VALIDATOR}.
      */
-    static public boolean isIdentifier(String text) {
+    public static boolean isIdentifier(String text) {
         return ID_VALIDATOR.isValid(text);
     }
 
     /** The hyphen character. This is allowed as part of an identifier. */
-    static public final char HYPHEN = '-';
+    public static final char HYPHEN = '-';
     /** The single quote character, to control parsing. */
-    static public final char SINGLE_QUOTE_CHAR = '\'';
+    public static final char SINGLE_QUOTE_CHAR = '\'';
     /** The double quote character, to control parsing. */
-    static public final char DOUBLE_QUOTE_CHAR = '"';
+    public static final char DOUBLE_QUOTE_CHAR = '"';
     /** The escape character commonly used. */
-    static public final char ESCAPE_CHAR = '\\';
+    public static final char ESCAPE_CHAR = '\\';
     /**
      * Left parenthesis character used for grouping regular (sub)expressions.
      */
-    static public final char LPAR_CHAR = '(';
+    public static final char LPAR_CHAR = '(';
     /**
      * Right parenthesis character used for grouping regular (sub)expressions.
      */
-    static public final char RPAR_CHAR = ')';
+    public static final char RPAR_CHAR = ')';
     /**
      * Left bracket character allowed as atom delimiter
      */
-    static public final char LANGLE_CHAR = '<';
+    public static final char LANGLE_CHAR = '<';
     /**
      * Right bracket character allowed as atom delimiter
      */
-    static public final char RANGLE_CHAR = '>';
+    public static final char RANGLE_CHAR = '>';
     /**
      * Left bracket character allowed as atom delimiter
      */
-    static public final char LCURLY = '{';
+    public static final char LCURLY = '{';
     /**
      * Right bracket character allowed as atom delimiter
      */
-    static public final char RCURLY = '}';
+    public static final char RCURLY = '}';
 
     /** Pair of round brackets, to control parsing. */
-    static public final char[] ROUND_BRACKETS = {LPAR_CHAR, RPAR_CHAR};
+    public static final char[] ROUND_BRACKETS = {LPAR_CHAR, RPAR_CHAR};
     /** Pair of curly brackets, to control parsing. */
     static private final char[] CURLY_BRACKETS = {LCURLY, RCURLY};
     /** Pair of square brackets, to control parsing. */
@@ -966,17 +966,17 @@ public class StringHandler {
      * Positioning value for an infix operator.
      * @see #split(String,String,int)
      */
-    static public final int INFIX_POSITION = 0;
+    public static final int INFIX_POSITION = 0;
     /**
      * Positioning value for an infix operator.
      * @see #split(String,String,int)
      */
-    static public final int PREFIX_POSITION = 1;
+    public static final int PREFIX_POSITION = 1;
     /**
      * Positioning value for an infix operator.
      * @see #split(String,String,int)
      */
-    static public final int POSTFIX_POSITION = 2;
+    public static final int POSTFIX_POSITION = 2;
 
     /**
      * Array of default quote characters, containing the single and double
@@ -991,20 +991,20 @@ public class StringHandler {
     static private final char[][] DEFAULT_BRACKETS = {ROUND_BRACKETS, ANGLE_BRACKETS,
         CURLY_BRACKETS, SQUARE_BRACKETS};
     /** The default character to use as a placeholder in the parse result. */
-    static public final char PLACEHOLDER = '\uFFFF';
+    public static final char PLACEHOLDER = '\uFFFF';
 
     /**
      * The characters allowed in a wildcard identifier, apart from letters and
      * digits.
      * @see StringHandler#isIdentifier(String)
      */
-    static public final String IDENTIFIER_CHARS = "_$";
+    public static final String IDENTIFIER_CHARS = "_$";
     /**
      * The characters allowed at the start of a wildcard identifier, apart from
      * letters.
      * @see StringHandler#isIdentifier(String)
      */
-    static public final String IDENTIFIER_START_CHARS = "_";
+    public static final String IDENTIFIER_START_CHARS = "_";
 
     /** Prototype parser, used to evaluate the static methods on. */
     static private final StringHandler prototype = new StringHandler();

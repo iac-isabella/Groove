@@ -34,7 +34,7 @@ public class Record {
     /**
      * Returns the number of events created in the course of rule application.
      */
-    static public int getEventCount() {
+    public static int getEventCount() {
         return eventCount;
     }
 

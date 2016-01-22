@@ -893,7 +893,7 @@ public class AspectGraph extends NodeSetEdgeSetGraph<AspectNode,AspectEdge> {
         private final GraphRole graphRole;
 
         /** Returns the singleton instance of this class. */
-        static public AspectFactory instance(GraphRole graphRole) {
+        public static AspectFactory instance(GraphRole graphRole) {
             return factoryMap.get(graphRole);
         }
 

@@ -360,14 +360,14 @@ public enum FileType {
     /** 
      * Returns the set of possible file types of a given file, going by its filename extension.
      */
-    static public Set<FileType> getType(File file) {
+    public static Set<FileType> getType(File file) {
         return getType(file.getName());
     }
 
     /** 
      * Returns the set of possible file types for a given file, going by its filename extension.
      */
-    static public Set<FileType> getType(String filename) {
+    public static Set<FileType> getType(String filename) {
         Set<FileType> result = EnumSet.noneOf(FileType.class);
         for (FileType type : FileType.values()) {
             if (type.hasExtension(filename)) {
@@ -384,7 +384,7 @@ public enum FileType {
      * @return the extension part of <code>file.getName()</code>
      * @see File#getName()
      */
-    static public String getExtension(File file) {
+    public static String getExtension(File file) {
         return getExtension(file.getName());
     }
 
@@ -394,7 +394,7 @@ public enum FileType {
      * @param filename the file name to obtain the extension from
      * @return the extension part of {@code filename}
      */
-    static public String getExtension(String filename) {
+    public static String getExtension(String filename) {
         return filename.substring(filename.lastIndexOf(SEPARATOR));
     }
 
@@ -406,7 +406,7 @@ public enum FileType {
      *         extension
      * @see File#getName()
      */
-    static public String getPureName(File file) {
+    public static String getPureName(File file) {
         return getPureName(file.getName());
     }
 
@@ -417,7 +417,7 @@ public enum FileType {
      * @return the name part of <code>file.getName()</code>, without the
      *         extension
      */
-    static public String getPureName(String filename) {
+    public static String getPureName(String filename) {
         int index = filename.lastIndexOf(SEPARATOR);
         if (index < 0) {
             return filename;
@@ -449,5 +449,5 @@ public enum FileType {
     /**
      * Separator character between filename and extension.
      */
-    static public final char SEPARATOR = '.';
+    public static final char SEPARATOR = '.';
 }

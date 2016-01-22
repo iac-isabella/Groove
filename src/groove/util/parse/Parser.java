@@ -306,7 +306,7 @@ abstract public interface Parser<T> {
     }
 
     /** Integer parser. */
-    static public class IntParser extends AbstractIntParser<Integer> {
+    public static class IntParser extends AbstractIntParser<Integer> {
         private IntParser(boolean neg) {
             super(Integer.class, 0, neg);
         }
@@ -333,7 +333,7 @@ abstract public interface Parser<T> {
     }
 
     /** Parser that concatenates and splits lines at whitespaces. */
-    static public class SplitParser implements Parser<List<String>> {
+    public static class SplitParser implements Parser<List<String>> {
         /** Constructs a parser. */
         @SuppressWarnings("unchecked")
         public SplitParser() {
@@ -416,7 +416,7 @@ abstract public interface Parser<T> {
      * @author Arend Rensink
      * @version $Revision $
      */
-    static public class BooleanParser implements Parser<Boolean> {
+    public static class BooleanParser implements Parser<Boolean> {
         /**
          * Constructs an instance that accepts the empty string as
          * a given default value.
@@ -512,7 +512,7 @@ abstract public interface Parser<T> {
      * Properties subclass that tests whether a given value is a correct value
      * of an {@link Enum} type (passed in as a type parameter).
      */
-    static public class EnumParser<T extends Enum<T>> implements Parser<T> {
+    public static class EnumParser<T extends Enum<T>> implements Parser<T> {
         /**
          * Constructs an instance with a flag to indicate if the empty string
          * should be approved.

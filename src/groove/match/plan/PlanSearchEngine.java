@@ -124,7 +124,7 @@ public class PlanSearchEngine extends SearchEngine {
 
     /** Returns an instance of this factory class.
      */
-    static public PlanSearchEngine getInstance() {
+    public static PlanSearchEngine getInstance() {
         return instance;
     }
 

@@ -524,7 +524,7 @@ abstract public class AbstractGraphState extends AbstractCacheHolder<StateCache>
     private GraphTransitionStub[] transitionStubs = EMPTY_TRANSITION_STUBS;
 
     /** Returns the total number of fixed delta graphs. */
-    static public int getFrozenGraphCount() {
+    public static int getFrozenGraphCount() {
         return frozenGraphCount;
     }
 

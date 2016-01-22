@@ -125,7 +125,7 @@ public class Viewer extends GrooveCmdLineTool<Object> {
     }
 
     /** Constructs and starts the viewer. */
-    static public Object execute(String[] args) throws Exception {
+    public static Object execute(String[] args) throws Exception {
         return new Viewer(args).start();
     }
 
@@ -133,7 +133,7 @@ public class Viewer extends GrooveCmdLineTool<Object> {
      * Tries to show a given file as a graph in a modeless dialog,
      * Convenience method for {@code showGraph(file,false)}.
      */
-    static public void showGraph(File file) throws IOException, FormatException {
+    public static void showGraph(File file) throws IOException, FormatException {
         showGraph(file, false);
     }
 
@@ -141,7 +141,7 @@ public class Viewer extends GrooveCmdLineTool<Object> {
      * Tries to show a given graph in a modeless dialog.
      * Convenience method for {@code showGraph(graph,false)}.
      */
-    static public void showGraph(Graph graph) {
+    public static void showGraph(Graph graph) {
         showGraph(graph, false);
     }
 
@@ -149,7 +149,7 @@ public class Viewer extends GrooveCmdLineTool<Object> {
      * Tries to show a given file as a graph in an optionally modal dialog,
      * by invoking {@link #show(File,boolean)} on a fresh {@link Viewer} instance.
      */
-    static public void showGraph(File file, boolean modal) throws IOException, FormatException {
+    public static void showGraph(File file, boolean modal) throws IOException, FormatException {
         new Viewer().show(file, modal);
     }
 
@@ -157,7 +157,7 @@ public class Viewer extends GrooveCmdLineTool<Object> {
      * Tries to show a given graph in an optionally modal dialog,
      * by invoking {@link #show(Graph,boolean)} on a fresh {@link Viewer} instance.
      */
-    static public void showGraph(Graph graph, boolean modal) {
+    public static void showGraph(Graph graph, boolean modal) {
         new Viewer().show(graph, modal);
     }
 

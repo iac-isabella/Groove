@@ -67,7 +67,7 @@ public class GraphCache<N extends Node,E extends GEdge<N>> {
     /**
      * Switch to determine if the node-edge-set should be dynamically cached.
      */
-    static public final boolean NODE_EDGE_MAP_DYNAMIC = true;
+    public static final boolean NODE_EDGE_MAP_DYNAMIC = true;
     /**
      * The total number of graph caches created.
      */

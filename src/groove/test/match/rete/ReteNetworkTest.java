@@ -45,7 +45,7 @@ public class ReteNetworkTest extends TestCase {
      */
 
     /** Location of the samples. */
-    static public final String INPUT_DIR = "junit/samples";
+    public static final String INPUT_DIR = "junit/samples";
 
     @Override
     public void setUp() {

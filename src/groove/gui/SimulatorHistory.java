@@ -108,6 +108,6 @@ class SimulatorHistory implements SimulatorListener {
      * (User) Property that holds the grammar history (max 10 separated by ',')
      * *
      */
-    static public final String HISTORY_KEY = "open_history";
+    public static final String HISTORY_KEY = "open_history";
 
 }

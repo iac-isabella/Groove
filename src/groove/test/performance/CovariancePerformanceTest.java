@@ -19,7 +19,7 @@ package groove.test.performance;
 /** Test to show the performance hit of overriding with return type covariance. */
 public class CovariancePerformanceTest {
     /** Main method. */
-    static public void main(String[] args) {
+    public static void main(String[] args) {
         System.out.println("Covariance test (m1)");
         test1(new A());
         test1(new B());

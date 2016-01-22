@@ -207,11 +207,11 @@ public class TypeGuard extends Property<TypeElement> {
     /** Flag indicating if we are testing for absence or presence. */
     private boolean negated;
     /** Opening bracket of a wildcard constraint. */
-    static public final char OPEN = '[';
+    public static final char OPEN = '[';
     /** Closing bracket of a wildcard constraint. */
-    static public final char CLOSE = ']';
+    public static final char CLOSE = ']';
     /** Character to indicate negation of a constraint. */
-    static public final char NEGATOR = '^';
+    public static final char NEGATOR = '^';
     /** Character to separate constraint parts. */
-    static public final char SEPARATOR = ',';
+    public static final char SEPARATOR = ',';
 }

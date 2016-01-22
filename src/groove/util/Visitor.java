@@ -136,13 +136,13 @@ abstract public class Visitor<T,R> {
 
     /** Constructs a finder for a given property. */
     @SuppressWarnings("unchecked")
-    static public <T> Finder<T> newFinder(Property<T> property) {
+    public static <T> Finder<T> newFinder(Property<T> property) {
         return prototypeFinder.newInstance(property);
     }
 
     /** Constructs a collector for a given property and collection. */
     @SuppressWarnings("unchecked")
-    static public <T,C extends Collection<T>> Collector<T,C> newCollector(
+    public static <T,C extends Collection<T>> Collector<T,C> newCollector(
             C collection, Property<T> property) {
         if (property == null) {
             return prototypeCollector.newInstance(collection, property);
@@ -153,14 +153,14 @@ abstract public class Visitor<T,R> {
 
     /** Constructs a collector. */
     @SuppressWarnings("unchecked")
-    static public <T,C extends Collection<T>> Collector<T,C> newCollector(
+    public static <T,C extends Collection<T>> Collector<T,C> newCollector(
             C collection) {
         return prototypeCollector.newInstance(collection);
     }
 
     /** Constructs a prototype collector. */
     @SuppressWarnings("unchecked")
-    static public <T,C extends Collection<T>> Collector<T,C> newCollector() {
+    public static <T,C extends Collection<T>> Collector<T,C> newCollector() {
         Collector<T,C> result = prototypeCollector.newInstance(null);
         result.dispose();
         return result;
@@ -173,7 +173,7 @@ abstract public class Visitor<T,R> {
     private static final Finder prototypeFinder = new Finder(null);
 
     /** A visitor that stores the first visited object satisfying a given property. */
-    static public class Finder<T> extends Visitor<T,T> {
+    public static class Finder<T> extends Visitor<T,T> {
         /**
          * Constructs a finder for a certain property.
          * @param property the property of the returned object; may be {@code null},
@@ -224,7 +224,7 @@ abstract public class Visitor<T,R> {
      * A visitor that collects all visited objects, possibly filtered by 
      * a property of the object. 
      */
-    static public class Collector<T,C extends Collection<T>> extends
+    public static class Collector<T,C extends Collection<T>> extends
             Visitor<T,C> {
         /**
          * Constructs a collector for a given collection and property.

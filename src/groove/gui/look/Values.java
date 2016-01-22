@@ -70,7 +70,7 @@ public class Values {
     /** Dash pattern of nesting nodes and edges. */
     public static final float[] NESTED_DASH = new float[] {2.0f, 3.0f};
     /** Colour used for nesting nodes and states. */
-    static public final Color NESTED_COLOR = Colors.findColor("165 42 42");
+    public static final Color NESTED_COLOR = Colors.findColor("165 42 42");
     /** Foreground colour of remark nodes and edges. */
     public static final Color REMARK_FOREGROUND = Colors.findColor("255 140 0");
     /** Background colour of remark nodes and edges. */
@@ -99,24 +99,24 @@ public class Values {
     /** Foreground colour for an active final node. */
     public static final Color ACTIVE_FINAL_COLOR = Colors.findColor("30 100 200");
     /** Colour used for transient states. */
-    static public final Color RECIPE_COLOR = Colors.findColor("165 42 42");
+    public static final Color RECIPE_COLOR = Colors.findColor("165 42 42");
     /** Colour used for transient active states. */
-    static public final Color ACTIVE_RECIPE_COLOR = Colors.findColor("165 42 149");
+    public static final Color ACTIVE_RECIPE_COLOR = Colors.findColor("165 42 149");
 
     /** Background colour used for selected items in focused lists. */
-    static public final Color FOCUS_BACKGROUND = Color.DARK_GRAY;
+    public static final Color FOCUS_BACKGROUND = Color.DARK_GRAY;
     /** Text colour used for selected items in focused lists. */
-    static public final Color FOCUS_FOREGROUND = Color.WHITE;
+    public static final Color FOCUS_FOREGROUND = Color.WHITE;
     /** Background colour used for selected items in non-focused lists. */
-    static public final Color SELECT_BACKGROUND = Color.LIGHT_GRAY;
+    public static final Color SELECT_BACKGROUND = Color.LIGHT_GRAY;
     /** Text colour used for selected items in non-focused lists. */
-    static public final Color SELECT_FOREGROUND = Color.BLACK;
+    public static final Color SELECT_FOREGROUND = Color.BLACK;
     /** Background colour used for non-selected items in lists. */
-    static public final Color NORMAL_BACKGROUND = Color.WHITE;
+    public static final Color NORMAL_BACKGROUND = Color.WHITE;
     /** Text colour used for non-selected items in lists. */
-    static public final Color NORMAL_FOREGROUND = Color.BLACK;
+    public static final Color NORMAL_FOREGROUND = Color.BLACK;
     /** Text display colours to be used in normal display mode. */
-    static public final Values.ColorSet NORMAL_COLORS = new Values.ColorSet();
+    public static final Values.ColorSet NORMAL_COLORS = new Values.ColorSet();
     static {
         NORMAL_COLORS.putColors(FOCUSED, FOCUS_FOREGROUND, FOCUS_BACKGROUND);
         NORMAL_COLORS.putColors(SELECTED, SELECT_FOREGROUND, SELECT_BACKGROUND);
@@ -124,21 +124,21 @@ public class Values {
     }
 
     /** Colour used for indicating errors in graphs. */
-    static public final Color ERROR_COLOR = new Color(255, 50, 0, 40);
+    public static final Color ERROR_COLOR = new Color(255, 50, 0, 40);
     /** Background colour used for focused error items in lists. */
-    static public final Color ERROR_FOCUS_BACKGROUND = Color.RED.darker().darker();
+    public static final Color ERROR_FOCUS_BACKGROUND = Color.RED.darker().darker();
     /** Text colour used for focused error items in lists. */
-    static public final Color ERROR_FOCUS_FOREGROUND = Color.WHITE;
+    public static final Color ERROR_FOCUS_FOREGROUND = Color.WHITE;
     /** Background colour used for selected, non-focused error items in lists. */
-    static public final Color ERROR_SELECT_BACKGROUND = ERROR_COLOR;
+    public static final Color ERROR_SELECT_BACKGROUND = ERROR_COLOR;
     /** Text colour used for selected, non-focused error items in lists. */
-    static public final Color ERROR_SELECT_FOREGROUND = Color.RED;
+    public static final Color ERROR_SELECT_FOREGROUND = Color.RED;
     /** Background colour used for non-selected, non-focused error items in lists. */
-    static public final Color ERROR_NORMAL_BACKGROUND = Color.WHITE;
+    public static final Color ERROR_NORMAL_BACKGROUND = Color.WHITE;
     /** Text colour used for non-selected, non-focused error items in lists. */
-    static public final Color ERROR_NORMAL_FOREGROUND = Color.RED;
+    public static final Color ERROR_NORMAL_FOREGROUND = Color.RED;
     /** Text display colours to be used in error mode. */
-    static public final Values.ColorSet ERROR_COLORS = new Values.ColorSet();
+    public static final Values.ColorSet ERROR_COLORS = new Values.ColorSet();
     static {
         ERROR_COLORS.putColors(FOCUSED, ERROR_FOCUS_FOREGROUND, ERROR_FOCUS_BACKGROUND);
         ERROR_COLORS.putColors(SELECTED, ERROR_SELECT_FOREGROUND, ERROR_SELECT_BACKGROUND);
@@ -146,7 +146,7 @@ public class Values {
     }
 
     /** Text display colours to be used for transient states. */
-    static public final Values.ColorSet RECIPE_COLORS = new Values.ColorSet();
+    public static final Values.ColorSet RECIPE_COLORS = new Values.ColorSet();
     static {
         RECIPE_COLORS.putColors(FOCUSED, Color.WHITE, RECIPE_COLOR.darker());
         RECIPE_COLORS.putColors(SELECTED, RECIPE_COLOR.darker(), SELECT_BACKGROUND);
@@ -154,9 +154,9 @@ public class Values {
     }
 
     /** Colour of forbidden property labels. */
-    static public final Color FORBIDDEN_COLOR = ERROR_COLOR;
+    public static final Color FORBIDDEN_COLOR = ERROR_COLOR;
     /** Colour of invariant property labels. */
-    static public final Color INVARIANT_COLOR = CREATOR_FOREGROUND;
+    public static final Color INVARIANT_COLOR = CREATOR_FOREGROUND;
 
     /** Line style that always makes right edges. */
     public static final int STYLE_MANHATTAN = 14;

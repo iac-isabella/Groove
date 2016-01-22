@@ -231,7 +231,7 @@ public abstract class Line {
     }
 
     /** Composed line consisting of a sequence of subline fragments. */
-    static public class Composed extends Line {
+    public static class Composed extends Line {
         /** Constructs an instance for a list of subline fragments. */
         public Composed(Line... fragments) {
             this.fragments = fragments;
@@ -286,7 +286,7 @@ public abstract class Line {
     }
 
     /** Line consisting of a coloured subline. */
-    static public class Colored extends Line {
+    public static class Colored extends Line {
         /** Constructs an instance for a non-{@code null} colour and subline. */
         public Colored(ColorType type, Color color, Line subline) {
             assert type == ColorType.RGB || color == type.getColor();
@@ -349,7 +349,7 @@ public abstract class Line {
     }
 
     /** Line consisting of a subline with a character style applied. */
-    static public class Styled extends Line {
+    public static class Styled extends Line {
         /** Constructs an instance for a non-{@code null} colour and subline. */
         public Styled(Style style, Line subline) {
             this.style = style;
@@ -374,7 +374,7 @@ public abstract class Line {
     }
 
     /** Line consisting of an atomic string. */
-    static public class Atomic extends Line {
+    public static class Atomic extends Line {
         /** Constructs an instance for a non-{@code null} string. */
         public Atomic(String text) {
             this.text = text;
@@ -417,7 +417,7 @@ public abstract class Line {
     }
 
     /** Empty line consisting of an atomic string. */
-    static public class Empty extends Line {
+    public static class Empty extends Line {
         /** Constructs an instance for a non-{@code null} string. */
         private Empty() {
             // empty
@@ -445,7 +445,7 @@ public abstract class Line {
     }
 
     /** Line consisting of a horizontal rule. */
-    static public class HRule extends Line {
+    public static class HRule extends Line {
         /** Constructs the singleton instance. */
         private HRule() {
             // empty

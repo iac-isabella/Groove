@@ -625,7 +625,7 @@ public class VisualMap extends DefaultFixable {
      * Converts a colour dimension to a value that is whitewashed by
      * {@link #BACKGROUND_WHITEWASH} degrees.
      */
-    static public Color whitewash(Color color) {
+    public static Color whitewash(Color color) {
         int red = whitewash(color.getRed());
         int green = whitewash(color.getGreen());
         int blue = whitewash(color.getBlue());

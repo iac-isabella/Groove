@@ -130,7 +130,7 @@ abstract public class GroovePredicates {
      * Constructs the HMTL-formatted tool tip for a given predicate,
      * by trying to construct this from given annotation values.
      */
-    static public Help newCreateToolTipText(CompoundTermTag tag,
+    public static Help newCreateToolTipText(CompoundTermTag tag,
             Signature sigAnn, ToolTipBody toolTip, ToolTipPars param) {
         Help result = new Help();
         if (sigAnn != null) {

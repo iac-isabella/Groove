@@ -324,5 +324,5 @@ final public class LTSJModel extends JModel<GTS> implements GTSListener {
     private final List<JCell<GTS>> changedCells = new ArrayList<JCell<GTS>>();
 
     /** Default name of an LTS model. */
-    static public final String DEFAULT_LTS_NAME = "lts";
+    public static final String DEFAULT_LTS_NAME = "lts";
 }

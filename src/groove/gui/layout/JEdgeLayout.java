@@ -44,7 +44,7 @@ public class JEdgeLayout implements JCellLayout {
      * Constructs an edge layout from a <tt>jgraph</tt> attribute map.
      * @param attr the attribute map
      */
-    static public JEdgeLayout newInstance(AttributeMap attr) {
+    public static JEdgeLayout newInstance(AttributeMap attr) {
         List<Point2D> points = new ArrayList<Point2D>();
         List<?> attrPoints = GraphConstants.getPoints(attr);
         if (attrPoints == null) {
@@ -71,7 +71,7 @@ public class JEdgeLayout implements JCellLayout {
      * Constructs an edge layout from a visual map.
      * @param visuals the visual map
      */
-    static public JEdgeLayout newInstance(VisualMap visuals) {
+    public static JEdgeLayout newInstance(VisualMap visuals) {
         return new JEdgeLayout(visuals.getPoints(), visuals.getLabelPos(), visuals.getLineStyle());
     }
 
@@ -81,7 +81,7 @@ public class JEdgeLayout implements JCellLayout {
      * @return <code>true</code> if <code>labelPosition</code> is the
      *         default label position
      */
-    static public boolean isDefaultLabelPosition(Point2D labelPosition) {
+    public static boolean isDefaultLabelPosition(Point2D labelPosition) {
         return labelPosition == null || labelPosition.equals(defaultLabelPosition);
     }
 

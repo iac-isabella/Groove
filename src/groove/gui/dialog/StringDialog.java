@@ -341,7 +341,7 @@ abstract public class StringDialog {
     private final CloseListener closeListener = new CloseListener();
 
     /** Keeps on creating a dialog until the user enters "stop". */
-    static public void main(String[] args) {
+    public static void main(String[] args) {
         StringDialog dialog = createStringDialog("Input a string");
         boolean stop = false;
         do {

@@ -212,14 +212,14 @@ public class HostFactory extends StoreFactory<HostNode,HostEdge,TypeLabel> {
     /**
      * Reports the number of times a normalised node array was shared.
      */
-    static public int getNormaliseGain() {
+    public static int getNormaliseGain() {
         return normaliseGain;
     }
 
     /**
      * Reports the total number of normalised node arrays.
      */
-    static public int getNormaliseCount() {
+    public static int getNormaliseCount() {
         return normaliseCount;
     }
 

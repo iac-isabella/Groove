@@ -427,7 +427,7 @@ public class GrammarProperties extends Properties {
      * Returns a default, fixed properties object, with a given value for
      * attribute support.
      */
-    static public GrammarProperties getInstance() {
+    public static GrammarProperties getInstance() {
         return instance;
     }
 
@@ -439,7 +439,7 @@ public class GrammarProperties extends Properties {
      * @return <true> if <code>properties</code> is not <code>null</code> and
      *         satisfies {@link #isCheckDangling()}
      */
-    static public boolean isCheckDangling(GrammarProperties properties) {
+    public static boolean isCheckDangling(GrammarProperties properties) {
         return properties != null && properties.isCheckDangling();
     }
 
@@ -450,7 +450,7 @@ public class GrammarProperties extends Properties {
      * The default rule properties: not attributed and no control or common
      * labels.
      */
-    static public final GrammarProperties DEFAULT_PROPERTIES = getInstance();
+    public static final GrammarProperties DEFAULT_PROPERTIES = getInstance();
 
     /** Mapping from resource kinds to corresponding property keys. */
     static private final Map<ResourceKind,GrammarKey> resourceKeyMap =

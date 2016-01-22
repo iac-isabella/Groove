@@ -173,7 +173,7 @@ public class ExprTreeParser extends groove.util.parse.TermTreeParser<ExprTree.Ex
     }
 
     /** Returns the collection of operators to be recognised by the parser. */
-    static public List<ExprOp> getOpList() {
+    public static List<ExprOp> getOpList() {
         if (opList == null) {
             opList = createOpList();
         }
@@ -224,14 +224,14 @@ public class ExprTreeParser extends groove.util.parse.TermTreeParser<ExprTree.Ex
     /** Parses a given input as assignment.
      * @throws FormatException if there is a parse error.
      */
-    static public ExprTree parseAssign(String input) throws FormatException {
+    public static ExprTree parseAssign(String input) throws FormatException {
         return parse(ASSIGN_PARSER, input);
     }
 
     /** Parses a given input as an expression, with or without legacy test syntax.
      * @throws FormatException if there is a parse error.
      */
-    static public ExprTree parseExpr(String input, boolean test) throws FormatException {
+    public static ExprTree parseExpr(String input, boolean test) throws FormatException {
         return parse(test ? TEST_PARSER : EXPR_PARSER, input);
     }
 
@@ -249,11 +249,11 @@ public class ExprTreeParser extends groove.util.parse.TermTreeParser<ExprTree.Ex
     }
 
     /** Expression parser. */
-    static public final ExprTreeParser EXPR_PARSER = new ExprTreeParser(false, false);
+    public static final ExprTreeParser EXPR_PARSER = new ExprTreeParser(false, false);
     /** Assignment statement parser. */
-    static public final ExprTreeParser ASSIGN_PARSER = new ExprTreeParser(true, false);
+    public static final ExprTreeParser ASSIGN_PARSER = new ExprTreeParser(true, false);
     /** Expression parser allowing legacy test syntax (top-level "="). */
-    static public final ExprTreeParser TEST_PARSER = new ExprTreeParser(false, true);
+    public static final ExprTreeParser TEST_PARSER = new ExprTreeParser(false, true);
 
     /** Retrieves the atom operator from the list of predefined operators. */
     private static ExprOp getAtom() {

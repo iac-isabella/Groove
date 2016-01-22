@@ -184,7 +184,7 @@ public class Bisimulator extends CertificateStrategy {
      * Returns the total number of times symmetry was broken during the
      * calculation of the certificates.
      */
-    static public int getSymmetryBreakCount() {
+    public static int getSymmetryBreakCount() {
         return totalSymmetryBreakCount;
     }
 

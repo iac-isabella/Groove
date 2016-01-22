@@ -492,7 +492,7 @@ AbstractCacheHolder<GraphCache<N,E>> implements GGraph<N,E> {
      * Returns the number of graphs created and never fixed.
      * @return the number of graphs created and never fixed
      */
-    static public int getModifiableGraphCount() {
+    public static int getModifiableGraphCount() {
         return modifiableGraphCount;
     }
 
@@ -534,7 +534,7 @@ AbstractCacheHolder<GraphCache<N,E>> implements GGraph<N,E> {
      * @param certificateFactory the new strategy
      * @see #getCertifier(boolean)
      */
-    static public void setCertificateFactory(CertificateStrategy certificateFactory) {
+    public static void setCertificateFactory(CertificateStrategy certificateFactory) {
         AGraph.certificateFactory = certificateFactory;
     }
 
@@ -542,7 +542,7 @@ AbstractCacheHolder<GraphCache<N,E>> implements GGraph<N,E> {
      * Returns the strategy for computing isomorphism certificates.
      * @return the strategy for computing isomorphism certificates
      */
-    static public CertificateStrategy getCertificateFactory() {
+    public static CertificateStrategy getCertificateFactory() {
         return certificateFactory;
     }
 }

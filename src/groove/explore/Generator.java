@@ -402,7 +402,7 @@ public class Generator extends GrooveCmdLineTool<ExploreResult> {
      * {@link #execute(String[])} for programmatic use.
      * @param args generator options, grammar and start graph name
      */
-    static public void main(String[] args) {
+    public static void main(String[] args) {
         GrooveCmdLineTool.tryExecute(Generator.class, args);
     }
 
@@ -412,13 +412,13 @@ public class Generator extends GrooveCmdLineTool<ExploreResult> {
      * @return the generated transition system
      * @throws Exception if any error occurred that prevented the GTS from being fully generated
      */
-    static public ExploreResult execute(String[] args) throws Exception {
+    public static ExploreResult execute(String[] args) throws Exception {
         staticResult = new Generator(args).start();
         return staticResult;
     }
 
     /** Returns the most recently generated GTS. */
-    static public ExploreResult getGts() {
+    public static ExploreResult getGts() {
         return staticResult;
     }
 

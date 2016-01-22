@@ -488,7 +488,7 @@ public class RuleModel extends GraphBasedModel<Rule> implements Comparable<RuleM
      * Class encoding an index in a tree, consisting of a list of indices at
      * every level of the tree.
      */
-    static public class Index extends DefaultFixable implements Comparable<Index> {
+    public static class Index extends DefaultFixable implements Comparable<Index> {
         /**
          * Constructs a new level, without setting parent or children.
          * @param levelNode the model level node representing this level; may be

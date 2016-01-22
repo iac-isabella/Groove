@@ -38,7 +38,7 @@ public class BigBoolAlgebra extends AbstractBoolAlgebra {
     }
 
     /** The name of this algebra. */
-    static public final String NAME = "bbool";
+    public static final String NAME = "bbool";
     /** Singleton instance of this algebra. */
     public static final BigBoolAlgebra instance = new BigBoolAlgebra();
 }

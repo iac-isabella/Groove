@@ -125,7 +125,7 @@ public class JAttr {
     /**
      * Creates paint for a vertex with given bounds and (inner) colour.
      */
-    static public Paint createPaint(Rectangle b, Color c) {
+    public static Paint createPaint(Rectangle b, Color c) {
         // only bother with special paint if the vertex is not too small to notice
         if (!GRADIENT_PAINT || b.width < 10 && b.height < 10) {
             return c;

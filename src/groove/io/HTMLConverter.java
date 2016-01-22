@@ -39,7 +39,7 @@ public class HTMLConverter {
      * Converts a piece of text to HTML by replacing special characters to their
      * HTML encodings.
      */
-    static public String toHtml(Object text) {
+    public static String toHtml(Object text) {
         return toHtml(new StringBuilder(text.toString())).toString();
     }
 
@@ -47,7 +47,7 @@ public class HTMLConverter {
      * Converts a piece of text to HTML by replacing special characters to their
      * HTML encodings.
      */
-    static public StringBuilder toHtml(StringBuilder text) {
+    public static StringBuilder toHtml(StringBuilder text) {
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
             String html = null;
@@ -119,42 +119,42 @@ public class HTMLConverter {
     /**
      * Returns a hyperlink tag for the given URL.
      */
-    static public HTMLTag createHyperlink(String url) {
+    public static HTMLTag createHyperlink(String url) {
         return new HTMLTag(LINK_TAG_NAME, "name", url);
     }
 
     /**
      * Returns an HTML tag embedder.
      */
-    static public HTMLTag createHtmlTag(String tag) {
+    public static HTMLTag createHtmlTag(String tag) {
         return new HTMLTag(tag);
     }
 
     /**
      * Returns an HTML tag embedded with an argument string.
      */
-    static public HTMLTag createHtmlTag(String tag, String attribute, String arguments) {
+    public static HTMLTag createHtmlTag(String tag, String attribute, String arguments) {
         return new HTMLTag(tag, attribute, arguments);
     }
 
     /**
      * Returns a span tag with a style argument.
      */
-    static public HTMLTag createSpanTag(String arguments) {
+    public static HTMLTag createSpanTag(String arguments) {
         return new HTMLTag(SPAN_TAG_NAME, STYLE_ATTR_NAME, arguments);
     }
 
     /**
      * Returns a span tag with a style argument.
      */
-    static public HTMLTag createDivTag(String arguments) {
+    public static HTMLTag createDivTag(String arguments) {
         return new HTMLTag(DIV_TAG_NAME, STYLE_ATTR_NAME, arguments);
     }
 
     /**
      * Returns a HTML span tag that imposes a given colour on a text.
      */
-    static public HTMLTag createColorTag(Color color) {
+    public static HTMLTag createColorTag(Color color) {
         HTMLTag result = colorTagMap.get(color);
         if (result == null) {
             StringBuffer arg = new StringBuffer();
@@ -186,12 +186,12 @@ public class HTMLConverter {
     }
 
     /** Converts the first letter of a given string to upper- or lowercase. */
-    static public String toUppercase(String text, boolean upper) {
+    public static String toUppercase(String text, boolean upper) {
         return toUppercase(new StringBuilder(text), upper).toString();
     }
 
     /** Converts the first letter of a given string to upper- or lowercase. */
-    static public StringBuilder toUppercase(StringBuilder text, boolean upper) {
+    public static StringBuilder toUppercase(StringBuilder text, boolean upper) {
         Character firstChar = text.charAt(0);
         if (upper) {
             firstChar = Character.toUpperCase(firstChar);
@@ -245,37 +245,37 @@ public class HTMLConverter {
     // The readable codes do not work on the Mac in some situations. Replaced
     // them with the numeric codes - this fixes it. -- Maarten
     /** Non-breaking space character. */
-    static public final String NBSP = "&#160;";
+    public static final String NBSP = "&#160;";
     /** Name of the link tag (<code>a</code>). */
-    static public final String LINK_TAG_NAME = "a";
+    public static final String LINK_TAG_NAME = "a";
     /** Name of the span tag (<code>span</code>). */
-    static public final String SPAN_TAG_NAME = "span";
+    public static final String SPAN_TAG_NAME = "span";
     /** Name of the span tag (<code>div</code>). */
-    static public final String DIV_TAG_NAME = "div";
+    public static final String DIV_TAG_NAME = "div";
     /** Table tag. */
-    static public final String TABLE_TAG_NAME = "table";
+    public static final String TABLE_TAG_NAME = "table";
     /** Name of the span style attribute. */
-    static public final String STYLE_ATTR_NAME = "style";
+    public static final String STYLE_ATTR_NAME = "style";
     /** Tag to horizontally centre multiline text. */
-    static public final HTMLTag CENTER_TAG = new HTMLTag("center");
+    public static final HTMLTag CENTER_TAG = new HTMLTag("center");
     /** HTML tag. */
-    static public final HTMLTag HTML_TAG = new HTMLTag("html");
+    public static final HTMLTag HTML_TAG = new HTMLTag("html");
     /** Italic font tag. */
-    static public final HTMLTag ITALIC_TAG = new HTMLTag("i");
+    public static final HTMLTag ITALIC_TAG = new HTMLTag("i");
     /** Font strikethrough tag. */
-    static public final HTMLTag STRIKETHROUGH_TAG = new HTMLTag("s");
+    public static final HTMLTag STRIKETHROUGH_TAG = new HTMLTag("s");
     /** Strong font tag. */
-    static public final HTMLTag STRONG_TAG = new HTMLTag("strong");
+    public static final HTMLTag STRONG_TAG = new HTMLTag("strong");
     /** Subscript font tag. */
-    static public final HTMLTag SUB_TAG = new HTMLTag("sub");
+    public static final HTMLTag SUB_TAG = new HTMLTag("sub");
     /** Superscript font tag. */
-    static public final HTMLTag SUPER_TAG = new HTMLTag("sup");
+    public static final HTMLTag SUPER_TAG = new HTMLTag("sup");
     /** Font underline tag. */
-    static public final HTMLTag UNDERLINE_TAG = new HTMLTag("u");
+    public static final HTMLTag UNDERLINE_TAG = new HTMLTag("u");
     /** The <code>html</code> tag to insert a line break. */
-    static public final String HTML_LINEBREAK = createHtmlTag("br").tagBegin;
+    public static final String HTML_LINEBREAK = createHtmlTag("br").tagBegin;
     /** The <code>html</code> tag to insert a horizontal line. */
-    static public final String HTML_HORIZONTAL_LINE = createHtmlTag("hr").tagBegin;
+    public static final String HTML_HORIZONTAL_LINE = createHtmlTag("hr").tagBegin;
 
     /** Map from colours to HTML tags imposing the colour on a text. */
     private static final Map<Color,HTMLTag> colorTagMap = new HashMap<Color,HTMLTag>();
@@ -294,7 +294,7 @@ public class HTMLConverter {
     /**
      * Class that allows some handling of HTML text.
      */
-    static public class HTMLTag {
+    public static class HTMLTag {
         /** Constructs a tag with a given name. */
         public HTMLTag(String tag) {
             this.tagBegin = String.format("<%s>", tag);

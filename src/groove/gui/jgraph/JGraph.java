@@ -1365,9 +1365,9 @@ abstract public class JGraph<G extends Graph> extends org.jgraph.JGraph {
      * Property name of the JGraph mode.
      * Values are of type {@link GraphRole}.
      */
-    static public final String JGRAPH_MODE_PROPERTY = "JGraphMode";
+    public static final String JGRAPH_MODE_PROPERTY = "JGraphMode";
     /** Property name for the pseudo-property that signals a cell edit has started. */
-    static public final String CELL_EDIT_PROPERTY = "editedCell";
+    public static final String CELL_EDIT_PROPERTY = "editedCell";
 
     /** Listener class that cancels the edge adding mode on various occasions. */
     private final class CancelEditListener extends KeyAdapter implements GraphModelListener {
@@ -1449,7 +1449,7 @@ abstract public class JGraph<G extends Graph> extends org.jgraph.JGraph {
     }
 
     /** Interface for obtaining display attributes for graph elements. */
-    static public interface AttributeFactory {
+    public static interface AttributeFactory {
         /**
          * Returns display attributes for a given graph node.
          * If {@code null}, the default attributes will be used.

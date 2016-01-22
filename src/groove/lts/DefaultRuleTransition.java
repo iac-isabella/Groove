@@ -336,7 +336,7 @@ public class DefaultRuleTransition extends AEdge<GraphState,RuleTransitionLabel>
     private final boolean symmetry;
 
     /** Returns the total number of anchor images created. */
-    static public int getAnchorImageCount() {
+    public static int getAnchorImageCount() {
         return anchorImageCount;
     }
 

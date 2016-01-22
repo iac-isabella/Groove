@@ -397,27 +397,27 @@ public class LayoutIO {
     /**
      * The layout prefix of a version number.
      */
-    static public final String VERSION_PREFIX = "v";
+    public static final String VERSION_PREFIX = "v";
     /** The layout prefix of a node layout line. */
-    static public final String NODE_PREFIX = "n";
+    public static final String NODE_PREFIX = "n";
     /** The layout prefix of a node layout line. */
-    static public final String EDGE_PREFIX = "e";
+    public static final String EDGE_PREFIX = "e";
     /** The layout prefix of an info layout line. */
-    static public final String INFO_PREFIX = "i";
+    public static final String INFO_PREFIX = "i";
     /** The layout prefix of a layout comment. */
-    static public final String COMMENT_PREFIX = "#";
+    public static final String COMMENT_PREFIX = "#";
     /**
      * Symbolic name for first layout version.
      */
-    static public final int VERSION1 = 1;
+    public static final int VERSION1 = 1;
     /**
      * Symbolic name for second layout version. The difference with the first
      * version is that the label position is calculated differently.
      */
-    static public final int VERSION2 = 2;
+    public static final int VERSION2 = 2;
 
     /** The current version number. */
-    static public final int CURRENT_VERSION_NUMBER = VERSION2;
+    public static final int CURRENT_VERSION_NUMBER = VERSION2;
     /** Error message in case an error is detected in the layout file. */
     static private final String LAYOUT_FORMAT_ERROR = String.format(
         "Error in %s file", FileType.LAYOUT.getExtension());

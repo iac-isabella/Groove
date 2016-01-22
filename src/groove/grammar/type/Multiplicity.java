@@ -115,7 +115,7 @@ public class Multiplicity extends Duo<Integer> {
     }
 
     /** Separator sequence in a multiplicity value. */
-    static public final String MULT_SEPARATOR = "..";
+    public static final String MULT_SEPARATOR = "..";
     /** Text representation of infinite upper bound. */
-    static public final String UNBOUNDED = "*";
+    public static final String UNBOUNDED = "*";
 }

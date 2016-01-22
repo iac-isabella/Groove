@@ -234,14 +234,14 @@ public enum AlgebraFamily {
         new HashMap<Algebra<?>,Map<String,Operation>>();
 
     /** Returns the algebra register with the family of default algebras. */
-    static public AlgebraFamily getInstance() {
+    public static AlgebraFamily getInstance() {
         return DEFAULT;
     }
 
     /**
      * Returns the algebra register with a given name.
      */
-    static public AlgebraFamily getInstance(String instanceName) {
+    public static AlgebraFamily getInstance(String instanceName) {
         AlgebraFamily result = familyMap.get(instanceName);
         return result;
     }

@@ -214,7 +214,7 @@ public class CacheReference<C> extends SoftReference<C> {
      * <code>null</code>. This is a convenience method for
      * {@link #newInstance(boolean)} with parameter <code>true</code>.
      */
-    static public <C> CacheReference<C> newInstance() {
+    public static <C> CacheReference<C> newInstance() {
         return newInstance(true);
     }
 
@@ -227,7 +227,7 @@ public class CacheReference<C> extends SoftReference<C> {
      *         <code>strong</code>
      */
     @SuppressWarnings("unchecked")
-    static public <C> CacheReference<C> newInstance(boolean strong) {
+    public static <C> CacheReference<C> newInstance(boolean strong) {
         return strong ? strongInstance : softInstance;
     }
 
@@ -235,7 +235,7 @@ public class CacheReference<C> extends SoftReference<C> {
      * Returns the total number of cache reincarnations. This equals the sum of
      * the incarnation sizes, except for incarnation 0.
      */
-    static public int getIncarnationCount() {
+    public static int getIncarnationCount() {
         return incarnationCount;
     }
 
@@ -256,7 +256,7 @@ public class CacheReference<C> extends SoftReference<C> {
      * Returns the frequency of a given incarnation. The frequency is the total
      * number of caches that have reached this incarnation.
      */
-    static public int getFrequency(int incarnation) {
+    public static int getFrequency(int incarnation) {
         return incarnation >= frequencies.size() ? 0
                 : frequencies.get(incarnation);
     }
@@ -265,7 +265,7 @@ public class CacheReference<C> extends SoftReference<C> {
      * Returns the total number of caches created.
      * @return the total number of caches created
      */
-    static public int getCreateCount() {
+    public static int getCreateCount() {
         return createCount;
     }
 
@@ -273,7 +273,7 @@ public class CacheReference<C> extends SoftReference<C> {
      * Returns the number of times a cache was cleared explicitly.
      * @return the number of times a cache was cleared explicitly
      */
-    static public int getClearCount() {
+    public static int getClearCount() {
         return cacheClearCount;
     }
 
@@ -283,7 +283,7 @@ public class CacheReference<C> extends SoftReference<C> {
      * @return the number of times a cache was collected by the garbage
      *         collector
      */
-    static public int getCollectCount() {
+    public static int getCollectCount() {
         return cacheCollectCount;
     }
 

@@ -53,9 +53,9 @@ import org.junit.Test;
  */
 public class DFATest {
     /** Directory with test files (relative to the project) */
-    static public final String GRAMMAR = "junit/samples/regexpr";
+    public static final String GRAMMAR = "junit/samples/regexpr";
     /** Name of the type graph used in this test. */
-    static public final String TYPE_NAME = "construction";
+    public static final String TYPE_NAME = "construction";
 
     private final RegAutCalculator nfaCalculator = new RegAutCalculator(
         SimpleNFA.PROTOTYPE);

@@ -93,7 +93,7 @@ public final class GraphToTikz<G extends Graph> {
     // ------------------------------------------------------------------------
 
     /** Writes a graph in LaTeX <code>Tikz</code> format to a print writer. */
-    static public <N extends Node,E extends Edge> void export(JGraph<?> graph, PrintWriter writer) {
+    public static <N extends Node,E extends Edge> void export(JGraph<?> graph, PrintWriter writer) {
         writer.print(GraphToTikz.convert(graph));
     }
 

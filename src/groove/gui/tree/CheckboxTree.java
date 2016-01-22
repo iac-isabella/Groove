@@ -456,7 +456,7 @@ public class CheckboxTree extends JTree {
     /**
      * Tree node to be displayed in a {@link CellRenderer}.
      */
-    static public abstract class TreeNode extends DefaultMutableTreeNode {
+    public static abstract class TreeNode extends DefaultMutableTreeNode {
         /** Indicates if this tree node should have an associated checkbox. */
         abstract public boolean hasCheckbox();
 

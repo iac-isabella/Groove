@@ -733,9 +733,9 @@ public class Condition implements Fixable {
     private boolean positive;
 
     /** Constant condition that is always satisfied. */
-    static public final Condition True = new Condition("true", Op.TRUE);
+    public static final Condition True = new Condition("true", Op.TRUE);
     /** Constant condition that is never satisfied. */
-    static public final Condition False = new Condition("false", Op.FALSE);
+    public static final Condition False = new Condition("false", Op.FALSE);
 
     static {
         try {
@@ -747,12 +747,12 @@ public class Condition implements Fixable {
     }
 
     /** Constructs a disjunctive condition for a non-empty list of operands. */
-    static public final Condition newOr(Condition... operands) {
+    public static final Condition newOr(Condition... operands) {
         return newCondition(Op.OR, "or", operands);
     }
 
     /** Constructs a conjunctive condition for a non-empty list of operands. */
-    static public final Condition newAnd(Condition... operands) {
+    public static final Condition newAnd(Condition... operands) {
         return newCondition(Op.AND, "and", operands);
     }
 

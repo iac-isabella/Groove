@@ -109,13 +109,13 @@ public class ReteSearchEngine extends SearchEngine {
     /**
      * The reporter object.
      */
-    static public final Reporter reporter =
+    public static final Reporter reporter =
         Reporter.register(ReteSearchEngine.class);
 
     /**
      * The reporter for the transitionOccurred method
      */
-    static public final Reporter transitionOccurredReporter =
+    public static final Reporter transitionOccurredReporter =
         reporter.register("transitionOccurred()");
 
 }

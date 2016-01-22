@@ -1072,7 +1072,7 @@ public enum AspectKind {
     }
 
     /** Type of content that can be wrapped inside an aspect. */
-    static public enum ContentKind {
+    public static enum ContentKind {
         /** No content. The label text is not checked. */
         NONE {
             @Override
@@ -1570,9 +1570,9 @@ public enum AspectKind {
         private final Sort signature;
 
         /** Start character of parameter strings. */
-        static public final char PARAM_START_CHAR = '$';
+        public static final char PARAM_START_CHAR = '$';
         /** Reserved name "self". */
-        static public final String SELF_NAME = "self";
+        public static final String SELF_NAME = "self";
     }
 
     /** Correct values of the {@link #NESTED} aspect kind. */

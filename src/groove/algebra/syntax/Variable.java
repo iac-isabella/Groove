@@ -112,17 +112,17 @@ public class Variable extends Expression {
     private final Sort sort;
 
     /** Callback method to determine if a given character is suitable as first character for a variable name. */
-    static public boolean isIdentifierStart(char c) {
+    public static boolean isIdentifierStart(char c) {
         return Character.isJavaIdentifierStart(c);
     }
 
     /** Callback method to determine if a given character is suitable as middle character of a variable name. */
-    static public boolean isIdentifierPart(char c) {
+    public static boolean isIdentifierPart(char c) {
         return Character.isJavaIdentifierPart(c);
     }
 
     /** Callback method to determine if a given character is suitable as last character of a variable name. */
-    static public boolean isIdentifierEnd(char c) {
+    public static boolean isIdentifierEnd(char c) {
         return Character.isJavaIdentifierPart(c);
     }
 }

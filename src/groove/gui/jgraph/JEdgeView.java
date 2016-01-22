@@ -334,7 +334,7 @@ public class JEdgeView extends EdgeView {
     /**
      * This class is overridden to get the same port emphasis.
      */
-    static public class MyEdgeHandle extends EdgeHandle {
+    public static class MyEdgeHandle extends EdgeHandle {
         /** Constructs an instance. */
         public MyEdgeHandle(EdgeView edge, GraphContext ctx) {
             super(edge, ctx);
@@ -396,7 +396,7 @@ public class JEdgeView extends EdgeView {
     }
 
     /** Renderer subclass to enable our special line style. */
-    static public class MyEdgeRenderer extends EdgeRenderer {
+    public static class MyEdgeRenderer extends EdgeRenderer {
         MyEdgeRenderer() {
             this.jLabel = new JLabel();
             this.jLabel.setBorder(null);

@@ -259,7 +259,7 @@ abstract public class SystemStore extends UndoableEditSupport {
     };
 
     /** Saves the content of a given system store to file. */
-    static public SystemStore save(File file, SystemStore store,
+    public static SystemStore save(File file, SystemStore store,
             boolean clearDir) throws IOException {
         if (!GRAMMAR.hasExtension(file)) {
             throw new IOException(String.format(

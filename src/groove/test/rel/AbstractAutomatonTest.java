@@ -67,11 +67,11 @@ import org.junit.Test;
 @SuppressWarnings("all")
 abstract public class AbstractAutomatonTest {
     /** Directory with test files (relative to the project) */
-    static public final String GRAPH_TEST_DIR = "junit/graphs";
+    public static final String GRAPH_TEST_DIR = "junit/graphs";
     /** Directory with test grammar (relative to the project) */
-    static public final String GRAMMAR = "junit/samples/regexpr";
+    public static final String GRAMMAR = "junit/samples/regexpr";
     /** Name of the type graph used in this test. */
-    static public final String TYPE_NAME = "construction";
+    public static final String TYPE_NAME = "construction";
 
     RegAutCalculator calculator = new RegAutCalculator();
 

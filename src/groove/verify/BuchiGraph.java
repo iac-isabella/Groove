@@ -188,7 +188,7 @@ public class BuchiGraph extends AGraph<BuchiLocation,BuchiTransition> implements
     /**
      * Return the prototype graph of this class.
      */
-    static public BuchiGraph getPrototype() {
+    public static BuchiGraph getPrototype() {
         return new BuchiGraph("");
     }
 

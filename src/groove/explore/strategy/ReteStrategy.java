@@ -162,10 +162,10 @@ public class ReteStrategy extends GTSStrategy {
     /**
      * The reporter object
      */
-    static public final Reporter reporter =
+    public static final Reporter reporter =
         Reporter.register(ReteStrategy.class);
     /** Handle for profiling {@link #doNext()}. */
-    static public final Reporter ReteStrategyNextReporter =
+    public static final Reporter ReteStrategyNextReporter =
         reporter.register("ReteOptimized()");
 
 }

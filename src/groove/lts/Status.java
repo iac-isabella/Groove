@@ -53,7 +53,7 @@ public class Status {
     private final Set<Flag> flags;
 
     /** Retrieves the absence level from a given status value. */
-    static public int setAbsence(int status, int absence) {
+    public static int setAbsence(int status, int absence) {
         if (absence > Status.MAX_ABSENCE) {
             throw new IllegalArgumentException(String.format("Absence level %d too large: max. %s",
                 absence, Status.MAX_ABSENCE));
@@ -62,7 +62,7 @@ public class Status {
     }
 
     /** Retrieves the absence level from a given status value. */
-    static public int getAbsence(int status) {
+    public static int getAbsence(int status) {
         return status >> Status.ABSENCE_SHIFT;
     }
 

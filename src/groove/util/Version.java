@@ -30,7 +30,7 @@ public class Version {
      *
      * @return 'About' information.
      */
-    static public String getAbout() {
+    public static String getAbout() {
         return TITLE + " " + NUMBER + " (Date: " + DATE + ", build " + BUILD
             + ") - (C) University of Twente";
     }
@@ -39,7 +39,7 @@ public class Version {
      * Get about information of this project (HTML formatted).
      * @return 'About' information.
      */
-    static public String getAboutHTML() {
+    public static String getAboutHTML() {
         StringBuffer sb = new StringBuffer("<html><center><font size=+2>");
         sb.append(TITLE);
         sb.append("</font></center><br>Version: ");
@@ -58,7 +58,7 @@ public class Version {
     }
 
     /** Tests if a given string represents a known GXL file format. */
-    static public boolean isKnownGxlVersion(String version) {
+    public static boolean isKnownGxlVersion(String version) {
         return version == null || version.isEmpty() || GXL_VERSION.equals(version);
     }
 
@@ -80,10 +80,10 @@ public class Version {
     public static final String NUMBER = "5.5.2+";
 
     /** Minimum Java JRE version required. */
-    static public final String NUMBER_JAVAMIN = "1.6";
+    public static final String NUMBER_JAVAMIN = "1.6";
 
     /** Title of this project. */
-    static public final String TITLE = "GROOVE";
+    public static final String TITLE = "GROOVE";
 
     /**
      * Version number of the GXL format used for storing rules and graphs. Known
@@ -94,7 +94,7 @@ public class Version {
      * taken literally in graphs, but surround atoms in rules.
      * </ul>
      */
-    static public final String GXL_VERSION = "curly";
+    public static final String GXL_VERSION = "curly";
 
     /**
      * @return the latest grammar version.

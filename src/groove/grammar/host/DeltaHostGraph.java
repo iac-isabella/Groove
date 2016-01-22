@@ -511,7 +511,7 @@ public final class DeltaHostGraph extends AGraph<HostNode,HostEdge> implements H
      *        otherwise, data are shared (and hence must be reconstructed more
      *        often)
      */
-    static public DeltaHostGraph getInstance(boolean copyData) {
+    public static DeltaHostGraph getInstance(boolean copyData) {
         return copyData ? copyInstance : swingInstance;
     }
 

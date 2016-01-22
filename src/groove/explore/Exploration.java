@@ -294,7 +294,7 @@ public class Exploration {
     }
 
     /** Parser for serialised explorations. */
-    static public Parser<Exploration> parser() {
+    public static Parser<Exploration> parser() {
         return new Parser<Exploration>() {
             @Override
             public String getDescription() {
@@ -378,7 +378,7 @@ public class Exploration {
      * @return the parsed exploration (non-{@code null})
      * @throws FormatException if the description could not be parsed
      */
-    static public Exploration parse(String description) throws FormatException {
+    public static Exploration parse(String description) throws FormatException {
         String[] parts = description.split("\\s");
         if (parts.length < 2 || parts.length > 3) {
             throw new FormatException(SYNTAX_MESSAGE);
@@ -412,15 +412,15 @@ public class Exploration {
      * This information can be used for profiling.
      * @return the long holding the running time in number of seconds
      */
-    static public long getRunningTime() {
+    public static long getRunningTime() {
         return playReporter.getTotalTime();
     }
 
     /** Message describing the syntax of a parsable exploration strategy. */
-    static public final String SYNTAX_MESSAGE =
+    public static final String SYNTAX_MESSAGE =
         "Exploration syntax: \"<strategy> <acceptor> [<resultcount>]\"";
     /** Default exploration (DFS, final states, infinite). */
-    static public final Exploration DEFAULT = new Exploration();
+    public static final Exploration DEFAULT = new Exploration();
     /** Reporter for profiling information. */
     static private final Reporter reporter = Reporter.register(Exploration.class);
     /** Handle for profiling {@link #play(GTS, GraphState)}. */

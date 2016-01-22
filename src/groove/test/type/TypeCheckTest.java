@@ -33,7 +33,7 @@ import org.junit.Test;
 /** Set of tests for graph typing. */
 public class TypeCheckTest {
     /** Location of the samples. */
-    static public final String INPUT_DIR = "junit/types";
+    public static final String INPUT_DIR = "junit/types";
     private static final String ERR_PREFIX = "ERR-";
     private static final String OK_PREFIX = "OK-";
 

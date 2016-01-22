@@ -51,7 +51,7 @@ public class ChangeCount extends Observable {
     public static final Tracker DUMMY_TRACKER = new DummyTracker();
 
     /** Tracker of an update count. */
-    static public class Tracker {
+    public static class Tracker {
         /**
          * Constructs a tracker, initialised at a given update.
          * {@link #isStale()} will return {@code true} at the first call.
@@ -93,7 +93,7 @@ public class ChangeCount extends Observable {
      * @author Arend Rensink
      * @version $Revision $
      */
-    static public abstract class Derived<O> {
+    public static abstract class Derived<O> {
         /** Constructs a derived value for a given change count. */
         public Derived(ChangeCount count) {
             this.tracker = count.createTracker();

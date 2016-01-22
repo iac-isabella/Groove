@@ -458,9 +458,9 @@ public class Imager extends GrooveCmdLineTool<Object> {
     private static Map<String,FileType> formatMap;
 
     /** Name of the imager application. */
-    static public final String APPLICATION_NAME = "Imager";
+    public static final String APPLICATION_NAME = "Imager";
     /** Label for the browse buttons. */
-    static public final String BROWSE_LABEL = "Browse...";
+    public static final String BROWSE_LABEL = "Browse...";
 
     /** Option handler for output format extension. */
     public static class FormatHandler extends OneArgumentOptionHandler<String> {

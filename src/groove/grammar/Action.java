@@ -214,7 +214,7 @@ public interface Action extends Callable, Comparable<Action> {
         /** Returns the role corresponding to a given string,
          * or {@code null} if the string does not denote a role.
          */
-        static public Role toRole(String text) {
+        public static Role toRole(String text) {
             if (roleMap == null) {
                 roleMap = new HashMap<String,Action.Role>();
                 for (Role role : Role.values()) {

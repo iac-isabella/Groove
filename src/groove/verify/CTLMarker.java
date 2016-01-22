@@ -612,5 +612,5 @@ public class CTLMarker {
         }
     }
     /** Proposition text expressing that a node is the start state of the GTS. */
-    static public final Formula START_ATOM = Formula.Prop(flagText.get(Flag.START));
+    public static final Formula START_ATOM = Formula.Prop(flagText.get(Flag.START));
 }

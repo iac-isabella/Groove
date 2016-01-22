@@ -38,7 +38,7 @@ public class JVertexLayout implements JCellLayout {
      * @param jAttr the attribute map
      * @return a new node layout based on <code>jAttr</code>
      */
-    static public JVertexLayout newInstance(AttributeMap jAttr) {
+    public static JVertexLayout newInstance(AttributeMap jAttr) {
         Rectangle2D bounds = GraphConstants.getBounds(jAttr);
         if (bounds == null) {
             bounds = new Rectangle(JAttr.DEFAULT_NODE_BOUNDS);
@@ -52,7 +52,7 @@ public class JVertexLayout implements JCellLayout {
      * @param visuals the visual attribute map
      * @return a new node layout based on <code>jAttr</code>
      */
-    static public JVertexLayout newInstance(VisualMap visuals) {
+    public static JVertexLayout newInstance(VisualMap visuals) {
         Dimension2D size = visuals.getNodeSize();
         Point2D pos = visuals.getNodePos();
         return new JVertexLayout(new Rectangle2D.Double(pos.getX() - size.getWidth() / 2,
@@ -66,7 +66,7 @@ public class JVertexLayout implements JCellLayout {
      * @return <code>true</code> if <code>location</code> is the default
      *         node location
      */
-    static public boolean isDefaultNodeLocation(double x, double y) {
+    public static boolean isDefaultNodeLocation(double x, double y) {
         return defaultNodeLocation.getX() == x && defaultNodeLocation.getY() == y;
     }
 

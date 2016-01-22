@@ -51,9 +51,9 @@ import org.junit.Test;
 /** Tests the class {@link RegExpr}. */
 public class RegExprTyperTest {
     /** Directory with test files (relative to the project) */
-    static public final String GRAPH_TEST_DIR = "junit/graphs";
+    public static final String GRAPH_TEST_DIR = "junit/graphs";
     /** Directory with test grammar (relative to the project) */
-    static public final String GRAMMAR = "junit/types/regexpr";
+    public static final String GRAMMAR = "junit/types/regexpr";
 
     static RegExprTyper implicitTyper;
     static RegExprTyper explicitTyper;

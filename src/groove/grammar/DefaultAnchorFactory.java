@@ -101,7 +101,7 @@ public class DefaultAnchorFactory implements AnchorFactory {
     /**
      * Returns the singleton instance of this class.
      */
-    static public DefaultAnchorFactory getInstance() {
+    public static DefaultAnchorFactory getInstance() {
         return prototype;
     }
 

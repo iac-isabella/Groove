@@ -36,13 +36,13 @@ import java.util.Map;
  */
 public class Valuator {
     /** Returns the value for a given binding. */
-    static public HostNode get(Object[] val, Binding bind) {
+    public static HostNode get(Object[] val, Binding bind) {
         assert bind.getSource() == Source.VAR || bind.getSource() == Source.CALLER;
         return (HostNode) val[bind.getIndex()];
     }
 
     /** Returns the value at a given position of a valuation. */
-    static public HostNode get(Object[] val, int index) {
+    public static HostNode get(Object[] val, int index) {
         return (HostNode) val[index];
     }
 
@@ -73,7 +73,7 @@ public class Valuator {
     }
 
     /** Tests if two valuations have equal content. */
-    static public boolean areEqual(Object[] val1, Object[] val2) {
+    public static boolean areEqual(Object[] val1, Object[] val2) {
         return areEqual(val1, val2, null);
     }
 
@@ -81,7 +81,7 @@ public class Valuator {
      * from the images of the first valuation to those of the second.
      * The node map may be empty, in which case it is regarded as the identity.
      */
-    static public boolean areEqual(Object[] val1, Object[] val2,
+    public static boolean areEqual(Object[] val1, Object[] val2,
             Map<? extends Node,? extends Node> nodeMap) {
         if (nodeMap == null && val1 == val2) {
             return true;
@@ -111,7 +111,7 @@ public class Valuator {
     }
 
     /** Computes the hash code of a valuation. */
-    static public int hashCode(Object[] val) {
+    public static int hashCode(Object[] val) {
         return hashCode(val, null);
     }
 
@@ -121,7 +121,7 @@ public class Valuator {
      * The modifier may be {@code null}, in which case only the length of the
      * valuation is used.
      */
-    static public int hashCode(Object[] val, Map<? extends Element,?> modifier) {
+    public static int hashCode(Object[] val, Map<? extends Element,?> modifier) {
         int prime = 31;
         int result = 1;
         boolean isNested = isNested(val);
@@ -138,7 +138,7 @@ public class Valuator {
     }
 
     /** Turns a given valuation into a nested list of objects. */
-    static public List<Object> asList(Object[] val) {
+    public static List<Object> asList(Object[] val) {
         List<Object> result = new ArrayList<Object>(Arrays.asList(val));
         if (isNested(val)) {
             result.set(val.length - 1, asList(pop(val)));
@@ -147,7 +147,7 @@ public class Valuator {
     }
 
     /** Returns a string representation of a given valuation. */
-    static public String toString(Object[] val) {
+    public static String toString(Object[] val) {
         return asList(val).toString();
     }
 

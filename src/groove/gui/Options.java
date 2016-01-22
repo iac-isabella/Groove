@@ -234,7 +234,7 @@ public class Options implements Cloneable {
      * Tests if the font used for rendering labels supports
      * the Unicode characters used for arrows-on-labels.
      */
-    static public boolean isSupportsLabelArrows() {
+    public static boolean isSupportsLabelArrows() {
         return SYMBOL_FONT != null;
     }
 
@@ -242,12 +242,12 @@ public class Options implements Cloneable {
      * Callback method to determine whether a mouse event could be intended to
      * edit edge points.
      */
-    static public boolean isEdgeEditEvent(MouseEvent evt) {
+    public static boolean isEdgeEditEvent(MouseEvent evt) {
         return evt.getButton() == MouseEvent.BUTTON1 && evt.isAltDown();
     }
 
     /** Gives a button the Groove look-and-feel. */
-    static public void setLAF(final AbstractButton button) {
+    public static void setLAF(final AbstractButton button) {
         button.setHideActionText(true);
         button.setFocusable(false);
         button.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEtchedBorder(),
@@ -262,14 +262,14 @@ public class Options implements Cloneable {
     }
 
     /** Creates a button for a given action with the right look-and-feel. */
-    static public JButton createButton(Action action) {
+    public static JButton createButton(Action action) {
         JButton result = new JButton(action);
         setLAF(result);
         return result;
     }
 
     /** Creates a toggle button for a given action with the right look-and-feel. */
-    static public JToggleButton createToggleButton(Action action) {
+    public static JToggleButton createToggleButton(Action action) {
         JToggleButton result = new JToggleButton(action);
         setLAF(result);
         return result;
@@ -340,53 +340,53 @@ public class Options implements Cloneable {
     /** Edit menu name */
     public static final String EDIT_MENU_NAME = "Edit";
     /** Edit menu mnemonic. */
-    static public final int EDIT_MENU_MNEMONIC = KeyEvent.VK_E;
+    public static final int EDIT_MENU_MNEMONIC = KeyEvent.VK_E;
     /** Display menu name */
     public static final String DISPLAY_MENU_NAME = "View";
     /** Display (i.e., View) menu mnemonic. */
-    static public final int DISPLAY_MENU_MNEMONIC = KeyEvent.VK_V;
+    public static final int DISPLAY_MENU_MNEMONIC = KeyEvent.VK_V;
     /** Explore menu name */
     public static final String EXPLORE_MENU_NAME = "Explore";
     /** Explore menu mnemonic. */
-    static public final int EXPLORE_MENU_MNEMONIC = KeyEvent.VK_X;
+    public static final int EXPLORE_MENU_MNEMONIC = KeyEvent.VK_X;
     /** File menu name */
     public static final String FILE_MENU_NAME = "File";
     /** File menu mnemonic. */
-    static public final int FILE_MENU_MNEMONIC = KeyEvent.VK_F;
+    public static final int FILE_MENU_MNEMONIC = KeyEvent.VK_F;
     /** New menu name */
     public static final String NEW_MENU_NAME = "New";
     /** Open Recent menu name * */
     public static final String OPEN_RECENT_MENU_NAME = "Load Recent Grammar";
     /** Open Recent menu mnemonic. */
-    static public final int OPEN_RECENT_MENU_MNEMONIC = KeyEvent.VK_R;
+    public static final int OPEN_RECENT_MENU_MNEMONIC = KeyEvent.VK_R;
     /** Help menu name */
     public static final String HELP_MENU_NAME = "Help";
     /** Help menu mnemonic. */
-    static public final int HELP_MENU_MNEMONIC = KeyEvent.VK_H;
+    public static final int HELP_MENU_MNEMONIC = KeyEvent.VK_H;
     /** Create (i.e., New) menu name. */
-    static public final String CREATE_MENU_NAME = "New";
+    public static final String CREATE_MENU_NAME = "New";
     /** Create (i.e., New) menu mnemonic. */
-    static public final int CREATE_MENU_MNEMONIC = KeyEvent.VK_N;
+    public static final int CREATE_MENU_MNEMONIC = KeyEvent.VK_N;
     /** Options menu name */
     public static final String OPTIONS_MENU_NAME = "Options";
     /** Options menu mnemonic. */
-    static public final int OPTIONS_MENU_MNEMONIC = KeyEvent.VK_O;
+    public static final int OPTIONS_MENU_MNEMONIC = KeyEvent.VK_O;
     /** Options menu name */
     public static final String PROPERTIES_MENU_NAME = "Properties";
     /** Options menu mnemonic. */
-    static public final int PROPERTIES_MENU_MNEMONIC = KeyEvent.VK_P;
+    public static final int PROPERTIES_MENU_MNEMONIC = KeyEvent.VK_P;
     /** Set line style context menu name */
-    static public final String SET_LINE_STYLE_MENU = "Set Line Style";
+    public static final String SET_LINE_STYLE_MENU = "Set Line Style";
     /** Set layout menu name */
     public static final String SET_LAYOUT_MENU_NAME = "Set layouter";
     /** Show/Hide menu name */
-    static public final String SHOW_HIDE_MENU_NAME = "Show/Hide";
+    public static final String SHOW_HIDE_MENU_NAME = "Show/Hide";
     /** Show/Hide menu mnemonic */
-    static public final int SHOW_HIDE_MENU_MNEMONIC = KeyEvent.VK_S;
+    public static final int SHOW_HIDE_MENU_MNEMONIC = KeyEvent.VK_S;
     /** Verify menu name */
     public static final String VERIFY_MENU_NAME = "Verify";
     /** Verify menu mnemonic. */
-    static public final int VERIFY_MENU_MNEMONIC = KeyEvent.VK_Y;
+    public static final int VERIFY_MENU_MNEMONIC = KeyEvent.VK_Y;
     /** For externally contributed commands */
     public static final String EXTERNAL_MENU_NAME = "External";
 
@@ -479,7 +479,7 @@ public class Options implements Cloneable {
     /** Edit action name */
     public static final String EDIT_ACTION_NAME = "Edit ...";
     /** Edit label action name */
-    static public final String EDIT_LABEL_ACTION = "Edit Label";
+    public static final String EDIT_LABEL_ACTION = "Edit Label";
     /** Edit state action name */
     public static final String EDIT_STATE_ACTION_NAME = "Edit State ...";
     /** Exploration dialog action name */
@@ -534,7 +534,7 @@ public class Options implements Cloneable {
     /** Name of the "Lower Priority" action. */
     public static final String LOWER_PRIORITY_ACTION_NAME = "Lower Priority";
     /** Name for the model checking action. */
-    static public final String MODEL_CHECK_ACTION_NAME = "Verify";
+    public static final String MODEL_CHECK_ACTION_NAME = "Verify";
     /** New action name */
     public static final String NEW_ACTION_NAME = "New";
     /** New grammar action name */
@@ -568,11 +568,11 @@ public class Options implements Cloneable {
     /** Replace action name */
     public static final String REPLACE_ACTION_NAME = "Replace Label";
     /** Remove point action name */
-    static public final String REMOVE_POINT_ACTION = "Remove Point";
+    public static final String REMOVE_POINT_ACTION = "Remove Point";
     /** Renumber action name */
     public static final String RENUMBER_ACTION_NAME = "Renumber Nodes";
     /** Reset label position action name */
-    static public final String RESET_LABEL_POSITION_ACTION = "Reset Label";
+    public static final String RESET_LABEL_POSITION_ACTION = "Reset Label";
     /**
      * Restart simulation action name
      */
@@ -629,7 +629,7 @@ public class Options implements Cloneable {
     /**
      * Scroll to action name
      */
-    static public final String SCROLL_TO_ACTION_NAME = "Scroll to current";
+    public static final String SCROLL_TO_ACTION_NAME = "Scroll to current";
     /** Name of the "Set Priority" action. */
     public static final String SET_PRIORITY_ACTION_NAME = "Set Priority";
     /**
@@ -679,7 +679,7 @@ public class Options implements Cloneable {
     /**
      * Apply keystroke
      */
-    static public final KeyStroke APPLY_KEY = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,
+    public static final KeyStroke APPLY_KEY = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,
         InputEvent.CTRL_MASK);
     /** Back keystroke */
     public static final KeyStroke BACK_KEY = KeyStroke.getKeyStroke("alt LEFT");
@@ -805,13 +805,13 @@ public class Options implements Cloneable {
     public static final int SAVE_MNEMONIC = KeyEvent.VK_S;
 
     /** Indication for an empty label in a list of labels. */
-    static public final String EMPTY_LABEL_TEXT = "(empty)";
+    public static final String EMPTY_LABEL_TEXT = "(empty)";
     /** Indication for a subtype edge in a list of labels. */
-    static public final String SUBTYPE_LABEL_TEXT = "(subtype)";
+    public static final String SUBTYPE_LABEL_TEXT = "(subtype)";
     /** Indication for no label in a list of labels. */
-    static public final String NO_LABEL_TEXT = "(none)";
+    public static final String NO_LABEL_TEXT = "(none)";
     /** Name for the imaging action. */
-    static public final String IMAGE_ACTION_NAME = "Image";
+    public static final String IMAGE_ACTION_NAME = "Image";
 
     /** Returns the tab show option text for a given resource kind. */
     public static String getShowTabOption(ResourceKind kind) {
@@ -835,35 +835,35 @@ public class Options implements Cloneable {
         ResourceKind.PROLOG, ResourceKind.TYPE, ResourceKind.GROOVY);
 
     /** Show anchors option */
-    static public final String SHOW_ANCHORS_OPTION = "Show anchors";
+    public static final String SHOW_ANCHORS_OPTION = "Show anchors";
     /** Show aspects in graphs and rules option */
-    static public final String SHOW_ASPECTS_OPTION = "Show aspect prefixes";
+    public static final String SHOW_ASPECTS_OPTION = "Show aspect prefixes";
     /** Show bidirectional edges. */
-    static public final String SHOW_BIDIRECTIONAL_EDGES_OPTION = "Show bidirectional edges";
+    public static final String SHOW_BIDIRECTIONAL_EDGES_OPTION = "Show bidirectional edges";
     /** Show node ids option */
-    static public final String SHOW_NODE_IDS_OPTION = "Show node identities";
+    public static final String SHOW_NODE_IDS_OPTION = "Show node identities";
     /** Show state ids option */
-    static public final String SHOW_STATE_IDS_OPTION = "Show state identities";
+    public static final String SHOW_STATE_IDS_OPTION = "Show state identities";
     /** Show state status option */
-    static public final String SHOW_STATE_STATUS_OPTION = "Show state status";
+    public static final String SHOW_STATE_STATUS_OPTION = "Show state status";
     /** Show control state option */
-    static public final String SHOW_CONTROL_STATE_OPTION = "Show control information";
+    public static final String SHOW_CONTROL_STATE_OPTION = "Show control information";
     /** Show invariants option */
-    static public final String SHOW_INVARIANTS_OPTION = "Show invariants on the states";
+    public static final String SHOW_INVARIANTS_OPTION = "Show invariants on the states";
     /** Show absent states option */
-    static public final String SHOW_ABSENT_STATES_OPTION = "Show absent states";
+    public static final String SHOW_ABSENT_STATES_OPTION = "Show absent states";
     /** Show recipe steps option */
-    static public final String SHOW_RECIPE_STEPS_OPTION = "Show recipe steps";
+    public static final String SHOW_RECIPE_STEPS_OPTION = "Show recipe steps";
     /** Show unfiltered edges to filtered nodes. */
-    static public final String SHOW_UNFILTERED_EDGES_OPTION = "Show all unfiltered edges";
+    public static final String SHOW_UNFILTERED_EDGES_OPTION = "Show all unfiltered edges";
     /** Show data values as nodes rather than assignments. */
-    static public final String SHOW_VALUE_NODES_OPTION = "Show data values as nodes";
+    public static final String SHOW_VALUE_NODES_OPTION = "Show data values as nodes";
     /** Show data values as nodes rather than assignments. */
-    static public final String SHOW_ARROWS_ON_LABELS_OPTION = "Show arrows on labels";
+    public static final String SHOW_ARROWS_ON_LABELS_OPTION = "Show arrows on labels";
     /** Always delete resources without confirmation. */
-    static public final String DELETE_RESOURCE_OPTION = "Delete seletected resource?";
+    public static final String DELETE_RESOURCE_OPTION = "Delete seletected resource?";
     /** Always check CTL properties on all states, rather than the initial state. */
-    static public final String VERIFY_ALL_STATES_OPTION = "Check CTL on all states?";
+    public static final String VERIFY_ALL_STATES_OPTION = "Check CTL on all states?";
 
     /** Default value map for the boolean options. */
     static private final Map<String,Boolean> boolOptionDefaults = new HashMap<String,Boolean>();

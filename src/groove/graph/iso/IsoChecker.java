@@ -848,7 +848,7 @@ public class IsoChecker {
      * @param strong if <code>true</code>, the checker will not returns false
      *        negatives.
      */
-    static public IsoChecker getInstance(boolean strong) {
+    public static IsoChecker getInstance(boolean strong) {
         // initialise lazily to avoid initialisation circularities
         if (strongInstance == null) {
             strongInstance = new IsoChecker(true);
@@ -862,7 +862,7 @@ public class IsoChecker {
      * Returns the number of times an isomorphism was suspected on the basis of
      * the "early warning system", viz. the graph certificate.
      */
-    static public int getIntCertOverlap() {
+    public static int getIntCertOverlap() {
         return intCertOverlap;
     }
 
@@ -870,7 +870,7 @@ public class IsoChecker {
      * Returns the total time doing isomorphism-related computations. This
      * includes time spent in certificate calculation.
      */
-    static public long getTotalTime() {
+    public static long getTotalTime() {
         return getIsoCheckTime() + getCertifyingTime();
     }
 
@@ -878,7 +878,7 @@ public class IsoChecker {
      * Returns the time spent calculating certificates, certificate maps and
      * partition maps in {@link PartitionRefiner}.
      */
-    static public long getCertifyingTime() {
+    public static long getCertifyingTime() {
         return PartitionRefiner.computeCertReporter.getTotalTime()
             + PartitionRefiner.getPartitionReporter.getTotalTime();
     }
@@ -888,28 +888,28 @@ public class IsoChecker {
      * the time spent computing isomorphism certificates; that is reported
      * instead by {@link #getCertifyingTime()}.
      */
-    static public long getIsoCheckTime() {
+    public static long getIsoCheckTime() {
         return areIsoReporter.getTotalTime();
     }
 
     /**
      * Returns the time spent establishing isomorphism by direct equality.
      */
-    static public long getEqualCheckTime() {
+    public static long getEqualCheckTime() {
         return equalsTestReporter.getTotalTime();
     }
 
     /**
      * Returns the time spent establishing isomorphism by certificate equality.
      */
-    static public long getCertCheckTime() {
+    public static long getCertCheckTime() {
         return isoCertCheckReporter.getTotalTime();
     }
 
     /**
      * Returns the time spent establishing isomorphism by explicit simulation.
      */
-    static public long getSimCheckTime() {
+    public static long getSimCheckTime() {
         return isoSimCheckReporter.getTotalTime();
     }
 
@@ -917,7 +917,7 @@ public class IsoChecker {
      * Returns the number of total checks performed, i.e., the number of calls
      * to {@link #areIsomorphic(Graph, Graph)}.
      */
-    static public int getTotalCheckCount() {
+    public static int getTotalCheckCount() {
         return totalCheckCount;
     }
 
@@ -925,7 +925,7 @@ public class IsoChecker {
      * Returns the number of times that non-isomorphism was established on the
      * basis of graph sizes.
      */
-    static public int getDistinctSizeCount() {
+    public static int getDistinctSizeCount() {
         return distinctSizeCount;
     }
 
@@ -933,7 +933,7 @@ public class IsoChecker {
      * Returns the number of times that isomorphism was established on the basis
      * of graph equality.
      */
-    static public int getEqualGraphsCount() {
+    public static int getEqualGraphsCount() {
         return equalGraphsCount;
     }
 
@@ -941,7 +941,7 @@ public class IsoChecker {
      * Returns the number of times that isomorphism was established on the basis
      * of (a one-to-one mapping betwen) certificates.
      */
-    static public int getEqualCertsCount() {
+    public static int getEqualCertsCount() {
         return equalCertsCount;
     }
 
@@ -949,7 +949,7 @@ public class IsoChecker {
      * Returns the number of times that non-isomorphism was established on the
      * basis of (a one-to-one mapping betwen) certificates.
      */
-    static public int getDistinctCertsCount() {
+    public static int getDistinctCertsCount() {
         return distinctCertsCount;
     }
 
@@ -957,7 +957,7 @@ public class IsoChecker {
      * Returns the number of times that isomorphism was established on the basis
      * of simulation.
      */
-    static public int getEqualSimCount() {
+    public static int getEqualSimCount() {
         return equalSimCount;
     }
 
@@ -965,7 +965,7 @@ public class IsoChecker {
      * Returns the number of times that isomorphism was established on the basis
      * of simulation.
      */
-    static public int getDistinctSimCount() {
+    public static int getDistinctSimCount() {
         return distinctSimCount;
     }
 
@@ -1071,9 +1071,9 @@ public class IsoChecker {
     /** Flag to switch assertions on, for debugging purposes. */
     static private final boolean ISO_ASSERT = false;
     /** Reporter instance for profiling IsoChecker methods. */
-    static public final Reporter reporter = Reporter.register(IsoChecker.class);
+    public static final Reporter reporter = Reporter.register(IsoChecker.class);
     /** Handle for profiling {@link #areIsomorphic(Graph, Graph)}. */
-    static public final Reporter areIsoReporter = reporter.register("areIsomorphic(Graph,Graph)");
+    public static final Reporter areIsoReporter = reporter.register("areIsomorphic(Graph,Graph)");
     /**
      * Handle for profiling
      * {@link #areCertEqual(CertificateStrategy, CertificateStrategy, Object[], Object[])}.

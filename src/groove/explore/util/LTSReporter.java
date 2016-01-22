@@ -76,7 +76,7 @@ public class LTSReporter extends AExplorationReporter {
      * @return the output file name
      * @throws IOException if any error occurred during export
      */
-    static public File exportLTS(GTS lts, String filePattern, LTSLabels labels, Filter filter,
+    public static File exportLTS(GTS lts, String filePattern, LTSLabels labels, Filter filter,
         ExploreResult answer) throws IOException {
         // Create the LTS view to be exported.
         MultiGraph ltsGraph = lts.toPlainGraph(labels, filter, answer);

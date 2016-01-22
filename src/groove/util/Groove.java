@@ -73,7 +73,7 @@ public class Groove {
      * Flag to indicate if various types of statistics should be computed. This
      * flag is intended to be used globally.
      */
-    static public final boolean GATHER_STATISTICS = true;
+    public static final boolean GATHER_STATISTICS = true;
 
     /**
      * Attempts to load in a graph from a given <tt>.gst</tt> file and return
@@ -85,7 +85,7 @@ public class Groove {
      * @throws IOException if <code>filename</code> does not exist or is wrongly
      *         formatted
      */
-    static public PlainGraph loadGraph(String filename) throws IOException {
+    public static PlainGraph loadGraph(String filename) throws IOException {
         // attempt to find the intended file
         File file = new File(filename);
         if (GXL.hasExtension(file) || STATE.hasExtension(file)) {
@@ -104,7 +104,7 @@ public class Groove {
      *         the file does not exist
      * @throws IOException if <code>file</code> cannot be parsed as a graph
      */
-    static public PlainGraph loadGraph(File file) throws IOException {
+    public static PlainGraph loadGraph(File file) throws IOException {
         return GxlIO.instance().loadGraph(file).toPlainGraph();
     }
 
@@ -115,7 +115,7 @@ public class Groove {
      * @param filename the intended filename
      * @throws IOException if saving ran into problems
      */
-    static public File saveGraph(Graph graph, String filename) throws IOException {
+    public static File saveGraph(Graph graph, String filename) throws IOException {
         if (!STATE.hasExtension(filename)) {
             filename = GXL.addExtension(filename);
         }
@@ -130,14 +130,14 @@ public class Groove {
      * @param file the intended file
      * @throws IOException if saving ran into problems
      */
-    static public void saveGraph(Graph graph, File file) throws IOException {
+    public static void saveGraph(Graph graph, File file) throws IOException {
         GxlIO.instance().saveGraph(graph, file);
     }
 
     /**
      * Converts a {@link Rectangle2D} to a {@link Rectangle}.
      */
-    static public Rectangle toRectangle(Rectangle2D r) {
+    public static Rectangle toRectangle(Rectangle2D r) {
         if (r != null) {
             return new Rectangle((int) r.getX(), (int) r.getY(), (int) r.getWidth(),
                 (int) r.getHeight());
@@ -153,7 +153,7 @@ public class Groove {
      * @throws IOException if <code>dirname</code> does not exist or is wrongly
      *         formatted
      */
-    static public GrammarModel loadGrammar(String dirname) throws IOException {
+    public static GrammarModel loadGrammar(String dirname) throws IOException {
         File dir = new File(GRAMMAR.addExtension(dirname));
         return GrammarModel.newInstance(dir);
     }
@@ -226,7 +226,7 @@ public class Groove {
      * <tt>null</tt> if the string is <tt>null</tt>, does not decompose into
      * space-separated sub-strings, or does not convert to <tt>int</tt> values.
      */
-    static public int[] toIntArray(String text) {
+    public static int[] toIntArray(String text) {
         return toIntArray(text, null);
     }
 
@@ -238,7 +238,7 @@ public class Groove {
      * @param delims string consisting of characters that will be considered delimiters.
      * If {@code null}, all whitespace characters are considered delimiters
      */
-    static public int[] toIntArray(String text, String delims) {
+    public static int[] toIntArray(String text, String delims) {
         if (text == null) {
             return null;
         }
@@ -262,23 +262,23 @@ public class Groove {
      * Start symbol for the string representation of an array.
      * @see #toString(Object[], String, String, String)
      */
-    static public final String ARRAY_START = "[";
+    public static final String ARRAY_START = "[";
     /**
      * End symbol for the string representation of an array.
      * @see #toString(Object[], String, String, String)
      */
-    static public final String ARRAY_END = "]";
+    public static final String ARRAY_END = "]";
     /**
      * Separator symbol for the string representation of an array.
      * @see #toString(Object[], String, String, String)
      */
-    static public final String ARRAY_SEPARATOR = ",";
+    public static final String ARRAY_SEPARATOR = ",";
 
     /**
      * Converts an array of <code>int</code>s to an array of
      * <code>Integer</code>s.
      */
-    static public Integer[] toArray(int[] array) {
+    public static Integer[] toArray(int[] array) {
         Integer[] result = new Integer[array.length];
         for (int i = 0; i < array.length; i++) {
             result[i] = array[i];
@@ -291,7 +291,7 @@ public class Groove {
      * {@value #ARRAY_START}, ending with {@value #ARRAY_END} and with elements
      * separated by {@value #ARRAY_SEPARATOR}.
      */
-    static public <T> String toString(T[] array) {
+    public static <T> String toString(T[] array) {
         return toString(array, ARRAY_START, ARRAY_END, ARRAY_SEPARATOR);
     }
 
@@ -304,7 +304,7 @@ public class Groove {
      * @param separator the symbol separating the elements in the resulting text
      *        representation
      */
-    static public <T> String toString(T[] array, String start, String end, String separator) {
+    public static <T> String toString(T[] array, String start, String end, String separator) {
         return toString(array, start, end, separator, separator);
     }
 
@@ -320,7 +320,7 @@ public class Groove {
      * @param finalSeparator the symbol separating the last two elements in the
      *        resulting text representation
      */
-    static public String toString(Object[] array, String start, String end, String separator,
+    public static String toString(Object[] array, String start, String end, String separator,
         String finalSeparator) {
         StringBuffer result = new StringBuffer(start);
         for (int i = 0; i < array.length; i++) {
@@ -386,7 +386,7 @@ public class Groove {
      * @param allLines if {@code true}, print all lines, otherwise just
      * those that are in own code
      */
-    static public void printStackTrace(PrintStream out, boolean allLines) {
+    public static void printStackTrace(PrintStream out, boolean allLines) {
         StackTraceElement[] stackTrace = new Exception().getStackTrace();
         String method = stackTrace[1].getMethodName();
         out.printf("%s called from: %n", method);
@@ -398,7 +398,7 @@ public class Groove {
     }
 
     /** Converts an action map to a string representation. */
-    static public String toString(ActionMap am) {
+    public static String toString(ActionMap am) {
         StringBuilder result = new StringBuilder();
         LinkedHashMap<Object,Object> map = new LinkedHashMap<Object,Object>();
         for (Object key : am.allKeys()) {
@@ -415,7 +415,7 @@ public class Groove {
     }
 
     /** Converts an action map to a string representation. */
-    static public String toString(InputMap im) {
+    public static String toString(InputMap im) {
         StringBuilder result = new StringBuilder();
         LinkedHashMap<Object,Object> map = new LinkedHashMap<Object,Object>();
         for (KeyStroke key : im.allKeys()) {

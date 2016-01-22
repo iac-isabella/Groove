@@ -93,5 +93,5 @@ public enum CtrlType {
         }
     }
     /** The name of the node type. */
-    static public final String NODE_TYPE_NAME = "node";
+    public static final String NODE_TYPE_NAME = "node";
 }

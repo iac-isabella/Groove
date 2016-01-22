@@ -590,7 +590,7 @@ public class JGraphUI<G extends Graph> extends BasicGraphUI {
      * @since 1.0
      * $Revision: 5479 $
      */
-    static public class RubberBand extends MouseInputAdapter {
+    public static class RubberBand extends MouseInputAdapter {
         /**
          * Creates a new <code>RubberBand</code> and sets the canvas
          * @param canvas    the <code>RubberBandCanvas</code> on which the rubber band
@@ -718,7 +718,7 @@ public class JGraphUI<G extends Graph> extends BasicGraphUI {
      * @since 1.0
      * $Revision: 5479 $
      */
-    static public class EdgePreview extends MouseInputAdapter {
+    public static class EdgePreview extends MouseInputAdapter {
         /**
          * Creates a new {@link EdgePreview} and sets the canvas
          */

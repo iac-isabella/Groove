@@ -250,7 +250,7 @@ public class ObservableSet<T> extends Observable implements Set<T> {
     private final Set<T> set;
 
     /** Class wrapping an update that has added one or more elements. */
-    static public class AddUpdate<T> {
+    public static class AddUpdate<T> {
         /** Constructs an instance for a given set of added elements. */
         AddUpdate(Set<T> addedSet) {
             this.addedSet = Collections.unmodifiableSet(addedSet);
@@ -271,7 +271,7 @@ public class ObservableSet<T> extends Observable implements Set<T> {
     }
 
     /** Class wrapping an update that has removed one or more elements. */
-    static public class RemoveUpdate<T> {
+    public static class RemoveUpdate<T> {
         /** Constructs an instance for a given set of removed elements. */
         RemoveUpdate(Set<T> removedSet) {
             this.removedSet = Collections.unmodifiableSet(removedSet);
