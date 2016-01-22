@@ -53,21 +53,18 @@ public class MultiLabel {
             dirs = DirectBag.ZERO;
         }
         // combine forward and backward into bidirectional
-        switch (direct) {
-        case FORWARD:
+        if (direct == Direct.FORWARD) {
             int backCount = dirs.get(Direct.BACKWARD);
             if (backCount > 0) {
                 direct = Direct.BIDIRECTIONAL;
                 dirs = dirs.dec(Direct.BACKWARD);
             }
-            break;
-        case BACKWARD:
+        } else if (direct == Direct.BACKWARD) {
             int foreCount = dirs.get(Direct.FORWARD);
             if (foreCount > 0) {
                 direct = Direct.BIDIRECTIONAL;
                 dirs = dirs.dec(Direct.FORWARD);
             }
-            break;
         }
         dirs = dirs.inc(direct);
         this.parts.put(line, dirs);

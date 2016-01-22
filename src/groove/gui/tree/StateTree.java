@@ -721,8 +721,7 @@ public class StateTree extends JTree implements SimulatorListener {
                 return;
             }
             Object node = path.getLastPathComponent();
-            switch (evt.getClickCount()) {
-            case 1:
+            if (evt.getClickCount() == 1) {
                 DisplayKind toDisplay = null;
                 if (node instanceof RuleTreeNode) {
                     toDisplay = DisplayKind.RULE;
@@ -732,8 +731,7 @@ public class StateTree extends JTree implements SimulatorListener {
                 if (toDisplay != null) {
                     getSimulatorModel().setDisplay(toDisplay);
                 }
-                break;
-            case 2:
+            } else if (evt.getClickCount() == 1) {
                 getActions().getApplyMatchAction().execute();
             }
         }

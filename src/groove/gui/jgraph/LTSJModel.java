@@ -115,15 +115,12 @@ public final class LTSJModel extends JModel<GTS> implements GTSListener {
     private JCell<GTS> registerChange(GraphState explored, Flag flag, int oldStatus) {
         JVertex<GTS> jCell = getJCellForNode(explored);
         if (jCell != null) {
-            switch (flag) {
-            case CLOSED:
+            if (flag == Flag.CLOSED) {
                 jCell.setLook(Look.OPEN, false);
-                break;
-            case DONE:
+            } else if (flag == Flag.DONE) {
                 jCell.setLook(Look.RECIPE, explored.isInternalState());
                 jCell.setLook(Look.TRANSIENT, explored.isTransient());
                 jCell.setLook(Look.FINAL, explored.isFinal());
-                break;
             }
             if (explored.isAbsent() && !Flag.ABSENT.test(oldStatus)) {
                 Iterator<? extends JEdge<GTS>> iter = jCell.getContext();
