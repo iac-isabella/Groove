@@ -158,6 +158,6 @@ public class OperatorNode extends ANode implements RuleNode {
     static final private char TIMES_CHAR = '\u2a09';
     /** Type label of product nodes. */
     @SuppressWarnings("unused")
-    static private final TypeLabel PROD_LABEL = TypeLabel.createLabel(EdgeRole.NODE_TYPE, ""
+    private static final TypeLabel PROD_LABEL = TypeLabel.createLabel(EdgeRole.NODE_TYPE, ""
         + TIMES_CHAR);
 }

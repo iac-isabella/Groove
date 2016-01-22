@@ -193,7 +193,7 @@ public abstract class GrooveCmdLineTool<T> {
         System.exit(0);
     }
 
-    static private void waitForWindows() {
+    private static void waitForWindows() {
         boolean exit;
         do {
             exit = true;

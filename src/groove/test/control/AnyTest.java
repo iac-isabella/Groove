@@ -36,7 +36,7 @@ import org.junit.Test;
  */
 @SuppressWarnings("all")
 public class AnyTest {
-    static private final String DIRECTORY = "junit/control/any.gps";
+    private static final String DIRECTORY = "junit/control/any.gps";
 
     @Test
     public void testDefault() {

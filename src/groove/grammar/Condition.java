@@ -757,7 +757,7 @@ public class Condition implements Fixable {
     }
 
     /** Constructs a disjunctive condition for a non-empty list of operands. */
-    static private final Condition newCondition(Op op, String descr, Condition... operands) {
+    private static final Condition newCondition(Op op, String descr, Condition... operands) {
         if (operands.length == 0) {
             throw new IllegalArgumentException(
                 String.format("Can't build '%s' with empty operand list", descr));

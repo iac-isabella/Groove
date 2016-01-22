@@ -341,7 +341,7 @@ public class DefaultRuleTransition extends AEdge<GraphState,RuleTransitionLabel>
     }
 
     /** The total number of anchor images created. */
-    static private int anchorImageCount = 0;
+    private static int anchorImageCount = 0;
 
     /**
      * Returns the instantiated output string for a given transition, if any.

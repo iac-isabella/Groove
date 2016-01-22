@@ -239,5 +239,5 @@ public class StateMatches extends MatchResultSet {
     private List<MatchResult> outstanding;
 
     /** Unique empty match set. */
-    static private final List<MatchResult> EMPTY_MATCH_SET = Collections.emptyList();
+    private static final List<MatchResult> EMPTY_MATCH_SET = Collections.emptyList();
 }

@@ -180,10 +180,10 @@ public class ExprTreeParser extends groove.util.parse.TermTreeParser<ExprTree.Ex
         return opList;
     }
 
-    static private List<ExprOp> opList;
+    private static List<ExprOp> opList;
 
     /** Returns the mapping from operator symbols to arity-indexed lists of operators. */
-    static private List<ExprOp> createOpList() {
+    private static List<ExprOp> createOpList() {
         List<ExprOp> result = new ArrayList<ExprOp>();
         // register all operators
         Map<String,Map<OpKind,ExprOp>> opMapMap = new TreeMap<String,Map<OpKind,ExprOp>>();
@@ -205,7 +205,7 @@ public class ExprTreeParser extends groove.util.parse.TermTreeParser<ExprTree.Ex
         return result;
     }
 
-    static private void registerOp(Map<String,Map<OpKind,ExprOp>> mapMap, List<ExprOp> opList,
+    private static void registerOp(Map<String,Map<OpKind,ExprOp>> mapMap, List<ExprOp> opList,
         Operator sortOp, OpKind opKind, String symbol) {
         Map<OpKind,ExprOp> opMap = mapMap.get(symbol);
         if (opMap == null) {
@@ -238,7 +238,7 @@ public class ExprTreeParser extends groove.util.parse.TermTreeParser<ExprTree.Ex
     /** Parses a given input with a given parser.
      * @throws FormatException if there is a parse error.
      */
-    static private ExprTree parse(ExprTreeParser parser, String input) throws FormatException {
+    private static ExprTree parse(ExprTreeParser parser, String input) throws FormatException {
         ExprTree result = parser.parse(input);
         FormatErrorSet errors = new FormatErrorSet();
         for (FormatError error : result.getErrors()) {

@@ -67,5 +67,5 @@ abstract public class HostNodeTreeHashSet extends TreeHashSet<HostNode> {
     }
 
     /** The resolution of the tree for a node set. */
-    static private final int NODE_RESOLUTION = 4;
+    private static final int NODE_RESOLUTION = 4;
 }

@@ -157,5 +157,5 @@ public class NumberDialog {
 
     /** Default dialog title. */
 
-    static private String DEFAULT_TITLE = "Select rule name";
+    private static String DEFAULT_TITLE = "Select rule name";
 }

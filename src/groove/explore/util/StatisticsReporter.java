@@ -57,7 +57,7 @@ public class StatisticsReporter extends AExplorationReporter {
     // ------------------------------------------------------------------------
 
     /** Number of bytes in a kilobyte. */
-    static private final int BYTES_PER_KB = 1024;
+    private static final int BYTES_PER_KB = 1024;
 
     // ------------------------------------------------------------------------
     // Object Fields

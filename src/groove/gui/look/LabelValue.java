@@ -743,7 +743,7 @@ public class LabelValue implements VisualValue<MultiLabel> {
         return sigLineMap.get(kind);
     }
 
-    static private final Map<Sort,Line> sigLineMap;
+    private static final Map<Sort,Line> sigLineMap;
     static {
         Map<Sort,Line> map = new EnumMap<Sort,Line>(Sort.class);
         for (Sort kind : Sort.values()) {
@@ -752,24 +752,24 @@ public class LabelValue implements VisualValue<MultiLabel> {
         sigLineMap = map;
     }
 
-    static private final String IMPORT_TEXT = String.format("%simport%s",
+    private static final String IMPORT_TEXT = String.format("%simport%s",
         Util.FRENCH_QUOTES_OPEN,
         Util.FRENCH_QUOTES_CLOSED);
-    static private final Line IMPORT_LINE = Line.atom(IMPORT_TEXT).style(Style.ITALIC);
-    static private final Line EXISTS_LINE = Line.atom("" + Util.EXISTS);
-    static private final Line EXISTS_OPT_LINE = EXISTS_LINE.append(Line.atom("?")
+    private static final Line IMPORT_LINE = Line.atom(IMPORT_TEXT).style(Style.ITALIC);
+    private static final Line EXISTS_LINE = Line.atom("" + Util.EXISTS);
+    private static final Line EXISTS_OPT_LINE = EXISTS_LINE.append(Line.atom("?")
         .style(Style.SUPER));
-    static private final Line FORALL_LINE = Line.atom("" + Util.FORALL);
-    static private final Line FORALL_POS_LINE = FORALL_LINE.append(Line.atom(">0")
+    private static final Line FORALL_LINE = Line.atom("" + Util.FORALL);
+    private static final Line FORALL_POS_LINE = FORALL_LINE.append(Line.atom(">0")
         .style(Style.SUPER));
     /** Final line in a state vertex indicating residual invisible outgoing transitions. */
-    static private final Line RESIDUAL_LINE = Line.atom("" + Util.DLA + Util.DA + Util.DRA);
+    private static final Line RESIDUAL_LINE = Line.atom("" + Util.DLA + Util.DA + Util.DRA);
     /** Line in a control vertex indicating a start state. */
-    static private final Line START_LINE = Line.atom("start");
+    private static final Line START_LINE = Line.atom("start");
     /** Line in a control vertex indicating a deadlocked state. */
-    static private final Line DEAD_LINE = Line.atom("dead");
+    private static final Line DEAD_LINE = Line.atom("dead");
     /** Line in a control vertex indicating a final state. */
-    static private final Line FINAL_LINE = Line.atom("final");
+    private static final Line FINAL_LINE = Line.atom("final");
     /** Suffix indicating a self-loop on a node label. */
-    static private final String LOOP_SUFFIX = " " + Util.CA;
+    private static final String LOOP_SUFFIX = " " + Util.CA;
 }

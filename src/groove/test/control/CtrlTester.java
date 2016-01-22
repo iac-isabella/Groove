@@ -202,5 +202,5 @@ abstract public class CtrlTester {
             true);
     }
 
-    static private final boolean DEBUG = false;
+    private static final boolean DEBUG = false;
 }

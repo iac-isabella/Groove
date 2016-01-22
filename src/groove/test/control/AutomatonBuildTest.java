@@ -416,7 +416,7 @@ public class AutomatonBuildTest {
     /** Most recently built program. */
     private Program prog;
 
-    static private void assertDistinct(Object o1, Object o2) {
+    private static void assertDistinct(Object o1, Object o2) {
         assertFalse(String.format("%s and %s expected to be distinct", o1, o2), o1.equals(o2));
     }
 

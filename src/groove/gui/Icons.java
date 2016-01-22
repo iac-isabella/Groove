@@ -420,12 +420,12 @@ public final class Icons {
     public static final Cursor HAND_CLOSED_CURSOR = createCursor("Closed Hand", HAND_CLOSED_ICON);
 
     /** Creates a named cursor from a given file. */
-    static private ImageIcon createIcon(String filename) {
+    private static ImageIcon createIcon(String filename) {
         return new ImageIcon(Groove.getResource(filename));
     }
 
     /** Creates a named cursor from a given file. */
-    static private Cursor createCursor(String name, ImageIcon icon) {
+    private static Cursor createCursor(String name, ImageIcon icon) {
         if (GraphicsEnvironment.isHeadless()) {
             // The environtment variable DISPLAY is not set. We can't call
             // createCustomCursor from the awt toolkit because this causes

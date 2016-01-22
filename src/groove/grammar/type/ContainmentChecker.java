@@ -174,7 +174,7 @@ public class ContainmentChecker implements TypeChecker {
     private final List<HostNode> result = new ArrayList<HostNode>();
 
     /** Record for a node during the search. */
-    static private class Record {
+    private static class Record {
         Record(HostNode node) {
             this.node = node;
         }

@@ -528,7 +528,7 @@ public class DefaultArchiveSystemStore extends SystemStore { //UndoableEditSuppo
     private boolean hasSystemPropertiesFile = false;
 
     /** Name of the JAR protocol and file extension. */
-    static private final String JAR_PROTOCOL = FileType.JAR.getExtensionName();
+    private static final String JAR_PROTOCOL = FileType.JAR.getExtensionName();
     /** Suffix of 'no JAR or no ZIP' error message. Allows error to be
      * recognized from the outside. */
     public static final String NO_JAR_OR_ZIP_SUFFIX =

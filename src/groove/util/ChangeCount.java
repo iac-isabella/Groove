@@ -80,7 +80,7 @@ public class ChangeCount extends Observable {
         private int last;
     }
 
-    static private class DummyTracker extends Tracker {
+    private static class DummyTracker extends Tracker {
         private DummyTracker() {
             super(new ChangeCount());
         }

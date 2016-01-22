@@ -36,8 +36,8 @@ import org.junit.Test;
 /** Tests the isomorphism checker. */
 public class IsoTest {
     /** Location of the samples. */
-    static private final String INPUT_DIR = "junit/graphs/iso";
-    static private final IsoChecker checker = IsoChecker.getInstance(true);
+    private static final String INPUT_DIR = "junit/graphs/iso";
+    private static final IsoChecker checker = IsoChecker.getInstance(true);
 
     private Map<String,List<PlainGraph>> graphMap;
 

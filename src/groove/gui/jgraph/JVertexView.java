@@ -277,17 +277,17 @@ public class JVertexView extends VertexView {
      * Maximal distance (horizontal or vertical) for perpendicular perimeter
      * points to be placed in ratio.
      */
-    static private final double MAX_RATIO_DISTANCE = 250;
+    private static final double MAX_RATIO_DISTANCE = 250;
     /** Insets for vertices that contain text. */
-    static private final Insets DEFAULT_INSETS = new Insets(2, 4, 2, 4);
+    private static final Insets DEFAULT_INSETS = new Insets(2, 4, 2, 4);
     /** Insets for empty vertices. */
-    static private final Insets EMPTY_INSETS = new Insets(0, 0, 0, 0);
+    private static final Insets EMPTY_INSETS = new Insets(0, 0, 0, 0);
 
     /** The renderer for all instances of <tt>JVertexView</tt>. */
-    static private final MyRenderer renderer = new MyRenderer();
+    private static final MyRenderer renderer = new MyRenderer();
 
     /** The editor for all instances of <tt>JVertexView</tt>. */
-    static private final MultiLinedEditor editor = new MultiLinedEditor();
+    private static final MultiLinedEditor editor = new MultiLinedEditor();
 
     /**
      * Multi-line vertex renderer, based on a {@link JLabel} with <tt>html</tt>

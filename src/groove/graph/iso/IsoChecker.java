@@ -1021,55 +1021,55 @@ public class IsoChecker {
     }
 
     /** The singleton strong instance of this class. */
-    static private IsoChecker strongInstance;
+    private static IsoChecker strongInstance;
     /** The singleton weak instance of this class. */
-    static private IsoChecker weakInstance;
+    private static IsoChecker weakInstance;
     /** The total number of isomorphism checks. */
-    static private int totalCheckCount;
+    private static int totalCheckCount;
     /**
      * The number of times graph sizes were compares and found to be different.
      */
-    static private int distinctSizeCount;
+    private static int distinctSizeCount;
     /**
      * The number of times graphs were compared based on their elements and
      * found to be isomorphic.
      */
-    static private int equalGraphsCount;
+    private static int equalGraphsCount;
     /**
      * The number of times graphs were compared based on their certificates and
      * found to be isomorphic.
      */
-    static private int equalCertsCount;
+    private static int equalCertsCount;
     /**
      * The number of times graphs were compared based on their certificates and
      * found to be non-isomorphic.
      */
-    static private int distinctCertsCount;
+    private static int distinctCertsCount;
     /**
      * The number of times graphs were simulated and found to be isomorphic.
      */
-    static private int equalSimCount;
+    private static int equalSimCount;
     /**
      * The number of isomorphism warnings given while exploring the GTS.
      */
-    static private int intCertOverlap = 0;
+    private static int intCertOverlap = 0;
     /**
      * The number of times graphs were simulated and found to be non-isomorphic.
      */
-    static private int distinctSimCount;
+    private static int distinctSimCount;
     /** Flag to switch printing on, for debugging purposes. */
-    static private final boolean ISO_PRINT = false;
+    private static final boolean ISO_PRINT = false;
     /**
      * Flag to check for false negatives in the certification, for debugging
      * purposes.
      */
-    static private final boolean TEST_FALSE_NEGATIVES = false;
+    private static final boolean TEST_FALSE_NEGATIVES = false;
     /**
      * Flag to save false negatives and exit
      */
-    static private final boolean SAVE_FALSE_NEGATIVES = false;
+    private static final boolean SAVE_FALSE_NEGATIVES = false;
     /** Flag to switch assertions on, for debugging purposes. */
-    static private final boolean ISO_ASSERT = false;
+    private static final boolean ISO_ASSERT = false;
     /** Reporter instance for profiling IsoChecker methods. */
     public static final Reporter reporter = Reporter.register(IsoChecker.class);
     /** Handle for profiling {@link #areIsomorphic(Graph, Graph)}. */

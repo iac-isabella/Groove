@@ -501,11 +501,11 @@ abstract public interface Parser<T> {
         private final boolean defaultValue;
 
         /** Representation of <code>true</code>. */
-        static private final String TRUE = Boolean.toString(true);
-        static private final String TRUE_LINE = HTMLConverter.ITALIC_TAG.on(TRUE);
+        private static final String TRUE = Boolean.toString(true);
+        private static final String TRUE_LINE = HTMLConverter.ITALIC_TAG.on(TRUE);
         /** Representation of <code>false</code>. */
-        static private final String FALSE = Boolean.toString(false);
-        static private final String FALSE_LINE = HTMLConverter.ITALIC_TAG.on(FALSE);
+        private static final String FALSE = Boolean.toString(false);
+        private static final String FALSE_LINE = HTMLConverter.ITALIC_TAG.on(FALSE);
     }
 
     /**

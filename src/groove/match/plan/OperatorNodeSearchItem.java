@@ -289,6 +289,6 @@ class OperatorNodeSearchItem extends AbstractSearchItem {
          */
         private ValueNode image;
         /** Flag to control debug printing. */
-        static private final boolean PRINT = false;
+        private static final boolean PRINT = false;
     }
 }

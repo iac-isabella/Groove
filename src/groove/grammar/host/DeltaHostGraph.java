@@ -490,17 +490,17 @@ public final class DeltaHostGraph extends AGraph<HostNode,HostEdge> implements H
     /** Maximum basis chain length at which the data target is set
      * to a {@link CopyTarget} regardless of the value of {@link #copyData}.
      */
-    static private final int MAX_CHAIN_LENGTH = 25;
+    private static final int MAX_CHAIN_LENGTH = 25;
     /**
      * Debug flag for aliasing the node and edge set. Aliasing the sets may give
      * {@link ConcurrentModificationException}s during matching.
      */
-    static private final boolean ALIAS_SETS = true;
+    private static final boolean ALIAS_SETS = true;
     /** Factory instance of this class, in which data is copied. */
-    static private final DeltaHostGraph copyInstance = new DeltaHostGraph("copy prototype",
+    private static final DeltaHostGraph copyInstance = new DeltaHostGraph("copy prototype",
         (HostElement[]) null, null, true);
     /** Factory instance of this class, in which data is aliased. */
-    static private final DeltaHostGraph swingInstance = new DeltaHostGraph("swing prototype",
+    private static final DeltaHostGraph swingInstance = new DeltaHostGraph("swing prototype",
         (HostElement[]) null, null, false);
 
     /**

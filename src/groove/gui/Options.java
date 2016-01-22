@@ -866,9 +866,9 @@ public class Options implements Cloneable {
     public static final String VERIFY_ALL_STATES_OPTION = "Check CTL on all states?";
 
     /** Default value map for the boolean options. */
-    static private final Map<String,Boolean> boolOptionDefaults = new HashMap<String,Boolean>();
+    private static final Map<String,Boolean> boolOptionDefaults = new HashMap<String,Boolean>();
     /** Default value map for the behaviour options. */
-    static private final Map<String,Integer> intOptionDefaults = new HashMap<String,Integer>();
+    private static final Map<String,Integer> intOptionDefaults = new HashMap<String,Integer>();
 
     static {
         for (ResourceKind optionalTab : optionalTabs) {

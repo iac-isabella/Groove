@@ -332,11 +332,11 @@ public class PartitionRefiner extends CertificateStrategy {
     /**
      * The resolution of the tree-based certificate store.
      */
-    static private final int TREE_RESOLUTION = 3;
+    private static final int TREE_RESOLUTION = 3;
     /**
      * Store for node certificates, to count the number of partitions
      */
-    static private final TreeHashSet<MyNodeCert> certStore = new TreeHashSet<MyNodeCert>(
+    private static final TreeHashSet<MyNodeCert> certStore = new TreeHashSet<MyNodeCert>(
         TREE_RESOLUTION) {
         /**
          * For the purpose of this set, only the certificate value is of
@@ -353,12 +353,12 @@ public class PartitionRefiner extends CertificateStrategy {
         }
     };
     /** Temporary storage for node certificates. */
-    static private int[] tmpCertIxs = new int[100];
+    private static int[] tmpCertIxs = new int[100];
 
     /** Debug flag to switch the use of duplicate breaking on and off. */
-    static private final boolean BREAK_DUPLICATES = true;
+    private static final boolean BREAK_DUPLICATES = true;
     /** Total number of times the symmetry was broken. */
-    static private int totalSymmetryBreakCount;
+    private static int totalSymmetryBreakCount;
 
     /**
      * Superclass of graph element certificates.
@@ -479,7 +479,7 @@ public class PartitionRefiner extends CertificateStrategy {
      */
     static class MyNodeCert extends MyCert<Node> implements CertificateStrategy.NodeCertificate {
         /** Initial node value to provide a better spread of hash codes. */
-        static private final int INIT_NODE_VALUE = 0x126b;
+        private static final int INIT_NODE_VALUE = 0x126b;
 
         /**
          * Constructs a new certificate node. The incidence count (i.e., the

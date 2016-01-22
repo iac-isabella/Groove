@@ -455,5 +455,5 @@ public class StateCache {
     /**
      * The depth of the graph above which the underlying graph will be frozen.
      */
-    static private final int FREEZE_BOUND = 10;
+    private static final int FREEZE_BOUND = 10;
 }

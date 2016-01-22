@@ -37,7 +37,7 @@ import org.junit.Test;
  */
 @SuppressWarnings("all")
 public class ControlVariablesTest {
-    static private final String DIRECTORY = "junit/samples/control2.gps";
+    private static final String DIRECTORY = "junit/samples/control2.gps";
 
     @Test
     public void testVariables() {

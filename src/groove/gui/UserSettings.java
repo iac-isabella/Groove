@@ -196,18 +196,18 @@ public class UserSettings {
     /** Key for the selected display. */
     private static final String DISPLAY_KEY = "Selected display";
     /** Key for the divider position in the grammar panel. */
-    static private final String DISPLAYS_INFO_DIV_POS_KEY =
+    private static final String DISPLAYS_INFO_DIV_POS_KEY =
         "Displays+info panel divider position";
     /** Key for the divider position in the main panel. */
-    static private final String GRAMMAR_DIV_POS_KEY =
+    private static final String GRAMMAR_DIV_POS_KEY =
         "Main panel divider position";
     /** Key for the divider position in the lists panel. */
-    static private final String LISTS_DIV_POS_KEY =
+    private static final String LISTS_DIV_POS_KEY =
         "Rule-Graph divider position";
     /** Key for the grammar location. */
     private static final String LOCATION_KEY = "Grammar location";
-    static private final String SIM_HEIGHT_KEY = "Simulator height";
-    static private final String SIM_MAX_KEY = "Simulator maximized";
-    static private final String SIM_WIDTH_KEY = "Simulator width";
-    static private final String STATE_BOUND_KEY = "Maximum state displayed";
+    private static final String SIM_HEIGHT_KEY = "Simulator height";
+    private static final String SIM_MAX_KEY = "Simulator maximized";
+    private static final String SIM_WIDTH_KEY = "Simulator width";
+    private static final String STATE_BOUND_KEY = "Maximum state displayed";
 }

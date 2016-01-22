@@ -89,5 +89,5 @@ public class StateReporter extends AExplorationReporter {
     }
 
     /** Placeholder in LTS and state filename patterns to insert further information. */
-    static private final String PLACEHOLDER = "#";
+    private static final String PLACEHOLDER = "#";
 }

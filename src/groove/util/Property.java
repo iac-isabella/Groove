@@ -184,11 +184,11 @@ abstract public class Property<S> {
         private final boolean emptyOk;
 
         /** Representation of <code>true</code>. */
-        static private final String trueString = Boolean.toString(true);
+        private static final String trueString = Boolean.toString(true);
         /** Representation of <code>false</code>. */
-        static private final String falseString = Boolean.toString(false);
+        private static final String falseString = Boolean.toString(false);
         /** The property description. */
-        static private final String description =
+        private static final String description =
             String.format("%s or %s", trueString, falseString);
     }
 

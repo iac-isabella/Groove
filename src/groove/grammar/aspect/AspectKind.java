@@ -887,7 +887,7 @@ public enum AspectKind {
     }
 
     /** Returns a list of operations from a given signature. */
-    static private String ops(AspectKind kind) {
+    private static String ops(AspectKind kind) {
         StringBuilder result = new StringBuilder();
         assert kind.hasSignature();
         for (OpValue op : Sort.getKind(kind.getName()).getOpValues()) {
@@ -1555,7 +1555,7 @@ public enum AspectKind {
          * Indicates if a given character is allowed as the first part of a name.
          * Delegates to {@link Character#isJavaIdentifierStart(char)}.
          */
-        static private boolean isValidFirstChar(char c) {
+        private static boolean isValidFirstChar(char c) {
             return Character.isJavaIdentifierStart(c);
         }
 
@@ -1563,7 +1563,7 @@ public enum AspectKind {
          * Indicates if a given character is allowed in a name names.
          * Delegates to {@link Character#isJavaIdentifierPart(char)}.
          */
-        static private boolean isValidNextChar(char c) {
+        private static boolean isValidNextChar(char c) {
             return Character.isJavaIdentifierPart(c);
         }
 

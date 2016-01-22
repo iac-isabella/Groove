@@ -262,19 +262,19 @@ public class SimplePaigeTarjanMcKay extends CertificateStrategy {
     }
 
     /** Total number of times the symmetry was broken. */
-    static private int totalSymmetryBreakCount;
+    private static int totalSymmetryBreakCount;
 
     /** Number of bits in an int. */
-    static private final int INT_WIDTH = 32;
+    private static final int INT_WIDTH = 32;
 
     /**
      * The resolution of the tree-based certificate store.
      */
-    static private final int TREE_RESOLUTION = 3;
+    private static final int TREE_RESOLUTION = 3;
     /**
      * Store for node certificates, to count the number of partitions
      */
-    static private final TreeHashSet<MyNodeCert> certStore = new TreeHashSet<MyNodeCert>(
+    private static final TreeHashSet<MyNodeCert> certStore = new TreeHashSet<MyNodeCert>(
         TREE_RESOLUTION) {
         /**
          * For the purpose of this set, only the certificate value is of
@@ -300,9 +300,9 @@ public class SimplePaigeTarjanMcKay extends CertificateStrategy {
 
     /** Debug flag to switch the use of duplicate breaking on and off. */
     @SuppressWarnings("unused")
-    static private final boolean BREAK_DUPLICATES = true;
+    private static final boolean BREAK_DUPLICATES = true;
     /** Flag to turn on partition recording. */
-    static private final boolean RECORD = false;
+    private static final boolean RECORD = false;
 
     /**
      * Class of nodes that carry (and are identified with) an integer
@@ -312,7 +312,7 @@ public class SimplePaigeTarjanMcKay extends CertificateStrategy {
      */
     static class MyNodeCert implements NodeCertificate {
         /** Initial node value to provide a better spread of hash codes. */
-        static private final int INIT_NODE_VALUE = 0x126b;
+        private static final int INIT_NODE_VALUE = 0x126b;
 
         /**
          * Constructs a new certificate node. The incidence count (i.e., the

@@ -444,7 +444,7 @@ public class GrammarProperties extends Properties {
     }
 
     /** Map storing default property instances. */
-    static private GrammarProperties instance = new GrammarProperties();
+    private static GrammarProperties instance = new GrammarProperties();
 
     /**
      * The default rule properties: not attributed and no control or common
@@ -453,7 +453,7 @@ public class GrammarProperties extends Properties {
     public static final GrammarProperties DEFAULT_PROPERTIES = getInstance();
 
     /** Mapping from resource kinds to corresponding property keys. */
-    static private final Map<ResourceKind,GrammarKey> resourceKeyMap =
+    private static final Map<ResourceKind,GrammarKey> resourceKeyMap =
         new EnumMap<ResourceKind,GrammarKey>(ResourceKind.class);
     static {
         resourceKeyMap.put(ResourceKind.TYPE, GrammarKey.TYPE_NAMES);

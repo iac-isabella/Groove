@@ -898,7 +898,7 @@ public class AspectGraph extends NodeSetEdgeSetGraph<AspectNode,AspectEdge> {
         }
 
         /** Mapping from graph rules to element-producing factories. */
-        static private Map<GraphRole,AspectFactory> factoryMap =
+        private static Map<GraphRole,AspectFactory> factoryMap =
             new EnumMap<GraphRole,AspectFactory>(GraphRole.class);
 
         static {

@@ -56,7 +56,7 @@ public abstract class GraphTest {
     public static final int MATCH_DOM_COUNT = 4;
     public static final int ISO_GRAPH_COUNT = 4;
 
-    static private final File GraphTestDir = new File(GRAPH_TEST_DIR);
+    private static final File GraphTestDir = new File(GRAPH_TEST_DIR);
 
     /**
      * The graph upon which most tests are done. It has three nodes, one of

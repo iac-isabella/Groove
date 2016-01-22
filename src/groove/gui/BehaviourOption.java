@@ -175,21 +175,21 @@ public class BehaviourOption extends JMenu implements ItemListener {
     /** Text of the <i>Never</i> choice of the menu. */
     public static final String NEVER_TEXT = "Never";
     /** Index of the <i>Yes</i> button of the dialog. */
-    static private final int YES = 0;
+    private static final int YES = 0;
     /** Text of the <i>Yes</i> button of the dialog. */
-    static private final String YES_TEXT = "Yes";
+    private static final String YES_TEXT = "Yes";
     /** Index of the <i>No</i> button of the dialog. */
-    static private final int NO = 1;
+    private static final int NO = 1;
     /** Text of the <i>No</i> button of the dialog. */
-    static private final String NO_TEXT = "No";
+    private static final String NO_TEXT = "No";
     /** Array of values for behaviour menus with 2 options. */
-    static private final List<String> standardAnswers2 =
+    private static final List<String> standardAnswers2 =
         Collections.unmodifiableList(Arrays.asList(ASK_TEXT, ALWAYS_TEXT));
     /** Array of values for behaviour menus with 3 options. */
-    static private final List<String> standardAnswers3 =
+    private static final List<String> standardAnswers3 =
         Collections.unmodifiableList(Arrays.asList(ASK_TEXT, ALWAYS_TEXT, NEVER_TEXT));
     /** Title if the dialog displayed by {@link #confirm(Component, String)}. */
-    static private final String DIALOG_TITLE = "Confirm";
+    private static final String DIALOG_TITLE = "Confirm";
     /**
      * Property name of the selection property, with values from 0 up to the
      * number of values - 1.

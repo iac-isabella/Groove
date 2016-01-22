@@ -214,7 +214,7 @@ public class CompositeEvent extends AbstractRuleEvent<Rule,CompositeEvent.Compos
     /** The (non-empty) array of sub-events constituting this event. */
     final BasicEvent[] eventArray;
     /** Cache reference instance for initialisation. */
-    static private final CacheReference<CompositeEventCache> reference =
+    private static final CacheReference<CompositeEventCache> reference =
         CacheReference.<CompositeEventCache>newInstance(false);
 
     class CompositeEventCache extends

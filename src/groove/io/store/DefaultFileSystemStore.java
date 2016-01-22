@@ -850,7 +850,7 @@ public class DefaultFileSystemStore extends SystemStore {
     }
 
     /** Error message if a grammar cannot be loaded. */
-    static private final String LOAD_ERROR = "Can't load graph grammar";
+    private static final String LOAD_ERROR = "Can't load graph grammar";
 
     private class MyEdit extends AbstractUndoableEdit implements Edit {
         public MyEdit(EditType type, ResourceKind first, ResourceKind... rest) {

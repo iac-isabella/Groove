@@ -71,7 +71,7 @@ public class GraphCache<N extends Node,E extends GEdge<N>> {
     /**
      * The total number of graph caches created.
      */
-    static private int createCount;
+    private static int createCount;
 
     /**
      * Returns the total number of graph caches created.

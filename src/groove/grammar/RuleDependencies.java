@@ -106,7 +106,7 @@ public class RuleDependencies {
     }
 
     /** Returns the set of enabled rules that do not have errors. */
-    static private List<Rule> getRules(GrammarModel grammar) {
+    private static List<Rule> getRules(GrammarModel grammar) {
         List<Rule> result = new ArrayList<Rule>();
         // set rules
         for (ResourceModel<?> ruleModel : grammar.getResourceSet(RULE)) {

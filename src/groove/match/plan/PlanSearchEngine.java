@@ -120,7 +120,7 @@ public class PlanSearchEngine extends SearchEngine {
         return result;
     }
 
-    static private PlanSearchEngine instance = new PlanSearchEngine();
+    private static PlanSearchEngine instance = new PlanSearchEngine();
 
     /** Returns an instance of this factory class.
      */
@@ -129,7 +129,7 @@ public class PlanSearchEngine extends SearchEngine {
     }
 
     /** Flag to control search plan printing. */
-    static private final boolean PRINT = false;
+    private static final boolean PRINT = false;
 
     /**
      * Plan data extension based on a graph condition. Additionally it takes the

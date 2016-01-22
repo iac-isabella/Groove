@@ -1097,7 +1097,7 @@ public class TreeHashSet<T> extends AbstractSet<T> {
     }
 
     /** Maintains an average fill degree. */
-    static private float getAverageFill(int recordCount, int size) {
+    private static float getAverageFill(int recordCount, int size) {
         sum += size / (double) recordCount;
         count++;
         return (float) sum / count;
@@ -1107,9 +1107,9 @@ public class TreeHashSet<T> extends AbstractSet<T> {
      * Sum of fill ratios summed over all invocations of
      * {@link #getAverageFill(int, int)}.
      */
-    static private double sum;
+    private static double sum;
     /** Number of invocations of {@link #getAverageFill(int, int)}. */
-    static private int count;
+    private static int count;
 
     /** The maximum record resolution supported. */
     public static final int MAX_RESOLUTION = 4;
@@ -1226,30 +1226,30 @@ public class TreeHashSet<T> extends AbstractSet<T> {
     /**
      * Number of bytes in an <code>int</code>.
      */
-    static private final int BYTES_PER_INT = 4;
+    private static final int BYTES_PER_INT = 4;
     /**
      * Number of bytes in an object reference.
      */
-    static private final int BYTES_PER_REF = 4;
+    private static final int BYTES_PER_REF = 4;
     /**
      * Number of bytes in an object handle.
      */
-    static private final int BYTES_PER_OBJECT = 12;
+    private static final int BYTES_PER_OBJECT = 12;
     /** Factor by which the arrays grow if more space is needed. */
-    static private final double GROWTH_FACTOR = 1.5;
+    private static final double GROWTH_FACTOR = 1.5;
     /** Flag indicating that some fill statistics should be printed. */
-    static private final boolean FILL_PRINT = false;
+    private static final boolean FILL_PRINT = false;
     /** Flag indicating that extra asserts should be used. */
-    static private final boolean DEBUG = false;
+    private static final boolean DEBUG = false;
     /** Flag indicating that some size statistics should be printed. */
-    static private final boolean SIZE_PRINT = false;
+    private static final boolean SIZE_PRINT = false;
 
     /**
      * Auxiliary class to encode the linked list of distinct entries with the
      * same code. The linking is done through index values, which represent
      * indices in the {@link TreeHashSet#keys}-array.
      */
-    static private class MyListEntry<T> {
+    private static class MyListEntry<T> {
         /** Constructs an entry with a given value, and a given next index. */
         MyListEntry(T value, int next) {
             this.next = next;

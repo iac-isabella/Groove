@@ -318,7 +318,7 @@ abstract public class SystemStore extends UndoableEditSupport {
      * Recursively traverses all subdirectories and deletes all files and
      * directories.
      */
-    static private boolean deleteRecursive(File location) {
+    private static boolean deleteRecursive(File location) {
         if (location.isDirectory()) {
             for (File file : location.listFiles()) {
                 if (!deleteRecursive(file)) {

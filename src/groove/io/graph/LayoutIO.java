@@ -419,17 +419,17 @@ public class LayoutIO {
     /** The current version number. */
     public static final int CURRENT_VERSION_NUMBER = VERSION2;
     /** Error message in case an error is detected in the layout file. */
-    static private final String LAYOUT_FORMAT_ERROR = String.format(
+    private static final String LAYOUT_FORMAT_ERROR = String.format(
         "Error in %s file", FileType.LAYOUT.getExtension());
     /** Double quote character. */
-    static private final char DOUBLE_QUOTE = '\"';
+    private static final char DOUBLE_QUOTE = '\"';
     /** Splitting expression for non-empty white space. */
-    static private final String WHITESPACE = " ";
+    private static final String WHITESPACE = " ";
     /**
      * The default edge vector, in case a list of points does not give rise to a
      * non-zero vector.
      * @see #version2LabelVector(List,boolean)
      */
-    static private final Point2D DEFAULT_EDGE_VECTOR =
+    private static final Point2D DEFAULT_EDGE_VECTOR =
         new Point2D.Double(50, 0);
 }

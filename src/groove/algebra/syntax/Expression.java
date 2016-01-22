@@ -190,7 +190,7 @@ public abstract class Expression {
         }
     }
 
-    static private final Map<Class<? extends Expression>,Kind> kindMap =
+    private static final Map<Class<? extends Expression>,Kind> kindMap =
         new HashMap<Class<? extends Expression>,Expression.Kind>();
 
     static {

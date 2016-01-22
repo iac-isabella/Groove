@@ -422,7 +422,7 @@ public class Exploration {
     /** Default exploration (DFS, final states, infinite). */
     public static final Exploration DEFAULT = new Exploration();
     /** Reporter for profiling information. */
-    static private final Reporter reporter = Reporter.register(Exploration.class);
+    private static final Reporter reporter = Reporter.register(Exploration.class);
     /** Handle for profiling {@link #play(GTS, GraphState)}. */
     static final Reporter playReporter = reporter.register("playScenario()");
 }

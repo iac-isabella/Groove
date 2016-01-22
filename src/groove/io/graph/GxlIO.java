@@ -611,11 +611,11 @@ public class GxlIO extends GraphIO<AttrGraph> {
     private static final GxlIO INSTANCE = new GxlIO();
 
     /** Attribute name for node and edge identities. */
-    static private final String LABEL_ATTR_NAME = "label";
+    private static final String LABEL_ATTR_NAME = "label";
     /** Attribute name for layout information. */
-    static private final String LAYOUT_ATTR_NAME = "layout";
+    private static final String LAYOUT_ATTR_NAME = "layout";
     /** Subtype label. */
-    static private final String ABSTRACT_PREFIX =
+    private static final String ABSTRACT_PREFIX =
         ABSTRACT.getAspect().toString();
-    static private final String SUBTYPE_PREFIX = SUBTYPE.getAspect().toString();
+    private static final String SUBTYPE_PREFIX = SUBTYPE.getAspect().toString();
 }

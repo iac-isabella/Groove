@@ -209,7 +209,7 @@ class RuleTreeNode extends ResourceTreeNode implements ActionTreeNode {
     private final static Map<Role,String> roleSuffixMap;
 
     /** Returns the icon map for normal or injective properties. */
-    static private Map<Role,Icon> getIconMap(boolean injective) {
+    private static Map<Role,Icon> getIconMap(boolean injective) {
         return injective ? roleInjectiveIconMap : roleNormalIconMap;
     }
 

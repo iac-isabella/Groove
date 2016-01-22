@@ -178,7 +178,7 @@ public class Operator {
      * This method is supposed to implement an operator, and should therefore be
      * declared exactly once, as a public abstract method.
      */
-    static private Method getOperatorMethod(Class<?> sigClass, java.lang.String name) {
+    private static Method getOperatorMethod(Class<?> sigClass, java.lang.String name) {
         Method result = null;
         java.lang.String className = sigClass.getSimpleName();
         java.lang.String sigName =
@@ -215,7 +215,7 @@ public class Operator {
     }
 
     /** Computes the name of an (all-caps) enum-value and converts it to camel case. */
-    static private String getOperatorName(OpValue enumValue) {
+    private static String getOperatorName(OpValue enumValue) {
         StringBuilder result = new StringBuilder();
         result.append(enumValue.name().toLowerCase());
         // delete underscores and set next char as uppercase
@@ -251,7 +251,7 @@ public class Operator {
         return ops;
     }
 
-    static private final List<Operator> ops = new ArrayList<Operator>();
+    private static final List<Operator> ops = new ArrayList<Operator>();
 
     /** Returns the operators for a given (prefix or infix) operator symbol or name. */
     public static List<Operator> getOps(String symbol) {

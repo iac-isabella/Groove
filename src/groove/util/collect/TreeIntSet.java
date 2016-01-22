@@ -29,16 +29,16 @@ final public class TreeIntSet implements IntSet {
     /**
      * Number of bits involved in the root.
      */
-    static private final int ROOT_RESOLUTION = 7;
+    private static final int ROOT_RESOLUTION = 7;
     /**
      * The width of the root branch. This equals <code>2^ROOT_RESOLUTION</code>.
      */
-    static private final int ROOT_WIDTH = 1 << ROOT_RESOLUTION;
+    private static final int ROOT_WIDTH = 1 << ROOT_RESOLUTION;
     /**
      * The mask of the root branch value. This equals
      * <code>ROOT_WIDTH - 1</code>.
      */
-    static private final int ROOT_MASK = ROOT_WIDTH - 1;
+    private static final int ROOT_MASK = ROOT_WIDTH - 1;
 
     /**
      * Creates an instance with a given branch resolution. The resolution is

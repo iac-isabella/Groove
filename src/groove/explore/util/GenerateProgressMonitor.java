@@ -75,9 +75,9 @@ public class GenerateProgressMonitor {
     /**
      * The number of additions after which an indication is printed to screen.
      */
-    static private final int UNIT = 100;
+    private static final int UNIT = 100;
     /**
      * Number of indications on one line.
      */
-    static private final int WIDTH = 100;
+    private static final int WIDTH = 100;
 }

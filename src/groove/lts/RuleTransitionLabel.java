@@ -268,5 +268,5 @@ public class RuleTransitionLabel extends ALabel implements ActionLabel {
     /** Flag controlling whether transition labels are normalised. */
     public static final boolean REUSE_LABELS = true;
     /** Global empty set of nodes. */
-    static private final HostNode[] EMPTY_NODE_ARRAY = new HostNode[0];
+    private static final HostNode[] EMPTY_NODE_ARRAY = new HostNode[0];
 }

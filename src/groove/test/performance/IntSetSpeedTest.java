@@ -29,16 +29,16 @@ import groove.util.collect.TreeIntSet;
  */
 @SuppressWarnings("all")
 public class IntSetSpeedTest {
-    static private final int SMALL_SAMPLE_SIZE = 500;
-    static private final int LARGE_SAMPLE_SIZE = 10000000;
-    static private final int SMALL_REPEAT_FACTOR = 5000;
-    static private final int LARGE_REPEAT_FACTOR = 1;
+    private static final int SMALL_SAMPLE_SIZE = 500;
+    private static final int LARGE_SAMPLE_SIZE = 10000000;
+    private static final int SMALL_REPEAT_FACTOR = 5000;
+    private static final int LARGE_REPEAT_FACTOR = 1;
 
-    static private final int[] SMALL_RANDOM_SAMPLE = new int[SMALL_SAMPLE_SIZE];
-    static private final int[] LARGE_RANDOM_SAMPLE = new int[LARGE_SAMPLE_SIZE];
-    static private final int[] SMALL_REGULAR_SAMPLE =
+    private static final int[] SMALL_RANDOM_SAMPLE = new int[SMALL_SAMPLE_SIZE];
+    private static final int[] LARGE_RANDOM_SAMPLE = new int[LARGE_SAMPLE_SIZE];
+    private static final int[] SMALL_REGULAR_SAMPLE =
         new int[SMALL_SAMPLE_SIZE];
-    static private final int[] LARGE_REGULAR_SAMPLE =
+    private static final int[] LARGE_REGULAR_SAMPLE =
         new int[LARGE_SAMPLE_SIZE];
     static {
         for (int i = 0; i < SMALL_SAMPLE_SIZE; i++) {
@@ -110,7 +110,7 @@ public class IntSetSpeedTest {
 
     private final IntSet object;
 
-    static private final Reporter reporter =
+    private static final Reporter reporter =
         Reporter.register(IntSetSpeedTest.class);
     private final Reporter[] TEST_RANDOM_SMALL = new Reporter[] {
         reporter.register("Random, small sample:  "),

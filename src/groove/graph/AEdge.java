@@ -226,9 +226,9 @@ public abstract class AEdge<N extends Node,L extends Label> implements GEdge<N> 
     private int hashCode;
 
     // constants for hash code computation
-    static private final int SOURCE_SHIFT = 1;
-    static private final int TARGET_SHIFT = 2;
-    static private final int BIT_COUNT = 32;
-    static private final int SOURCE_RIGHT_SHIFT = BIT_COUNT - SOURCE_SHIFT;
-    static private final int TARGET_RIGHT_SHIFT = BIT_COUNT - TARGET_SHIFT;
+    private static final int SOURCE_SHIFT = 1;
+    private static final int TARGET_SHIFT = 2;
+    private static final int BIT_COUNT = 32;
+    private static final int SOURCE_RIGHT_SHIFT = BIT_COUNT - SOURCE_SHIFT;
+    private static final int TARGET_RIGHT_SHIFT = BIT_COUNT - TARGET_SHIFT;
 }

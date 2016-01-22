@@ -636,11 +636,11 @@ final public class BasicEvent extends AbstractRuleEvent<Rule,BasicEvent.BasicEve
      */
     public static final String ANCHOR_END = ")";
     /** Global empty set of nodes. */
-    static private final HostNodeSet EMPTY_NODE_SET = new HostNodeSet(0);
+    private static final HostNodeSet EMPTY_NODE_SET = new HostNodeSet(0);
     /** Value for {@link #freshNodeList} that indicates {@link #NONE} mode. */
-    static private List<List<HostNode>> NO_REUSE_LIST = new ArrayList<List<HostNode>>();
+    private static List<List<HostNode>> NO_REUSE_LIST = new ArrayList<List<HostNode>>();
     /** Template reference to create empty caches. */
-    static private final CacheReference<BasicEventCache> reference =
+    private static final CacheReference<BasicEventCache> reference =
         CacheReference.<BasicEventCache>newInstance(false);
 
     /** Cache holding auxiliary data structures for the event. */

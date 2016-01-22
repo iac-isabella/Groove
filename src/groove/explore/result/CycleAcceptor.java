@@ -148,7 +148,7 @@ public class CycleAcceptor extends Acceptor implements ProductListener {
      * The result is a list rather than a set, allowing for the multiple
      * occurrence of the same graph state in a counter-example.
      */
-    static private class CycleResult extends ExploreResult {
+    private static class CycleResult extends ExploreResult {
         public CycleResult(GTS gts) {
             super(gts);
             this.transitions = new ArrayList<GraphTransition>();

@@ -418,11 +418,11 @@ public class FindReplaceDialog {
     /** The old label value suggested at construction time; may be {@code null}. */
     private final TypeLabel suggestedLabel;
     /** Default dialog title. */
-    static private String DEFAULT_TITLE = "Find/Replace Labels";
+    private static String DEFAULT_TITLE = "Find/Replace Labels";
     /** Text of find label on dialog. */
-    static private String OLD_TEXT = "Find label: ";
+    private static String OLD_TEXT = "Find label: ";
     /** Text of replace label on dialog */
-    static private String NEW_TEXT = "Replace with: ";
+    private static String NEW_TEXT = "Replace with: ";
 
     /**
      * Action listener that closes the dialog and sets the option pane's value

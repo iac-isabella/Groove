@@ -191,21 +191,21 @@ public class Bisimulator extends CertificateStrategy {
     /**
      * The resolution of the tree-based certificate store.
      */
-    static private final int TREE_RESOLUTION = 3;
+    private static final int TREE_RESOLUTION = 3;
     /**
      * The maximum number of times a symmetry breaking step will be undertaken.
      */
-    static private final int MAX_BREAK_SYMMETRY = 10;
+    private static final int MAX_BREAK_SYMMETRY = 10;
     /**
      * Store for node certificates, to count the number of partitions
      */
-    static private final IntSet certStore = new TreeIntSet(TREE_RESOLUTION);
+    private static final IntSet certStore = new TreeIntSet(TREE_RESOLUTION);
     /** Debug flag to switch the use of {@link MyEdge1Cert}s on and off. */
-    static private final boolean USE_EDGE1_CERTIFICATES = true;
+    private static final boolean USE_EDGE1_CERTIFICATES = true;
     /** Debug flag to switch the use symmetry breaking on and off. */
-    static private final boolean BREAK_SYMMETRIES = false;
+    private static final boolean BREAK_SYMMETRIES = false;
     /** Total number of times the symmetry was broken. */
-    static private int totalSymmetryBreakCount;
+    private static int totalSymmetryBreakCount;
 
     /**
      * Superclass of graph element certificates.
@@ -292,10 +292,10 @@ public class Bisimulator extends CertificateStrategy {
      * @author Arend Rensink
      * @version $Revision: 5479 $
      */
-    static private class MyNodeCert extends Certificate<Node> implements
+    private static class MyNodeCert extends Certificate<Node> implements
             CertificateStrategy.NodeCertificate {
         /** Initial node value to provide a better spread of hash codes. */
-        static private final int INIT_NODE_VALUE = 0x126b;
+        private static final int INIT_NODE_VALUE = 0x126b;
 
         /**
          * Constructs a new certificate node. The incidence count (i.e., the
@@ -383,7 +383,7 @@ public class Bisimulator extends CertificateStrategy {
      * @author Arend Rensink
      * @version $Revision $
      */
-    static private class MyValueNodeCert extends MyNodeCert {
+    private static class MyValueNodeCert extends MyNodeCert {
         /**
          * Constructs a new value node certificate.
          */
@@ -427,7 +427,7 @@ public class Bisimulator extends CertificateStrategy {
      * @author Arend Rensink
      * @version $Revision: 5479 $
      */
-    static private class MyEdge2Cert extends Certificate<Edge> implements EdgeCertificate {
+    private static class MyEdge2Cert extends Certificate<Edge> implements EdgeCertificate {
         /**
          * Constructs a certificate for a binary edge.
          * @param edge The target certificate node
@@ -512,7 +512,7 @@ public class Bisimulator extends CertificateStrategy {
      * @author Arend Rensink
      * @version $Revision: 5479 $
      */
-    static private class MyEdge1Cert extends Certificate<Edge> implements EdgeCertificate {
+    private static class MyEdge1Cert extends Certificate<Edge> implements EdgeCertificate {
         /** Constructs a certificate edge for a predicate (i.e., a unary edge). */
         public MyEdge1Cert(Edge edge, MyNodeCert source) {
             super(edge);

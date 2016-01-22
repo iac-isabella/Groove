@@ -351,15 +351,15 @@ public class Reporter {
     /** Field name of the average duration */
     public static final String AVG_TIME_FIELD = "avg(mu)";
     /** Flag to control whether execution times are reported. */
-    static private final boolean TIME_METHODS = true;
+    private static final boolean TIME_METHODS = true;
     /**
      * Flag to control whether all executions or just top-level ones are
      * reported.
      */
-    static private final boolean TIME_TOP_ONLY = TIME_METHODS && false;
-    static private final boolean REPORT = true;
+    private static final boolean TIME_TOP_ONLY = TIME_METHODS && false;
+    private static final boolean REPORT = true;
     /** Sorted map of all registered reporters */
-    static private Map<Class<?>,Reporter> reporters = new TreeMap<Class<?>,Reporter>(
+    private static Map<Class<?>,Reporter> reporters = new TreeMap<Class<?>,Reporter>(
         new Comparator<Class<?>>() {
             @Override
             public int compare(Class<?> o1, Class<?> o2) {
@@ -367,5 +367,5 @@ public class Reporter {
             }
         });
     /** System time spent reporting */
-    static private long reportTime;
+    private static long reportTime;
 }

@@ -34,7 +34,7 @@ public class Algebras {
      * Checks if all generic types used in the signature declaration
      * are actually themselves signatures.
      */
-    static private void checkSignatureConsistency() {
+    private static void checkSignatureConsistency() {
         for (Sort sigKind : Sort.values()) {
             for (TypeVariable<?> type : sigKind.getSignatureClass().getTypeParameters()) {
                 String typeName = type.getName().toLowerCase();
@@ -82,7 +82,7 @@ public class Algebras {
     /**
      * Mapping from keywords in syntax descriptions to corresponding text.
      */
-    static private final Map<String,String> tokenMap;
+    private static final Map<String,String> tokenMap;
 
     static {
         tokenMap = new HashMap<String,String>();

@@ -91,6 +91,6 @@ public class TermTest extends CtrlTester {
         assertEquals(term, buildTerm(program));
     }
 
-    static private Term p;
+    private static Term p;
     private Term a, b, c, d;
 }

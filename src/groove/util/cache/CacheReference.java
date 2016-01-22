@@ -242,7 +242,7 @@ public class CacheReference<C> extends SoftReference<C> {
     /**
      * Registers an incarnation in the frequency list.
      */
-    static private void incFrequency(int incarnation) {
+    private static void incFrequency(int incarnation) {
         for (int i = frequencies.size(); i <= incarnation; i++) {
             frequencies.add(0);
         }
@@ -290,25 +290,25 @@ public class CacheReference<C> extends SoftReference<C> {
     /**
      * Array of frequency counters for each incarnation count.
      */
-    static private List<Integer> frequencies = new ArrayList<Integer>();
+    private static List<Integer> frequencies = new ArrayList<Integer>();
 
     /** The singleton null instance for strong references. */
     @SuppressWarnings("rawtypes")
-    static private final CacheReference strongInstance =
+    private static final CacheReference strongInstance =
         new CacheReference<Object>(true, 0, null);
     /** The singleton null instance for weak references. */
     @SuppressWarnings("rawtypes")
-    static private final CacheReference softInstance =
+    private static final CacheReference softInstance =
         new CacheReference<Object>(false, 0, null);
 
     /**
      * Global counter of the total number of cache reincarnations.
      */
-    static private int incarnationCount;
+    private static int incarnationCount;
     /**
      * Number of cache clearances counted (in {@link #updateCleared()} .
      */
-    static private int cacheCollectCount;
+    private static int cacheCollectCount;
     /**
      * Number of effective invocations of {@link #clear()} .
      */
@@ -317,7 +317,7 @@ public class CacheReference<C> extends SoftReference<C> {
      * The total number of non-<code>null</code> graph cache references
      * created.
      */
-    static private int createCount;
+    private static int createCount;
     /**
      * Queue for garbage collected {@link CacheReference} objects.
      */

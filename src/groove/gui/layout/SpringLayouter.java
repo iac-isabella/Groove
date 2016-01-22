@@ -364,27 +364,27 @@ public class SpringLayouter extends AbstractLayouter {
      * An epsilon float value, used as border case to decide whether a value is
      * "almost zero".
      */
-    static private final float SMALL_VALUE = 0.1f;
+    private static final float SMALL_VALUE = 0.1f;
 
     /** The damper decrease when we're damping slowly */
-    static private final float SLOW_DAMPING = 0.0001f;
+    private static final float SLOW_DAMPING = 0.0001f;
 
     /** The damper decrease when we're damping medium fast */
-    static private final float MEDIUM_DAMPING = 0.003f;
+    private static final float MEDIUM_DAMPING = 0.003f;
 
     /** The damper decrease when we're damping fast */
-    static private final float FAST_DAMPING = 0.01f;
+    private static final float FAST_DAMPING = 0.01f;
 
     /** Bound for <tt>maxMotion</tt> below which we start damping medium */
-    static private final float MEDIUM_DAMPING_MOTION_TRESHHOLD = 0.8f; // was
+    private static final float MEDIUM_DAMPING_MOTION_TRESHHOLD = 0.8f; // was
     // 0.4
 
     /** Bound for <tt>maxMotion</tt> below which we start damping fast */
-    static private final float FAST_DAMPING_MOTION_TRESHHOLD = 0.4f; // was
+    private static final float FAST_DAMPING_MOTION_TRESHHOLD = 0.4f; // was
     // 0.2
 
     /** Bound for <tt>damper</tt> below which we start damping fast */
-    static private final float FAST_DAMPING_DAMPER_TRESHHOLD = 0.9f;
+    private static final float FAST_DAMPING_DAMPER_TRESHHOLD = 0.9f;
 
     // ---------------------- INSTANCE DEFINITIONS --------------------------
 

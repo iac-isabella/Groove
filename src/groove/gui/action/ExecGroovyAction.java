@@ -50,7 +50,7 @@ public class ExecGroovyAction extends SimulatorAction {
 
     private final boolean enabled;
 
-    static private final String DESCRIPTION = "Execute Groovy script";
-    static private final String DISABLED_DESCRIPTION =
+    private static final String DESCRIPTION = "Execute Groovy script";
+    private static final String DISABLED_DESCRIPTION =
         "To enable, insert the Groovy jars in the Groove bin directory";
 }

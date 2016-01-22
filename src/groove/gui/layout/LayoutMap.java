@@ -341,7 +341,7 @@ public class LayoutMap implements Cloneable {
         testLabelPosition(points, relPosition2);
     }
 
-    static private void testLabelPosition(List<Point2D> points, Point2D relPosition) {
+    private static void testLabelPosition(List<Point2D> points, Point2D relPosition) {
         System.out.print("Abs, rel, abs: ");
         Point2D absPosition = toAbsPosition(points, relPosition);
         System.out.print("" + absPosition + " ");

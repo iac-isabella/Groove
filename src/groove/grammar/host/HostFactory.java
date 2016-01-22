@@ -224,9 +224,9 @@ public class HostFactory extends StoreFactory<HostNode,HostEdge,TypeLabel> {
     }
 
     /** Counter for the node array reuse. */
-    static private int normaliseGain;
+    private static int normaliseGain;
     /** Counter for the normalised node array. */
-    static private int normaliseCount;
+    private static int normaliseCount;
 
     /** Factory for (typed) {@link DefaultHostNode}s. */
     protected class DefaultHostNodeFactory extends DependentNodeFactory {

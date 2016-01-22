@@ -246,5 +246,5 @@ public class MergeMap extends Morphism<HostNode,HostEdge> {
     private final HostNodeSet mergeTargets;
 
     /** Internal representation of undefined. */
-    static private final HostNode UNDEFINED = ValueNode.DUMMY_NODE;
+    private static final HostNode UNDEFINED = ValueNode.DUMMY_NODE;
 }

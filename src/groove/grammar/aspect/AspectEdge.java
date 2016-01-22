@@ -891,7 +891,7 @@ public class AspectEdge extends AEdge<AspectNode,AspectLabel> implements AspectE
     /** List of syntax errors in this edge. */
     private final FormatErrorSet errors = new FormatErrorSet();
     /** Separator between level name and edge label. */
-    static private final String LEVEL_NAME_SEPARATOR = "@";
-    static private final String ASSIGN_TEXT = " = ";
-    static private final String TYPE_TEXT = ": ";
+    private static final String LEVEL_NAME_SEPARATOR = "@";
+    private static final String ASSIGN_TEXT = " = ";
+    private static final String TYPE_TEXT = ": ";
 }

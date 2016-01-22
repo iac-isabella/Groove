@@ -157,7 +157,7 @@ public class VariableNode extends ANode implements RuleNode, AnchorKey {
     /** returns the string preceding the node number in the default variable node id. */
     public static final String TO_STRING_PREFIX = "x";
     /** Predefined empty list of type guards. */
-    static private final List<TypeGuard> EMPTY_GUARD_LIST = Collections.emptyList();
+    private static final List<TypeGuard> EMPTY_GUARD_LIST = Collections.emptyList();
     /** Predefined empty list of type guards. */
-    static private final Set<LabelVar> EMPTY_VAR_SET = Collections.emptySet();
+    private static final Set<LabelVar> EMPTY_VAR_SET = Collections.emptySet();
 }

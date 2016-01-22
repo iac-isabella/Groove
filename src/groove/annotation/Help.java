@@ -348,7 +348,7 @@ public class Help {
      * @return the transformed version of {@code text}
      * @see #processTokensAndArgs(String, Map)
      */
-    static private String processTokens(String text, Map<String,String> tokenMap) {
+    private static String processTokens(String text, Map<String,String> tokenMap) {
         return processTokensAndArgs(text, tokenMap, false).one();
     }
 
@@ -363,7 +363,7 @@ public class Help {
      * @return the transformed version of {@code text}, paired with the
      * list of recognised arguments in the order of their occurrence in {@code text}
      */
-    static private Pair<String,List<String>> processTokensAndArgs(String text,
+    private static Pair<String,List<String>> processTokensAndArgs(String text,
         Map<String,String> tokenMap) {
         return processTokensAndArgs(text, tokenMap, true);
     }
@@ -372,7 +372,7 @@ public class Help {
      * Internal method unifying the functionality of
      * {@link #processTokens(String, Map)} and {@link #processTokensAndArgs(String, Map)}.
      */
-    static private Pair<String,List<String>> processTokensAndArgs(String text,
+    private static Pair<String,List<String>> processTokensAndArgs(String text,
         Map<String,String> tokenMap, boolean getArgs) {
         StringBuilder result = new StringBuilder(text);
         List<String> args = new ArrayList<String>();
@@ -403,7 +403,7 @@ public class Help {
     }
 
     private static HTMLTag DIV_TAG = HTMLConverter.createDivTag("width: 250px;");
-    static private final HTMLTag TABLE_TAG = HTMLConverter.createHtmlTag(
+    private static final HTMLTag TABLE_TAG = HTMLConverter.createHtmlTag(
         HTMLConverter.TABLE_TAG_NAME, "cellpadding", "0");
-    static private final HTMLTag SOURCE_TAG = HTMLConverter.createHtmlTag("font", "color", "green");
+    private static final HTMLTag SOURCE_TAG = HTMLConverter.createHtmlTag("font", "color", "green");
 }

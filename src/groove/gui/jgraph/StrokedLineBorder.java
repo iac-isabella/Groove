@@ -32,7 +32,7 @@ import javax.swing.border.LineBorder;
  */
 public class StrokedLineBorder extends LineBorder {
     /** The default stroke for the border. */
-    static private final Stroke DEFAULT_STROKE = new BasicStroke();
+    private static final Stroke DEFAULT_STROKE = new BasicStroke();
 
     /** Constructs a border with a given colour. */
     public StrokedLineBorder(Color c) {

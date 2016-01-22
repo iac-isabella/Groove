@@ -308,7 +308,7 @@ public enum GrammarKey implements PropertyKey<Object>, GrammarChecker {
      * List of system-defined keys, in the order in which they are to appear in
      * a properties editor.
      */
-    static private final Map<String,GrammarKey> keyMap;
+    private static final Map<String,GrammarKey> keyMap;
 
     static {
         Map<String,GrammarKey> defaultKeys = new LinkedHashMap<String,GrammarKey>();

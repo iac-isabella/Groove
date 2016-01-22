@@ -349,24 +349,24 @@ public class PaigeTarjanMcKay extends CertificateStrategy {
     /**
      * The resolution of the tree-based certificate store.
      */
-    static private final int TREE_RESOLUTION = 3;
+    private static final int TREE_RESOLUTION = 3;
 
     /**
      * Flag controlling the behaviour of the {@link #splitNext(Queue)} method.
      * If <code>true</code>, a single element of the splitter list is processed
      * at a time; otherwise, the entire list is processed.
      */
-    static private final boolean SPLIT_ONE_AT_A_TIME = false;
+    private static final boolean SPLIT_ONE_AT_A_TIME = false;
     /** Debug flag to switch the use of duplicate breaking on and off. */
-    static private final boolean BREAK_DUPLICATES = false;
+    private static final boolean BREAK_DUPLICATES = false;
     /** Total number of times the symmetry was broken. */
-    static private int totalSymmetryBreakCount;
+    private static int totalSymmetryBreakCount;
     /** Number of bits in an int. */
-    static private final int INT_WIDTH = 32;
+    private static final int INT_WIDTH = 32;
 
     // --------------------------- reporter definitions ---------------------
     /** Flag to turn on partition recording. */
-    static private final boolean RECORD = false;
+    private static final boolean RECORD = false;
 
     /**
      * Class of nodes that carry (and are identified with) an integer
@@ -376,7 +376,7 @@ public class PaigeTarjanMcKay extends CertificateStrategy {
      */
     private class MyNodeCert implements NodeCertificate, Cloneable {
         /** Initial node value to provide a better spread of hash codes. */
-        static private final int INIT_NODE_VALUE = 0x126b;
+        private static final int INIT_NODE_VALUE = 0x126b;
 
         /** Creates a dummy certificate to serve as a head node for a list. */
         MyNodeCert(Block block) {

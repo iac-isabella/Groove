@@ -31,20 +31,20 @@ import java.util.Set;
  */
 @SuppressWarnings("all")
 public class SetSpeedTest {
-    static private final int SMALL_SAMPLE_SIZE = 100;
-    static private final int LARGE_SAMPLE_SIZE = 5000000;
-    static private final int SMALL_REPEAT_FACTOR = 25000;
-    static private final int LARGE_REPEAT_FACTOR = 1;
+    private static final int SMALL_SAMPLE_SIZE = 100;
+    private static final int LARGE_SAMPLE_SIZE = 5000000;
+    private static final int SMALL_REPEAT_FACTOR = 25000;
+    private static final int LARGE_REPEAT_FACTOR = 1;
 
-    static private final Object[] SMALL_RANDOM_SAMPLE =
+    private static final Object[] SMALL_RANDOM_SAMPLE =
         new Object[SMALL_SAMPLE_SIZE];
-    static private final Object[] LARGE_RANDOM_SAMPLE =
+    private static final Object[] LARGE_RANDOM_SAMPLE =
         new Object[LARGE_SAMPLE_SIZE];
-    static private final Object[] SMALL_REGULAR_SAMPLE =
+    private static final Object[] SMALL_REGULAR_SAMPLE =
         new Object[SMALL_SAMPLE_SIZE];
-    static private final Object[] LARGE_REGULAR_SAMPLE =
+    private static final Object[] LARGE_REGULAR_SAMPLE =
         new Object[LARGE_SAMPLE_SIZE];
-    static private final Object[] DISTINCT_SAMPLE =
+    private static final Object[] DISTINCT_SAMPLE =
         new Object[LARGE_SAMPLE_SIZE];
     static {
         Set<Object> sampleSet = new HashSet<Object>();
@@ -212,7 +212,7 @@ public class SetSpeedTest {
 
     private final Set<Object> object;
 
-    static private final Reporter reporter =
+    private static final Reporter reporter =
         Reporter.register(IntSetSpeedTest.class);
     private final Reporter[] TEST_RANDOM_SMALL = new Reporter[] {
         reporter.register("Random, small sample:  "),

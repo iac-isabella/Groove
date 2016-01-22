@@ -480,9 +480,9 @@ public class RuleModel extends GraphBasedModel<Rule> implements Comparable<RuleM
     /** Mapping from level indices to conditions on those levels. */
     private LevelTree levelTree;
     /** Debug flag for creating rules. */
-    static private final boolean TO_RULE_DEBUG = false;
+    private static final boolean TO_RULE_DEBUG = false;
     /** Debug flag for the attribute syntax normalisation. */
-    static private final boolean NORMALISE_DEBUG = false;
+    private static final boolean NORMALISE_DEBUG = false;
 
     /**
      * Class encoding an index in a tree, consisting of a list of indices at

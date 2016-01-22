@@ -224,6 +224,6 @@ public interface Action extends Callable, Comparable<Action> {
             return roleMap.get(text);
         }
 
-        static private Map<String,Role> roleMap;
+        private static Map<String,Role> roleMap;
     }
 }

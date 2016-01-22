@@ -529,7 +529,7 @@ abstract public class AbstractGraphState extends AbstractCacheHolder<StateCache>
     }
 
     /** The total number of delta graphs frozen. */
-    static private int frozenGraphCount;
+    private static int frozenGraphCount;
 
     /** Constant empty array of out transition, shared for memory efficiency. */
     private static final GraphTransitionStub[] EMPTY_TRANSITION_STUBS = new RuleTransitionStub[0];

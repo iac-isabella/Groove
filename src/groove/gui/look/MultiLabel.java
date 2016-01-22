@@ -394,11 +394,11 @@ public class MultiLabel {
         public final static DirectBag ZERO = norm(new DirectBag());
     }
 
-    static private final String SP = "" + Util.THIN_SPACE;
-    static private final Line LA = Line.atom("" + Util.LT + SP);
-    static private final Line RA = Line.atom(SP + Util.RT);
-    static private final Line UAL = Line.atom("" + Util.UT + SP);
-    static private final Line DAL = Line.atom("" + Util.DT + SP);
-    static private final Line UAR = Line.atom(SP + Util.UT);
-    static private final Line DAR = Line.atom(SP + Util.DT);
+    private static final String SP = "" + Util.THIN_SPACE;
+    private static final Line LA = Line.atom("" + Util.LT + SP);
+    private static final Line RA = Line.atom(SP + Util.RT);
+    private static final Line UAL = Line.atom("" + Util.UT + SP);
+    private static final Line DAL = Line.atom("" + Util.DT + SP);
+    private static final Line UAR = Line.atom(SP + Util.UT);
+    private static final Line DAR = Line.atom(SP + Util.DT);
 }

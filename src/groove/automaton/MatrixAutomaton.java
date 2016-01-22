@@ -742,7 +742,7 @@ public class MatrixAutomaton extends NodeSetEdgeSetGraph<RegNode,RegEdge> implem
     private Map<Direction,MatchingAlgorithm> algorithm;
 
     /** Text of the dummy labels {@link #DUMMY_LABELS}. */
-    static private final String DUMMY_LABEL_TEXT = "\u0000";
+    private static final String DUMMY_LABEL_TEXT = "\u0000";
 
     /**
      * Array of dummy labels for each label kind.

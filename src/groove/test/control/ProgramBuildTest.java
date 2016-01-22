@@ -335,7 +335,7 @@ public class ProgramBuildTest {
     /** Most recently built program. */
     private Program prog;
 
-    static private Term prot = Term.prototype();
+    private static Term prot = Term.prototype();
 
-    static private final boolean DEBUG = false;
+    private static final boolean DEBUG = false;
 }

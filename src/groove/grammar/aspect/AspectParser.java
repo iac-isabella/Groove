@@ -116,5 +116,5 @@ public class AspectParser {
         return instance;
     }
 
-    static private final AspectParser instance = new AspectParser();
+    private static final AspectParser instance = new AspectParser();
 }

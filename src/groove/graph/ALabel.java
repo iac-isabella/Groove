@@ -133,7 +133,7 @@ public abstract class ALabel implements Cloneable, Label {
     private int hashCode;
 
     /** Mask to distinguish (the hash code of) node type labels. */
-    static private final int NODE_TYPE_MASK = 0xAAAA;
+    private static final int NODE_TYPE_MASK = 0xAAAA;
     /** Mask to distinguish (the hash code of) flag labels. */
-    static private final int FLAG_MASK = 0x5555;
+    private static final int FLAG_MASK = 0x5555;
 }

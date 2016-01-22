@@ -812,7 +812,7 @@ public class StringHandler {
         }
     }
 
-    static private void testQuoteString(String string) {
+    private static void testQuoteString(String string) {
         System.out.print("String " + string);
         string = toQuoted(string, DOUBLE_QUOTE_CHAR);
         System.out.print(". To quoted: " + string);
@@ -824,7 +824,7 @@ public class StringHandler {
         }
     }
 
-    static private void testParse(String expr) {
+    private static void testParse(String expr) {
         try {
             System.out.println("Parsing: " + expr);
             Pair<String,?> result = parseExpr(expr);
@@ -835,7 +835,7 @@ public class StringHandler {
         System.out.println();
     }
 
-    static private void testSplit(String expr, String split) {
+    private static void testSplit(String expr, String split) {
         try {
             System.out.println("Splitting: \"" + expr + "\" according to \"" + split + "\"");
             Object[] result = splitExpr(expr, split);
@@ -857,7 +857,7 @@ public class StringHandler {
         System.out.println();
     }
 
-    static private void testSplit(String expr, String oper, int position) {
+    private static void testSplit(String expr, String oper, int position) {
         try {
             System.out.print("Splitting: \"" + expr + "\" according to ");
             System.out.print(position == INFIX_POSITION ? "infix" : position == PREFIX_POSITION
@@ -883,7 +883,7 @@ public class StringHandler {
         System.out.println();
     }
 
-    static private void testTrim(String expr, char open, char close) {
+    private static void testTrim(String expr, char open, char close) {
         System.out.println("Trimming bracket pair '" + open + "', '" + close + "' from \"" + expr
             + "\"");
         String result;
@@ -956,11 +956,11 @@ public class StringHandler {
     /** Pair of round brackets, to control parsing. */
     public static final char[] ROUND_BRACKETS = {LPAR_CHAR, RPAR_CHAR};
     /** Pair of curly brackets, to control parsing. */
-    static private final char[] CURLY_BRACKETS = {LCURLY, RCURLY};
+    private static final char[] CURLY_BRACKETS = {LCURLY, RCURLY};
     /** Pair of square brackets, to control parsing. */
-    static private final char[] SQUARE_BRACKETS = {'[', ']'};
+    private static final char[] SQUARE_BRACKETS = {'[', ']'};
     /** Pair of angle brackets, to control parsing. */
-    static private final char[] ANGLE_BRACKETS = {LANGLE_CHAR, RANGLE_CHAR};
+    private static final char[] ANGLE_BRACKETS = {LANGLE_CHAR, RANGLE_CHAR};
 
     /**
      * Positioning value for an infix operator.
@@ -982,13 +982,13 @@ public class StringHandler {
      * Array of default quote characters, containing the single and double
      * quotes ({@link #DOUBLE_QUOTE_CHAR} and {@link #SINGLE_QUOTE_CHAR}).
      */
-    static private final char[] DEFAULT_QUOTE_CHARS = {DOUBLE_QUOTE_CHAR, SINGLE_QUOTE_CHAR};
+    private static final char[] DEFAULT_QUOTE_CHARS = {DOUBLE_QUOTE_CHAR, SINGLE_QUOTE_CHAR};
     /**
      * Array of default bracket pairs: {@link #ROUND_BRACKETS},
      * {@link #ANGLE_BRACKETS}, {@link #CURLY_BRACKETS} and
      * {@link #SQUARE_BRACKETS}.
      */
-    static private final char[][] DEFAULT_BRACKETS = {ROUND_BRACKETS, ANGLE_BRACKETS,
+    private static final char[][] DEFAULT_BRACKETS = {ROUND_BRACKETS, ANGLE_BRACKETS,
         CURLY_BRACKETS, SQUARE_BRACKETS};
     /** The default character to use as a placeholder in the parse result. */
     public static final char PLACEHOLDER = '\uFFFF';
@@ -1007,7 +1007,7 @@ public class StringHandler {
     public static final String IDENTIFIER_START_CHARS = "_";
 
     /** Prototype parser, used to evaluate the static methods on. */
-    static private final StringHandler prototype = new StringHandler();
+    private static final StringHandler prototype = new StringHandler();
 
     /** Class wrapping a fixed length char array
      * with functionality to add chars and convert the result into a string.

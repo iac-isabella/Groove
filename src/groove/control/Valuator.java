@@ -152,7 +152,7 @@ public class Valuator {
     }
 
     /** Tests if the last element of a valuation is another valuation. */
-    static private boolean isNested(Object[] val) {
+    private static boolean isNested(Object[] val) {
         return val.length > 0 && val[val.length - 1] instanceof Object[];
     }
 }

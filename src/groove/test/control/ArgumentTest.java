@@ -36,7 +36,7 @@ import org.junit.Test;
  */
 @SuppressWarnings("all")
 public class ArgumentTest {
-    static private final String DIRECTORY = "junit/samples/control.gps";
+    private static final String DIRECTORY = "junit/samples/control.gps";
 
     /** Regression bug SF #3536820. */
     @Test

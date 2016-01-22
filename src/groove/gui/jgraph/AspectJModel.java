@@ -573,7 +573,7 @@ final public class AspectJModel extends JModel<AspectGraph> {
     static final Map<AspectKind,String> ROLE_DESCRIPTIONS =
         new EnumMap<AspectKind,String>(AspectKind.class);
 
-    static private final boolean GUI_DEBUG = false;
+    private static final boolean GUI_DEBUG = false;
 
     static {
         ROLE_NAMES.put(AspectKind.EMBARGO, "Embargo");

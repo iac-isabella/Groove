@@ -389,7 +389,7 @@ abstract public class CertificateStrategy {
     /**
      * Array to record the number of iterations done in computing certificates.
      */
-    static private int[] iterateCountArray = new int[0];
+    private static int[] iterateCountArray = new int[0];
 
     /** Flag to turn on System.out-tracing. */
     static final boolean TRACE = false;

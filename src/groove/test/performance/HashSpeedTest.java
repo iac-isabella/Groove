@@ -52,9 +52,9 @@ public class HashSpeedTest {
     static final int HACK_KIND = 3;
 
     /** A set of sample data. */
-    static private final Integer[] elementArray = new Integer[ELEM_COUNT];
-    static private final Collection<Integer> elementSet;
-    static private final Map<Integer,Integer> elementMap;
+    private static final Integer[] elementArray = new Integer[ELEM_COUNT];
+    private static final Collection<Integer> elementSet;
+    private static final Map<Integer,Integer> elementMap;
     static {
         // initialize the test data
         elementMap = new HashMap<Integer,Integer>();

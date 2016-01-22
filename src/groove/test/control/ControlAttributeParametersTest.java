@@ -34,7 +34,7 @@ import org.junit.Test;
  */
 @SuppressWarnings("all")
 public class ControlAttributeParametersTest {
-    static private final String DIRECTORY = "junit/samples/attributes.gps";
+    private static final String DIRECTORY = "junit/samples/attributes.gps";
 
     @Test
     public void testAttributes() {

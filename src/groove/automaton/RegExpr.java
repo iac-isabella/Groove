@@ -708,7 +708,7 @@ abstract public class RegExpr { // implements VarSetSupport {
     }
 
     /** Helper method for a test if this class. */
-    static private void test(String text) {
+    private static void test(String text) {
         try {
             System.out.println("Input: " + text);
             System.out.println("Output: " + parse(text));
@@ -860,18 +860,18 @@ abstract public class RegExpr { // implements VarSetSupport {
      * priority. In particular, atoms that have special meaning should come
      * before the {@link Atom}.
      */
-    static private final RegExpr[] prototypes = new RegExpr[] {new Atom(), new Neg(), new Choice(),
+    private static final RegExpr[] prototypes = new RegExpr[] {new Atom(), new Neg(), new Choice(),
         new Seq(), new Inv(), new Star(), new Plus(), new Wildcard(), new Sharp(), new Empty()};
 
     /**
      * The list of operators into which a regular expression will be parsed, in
      * order of increasing priority.
      */
-    static private final List<String> operators;
+    private static final List<String> operators;
     /**
      * Mapping from keywords in syntax descriptions to corresponding text.
      */
-    static private final Map<String,String> tokenMap;
+    private static final Map<String,String> tokenMap;
 
     static {
         operators = new LinkedList<String>();
@@ -892,7 +892,7 @@ abstract public class RegExpr { // implements VarSetSupport {
     }
 
     /** Constant hash code characterising the class. */
-    static private final int classHashCode = System.identityHashCode(RegExpr.class);
+    private static final int classHashCode = System.identityHashCode(RegExpr.class);
 
     /**
      * Returns a syntax helper mapping from syntax items

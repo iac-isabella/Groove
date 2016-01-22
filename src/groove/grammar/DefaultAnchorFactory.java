@@ -106,5 +106,5 @@ public class DefaultAnchorFactory implements AnchorFactory {
     }
 
     /** The singleton instance of this class. */
-    static private DefaultAnchorFactory prototype = new DefaultAnchorFactory();
+    private static DefaultAnchorFactory prototype = new DefaultAnchorFactory();
 }

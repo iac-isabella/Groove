@@ -616,7 +616,7 @@ public class VisualMap extends DefaultFixable {
      * Converts a colour dimension to a value that is whitewashed by
      * {@link #BACKGROUND_WHITEWASH} degrees.
      */
-    static private int whitewash(int value) {
+    private static int whitewash(int value) {
         int distance = 255 - value;
         return value + (distance * BACKGROUND_WHITEWASH / 100);
     }
@@ -634,5 +634,5 @@ public class VisualMap extends DefaultFixable {
     }
 
     /** Percentage of white in the background colour. */
-    static private final int BACKGROUND_WHITEWASH = 90;
+    private static final int BACKGROUND_WHITEWASH = 90;
 }

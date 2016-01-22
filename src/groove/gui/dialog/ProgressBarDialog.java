@@ -160,9 +160,9 @@ public class ProgressBarDialog extends JDialog {
     /* 8 The activation timer. */
     private Timer activation;
 
-    static private final int BORDER_WIDTH = 20;
-    static private final int DIALOG_WIDTH = 200;
-    static private final int DIALOG_HEIGHT = 100;
-    static private final int LABEL_WIDTH = DIALOG_WIDTH - 2 * BORDER_WIDTH;
-    static private final int LABEL_HEIGHT = 25;
+    private static final int BORDER_WIDTH = 20;
+    private static final int DIALOG_WIDTH = 200;
+    private static final int DIALOG_HEIGHT = 100;
+    private static final int LABEL_WIDTH = DIALOG_WIDTH - 2 * BORDER_WIDTH;
+    private static final int LABEL_HEIGHT = 25;
 }

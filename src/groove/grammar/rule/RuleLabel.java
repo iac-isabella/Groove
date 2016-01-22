@@ -327,7 +327,7 @@ public class RuleLabel extends ALabel {
     /** An automaton constructed lazily for the regular expression. */
     private RegAut automaton;
     /** Calculator used to construct all the automata. */
-    static private final RegAutCalculator calculator = new RegAutCalculator();
+    private static final RegAutCalculator calculator = new RegAutCalculator();
     /** Number used for labels that are not argument labels. */
     public static final int INVALID_ARG_NR = -1;
 }

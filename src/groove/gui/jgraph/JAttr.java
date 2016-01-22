@@ -145,7 +145,7 @@ public class JAttr {
     }
 
     /** Lazily creates and returns the colour gradient derived from a given colour. */
-    static private Color[] getGradient(Color c) {
+    private static Color[] getGradient(Color c) {
         Color[] result = gradientMap.get(c);
         if (result == null) {
             float factor = .9f;
@@ -161,5 +161,5 @@ public class JAttr {
     }
 
     /** Mapping from colours to colour gradients for {@link #createPaint(Rectangle, Color)}. */
-    static private Map<Color,Color[]> gradientMap = new HashMap<Color,Color[]>();
+    private static Map<Color,Color[]> gradientMap = new HashMap<Color,Color[]>();
 }

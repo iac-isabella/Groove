@@ -41,15 +41,15 @@ import org.junit.Test;
 @SuppressWarnings("all")
 public class IOTest {
 
-    static private final String DIRECTORY = "junit/samples/control.gps";
-    static private final String JAR_FILE = "junit/samples.jar";
-    static private final String ZIP_FILE = "junit/samples.zip";
-    static private final String PATH_IN_ARCHIVE = "/samples/control.gps";
+    private static final String DIRECTORY = "junit/samples/control.gps";
+    private static final String JAR_FILE = "junit/samples.jar";
+    private static final String ZIP_FILE = "junit/samples.zip";
+    private static final String PATH_IN_ARCHIVE = "/samples/control.gps";
 
-    static private final String DEF_START = "start";
-    static private final String ALT_START = "start2";
-    static private final String DEF_CONTROL = "control";
-    static private final String ALT_CONTROL = "control2";
+    private static final String DEF_START = "start";
+    private static final String ALT_START = "start2";
+    private static final String DEF_CONTROL = "control";
+    private static final String ALT_CONTROL = "control2";
 
     /** test loading a directory grammar directly */
     @Test

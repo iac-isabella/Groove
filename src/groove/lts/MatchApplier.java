@@ -290,7 +290,7 @@ public class MatchApplier {
     private static final HostNode[] EMPTY_NODE_ARRAY = new HostNode[0];
 
     /** Reporter for profiling information. */
-    static private final Reporter reporter = Reporter.register(MatchApplier.class);
+    private static final Reporter reporter = Reporter.register(MatchApplier.class);
     /** Profiling aid for adding states. */
     public static final Reporter addStateReporter = reporter.register("addState");
     /** Profiling aid for adding transitions. */

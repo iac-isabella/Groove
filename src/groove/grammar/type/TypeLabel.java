@@ -204,7 +204,7 @@ public final class TypeLabel extends ALabel {
         return result;
     }
 
-    static private final Map<Sort,TypeLabel> sigLabelMap =
+    private static final Map<Sort,TypeLabel> sigLabelMap =
         new EnumMap<Sort,TypeLabel>(Sort.class);
     static {
         for (Sort sigKind : Sort.values()) {

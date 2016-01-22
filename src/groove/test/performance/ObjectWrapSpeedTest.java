@@ -104,9 +104,9 @@ public class ObjectWrapSpeedTest {
         }).start();
     }
 
-    static private final int BOUND = 100000000;
+    private static final int BOUND = 100000000;
 
-    static private final Reporter reporter = Reporter.register(ObjectWrapSpeedTest.class);
+    private static final Reporter reporter = Reporter.register(ObjectWrapSpeedTest.class);
 
     /** Interface for an action to be repeatedly invoked in the test. */
     private static interface Action {

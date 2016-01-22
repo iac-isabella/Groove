@@ -515,18 +515,18 @@ AbstractCacheHolder<GraphCache<N,E>> implements GGraph<N,E> {
     /**
      * Private copy of the static variable to allow compiler optimization.
      */
-    static private final boolean GATHER_STATISTICS = Groove.GATHER_STATISTICS;
+    private static final boolean GATHER_STATISTICS = Groove.GATHER_STATISTICS;
 
     /**
      * Counts the number of graphs that were not fixed. Added for debugging
      * purposes: observers of modifiable graphs may cause memory leaks.
      */
-    static private int modifiableGraphCount = 0;
+    private static int modifiableGraphCount = 0;
     /**
      * The current strategy for computing isomorphism certificates.
      * @see #getCertifier(boolean)
      */
-    static private CertificateStrategy certificateFactory = new PartitionRefiner(
+    private static CertificateStrategy certificateFactory = new PartitionRefiner(
         (GGraph<Node,GEdge<Node>>) null);
 
     /**
