@@ -22,6 +22,7 @@ import groove.explore.config.CountKind;
 import groove.explore.config.ExploreKey;
 import groove.explore.config.MatchKind;
 import groove.explore.config.SettingKey;
+import groove.explore.config.TraverseKind;
 import groove.gui.dialog.ExploreConfigDialog;
 
 import javax.swing.JPanel;
@@ -71,25 +72,37 @@ public class EditorFactory {
         SettingEditor result = null;
         switch (key) {
         case ACCEPTOR:
-            if ((AcceptorKind) kind == AcceptorKind.CONDITION) {
+            switch ((AcceptorKind) kind) {
+            case CONDITION:
                 result = new TextFieldEditor(getDialog(), holder, key, kind);
-            } else if ((AcceptorKind) kind == AcceptorKind.FORMULA) {
+                break;
+            case FORMULA:
                 result = new TextFieldEditor(getDialog(), holder, key, kind);
             }
             break;
         case COUNT:
-            if ((CountKind) kind == CountKind.COUNT) {
+            switch ((CountKind) kind) {
+            case COUNT:
                 result = new TextFieldEditor(getDialog(), holder, key, kind);
             }
             break;
         case MATCHER:
-            if ((MatchKind) kind == MatchKind.PLAN) {
+            switch ((MatchKind) kind) {
+            case PLAN:
                 result = new TextFieldEditor(getDialog(), holder, key, kind);
             }
             break;
+        case TRAVERSE:
+            switch ((TraverseKind) kind) {
+            case BEST_FIRST:
+                //result = new TextFieldEditor(getDialog(), holder, key, kind);
+                break;
+            }
+            break;
         case CHECKING:
-            if ((CheckingKind) kind == CheckingKind.LTL_CHECK
-                || (CheckingKind) kind == CheckingKind.CTL_CHECK) {
+            switch ((CheckingKind) kind) {
+            case LTL_CHECK:
+            case CTL_CHECK:
                 result = new TextFieldEditor(getDialog(), holder, key, kind);
             }
             break;

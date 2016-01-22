@@ -37,7 +37,8 @@ class DisplayWindow extends JFrame {
 
     /** Constructs an instance for a given simulator and panel. */
     public DisplayWindow(DisplaysPanel parent, final Display display) {
-        this(Kind.DISPLAY, display.getKind().getTitle(), display.getKind().getTabIcon());
+        this(Kind.DISPLAY, display.getKind().getTitle(),
+            display.getKind().getTabIcon());
         this.parent = parent;
         this.display = display;
         setContentPane(getContentPanel());
@@ -53,7 +54,9 @@ class DisplayWindow extends JFrame {
             if (listPanel == null) {
                 result = displayPanel;
             } else {
-                result = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, listPanel, displayPanel);
+                result =
+                    new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, listPanel,
+                        displayPanel);
             }
             this.contentPanel = result;
         }
@@ -76,8 +79,10 @@ class DisplayWindow extends JFrame {
     }
 
     private void doClosingAction() {
-        if (this.kind == Kind.DISPLAY) {
+        switch (this.kind) {
+        case DISPLAY:
             this.parent.attach(this.display);
+            break;
         }
     }
 
@@ -91,7 +96,6 @@ class DisplayWindow extends JFrame {
     private static final Dimension MINIMUM_SIZE = new Dimension(500, 300);
 
     private static enum Kind {
-        DISPLAY,
-        STATE
+        DISPLAY, STATE
     }
 }

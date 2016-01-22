@@ -207,9 +207,11 @@ public class DisplaysPanel extends JTabbedPane implements SimulatorListener {
     /** Indicates if a list panel should go onto the upper or the lower pane. */
     private JTabbedPane getListsPanel(DisplayKind kind) {
         JTabbedPane result = null;
-        if (kind.getListPanel() == 0) {
+        switch (kind.getListPanel()) {
+        case 0:
             result = getUpperListsPanel();
-        } else if (kind.getListPanel() == 1) {
+            break;
+        case 1:
             result = getLowerListsPanel();
         }
         return result;
@@ -249,10 +251,13 @@ public class DisplaysPanel extends JTabbedPane implements SimulatorListener {
                     oldListDisplayKind != newDisplayKind && newListPanel != null
                         && listsTabPane.indexOfComponent(newListPanel) >= 0;
                 // do not automatically switch lists panel between state and rule mode
-                if (oldListDisplayKind == DisplayKind.RULE) {
+                switch (oldListDisplayKind) {
+                case RULE:
                     changeList &= newDisplayKind != DisplayKind.STATE;
-                } else if (oldListDisplayKind == DisplayKind.STATE) {
+                    break;
+                case STATE:
                     changeList &= newDisplayKind != DisplayKind.RULE;
+                    break;
                 }
             }
             if (changeList) {

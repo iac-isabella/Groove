@@ -518,8 +518,8 @@ public class RuleTree extends AbstractResourceTree {
     private Set<Duo<String>> getTried(GraphState state) {
         // set the tried status of the rules
         Set<? extends CallStack> pastAttempts =
-            state == null ? Collections.<CallStack>emptySet() : state.getActualFrame()
-                .getPastAttempts();
+            state == null ? Collections.<CallStack>emptySet()
+                : state.getActualFrame().getPastAttempts();
         // convert the transitions to pairs of rule name + recipe name
         Set<Duo<String>> triedPairs = new HashSet<Duo<String>>();
         for (CallStack t : pastAttempts) {
@@ -824,9 +824,11 @@ public class RuleTree extends AbstractResourceTree {
                 result.append("List of graph properties, defined by unmodifying rules<br>"
                     + "and checked automatically at every non-transient state,");
                 if (this.hasMultiple) {
-                    if (this.policy == CheckPolicy.ERROR) {
+                    switch (this.policy) {
+                    case ERROR:
                         result.append("<br>which, when violated, will flag an error");
-                    } else if (this.policy == CheckPolicy.REMOVE) {
+                        break;
+                    case REMOVE:
                         result.append("<br>which, when violated, will cause the state to be removed");
                     }
                 }

@@ -531,8 +531,7 @@ public abstract class RegExpr { // implements VarSetSupport {
                 }
             case INV_OPERATOR:
                 String error =
-                    String.format("Atom '%s' contains invalid first character '%c'",
-                        text,
+                    String.format("Atom '%s' contains invalid first character '%c'", text,
                         INV_OPERATOR);
                 throw new FormatException(error);
             default:
@@ -1014,9 +1013,8 @@ public abstract class RegExpr { // implements VarSetSupport {
                 RegExpr operand = operandIter.next();
                 if (bindsWeaker(operand, this)) {
                     result =
-                        result.append("" + LPAR_CHAR)
-                            .append(operand.toLine())
-                            .append("" + RPAR_CHAR);
+                        result.append("" + LPAR_CHAR).append(operand.toLine()).append(
+                            "" + RPAR_CHAR);
                 } else {
                     result = result.append(operand.toLine());
                 }
@@ -1150,9 +1148,8 @@ public abstract class RegExpr { // implements VarSetSupport {
         protected Line computeLine() {
             Line result = Line.empty();
             if (bindsWeaker(this.operand, this)) {
-                return result.append("" + LPAR_CHAR)
-                    .append(getOperand().toLine())
-                    .append("" + RPAR_CHAR + getOperator());
+                return result.append("" + LPAR_CHAR).append(getOperand().toLine()).append(
+                    "" + RPAR_CHAR + getOperator());
             } else {
                 return result.append(getOperand().toLine()).append(getOperator());
             }
@@ -1261,9 +1258,8 @@ public abstract class RegExpr { // implements VarSetSupport {
         protected Line computeLine() {
             Line result = Line.empty();
             if (bindsWeaker(this.operand, this)) {
-                return result.append(getOperator() + LPAR_CHAR)
-                    .append(getOperand().toLine())
-                    .append("" + RPAR_CHAR);
+                return result.append(getOperator() + LPAR_CHAR).append(getOperand().toLine()).append(
+                    "" + RPAR_CHAR);
             } else {
                 return result.append("" + getOperator()).append(getOperand().toLine());
             }
@@ -1537,9 +1533,11 @@ public abstract class RegExpr { // implements VarSetSupport {
         @Override
         protected Line computeLine() {
             Line result = Line.atom(super.toString() + getLabelVar().getName() + getGuard());
-            if (getGuard().getKind() == EdgeRole.FLAG) {
+            switch (getGuard().getKind()) {
+            case FLAG:
                 result = result.style(Style.ITALIC);
-            } else if (getGuard().getKind() == EdgeRole.NODE_TYPE) {
+                break;
+            case NODE_TYPE:
                 result = result.style(Style.BOLD);
             }
             return result;
@@ -1675,8 +1673,7 @@ public abstract class RegExpr { // implements VarSetSupport {
                 constraintList = constraintList.substring(1);
             }
             String[] constraintParts =
-                StringHandler.splitExpr(constraintList,
-                    "" + TypeGuard.SEPARATOR,
+                StringHandler.splitExpr(constraintList, "" + TypeGuard.SEPARATOR,
                     StringHandler.INFIX_POSITION);
             if (constraintParts.length == 0) {
                 throw new FormatException("Invalid constraint parameter '%s'", parameter);

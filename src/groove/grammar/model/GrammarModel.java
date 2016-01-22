@@ -559,9 +559,11 @@ public class GrammarModel implements Observer {
         // register a change in this resource, regardless of what actually happens.
         // This might possibly be refined
         this.resourceChangeCounts.get(kind).increase();
-        if (kind == ResourceKind.PROLOG) {
+        switch (kind) {
+        case PROLOG:
             this.prologEnvironment = null;
-        } else if (kind == ResourceKind.PROPERTIES) {
+            break;
+        case PROPERTIES:
             return;
         }
         // update the set of resource models
