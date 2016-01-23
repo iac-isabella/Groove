@@ -102,10 +102,9 @@ public class InstanceToGraphviz extends InstanceExporter<Node> {
 
             String fieldName = entry.getKey().getName().toString();
             // For edges, replace fieldname with empty if it has been generated
-            if (fieldType instanceof Class || fieldType instanceof Tuple) {
-                if (fieldName.matches("edge[0-9]*")) {
-                    fieldName = null;
-                }
+            boolean instanceCondition = fieldType instanceof Class || fieldType instanceof Tuple;
+            if (instanceCondition && fieldName.matches("edge[0-9]*")) {
+                fieldName = null;
             }
 
             if (fieldType instanceof Class || fieldType instanceof Tuple) {

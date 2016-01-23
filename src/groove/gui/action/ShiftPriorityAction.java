@@ -56,7 +56,8 @@ public class ShiftPriorityAction extends SimulatorAction {
 
                 Set<String> cell = rulesMap.get(priority);
                 if (cell == null) {
-                    rulesMap.put(priority, cell = new HashSet<String>());
+                    cell = new HashSet<String>();
+                    rulesMap.put(priority, cell);
                 }
                 cell.add(rule.getFullName());
             }

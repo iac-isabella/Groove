@@ -189,7 +189,8 @@ public abstract class ConfigDialog extends JDialog implements ActionListener {
     private ConfigAction getAction(ConfigAction.Type type) {
         ConfigAction result = this.actionMap.get(type);
         if (result == null) {
-            this.actionMap.put(type, result = new ConfigAction(this.m_simulator, type, this));
+            result = new ConfigAction(this.m_simulator, type, this);
+            this.actionMap.put(type, result);
             result.setEnabled(true);
         }
         return result;

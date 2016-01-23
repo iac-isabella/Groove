@@ -394,7 +394,8 @@ public enum Look {
     public static VisualMap getVisualsFor(Set<Look> looks) {
         VisualMap result = looksMap.get(looks);
         if (result == null) {
-            looksMap.put(looks, result = new VisualMap());
+            result = new VisualMap();
+            looksMap.put(looks, result);
             for (Look look : looks) {
                 look.apply(result);
             }

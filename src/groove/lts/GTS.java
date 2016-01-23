@@ -320,7 +320,8 @@ public class GTS extends AGraph<GraphState,GraphTransition> implements Cloneable
     private Collection<GraphState> getStates(Flag flag) {
         List<GraphState> result = this.statesMap.get(flag);
         if (result == null) {
-            this.statesMap.put(flag, result = new ArrayList<GraphState>());
+            result = new ArrayList<GraphState>();
+            this.statesMap.put(flag, result);
             for (GraphState state : getStates()) {
                 if (state.hasFlag(flag)) {
                     result.add(state);

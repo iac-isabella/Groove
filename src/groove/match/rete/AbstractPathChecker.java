@@ -1,15 +1,15 @@
 /* GROOVE: GRaphs for Object Oriented VErification
  * Copyright 2003--2011 University of Twente
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- * http://www.apache.org/licenses/LICENSE-2.0 
- * 
- * Unless required by applicable law or agreed to in writing, 
- * software distributed under the License is distributed on an 
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
- * either express or implied. See the License for the specific 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  *
  * $Id: AbstractPathChecker.java 5479 2014-07-19 12:20:13Z rensink $
@@ -33,8 +33,7 @@ import java.util.List;
  * @author Arash Jalali
  * @version $Revision $
  */
-public abstract class AbstractPathChecker extends ReteNetworkNode implements
-        ReteStateSubscriber {
+public abstract class AbstractPathChecker extends ReteNetworkNode implements ReteStateSubscriber {
 
     /**
      * The static pattern representing this path's regular expression edge.
@@ -56,19 +55,17 @@ public abstract class AbstractPathChecker extends ReteNetworkNode implements
     private final PathMatchCache cache;
 
     /**
-     * Creates a path checker node based on a given regular expression 
+     * Creates a path checker node based on a given regular expression
      * and a flag that determines if this checker is loop path checker.
      */
-    public AbstractPathChecker(ReteNetwork network, RegExpr expression,
-            boolean isLoop) {
+    public AbstractPathChecker(ReteNetwork network, RegExpr expression, boolean isLoop) {
         super(network);
         assert (network != null) && (expression != null);
         this.expression = expression;
         RuleFactory f = RuleFactory.newInstance();
         RuleNode n1 = f.createNode();
         RuleNode n2 = (isLoop) ? n1 : f.createNode();
-        this.pattern =
-            new RuleEdge[] {f.createEdge(n1, new RuleLabel(expression), n2)};
+        this.pattern = new RuleEdge[] {f.createEdge(n1, new RuleLabel(expression), n2)};
         this.loop = isLoop;
         this.cache = new PathMatchCache();
         this.getOwner().getState().subscribe(this);
@@ -90,9 +87,9 @@ public abstract class AbstractPathChecker extends ReteNetworkNode implements
      * @return <code>true</code> if this checker node
      * always generates positive matches, i.e. matches
      * which correspond with actual series of edges with concrete
-     * end points. The {@link Empty} path operator, 
+     * end points. The {@link Empty} path operator,
      * the kleene ({@link Star}) operator, and the negation
-     * operator {@link Neg}) are operators that sometimes/always 
+     * operator {@link Neg}) are operators that sometimes/always
      * generate non-positive matches.
      */
     public boolean isPositivePathGenerator() {
@@ -101,27 +98,24 @@ public abstract class AbstractPathChecker extends ReteNetworkNode implements
     }
 
     @Override
-    public void receive(ReteNetworkNode source, int repeatIndex,
-            AbstractReteMatch match) {
+    public void receive(ReteNetworkNode source, int repeatIndex, AbstractReteMatch match) {
         assert match instanceof RetePathMatch;
         this.receive(source, repeatIndex, (RetePathMatch) match);
     }
 
     /**
-     * Should be called by the antecedents to hand in a new match 
+     * Should be called by the antecedents to hand in a new match
      * @param source The antecedent that is calling this method
      * @param repeatedIndex The counter index in case the given <code>source</code>
      * occurs more than once in the list of this node's antecedents.
-     * @param newMatch The match produced by the antecedent. 
+     * @param newMatch The match produced by the antecedent.
      */
-    public abstract void receive(ReteNetworkNode source, int repeatedIndex,
-            RetePathMatch newMatch);
+    public abstract void receive(ReteNetworkNode source, int repeatedIndex, RetePathMatch newMatch);
 
     @Override
     public boolean equals(ReteNetworkNode node) {
         return (this == node)
-            || ((node instanceof AbstractPathChecker)
-                && this.getOwner().equals(node.getOwner()) && this.expression.equals(((AbstractPathChecker) node).getExpression()));
+            || ((node instanceof AbstractPathChecker) && this.getOwner().equals(node.getOwner()) && this.expression.equals(((AbstractPathChecker) node).getExpression()));
     }
 
     @Override
@@ -156,8 +150,7 @@ public abstract class AbstractPathChecker extends ReteNetworkNode implements
         for (ReteNetworkNode n : this.getSuccessors()) {
 
             repeatCount = (n != previous) ? 0 : (repeatCount + 1);
-            if ((n instanceof AbstractPathChecker)
-                || ((RetePathMatch) m).isEmpty()) {
+            if ((n instanceof AbstractPathChecker) || ((RetePathMatch) m).isEmpty()) {
                 n.receive(this, repeatCount, m);
             } else if (ent != null) {
                 n.receive(this, repeatCount, ent);
@@ -183,7 +176,7 @@ public abstract class AbstractPathChecker extends ReteNetworkNode implements
 
     @Override
     public void updateEnd() {
-        //Do nothing        
+        //Do nothing
     }
 
     /**
@@ -197,7 +190,7 @@ public abstract class AbstractPathChecker extends ReteNetworkNode implements
         private int count;
 
         /** Constructs a new cache entry, for a given path match representative.
-         * The count is initially set to 1. 
+         * The count is initially set to 1.
          */
         public CacheEntry(RetePathMatch rep) {
             this.representative = rep;
@@ -209,7 +202,7 @@ public abstract class AbstractPathChecker extends ReteNetworkNode implements
             this.count++;
         }
 
-        /** 
+        /**
          * Decrements the count of this entry.
          * @return {@code true} if the count is now 0
          */
@@ -232,7 +225,8 @@ public abstract class AbstractPathChecker extends ReteNetworkNode implements
         @Override
         public String toString() {
             return String.format("Cache Entry key for %s. count: %d",
-                this.representative.getCacheKey(), this.count);
+                this.representative.getCacheKey(),
+                this.count);
         }
     }
 
@@ -243,14 +237,13 @@ public abstract class AbstractPathChecker extends ReteNetworkNode implements
      * nodes and the path checker just passes one representative
      * for each group of identical path matches to its
      * non-path-checker successors for efficiency purposes.
-     * 
+     *
      * @author Arash Jalali
      * @version $Revision $
      */
     public static class PathMatchCache implements DominoEventListener {
 
-        private HashMap<Object,CacheEntry> entries =
-            new HashMap<Object,CacheEntry>();
+        private HashMap<Object,CacheEntry> entries = new HashMap<Object,CacheEntry>();
 
         @Override
         public void matchRemoved(AbstractReteMatch match) {
@@ -271,7 +264,7 @@ public abstract class AbstractPathChecker extends ReteNetworkNode implements
          * the given key, or {@code null} otherwise.
          * @param pm the match to be added
          * @return Either {@code pm} or {@code null}, depending
-         * on whether {@code pm} is the first path match with the 
+         * on whether {@code pm} is the first path match with the
          * given key.
          */
         public RetePathMatch addMatch(RetePathMatch pm) {
@@ -280,7 +273,8 @@ public abstract class AbstractPathChecker extends ReteNetworkNode implements
             CacheEntry entry = this.entries.get(pair);
             if (entry == null) {
                 result = RetePathMatch.duplicate(pm);
-                this.entries.put(pair, entry = new CacheEntry(result));
+                entry = new CacheEntry(result);
+                this.entries.put(pair, entry);
             } else {
                 entry.increment();
             }

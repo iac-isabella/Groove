@@ -511,15 +511,15 @@ public class TypeToGxl extends TypeExporter<NodeType> {
 
         //NodeType graphNode = getPackageNode(packageId);
         NodeType graphNode = getPackageNode(Id.ROOT);
-        if (graphNode != null) {
-            // Add nodes, edges and relations
-            if (type.equals(GxlUtil.g_gxlTypeGraphURI + "#NodeClass")
+        boolean relationCondition =
+            type.equals(GxlUtil.g_gxlTypeGraphURI + "#NodeClass")
                 || type.equals(GxlUtil.g_gxlTypeGraphURI + "#EdgeClass")
                 || type.equals(GxlUtil.g_gxlTypeGraphURI + "#CompositionClass")
                 || type.equals(GxlUtil.g_gxlTypeGraphURI + "#AggregationClass")
-                || type.equals(GxlUtil.g_gxlTypeGraphURI + "#RelationClass")) {
-                createEdge(graphNode, newNode, GxlUtil.g_gxlTypeGraphURI + "#contains");
-            }
+                || type.equals(GxlUtil.g_gxlTypeGraphURI + "#RelationClass");
+        if (graphNode != null && relationCondition) {
+            // Add nodes, edges and relations
+            createEdge(graphNode, newNode, GxlUtil.g_gxlTypeGraphURI + "#contains");
         }
 
         return newNode;

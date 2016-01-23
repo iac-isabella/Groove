@@ -31,7 +31,7 @@ class RegExprEdgeSearchItem extends AbstractSearchItem {
     /**
      * Constructs a new search item. The item will match according to the
      * regular expression on the edge label.
-     * @param typeGraph label store used to determine subtypes for 
+     * @param typeGraph label store used to determine subtypes for
      * node type labels in the regular expression
      */
     public RegExprEdgeSearchItem(RuleEdge edge, TypeGraph typeGraph) {
@@ -267,8 +267,10 @@ class RegExprEdgeSearchItem extends AbstractSearchItem {
             if (targetFind == null && RegExprEdgeSearchItem.this.targetFound) {
                 targetFind = this.search.getNode(RegExprEdgeSearchItem.this.targetIx);
             }
-            return RegExprEdgeSearchItem.this.labelAutomaton.getMatches(this.host, sourceFind,
-                targetFind, valuation);
+            return RegExprEdgeSearchItem.this.labelAutomaton.getMatches(this.host,
+                sourceFind,
+                targetFind,
+                valuation);
         }
 
         @Override
@@ -285,14 +287,14 @@ class RegExprEdgeSearchItem extends AbstractSearchItem {
     private class RegExprEdgeMultipleRecord extends MultipleRecord<RegAut.Result> {
         /** Constructs a new record, for a given matcher. */
         RegExprEdgeMultipleRecord(Search search, int sourceIx, int targetIx, boolean sourceFound,
-                boolean targetFound) {
+            boolean targetFound) {
             super(search);
             this.sourceIx = sourceIx;
             this.targetIx = targetIx;
             this.sourceFound = sourceFound;
             this.targetFound = targetFound;
-            assert RegExprEdgeSearchItem.this.varIxMap.keySet().containsAll(
-                RegExprEdgeSearchItem.this.neededVars);
+            assert RegExprEdgeSearchItem.this.varIxMap.keySet()
+                .containsAll(RegExprEdgeSearchItem.this.neededVars);
         }
 
         @Override
@@ -326,8 +328,10 @@ class RegExprEdgeSearchItem extends AbstractSearchItem {
                 valuation.put(var, image);
             }
             Set<RegAut.Result> matches =
-                RegExprEdgeSearchItem.this.labelAutomaton.getMatches(this.host, this.sourceFind,
-                    this.targetFind, valuation);
+                RegExprEdgeSearchItem.this.labelAutomaton.getMatches(this.host,
+                    this.sourceFind,
+                    this.targetFind,
+                    valuation);
             this.imageIter = matches.iterator();
         }
 
@@ -345,10 +349,8 @@ class RegExprEdgeSearchItem extends AbstractSearchItem {
             }
             if (result) {
                 HostNode target = image.two();
-                if (RegExprEdgeSearchItem.this.selfEdge) {
-                    if (target != source) {
-                        return false;
-                    }
+                if (RegExprEdgeSearchItem.this.selfEdge && target != source) {
+                    return false;
                 } else {
                     if (this.targetFind == null) {
                         if (!this.search.putNode(this.targetIx, target)) {

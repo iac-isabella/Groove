@@ -176,14 +176,12 @@ public class DefaultNodeChecker extends NodeChecker implements ReteStateSubscrib
     @Override
     public int demandOneMatch() {
         int result = this.ondemandBuffer.size();
-        if (this.getOwner().isInOnDemandMode()) {
-            if (!this.isUpToDate() && (result > 0)) {
-                HostNode n = this.ondemandBuffer.iterator().next();
-                this.ondemandBuffer.remove(n);
-                sendDownReceivedNode(n, Action.ADD);
-                setUpToDate(this.ondemandBuffer.isEmpty());
-                result = 1;
-            }
+        if (this.getOwner().isInOnDemandMode() && !this.isUpToDate() && (result > 0)) {
+            HostNode n = this.ondemandBuffer.iterator().next();
+            this.ondemandBuffer.remove(n);
+            sendDownReceivedNode(n, Action.ADD);
+            setUpToDate(this.ondemandBuffer.isEmpty());
+            result = 1;
         }
         return result;
     }

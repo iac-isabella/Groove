@@ -112,10 +112,9 @@ public class GrooveToConstraint implements Messenger {
                     parseOppositeRule(model);
                 }
             } else if (this.m_cfg.getConfig().getTypeModel().getFields().getDefaults().isUseRule()
-                && name.contains("Default")) {
-                if (this.m_cfg.getConfig().getTypeModel().getProperties().isUseDefaultValue()) {
-                    parseDefaultRule(model);
-                }
+                && name.contains("Default")
+                && this.m_cfg.getConfig().getTypeModel().getProperties().isUseDefaultValue()) {
+                parseDefaultRule(model);
             }
         }
     }

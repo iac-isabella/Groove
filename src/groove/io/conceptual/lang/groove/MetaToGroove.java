@@ -152,15 +152,13 @@ public class MetaToGroove extends TypeExporter<AbsNode> {
         }
 
         // If not using the nullable/proper class system, don't instantiate nullable classes
-        if (this.m_cfg.getConfig().getGlobal().getNullable() == NullableType.NONE) {
-            if (!c.isProper()) {
-                // Simply revert to the proper instance
-                AbsNode classNode = getElement(c.getProperClass());
-                if (!hasElement(c)) {
-                    setElement(c, classNode);
-                }
-                return;
+        if (this.m_cfg.getConfig().getGlobal().getNullable() == NullableType.NONE && !c.isProper()) {
+            // Simply revert to the proper instance
+            AbsNode classNode = getElement(c.getProperClass());
+            if (!hasElement(c)) {
+                setElement(c, classNode);
             }
+            return;
         }
 
         AbsNode classNode = new AbsNode(this.m_cfg.getName(c));

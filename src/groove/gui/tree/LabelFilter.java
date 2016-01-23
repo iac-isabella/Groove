@@ -224,7 +224,8 @@ public class LabelFilter<G extends Graph> extends Observable {
      */
     private Set<JCell<G>> getSelection(Entry entry, boolean selected) {
         assert this.entryJCellMap.containsKey(entry) : String.format("Label %s unknown in map %s",
-            entry, this.entryJCellMap);
+            entry,
+            this.entryJCellMap);
         Set<JCell<G>> result = this.entryJCellMap.get(entry);
         if (result == null) {
             result = Collections.<JCell<G>>emptySet();
@@ -311,7 +312,8 @@ public class LabelFilter<G extends Graph> extends Observable {
     public Entry getEntry(Label key) {
         LabelEntry result = this.labelEntryMap.get(key);
         if (result == null) {
-            this.labelEntryMap.put(key, result = createEntry(key));
+            result = createEntry(key);
+            this.labelEntryMap.put(key, result);
         }
         return result;
     }

@@ -161,7 +161,8 @@ public class RecipeTransition extends ALabelEdge<GraphState> implements GraphTra
                     Set<RuleTransition> inSet = inMap.get(target);
                     boolean fresh = inSet == null;
                     if (fresh) {
-                        inMap.put(target, inSet = new HashSet<RuleTransition>());
+                        inSet = new HashSet<RuleTransition>();
+                        inMap.put(target, inSet);
                     }
                     inSet.add(trans);
                     if (fresh && target != target()) {
@@ -318,7 +319,8 @@ public class RecipeTransition extends ALabelEdge<GraphState> implements GraphTra
     public int compareTo(Label obj) {
         if (!(obj instanceof ActionLabel)) {
             throw new IllegalArgumentException(String.format("Can't compare %s and %s",
-                this.getClass(), obj.getClass()));
+                this.getClass(),
+                obj.getClass()));
         }
         if (obj instanceof RuleTransitionLabel) {
             return -obj.compareTo(this);

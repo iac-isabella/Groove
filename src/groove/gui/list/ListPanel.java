@@ -137,7 +137,8 @@ public abstract class ListPanel extends JPanel {
     /** Lazily creates and returns the panel. */
     private JList getEntryArea() {
         if (this.entryArea == null) {
-            JList result = this.entryArea = new JList();
+            this.entryArea = new JList();
+            JList result = this.entryArea;
             result.setBackground(getColors().getBackground(Mode.NONE));
             result.setForeground(getColors().getForeground(Mode.NONE));
             result.setSelectionBackground(getColors().getBackground(Mode.FOCUSED));

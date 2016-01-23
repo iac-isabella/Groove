@@ -177,12 +177,11 @@ public class EcoreToType extends TypeImporter {
         }
 
         // Handle class iD
-        if (eClass.getEIDAttribute() != null) {
-            if (eClass.getEIDAttribute().getEContainingClass() == eClass) {
-                Name attrName = Name.getName(eClass.getEIDAttribute().getName());
-                IdentityProperty p = new IdentityProperty(cmClass, attrName);
-                mm.addProperty(p);
-            }
+        if (eClass.getEIDAttribute() != null
+            && eClass.getEIDAttribute().getEContainingClass() == eClass) {
+            Name attrName = Name.getName(eClass.getEIDAttribute().getName());
+            IdentityProperty p = new IdentityProperty(cmClass, attrName);
+            mm.addProperty(p);
         }
 
         // ID and Keyset handled by reference and attribute visitors

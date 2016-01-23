@@ -854,10 +854,9 @@ public class ReteNetwork {
         assert !openList.isEmpty();
         ReteStaticMapping result = null;
         for (int i = 0; i < openList.size(); i++) {
-            if ((result == null) || (result.getNNode().size() < openList.get(i).getNNode().size())) {
-                if (!bypassThese.contains(openList.get(i))) {
-                    result = openList.get(i);
-                }
+            if ((result == null) || (result.getNNode().size() < openList.get(i).getNNode().size())
+                && !bypassThese.contains(openList.get(i))) {
+                result = openList.get(i);
             }
         }
         return result;
@@ -866,11 +865,9 @@ public class ReteNetwork {
     private ReteStaticMapping pickCheckerNodeConnectedTo(StaticMap openList, ReteStaticMapping g1) {
         ReteStaticMapping result = null;
         for (ReteStaticMapping m : openList) {
-            if ((m != g1) && isOkToJoin(g1, m)) {
-                if (ReteStaticMapping.properlyOverlap(g1, m)) {
-                    result = m;
-                    break;
-                }
+            if ((m != g1) && isOkToJoin(g1, m) && ReteStaticMapping.properlyOverlap(g1, m)) {
+                result = m;
+                break;
             }
         }
         return result;
@@ -883,12 +880,11 @@ public class ReteNetwork {
     private EdgeCheckerNode findEdgeCheckerForEdge(RuleEdge e) {
         EdgeCheckerNode result = null;
         for (ReteNetworkNode n : this.getRoot().getSuccessors()) {
-            if (n instanceof EdgeCheckerNode) {
+            if (n instanceof EdgeCheckerNode
+                && ((EdgeCheckerNode) n).canBeStaticallyMappedToEdge(e)) {
                 //if it can match this edge "e"
-                if (((EdgeCheckerNode) n).canBeStaticallyMappedToEdge(e)) {
-                    result = (EdgeCheckerNode) n;
-                    break;
-                }
+                result = (EdgeCheckerNode) n;
+                break;
             }
         }
         return result;

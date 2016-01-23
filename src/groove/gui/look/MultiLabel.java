@@ -379,7 +379,8 @@ public class MultiLabel {
         public static DirectBag norm(DirectBag bag) {
             DirectBag result = pool.get(bag);
             if (result == null) {
-                pool.put(bag, result = bag);
+                result = bag;
+                pool.put(bag, result);
             }
             return bag;
         }

@@ -148,11 +148,10 @@ public class InstanceToGroove extends InstanceExporter<java.lang.Object> {
                 if (p instanceof DefaultValueProperty) {
                     DefaultValueProperty dp = (DefaultValueProperty) p;
                     if (((Class) object.getType()).getAllSuperClasses().contains(dp.getField()
-                        .getDefiningClass())) {
-                        if (!object.getValue().containsKey(dp.getField())) {
-                            object.setFieldValue(dp.getField(), dp.getDefaultValue());
-                            defaultFields.add(dp.getField());
-                        }
+                        .getDefiningClass())
+                        && !object.getValue().containsKey(dp.getField())) {
+                        object.setFieldValue(dp.getField(), dp.getDefaultValue());
+                        defaultFields.add(dp.getField());
                     }
                 }
             }

@@ -14,7 +14,7 @@ import java.util.Map;
  * Object in the conceptual model.
  * No two object references are equal if they are not the same underlying Java Object.
  * @author s0141844
- * 
+ *
  */
 public class Object extends Value {
     /** The name of this object. */
@@ -51,13 +51,11 @@ public class Object extends Value {
     public void setFieldValue(Field field, Value fieldValue) {
         // SET container is often automatic, so just create container value if required
         if (field.getType() instanceof Container
-            && ((Container) field.getType()).getContainerType() == Kind.SET) {
-            if (!(fieldValue instanceof ContainerValue)) {
-                ContainerValue cv =
-                    new ContainerValue((Container) field.getType());
-                cv.addValue(fieldValue);
-                fieldValue = cv;
-            }
+            && ((Container) field.getType()).getContainerType() == Kind.SET
+            && !(fieldValue instanceof ContainerValue)) {
+            ContainerValue cv = new ContainerValue((Container) field.getType());
+            cv.addValue(fieldValue);
+            fieldValue = cv;
         }
         assert (field.getType().acceptValue(fieldValue));
         this.m_fieldValues.put(field, fieldValue);

@@ -416,14 +416,12 @@ public class EdgeCheckerNode extends ReteNetworkNode implements ReteStateSubscri
     @Override
     public int demandOneMatch() {
         int result = this.ondemandBuffer.size();
-        if (this.getOwner().isInOnDemandMode()) {
-            if (!this.isUpToDate() && (result > 0)) {
-                HostEdge e = this.ondemandBuffer.iterator().next();
-                this.ondemandBuffer.remove(e);
-                sendDownReceivedEdge(e, Action.ADD);
-                setUpToDate(this.ondemandBuffer.isEmpty());
-                result = 1;
-            }
+        if (this.getOwner().isInOnDemandMode() && !this.isUpToDate() && (result > 0)) {
+            HostEdge e = this.ondemandBuffer.iterator().next();
+            this.ondemandBuffer.remove(e);
+            sendDownReceivedEdge(e, Action.ADD);
+            setUpToDate(this.ondemandBuffer.isEmpty());
+            result = 1;
         }
         return result;
     }

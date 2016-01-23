@@ -39,7 +39,8 @@ class ExploreData {
      * Creates a record for a given state.
      */
     ExploreData(StateCache cache) {
-        GraphState state = this.state = cache.getState();
+        this.state = cache.getState();
+        GraphState state = this.state;
         this.absence = this.state.getActualFrame().getTransience();
         this.inRecipe = state.isInternalState();
         if (!state.isClosed()) {
@@ -60,8 +61,10 @@ class ExploreData {
      */
     void notifyOutPartial(RuleTransition partial) {
         if (DEBUG) {
-            System.out.printf("Rule transition added: %s--%s-->%s%n", partial.source(),
-                partial.label(), partial.target());
+            System.out.printf("Rule transition added: %s--%s-->%s%n",
+                partial.source(),
+                partial.label(),
+                partial.target());
         }
         assert partial.isPartial();
         assert partial.source() == this.state;
@@ -208,7 +211,9 @@ class ExploreData {
         RecipeTransition trans = new RecipeTransition(source, target, partial);
         this.state.getGTS().addTransition(trans);
         if (DEBUG) {
-            System.out.printf("Recipe transition added: %s--%s-->%s%n", source, trans.label(),
+            System.out.printf("Recipe transition added: %s--%s-->%s%n",
+                source,
+                trans.label(),
                 target);
         }
     }
@@ -319,7 +324,8 @@ class ExploreData {
                 List<GraphState> topLevelReachables = new ArrayList<GraphState>(entry.two());
                 entry.one().recipeTargets = topLevelReachables;
                 if (DEBUG) {
-                    System.out.printf("Top-level reachables of %s determined at %s", entry.one(),
+                    System.out.printf("Top-level reachables of %s determined at %s",
+                        entry.one(),
                         topLevelReachables);
                 }
             }
