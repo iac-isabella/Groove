@@ -74,7 +74,8 @@ public abstract class ConfigDialog extends JDialog implements ActionListener {
             }
         };
         KeyStroke stroke = KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0);
-        this.getRootPane().registerKeyboardAction(actionListener, stroke,
+        this.getRootPane().registerKeyboardAction(actionListener,
+            stroke,
             JComponent.WHEN_IN_FOCUSED_WINDOW);
 
         this.m_simulator = simulator;
@@ -158,7 +159,11 @@ public abstract class ConfigDialog extends JDialog implements ActionListener {
 
         if (hasModels()) {
             this.m_activeModel =
-                this.m_simulator.getModel().getGrammar().getNames(ResourceKind.CONFIG).iterator().next();
+                this.m_simulator.getModel()
+                    .getGrammar()
+                    .getNames(ResourceKind.CONFIG)
+                    .iterator()
+                    .next();
         }
 
         refreshGUI();
@@ -254,14 +259,20 @@ public abstract class ConfigDialog extends JDialog implements ActionListener {
                 }
 
                 try {
-                    this.m_simulator.getModel().getStore().deleteTexts(ResourceKind.CONFIG,
-                        Collections.singletonList(this.m_activeModel));
+                    this.m_simulator.getModel()
+                        .getStore()
+                        .deleteTexts(ResourceKind.CONFIG,
+                            Collections.singletonList(this.m_activeModel));
 
                     if (!hasModels()) {
                         this.m_activeModel = null;
                     } else {
                         this.m_activeModel =
-                            this.m_simulator.getModel().getGrammar().getNames(ResourceKind.CONFIG).iterator().next();
+                            this.m_simulator.getModel()
+                                .getGrammar()
+                                .getNames(ResourceKind.CONFIG)
+                                .iterator()
+                                .next();
                     }
                 } catch (IOException e) {
                     new ErrorDialog(this.m_simulator.getFrame(), "Error deleting configuration", e).setVisible(true);
@@ -274,8 +285,9 @@ public abstract class ConfigDialog extends JDialog implements ActionListener {
                     return;
                 }
                 try {
-                    this.m_simulator.getModel().getStore().rename(ResourceKind.CONFIG,
-                        this.m_activeModel, modelName);
+                    this.m_simulator.getModel()
+                        .getStore()
+                        .rename(ResourceKind.CONFIG, this.m_activeModel, modelName);
                     this.m_activeModel = modelName;
                 } catch (IOException e) {
                     new ErrorDialog(this.m_simulator.getFrame(), "Error renaming configuration", e).setVisible(true);
@@ -290,10 +302,14 @@ public abstract class ConfigDialog extends JDialog implements ActionListener {
                 String xmlString;
                 try {
                     xmlString =
-                        (String) this.m_simulator.getModel().getGrammar().getResource(
-                            ResourceKind.CONFIG, this.m_activeModel).toResource();
-                    this.m_simulator.getModel().getStore().putTexts(ResourceKind.CONFIG,
-                        Collections.singletonMap(modelName, xmlString));
+                        (String) this.m_simulator.getModel()
+                            .getGrammar()
+                            .getResource(ResourceKind.CONFIG, this.m_activeModel)
+                            .toResource();
+                    this.m_simulator.getModel()
+                        .getStore()
+                        .putTexts(ResourceKind.CONFIG,
+                            Collections.singletonMap(modelName, xmlString));
                     this.m_activeModel = modelName;
                 } catch (FormatException e) {
                     // FormatException not applicable to CONFIG resources
@@ -322,8 +338,10 @@ public abstract class ConfigDialog extends JDialog implements ActionListener {
         String xmlString = null;
         try {
             xmlString =
-                (String) this.m_simulator.getModel().getGrammar().getResource(ResourceKind.CONFIG,
-                    this.m_activeModel).toResource();
+                (String) this.m_simulator.getModel()
+                    .getGrammar()
+                    .getResource(ResourceKind.CONFIG, this.m_activeModel)
+                    .toResource();
         } catch (FormatException e) {
             // FormatException not applicable to CONFIG resources
             return;
@@ -357,8 +375,10 @@ public abstract class ConfigDialog extends JDialog implements ActionListener {
             transformer.transform(source, result);
             String xmlString = result.getWriter().toString();
 
-            this.m_simulator.getModel().getStore().putTexts(ResourceKind.CONFIG,
-                Collections.singletonMap(this.m_activeModel, xmlString));
+            this.m_simulator.getModel()
+                .getStore()
+                .putTexts(ResourceKind.CONFIG,
+                    Collections.singletonMap(this.m_activeModel, xmlString));
         } catch (TransformerConfigurationException e) {
             exc = e;
         } catch (IOException e) {
@@ -376,6 +396,6 @@ public abstract class ConfigDialog extends JDialog implements ActionListener {
 
     public boolean hasModels() {
         Set<String> names = this.m_simulator.getModel().getGrammar().getNames(ResourceKind.CONFIG);
-        return names.size() > 0;
+        return !names.isEmpty();
     }
 }

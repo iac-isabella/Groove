@@ -53,7 +53,7 @@ public class AbsEdge {
     }
 
     public void buildAspect(GraphRole role) {
-        if (this.m_aspectEdges.size() != 0) {
+        if (!this.m_aspectEdges.isEmpty()) {
             return;
         }
 
@@ -62,12 +62,10 @@ public class AbsEdge {
 
         String[] labels = this.m_name.split("\n");
         for (String sublabel : labels) {
-            AspectLabel alabel =
-                AspectParser.getInstance().parse(sublabel, role);
+            AspectLabel alabel = AspectParser.getInstance().parse(sublabel, role);
             if (alabel.isEdgeOnly()) {
                 AspectEdge newEdge =
-                    new AspectEdge(this.m_source.getAspect(), alabel,
-                        this.m_target.getAspect());
+                    new AspectEdge(this.m_source.getAspect(), alabel, this.m_target.getAspect());
                 this.m_aspectEdges.add(newEdge);
             } else {
                 // error

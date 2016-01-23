@@ -1,15 +1,15 @@
 /* GROOVE: GRaphs for Object Oriented VErification
  * Copyright 2003--2010 University of Twente
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- * http://www.apache.org/licenses/LICENSE-2.0 
- * 
- * Unless required by applicable law or agreed to in writing, 
- * software distributed under the License is distributed on an 
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
- * either express or implied. See the License for the specific 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  *
  * $Id: ProductionNode.java 5479 2014-07-19 12:20:13Z rensink $
@@ -33,22 +33,19 @@ public class ProductionNode extends ConditionChecker {
     /**
      * Report collector for production nodes
      */
-    protected static final Reporter reporter =
-        Reporter.register(ProductionNode.class);
+    protected static final Reporter reporter = Reporter.register(ProductionNode.class);
 
     /**
-     * For collecting reports on the number of time the 
+     * For collecting reports on the number of time the
      * {@link #demandOneMatch()} method is called for production nodes only.
      */
-    protected static final Reporter demandOneMatchReporter =
-        reporter.register("demandOneMatch");
+    protected static final Reporter demandOneMatchReporter = reporter.register("demandOneMatch");
 
     /**
      * @param network The RETE network to which this node belongs
-     * @param p The production rule associated with this checker. 
+     * @param p The production rule associated with this checker.
      */
-    public ProductionNode(ReteNetwork network, Rule p,
-            ReteStaticMapping antecedents) {
+    public ProductionNode(ReteNetwork network, Rule p, ReteStaticMapping antecedents) {
         super(network, p.getCondition(), null, antecedents);
     }
 
@@ -60,8 +57,8 @@ public class ProductionNode extends ConditionChecker {
     @Override
     public boolean equals(Object node) {
         return (this == node)
-            || ((node != null) && (node instanceof ProductionNode) && this.getProductionRule().equals(
-                ((ProductionNode) node).getProductionRule()));
+            || ((node != null) && (node instanceof ProductionNode) && this.getProductionRule()
+                .equals(((ProductionNode) node).getProductionRule()));
     }
 
     @Override
@@ -88,14 +85,14 @@ public class ProductionNode extends ConditionChecker {
             if (this.hasNacs()) {
                 this.demandUpdateOnlyIfNecessary();
             }
-            if (!this.inhibitionMap.isEmpty() && (cs.size() > 0)) {
+            if (!this.inhibitionMap.isEmpty() && (!cs.isEmpty())) {
                 for (ReteSimpleMatch m : cs) {
                     if (!this.isInhibited(m)) {
                         result.add(m);
                         break;
                     }
                 }
-            } else if (cs.size() > 0) {
+            } else if (!cs.isEmpty()) {
                 result.add(cs.iterator().next());
             } else {
                 demandOneMatchReporter.start();
@@ -117,7 +114,7 @@ public class ProductionNode extends ConditionChecker {
     }
 
     /**
-     * Determines if all the NACs are up to date w.r.t. 
+     * Determines if all the NACs are up to date w.r.t.
      * the matches currently present in the conflict set. That is,
      * no match in the conflict set is wrongfully considered uninhibitted.
      */
@@ -126,9 +123,7 @@ public class ProductionNode extends ConditionChecker {
         if (result) {
             for (ConditionChecker cc : this.getSubConditionCheckers()) {
                 if (cc instanceof CompositeConditionChecker) {
-                    result =
-                        result
-                            && ((CompositeConditionChecker) cc).isNegativePartUpToDate();
+                    result = result && ((CompositeConditionChecker) cc).isNegativePartUpToDate();
                 }
             }
         }

@@ -68,8 +68,9 @@ public class EcoreToType extends TypeImporter {
     public EcoreToType(String typeModel) throws ImportException {
         // Create new ResourceSet and register an XMI model loader (for all filetypes)
         this.rs = new ResourceSetImpl();
-        this.rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*",
-            new XMIResourceFactoryImpl());
+        this.rs.getResourceFactoryRegistry()
+            .getExtensionToFactoryMap()
+            .put("*", new XMIResourceFactoryImpl());
 
         // Load the XMI model containing Ecore type model
         try {
@@ -194,7 +195,7 @@ public class EcoreToType extends TypeImporter {
             return visitEnum(mm, (EEnum) eDataType);
         }
         Id dataID = EcoreUtil.idFromClassifier(eDataType);
-        // Check if custom 
+        // Check if custom
         if (mm.hasDatatype(dataID)) {
             return mm.getDatatype(dataID);
         }
@@ -249,7 +250,7 @@ public class EcoreToType extends TypeImporter {
         // Handle container type
         if (eAttribute.getUpperBound() > 1 || eAttribute.getUpperBound() == -1) {
             Kind type = eAttribute.isUnique() ? (eAttribute.isOrdered() ? Kind.ORD : Kind.SET) : // Unique
-                    (eAttribute.isOrdered() ? Kind.SEQ : Kind.BAG); // Non-unique
+                (eAttribute.isOrdered() ? Kind.SEQ : Kind.BAG); // Non-unique
             attribType = new Container(type, attribType);
         }
 
@@ -290,7 +291,7 @@ public class EcoreToType extends TypeImporter {
         }
 
         // Handle keyset
-        if (eReference.getEKeys().size() > 0) {
+        if (!eReference.getEKeys().isEmpty()) {
             List<Name> keyNames = new ArrayList<Name>();
             for (EAttribute attr : eReference.getEKeys()) {
                 keyNames.add(Name.getName(attr.getName()));
@@ -326,7 +327,7 @@ public class EcoreToType extends TypeImporter {
         // Handle container type
         if (eReference.getUpperBound() > 1 || eReference.getUpperBound() == -1) {
             Kind type = eReference.isUnique() ? (eReference.isOrdered() ? Kind.ORD : Kind.SET) : // Unique
-                    (eReference.isOrdered() ? Kind.SEQ : Kind.BAG); // Non-unique
+                (eReference.isOrdered() ? Kind.SEQ : Kind.BAG); // Non-unique
             fieldType = new Container(type, fieldType);
         }
 

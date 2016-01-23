@@ -603,7 +603,7 @@ public class SubgraphCheckerNode<LeftMatchType extends AbstractReteMatch,RightMa
                 boolean first = (this.getAntecedents().get(0) != this.getAntecedents().get(1));
                 do {
                     do {
-                        if (theBuffer.size() == 0) {
+                        if (theBuffer.isEmpty()) {
                             if (theAntecedent.demandOneMatch() == 0) {
                                 break;
                             }

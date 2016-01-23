@@ -118,7 +118,7 @@ public class ClosurePathChecker extends AbstractPathChecker implements ReteState
             }
 
         }
-        if (resultingNewMatches.size() > 0) {
+        if (!resultingNewMatches.isEmpty()) {
             passDownMatches(resultingNewMatches);
             if (recursionCounter > 0) {
                 receiveLoopBackMatches(resultingNewMatches, recursionCounter - 1);

@@ -501,7 +501,7 @@ public class Rule implements Action, Fixable {
     private SearchStrategy getMatcher(RuleToHostMap seedMap) {
         assert isTop();
         Matcher result;
-        if (getSignature().size() > 0) {
+        if (!getSignature().isEmpty()) {
             int sigSize = getSignature().size();
             BitSet initPars = new BitSet(sigSize);
             for (int i = 0; i < sigSize; i++) {

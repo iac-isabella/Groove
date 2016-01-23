@@ -78,7 +78,7 @@ public class MinimaxStrategy extends ClosingStrategy implements GTSListener {
      * @param enabledrules a collection of enabled rules, duplicates will be removed
      */
     public MinimaxStrategy(int heuristicparam, int maxdepth, Collection<Rule> enabledrules,
-            Rule evalrule, int minmaxparam) {
+        Rule evalrule, int minmaxparam) {
         super();
 
         //parameters
@@ -269,8 +269,8 @@ public class MinimaxStrategy extends ClosingStrategy implements GTSListener {
      * @return true when the label of r is in the list of enabled rules, or when all labels are allowed
      */
     private boolean isRuleEnabled(String r) {
-        return this.enabledrules == null || this.enabledrules.size() == 0
-                || this.enabledrules.contains(r);
+        return this.enabledrules == null || this.enabledrules.isEmpty()
+            || this.enabledrules.contains(r);
     }
 
     private boolean isMinMaxrule(String r) {
@@ -282,7 +282,7 @@ public class MinimaxStrategy extends ClosingStrategy implements GTSListener {
         super.finish();
         if (DEBUG) {
             System.out.println("Exploration Finished! It took "
-                    + (System.currentTimeMillis() - this.timer) + "ms");
+                + (System.currentTimeMillis() - this.timer) + "ms");
             printMinimaxDebugTree(new File("tree.txt"));
         }
     }
@@ -313,7 +313,7 @@ public class MinimaxStrategy extends ClosingStrategy implements GTSListener {
         } else {
             //update the score
             if (isRuleEnabled(transition.label().getAction().getLastName())
-                    && target.getMatch() == null) {
+                && target.getMatch() == null) {
                 int score = getHeuristicScore((RuleTransition) transition);
                 mtt.setScore(score);
             }
@@ -439,7 +439,7 @@ public class MinimaxStrategy extends ClosingStrategy implements GTSListener {
             if (isLeafNode()) {
                 result = this.score;
             } else {
-                if (getChildren().size() > 0) { //only valid scores exist when there is at least one leaf node
+                if (!getChildren().isEmpty()) { //only valid scores exist when there is at least one leaf node
                     //calculate the tree score
                     for (MinimaxTree mt : getChildren()) {
                         Integer mtscore = mt.getScore();
@@ -486,7 +486,7 @@ public class MinimaxStrategy extends ClosingStrategy implements GTSListener {
         @Override
         public String toString() {
             String result =
-                    "[" + getNodeno() + ";" + (getMinMax() ? "min()" : "max()") + ":" + getText() + "]";
+                "[" + getNodeno() + ";" + (getMinMax() ? "min()" : "max()") + ":" + getText() + "]";
             return result;
         }
 

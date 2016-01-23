@@ -404,7 +404,7 @@ public abstract interface Parser<T> {
 
         @Override
         public boolean isDefault(Object value) {
-            return value instanceof List && ((List<?>) value).size() == 0;
+            return value instanceof List && ((List<?>) value).isEmpty();
         }
 
         /** String parser recognising no quotes or brackets. */

@@ -1187,7 +1187,7 @@ public class IsoChecker {
 
         /** Returns true if the plan size is zero. */
         public boolean isPlanEmpty() {
-            return this.plan == null || this.plan.size() == 0;
+            return this.plan == null || this.plan.isEmpty();
         }
     }
 }

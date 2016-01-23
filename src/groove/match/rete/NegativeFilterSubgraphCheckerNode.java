@@ -171,7 +171,7 @@ public class NegativeFilterSubgraphCheckerNode<LeftMatchType extends AbstractRet
         });
         for (LeftMatchType positiveMatch : this.leftMemory) {
             if (this.joinStrategy.test(positiveMatch, subgraph)) {
-                if (this.inhibitionMap.getInhibitorsOf(positiveMatch).size() == 0) {
+                if (this.inhibitionMap.getInhibitorsOf(positiveMatch).isEmpty()) {
                     positiveMatch.dominoDeleteAfter();
                 }
                 this.inhibitionMap.add(subgraph, positiveMatch);
@@ -187,7 +187,7 @@ public class NegativeFilterSubgraphCheckerNode<LeftMatchType extends AbstractRet
             this.inhibitionMap.removeInhibitor(negativeMatch);
         if (positiveMatches != null) {
             for (AbstractReteMatch positiveMatch : positiveMatches) {
-                if (this.inhibitionMap.getInhibitorsOf(positiveMatch).size() == 0) {
+                if (this.inhibitionMap.getInhibitorsOf(positiveMatch).isEmpty()) {
                     assert this.leftMemory.contains(positiveMatch);
                     AbstractReteMatch combined =
                         this.joinStrategy.construct(
@@ -340,7 +340,7 @@ public class NegativeFilterSubgraphCheckerNode<LeftMatchType extends AbstractRet
                         this.positiveToNegative.get(positiveMatch);
                     boolean b = s.remove(inhibitor);
                     assert b;
-                    if (s.size() == 0) {
+                    if (s.isEmpty()) {
                         this.positiveToNegative.remove(positiveMatch);
                     }
                 }
@@ -368,7 +368,7 @@ public class NegativeFilterSubgraphCheckerNode<LeftMatchType extends AbstractRet
                         this.negativeToPositive.get(negative);
                     assert otherPositives != null;
                     otherPositives.remove(positive);
-                    if (otherPositives.size() == 0) {
+                    if (otherPositives.isEmpty()) {
                         this.negativeToPositive.remove(negative);
                     }
 

@@ -44,7 +44,7 @@ public class History<T> {
      * @ensure <tt>result</tt> implies <tt>! (hasNext() || hasPrevious())</tt>
      */
     public boolean isEmpty() {
-        return this.log.size() == 0;
+        return this.log.isEmpty();
     }
 
     /**

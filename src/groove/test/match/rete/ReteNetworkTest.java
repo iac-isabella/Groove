@@ -240,7 +240,7 @@ public class ReteNetworkTest extends TestCase {
             assertTrue(ant.getSuccessors().contains(nnode));
             checkBilateralConnectivity(ant);
         }
-        if (ants.size() == 0) {
+        if (ants.isEmpty()) {
             if (nnode instanceof ConditionChecker) {
                 assertTrue(((ConditionChecker) nnode).getCondition().getPattern().isEmpty());
             } else {

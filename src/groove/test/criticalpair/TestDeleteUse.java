@@ -67,37 +67,37 @@ public class TestDeleteUse {
         Rule deleteSelfEdge = getSimpleRule("deleteSelfEdge", view);
 
         Set<CriticalPair> pairs = CriticalPair.computeCriticalPairs(addNodeAndEdge, addNodeAndEdge);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(addNodeAndEdge, constantNode);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(addNodeAndEdge, constant_3_clique);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(addNodeAndEdge, constantSelfEdge);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(addNodeAndEdge, deleteEdge);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
 
         pairs = CriticalPair.computeCriticalPairs(addNodeAndEdge, addNodeAndEdge);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(addNodeAndEdge, deleteNode);
         assertTrue(pairs.size() == 1);
         pairs = CriticalPair.computeCriticalPairs(addNodeAndEdge, deleteSelfEdge);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(constantNode, constant_3_clique);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(constantNode, constantSelfEdge);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(constantNode, deleteEdge);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(constantNode, deleteNode);
         assertTrue(pairs.size() == 1);
         pairs = CriticalPair.computeCriticalPairs(constantNode, deleteSelfEdge);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
 
         pairs = CriticalPair.computeCriticalPairs(constant_3_clique, constant_3_clique);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(constant_3_clique, constantSelfEdge);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(constant_3_clique, deleteEdge);
         assertTrue(pairs.size() == 16);
 
@@ -126,11 +126,11 @@ public class TestDeleteUse {
          * and therefore not a critical pair
          */
         pairs = CriticalPair.computeCriticalPairs(deleteEdge, deleteEdge);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(deleteNode, deleteNode);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(deleteSelfEdge, deleteSelfEdge);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
 
     }
 
@@ -151,9 +151,9 @@ public class TestDeleteUse {
         Rule threeNodesThreeFlags = getSimpleRule("threeNodesThreeFlags", view);
 
         Set<CriticalPair> pairs = CriticalPair.computeCriticalPairs(deleteFlagA, nodeWithEdgeA);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(deleteFlagA, nodeWithEdgeA);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(deleteFlagA, nodewithFlagA);
         assertTrue(pairs.size() == 1);
         pairs = CriticalPair.computeCriticalPairs(deleteFlagA, threeNodesOneFlag);

@@ -754,7 +754,7 @@ public class AspectGraph extends NodeSetEdgeSetGraph<AspectNode,AspectEdge> {
      * @return a merged aspect graph or {@code null} if the set of input graphs is empty
      */
     public static AspectGraph mergeGraphs(Collection<AspectGraph> graphs) {
-        if (graphs.size() == 0) {
+        if (graphs.isEmpty()) {
             return null;
         }
         // Compute name and layout boundaries

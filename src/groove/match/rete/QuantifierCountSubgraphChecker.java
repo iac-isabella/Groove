@@ -132,7 +132,7 @@ public class QuantifierCountSubgraphChecker extends
             //there should be no more matches left in the left memory
             //as it should always contain the as-yet not processed
             //left matches.
-            assert this.leftMemory.size() == 0;
+            assert this.leftMemory.isEmpty();
         }
         return result;
     }

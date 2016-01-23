@@ -328,7 +328,7 @@ public class GrooveToInstance extends InstanceImporter {
                 nodeEdges.add(e);
             }
         }
-        if (nodeEdges.size() == 0) {
+        if (nodeEdges.isEmpty()) {
             return null;
         }
 
@@ -360,7 +360,7 @@ public class GrooveToInstance extends InstanceImporter {
                 nodeEdges.add(e);
             }
         }
-        if (nodeEdges.size() == 0) {
+        if (nodeEdges.isEmpty()) {
             return null;
         }
 

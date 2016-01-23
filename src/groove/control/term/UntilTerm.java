@@ -16,7 +16,6 @@
  */
 package groove.control.term;
 
-
 /**
  * Until-do term.
  * @author Arend Rensink
@@ -39,16 +38,14 @@ public class UntilTerm extends Term {
             result.addAll(ders0);
             result.setSuccess(ders0.onSuccess());
             result.setFailure(ders0.onFailure().ifElse(epsilon(), arg1().seq(this)));
-        } else if (arg0().getType() == Type.DEAD) {
-            if (arg1().isTrial()) {
-                result = createAttempt();
-                DerivationAttempt ders1 = arg1().getAttempt(nested);
-                for (Derivation deriv : ders1) {
-                    result.add(deriv.newInstance(deriv.onFinish().seq(this), false));
-                }
-                result.setSuccess(ders1.onSuccess().seq(this));
-                result.setFailure(ders1.onFailure().seq(this));
+        } else if (arg0().getType() == Type.DEAD && arg1().isTrial()) {
+            result = createAttempt();
+            DerivationAttempt ders1 = arg1().getAttempt(nested);
+            for (Derivation deriv : ders1) {
+                result.add(deriv.newInstance(deriv.onFinish().seq(this), false));
             }
+            result.setSuccess(ders1.onSuccess().seq(this));
+            result.setFailure(ders1.onFailure().seq(this));
         }
         return result;
     }

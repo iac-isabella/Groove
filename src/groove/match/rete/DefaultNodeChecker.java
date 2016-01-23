@@ -1,15 +1,15 @@
 /* GROOVE: GRaphs for Object Oriented VErification
  * Copyright 2003--2011 University of Twente
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- * http://www.apache.org/licenses/LICENSE-2.0 
- * 
- * Unless required by applicable law or agreed to in writing, 
- * software distributed under the License is distributed on an 
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
- * either express or implied. See the License for the specific 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  *
  * $Id: DefaultNodeChecker.java 5479 2014-07-19 12:20:13Z rensink $
@@ -31,20 +31,18 @@ import java.util.List;
  * @author Arash Jalali
  * @version $Revision $
  */
-public class DefaultNodeChecker extends NodeChecker implements
-        ReteStateSubscriber {
+public class DefaultNodeChecker extends NodeChecker implements ReteStateSubscriber {
 
     private HostNodeSet ondemandBuffer = new HostNodeSet();
 
     /**
      * Node-checker nodes now have a memory of
-     * matches produced. This is necessary to 
+     * matches produced. This is necessary to
      * bring the triggering of domino-deletion
      * inside the node-checker rather than
      * relegating it to subgraph checkers.
      */
-    private TreeHashSet<ReteSimpleMatch> memory =
-        new TreeHashSet<ReteSimpleMatch>();
+    private TreeHashSet<ReteSimpleMatch> memory = new TreeHashSet<ReteSimpleMatch>();
 
     /** Flag indicating if the node type has non-trivial subtypes. */
     final boolean sharpType;
@@ -54,8 +52,7 @@ public class DefaultNodeChecker extends NodeChecker implements
     /**
      * The reporter object for this class.
      */
-    protected static final Reporter reporter =
-        Reporter.register(NodeChecker.class);
+    protected static final Reporter reporter = Reporter.register(NodeChecker.class);
 
     /**
      * The reporter collecting statistics for the {@link #receiveNode} method.
@@ -77,7 +74,7 @@ public class DefaultNodeChecker extends NodeChecker implements
     /**
      * This method is called by the ROOT of the RETE network whenever a new {@link Node}
      * is added or removed to/from the host graph.
-     * 
+     *
      * @param node The node in host graph that has been added or removed.
      * @param action Determines if the given <code>node</code> has been added or removed.
      */
@@ -86,8 +83,7 @@ public class DefaultNodeChecker extends NodeChecker implements
         if (checkType(node)) {
             if (!this.getOwner().isInOnDemandMode()) {
                 sendDownReceivedNode(node, action);
-            } else if ((action == Action.REMOVE)
-                && !this.ondemandBuffer.contains(node)) {
+            } else if ((action == Action.REMOVE) && !this.ondemandBuffer.contains(node)) {
                 sendDownReceivedNode(node, action);
             } else {
                 bufferReceivedNode(node, action);
@@ -96,7 +92,7 @@ public class DefaultNodeChecker extends NodeChecker implements
         receiveNodeReporter.stop();
     }
 
-    /** Tests if the type of a given node matches the type of 
+    /** Tests if the type of a given node matches the type of
      * the node checker. */
     private boolean checkType(HostNode image) {
         return this.type.subsumes(image.getType(), this.sharpType);
@@ -104,14 +100,13 @@ public class DefaultNodeChecker extends NodeChecker implements
 
     private void sendDownReceivedNode(HostNode node, Action action) {
 
-        ReteSimpleMatch m =
-            new ReteSimpleMatch(this, node, this.getOwner().isInjective());
+        ReteSimpleMatch m = new ReteSimpleMatch(this, node, this.getOwner().isInjective());
 
         if (action == Action.ADD) {
             assert !this.memory.contains(m);
             this.memory.add(m);
             passDownMatchToSuccessors(m);
-        } else { // action == Action.REMOVE            
+        } else { // action == Action.REMOVE
             if (this.memory.contains(m)) {
                 ReteSimpleMatch m1 = m;
                 m = this.memory.put(m);
@@ -138,8 +133,8 @@ public class DefaultNodeChecker extends NodeChecker implements
 
     /**
      * For node-checkers the value of size is always zero
-     * 
-     * This is a construction-time method only.  
+     *
+     * This is a construction-time method only.
      */
     @Override
     public int size() {
@@ -153,7 +148,7 @@ public class DefaultNodeChecker extends NodeChecker implements
 
     @Override
     public boolean demandUpdate() {
-        boolean result = this.ondemandBuffer.size() > 0;
+        boolean result = !this.ondemandBuffer.isEmpty();
         if (!this.isUpToDate()) {
             if (this.getOwner().isInOnDemandMode()) {
                 for (HostNode n : this.ondemandBuffer) {
@@ -186,7 +181,7 @@ public class DefaultNodeChecker extends NodeChecker implements
                 HostNode n = this.ondemandBuffer.iterator().next();
                 this.ondemandBuffer.remove(n);
                 sendDownReceivedNode(n, Action.ADD);
-                setUpToDate(this.ondemandBuffer.size() == 0);
+                setUpToDate(this.ondemandBuffer.isEmpty());
                 result = 1;
             }
         }
@@ -194,19 +189,18 @@ public class DefaultNodeChecker extends NodeChecker implements
     }
 
     @Override
-    public void receive(ReteNetworkNode source, int repeatIndex,
-            AbstractReteMatch subgraph) {
+    public void receive(ReteNetworkNode source, int repeatIndex, AbstractReteMatch subgraph) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void updateBegin() {
-        //Do nothing        
+        //Do nothing
     }
 
     @Override
     public void updateEnd() {
-        //Do nothing        
+        //Do nothing
     }
 
     @Override

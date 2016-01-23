@@ -84,19 +84,19 @@ public class TestDeleteUseWithAttributes {
         //Since constants and targets of operations are not included in the search for critical pairs
         //The only critical pair which we will find has the same match for both rules
         //therefore this critical pair is not considered a critical pair
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(addOneToNumber_2, addOneToNumber_2);
         //Similar to the previous
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         pairs = CriticalPair.computeCriticalPairs(deleteNumber, deleteNumber);
         //There is one way to overlap the rule deleteNumber with itself such that
         //a conflicting parallel pair is formed, however, in this case the matches are equal
         //therefore the conflict is not a critical pair
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
         //Again, similarly to the previous same rules with the same match is not a critical pair
         //therefore there are no critical pairs for the following rule
         pairs = CriticalPair.computeCriticalPairs(deleteNumberOne, deleteNumberOne);
-        assertTrue(pairs.size() == 0);
+        assertTrue(pairs.isEmpty());
 
     }
 

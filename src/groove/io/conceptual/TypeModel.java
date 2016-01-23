@@ -66,7 +66,7 @@ public class TypeModel implements Serializable {
 
     // Add Id to used list
     private void addUsedId(Id id) {
-        if (this.m_usedIds.size() == 0) {
+        if (this.m_usedIds.isEmpty()) {
             this.m_commonPrefix = id;
         }
         this.m_usedIds.add(id);
@@ -260,7 +260,7 @@ public class TypeModel implements Serializable {
     public Map<Id,Id> getShortIds() {
         HashMap<Id,Id> mappedIds = new HashMap<Id,Id>();
 
-        if (this.m_usedIds.size() == 0) {
+        if (this.m_usedIds.isEmpty()) {
             return mappedIds;
         }
 

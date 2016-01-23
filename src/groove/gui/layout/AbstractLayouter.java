@@ -175,7 +175,7 @@ public abstract class AbstractLayouter implements Layouter {
         Runnable edit = new Runnable() {
             @Override
             public void run() {
-                if (change.size() != 0) {
+                if (!change.isEmpty()) {
                     jModel.edit(change, null, null, null);
                     // taking out the refresh as probably superfluous and
                     // certainly performance impacting

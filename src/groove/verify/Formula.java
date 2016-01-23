@@ -141,7 +141,7 @@ public class Formula extends TermTree<LogicOp,Formula> {
 
     /** Returns the first argument of the top-level operator, if any. */
     public Formula getArg1() {
-        return getArgs().size() >= 1 ? getArg(0) : null;
+        return !getArgs().isEmpty() ? getArg(0) : null;
     }
 
     /** Returns the second argument of the top-level operator, if any. */

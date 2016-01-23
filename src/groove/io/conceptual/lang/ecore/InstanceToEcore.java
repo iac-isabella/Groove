@@ -80,7 +80,7 @@ public class InstanceToEcore extends InstanceExporter<java.lang.Object> implemen
             rootObjects.add(object);
         }
 
-        if (rootObjects.size() == 0) {
+        if (rootObjects.isEmpty()) {
             // This effectively means there is a containment cycle
             throw new PortException("Unable to find any root object");
         }

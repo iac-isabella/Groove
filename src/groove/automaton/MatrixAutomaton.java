@@ -1002,10 +1002,8 @@ public class MatrixAutomaton extends NodeSetEdgeSetGraph<RegNode,RegEdge> implem
                         // store the result and
                         boolean result =
                             super.put(image, Collections.<Valuation>emptySet()) == null;
-                        if (result) {
-                            if (MatchingAlgorithm.this.remainingImageCount > 0) {
-                                MatchingAlgorithm.this.remainingImageCount--;
-                            }
+                        if (result && MatchingAlgorithm.this.remainingImageCount > 0) {
+                            MatchingAlgorithm.this.remainingImageCount--;
                         }
                         return result;
                     }
