@@ -93,8 +93,10 @@ public enum AlgebraFamily {
         Sort sigKind = algebra.getSort();
         Algebra<?> oldAlgebra = this.algebraMap.put(sigKind, algebra);
         if (oldAlgebra != null) {
-            throw new IllegalArgumentException(String.format(
-                "Signature '%s' already implemented by '%s'", sigKind, oldAlgebra.getName()));
+            throw new IllegalArgumentException(
+                String.format("Signature '%s' already implemented by '%s'",
+                    sigKind,
+                    oldAlgebra.getName()));
         }
     }
 
@@ -106,8 +108,8 @@ public enum AlgebraFamily {
     private void checkCompleteness() throws IllegalStateException {
         for (Sort sigKind : Sort.values()) {
             if (!this.algebraMap.containsKey(sigKind)) {
-                throw new IllegalStateException(String.format(
-                    "Implementation of signature '%s' is missing", sigKind));
+                throw new IllegalStateException(
+                    String.format("Implementation of signature '%s' is missing", sigKind));
             }
         }
     }
@@ -227,8 +229,7 @@ public enum AlgebraFamily {
     }
 
     /** A map from signature kinds to algebras registered for that name. */
-    private final Map<Sort,Algebra<?>> algebraMap = new EnumMap<Sort,Algebra<?>>(
-        Sort.class);
+    private final Map<Sort,Algebra<?>> algebraMap = new EnumMap<Sort,Algebra<?>>(Sort.class);
     /** Store of operations created from the algebras. */
     private final Map<Algebra<?>,Map<String,Operation>> operationsMap =
         new HashMap<Algebra<?>,Map<String,Operation>>();
@@ -242,8 +243,7 @@ public enum AlgebraFamily {
      * Returns the algebra register with a given name.
      */
     public static AlgebraFamily getInstance(String instanceName) {
-        AlgebraFamily result = familyMap.get(instanceName);
-        return result;
+        return familyMap.get(instanceName);
     }
 
     /** Mapping from names to algebra families. */
@@ -259,8 +259,7 @@ public enum AlgebraFamily {
         Operation(AlgebraFamily register, Algebra<?> algebra, Method method) {
             this.algebra = algebra;
             this.method = method;
-            Sort returnType =
-                algebra.getSort().getOperator(method.getName()).getResultType();
+            Sort returnType = algebra.getSort().getOperator(method.getName()).getResultType();
             this.returnType = register.getAlgebra(returnType);
         }
 

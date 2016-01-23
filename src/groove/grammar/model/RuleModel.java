@@ -2358,8 +2358,7 @@ public class RuleModel extends GraphBasedModel<Rule> implements Comparable<RuleM
          * @return the fresh rule created by the factory
          */
         private Rule createRule(Condition condition, RuleGraph rhs, RuleGraph coRoot) {
-            Rule result = new Rule(condition, rhs, coRoot);
-            return result;
+            return new Rule(condition, rhs, coRoot);
         }
 
         /**

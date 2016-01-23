@@ -1,17 +1,17 @@
 /*
  * GROOVE: GRaphs for Object Oriented VErification Copyright 2003--2007
  * University of Twente
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
- * 
+ *
  * $Id: Bisimulator.java 5479 2014-07-19 12:20:13Z rensink $
  */
 package groove.graph.iso;
@@ -96,15 +96,14 @@ public class Bisimulator extends CertificateStrategy {
             //for (MyNodeCert<N> nodeCert : (MyNodeCert<N>[]) this.nodeCerts) {
             for (NodeCertificate nodeCert : this.nodeCerts) {
                 int newCert = ((MyNodeCert) nodeCert).setNewValue();
-                if (iterateCount > 0 && partitionCount < nodeCertCount) {
-                    if (!certStore.add(newCert)) {
-                        // this certificate is a duplicate; maybe it is the
-                        // smallest
-                        if (BREAK_SYMMETRIES && newCert < minCertValue || minCert == null) {
-                            minCertValue = newCert;
-                            minCert = (MyNodeCert) nodeCert;
-                        }
-                    }
+                boolean countCondition = iterateCount > 0 && partitionCount < nodeCertCount;
+                // this certificate is a duplicate; maybe it is the smallest
+                boolean certificateCondition = !certStore.add(newCert);
+                boolean symmetryCondition =
+                    BREAK_SYMMETRIES && newCert < minCertValue || minCert == null;
+                if (countCondition && certificateCondition && symmetryCondition) {
+                    minCertValue = newCert;
+                    minCert = (MyNodeCert) nodeCert;
                 }
                 certificateValue += newCert;
             }
@@ -176,7 +175,7 @@ public class Bisimulator extends CertificateStrategy {
 
     @Override
     EdgeCertificate createEdge2Certificate(Edge edge, CertificateStrategy.NodeCertificate source,
-            CertificateStrategy.NodeCertificate target) {
+        CertificateStrategy.NodeCertificate target) {
         return new MyEdge2Cert(edge, (MyNodeCert) source, (MyNodeCert) target);
     }
 
@@ -211,7 +210,7 @@ public class Bisimulator extends CertificateStrategy {
      * Superclass of graph element certificates.
      */
     public abstract static class Certificate<EL extends Element> implements
-            CertificateStrategy.ElementCertificate<EL> {
+        CertificateStrategy.ElementCertificate<EL> {
         /** Constructs a certificate for a given graph element. */
         Certificate(EL element) {
             this.element = element;
@@ -293,7 +292,7 @@ public class Bisimulator extends CertificateStrategy {
      * @version $Revision: 5479 $
      */
     private static class MyNodeCert extends Certificate<Node> implements
-            CertificateStrategy.NodeCertificate {
+        CertificateStrategy.NodeCertificate {
         /** Initial node value to provide a better spread of hash codes. */
         private static final int INIT_NODE_VALUE = 0x126b;
 
@@ -546,9 +545,7 @@ public class Bisimulator extends CertificateStrategy {
         @Override
         protected int computeNewValue() {
             int sourceHashCode = this.source.hashCode();
-            int result = (sourceHashCode << 8) + (sourceHashCode >> 24) + this.value;
-            // source.nextValue += result;
-            return result;
+            return (sourceHashCode << 8) + (sourceHashCode >> 24) + this.value;
         }
 
         /**

@@ -30,7 +30,7 @@ import java.util.Set;
  * @version $Revision: 5479 $
  */
 public class NodeSetEdgeSetGraph<N extends Node,E extends GEdge<N>> extends AGraph<N,E> implements
-        Cloneable {
+    Cloneable {
     /**
      * Creates a new, named empty graph.
      * @param name name of the new graph
@@ -132,8 +132,7 @@ public class NodeSetEdgeSetGraph<N extends Node,E extends GEdge<N>> extends AGra
 
     @Override
     public NodeSetEdgeSetGraph<N,E> clone() {
-        NodeSetEdgeSetGraph<N,E> result = new NodeSetEdgeSetGraph<N,E>(this);
-        return result;
+        return new NodeSetEdgeSetGraph<N,E>(this);
     }
 
     @Override

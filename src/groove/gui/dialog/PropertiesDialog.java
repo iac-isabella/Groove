@@ -120,10 +120,10 @@ public class PropertiesDialog {
      * edited graph.
      */
     private int showAbandonDialog() {
-        int response =
-            JOptionPane.showConfirmDialog(getContentPane(), "Use changed properties?", null,
-                JOptionPane.YES_NO_CANCEL_OPTION);
-        return response;
+        return JOptionPane.showConfirmDialog(getContentPane(),
+            "Use changed properties?",
+            null,
+            JOptionPane.YES_NO_CANCEL_OPTION);
     }
 
     private String createTitle() {
@@ -204,8 +204,8 @@ public class PropertiesDialog {
             this.errorLabel.setBorder(new EmptyBorder(new Insets(5, 0, 0, 0)));
             this.errorLabel.setForeground(Values.ERROR_NORMAL_FOREGROUND);
             this.errorLabel.setText(null);
-            getInnerTable().getSelectionModel().addListSelectionListener(
-                new ListSelectionListener() {
+            getInnerTable().getSelectionModel()
+                .addListSelectionListener(new ListSelectionListener() {
                     @Override
                     public void valueChanged(ListSelectionEvent e) {
                         setErrorText();

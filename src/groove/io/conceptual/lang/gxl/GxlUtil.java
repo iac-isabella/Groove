@@ -622,9 +622,7 @@ public class GxlUtil {
                 }
                 values.add(v);
             }
-
-            TupleValue tv = new TupleValue(tup, values.toArray(new Value[values.size()]));
-            return tv;
+            return new TupleValue(tup, values.toArray(new Value[values.size()]));
         }
         return null;
     }

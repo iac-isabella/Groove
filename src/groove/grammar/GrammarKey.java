@@ -415,8 +415,7 @@ public enum GrammarKey implements PropertyKey<Object>, GrammarChecker {
     private static class ExplorationChecker implements GrammarChecker {
         @Override
         public FormatErrorSet check(GrammarModel grammar, Object value) {
-            FormatErrorSet result = new FormatErrorSet();
-            return result;
+            return new FormatErrorSet();
         }
 
         public static final ExplorationChecker instance = new ExplorationChecker();

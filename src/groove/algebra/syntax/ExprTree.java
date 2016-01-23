@@ -145,8 +145,7 @@ public class ExprTree extends TermTree<ExprTree.ExprOp,ExprTree> {
         if (!hasConstant()) {
             throw new FormatException("'%s' does not represent a constant", getParseString());
         }
-        Constant result = getConstant();
-        return result;
+        return getConstant();
     }
 
     /**

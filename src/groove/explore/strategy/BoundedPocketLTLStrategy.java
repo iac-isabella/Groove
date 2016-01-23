@@ -1,17 +1,17 @@
 /*
  * GROOVE: GRaphs for Object Oriented VErification Copyright 2003--2007
  * University of Twente
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
- * 
+ *
  * $Id: BoundedPocketLTLStrategy.java 5479 2014-07-19 12:20:13Z rensink $
  */
 package groove.explore.strategy;
@@ -24,7 +24,7 @@ import groove.verify.ProductTransition;
  * This bounded version deviates from the default nested DFS in the way it deals
  * with so-called pocket states. This strategy black-paints the pocket states
  * such that they will not be considered in any further iteration.
- * 
+ *
  * @author Harmen Kastenberg
  * @version $Revision: 5479 $
  */
@@ -49,10 +49,9 @@ public class BoundedPocketLTLStrategy extends BoundedLTLStrategy {
      */
     @Override
     protected boolean isUnexplored(ProductState newState) {
-        boolean result =
-            (!newState.isPocket() || newState.colour() == ModelChecking.NO_COLOUR)
-                && super.isUnexplored(newState);
-        return result;
+        boolean stateCondition =
+            !newState.isPocket() || newState.colour() == ModelChecking.NO_COLOUR;
+        return stateCondition && super.isUnexplored(newState);
     }
 
     /**
@@ -63,8 +62,7 @@ public class BoundedPocketLTLStrategy extends BoundedLTLStrategy {
      */
     private void checkPocket(ProductState state) {
         for (ProductTransition transition : state.outTransitions()) {
-            if (transition.graphTransition() != null
-                && !transition.target().isPocket()) {
+            if (transition.graphTransition() != null && !transition.target().isPocket()) {
                 return;
             }
         }

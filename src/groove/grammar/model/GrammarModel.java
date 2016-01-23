@@ -721,8 +721,7 @@ public class GrammarModel implements Observer {
     public static GrammarModel newInstance(URL url) throws IllegalArgumentException, IOException {
         SystemStore store = SystemStoreFactory.newStore(url);
         store.reload();
-        GrammarModel result = store.toGrammarModel();
-        return result;
+        return store.toGrammarModel();
     }
 
     /**
@@ -745,8 +744,7 @@ public class GrammarModel implements Observer {
     public static GrammarModel newInstance(File file, boolean create) throws IOException {
         SystemStore store = SystemStoreFactory.newStore(file, create);
         store.reload();
-        GrammarModel result = store.toGrammarModel();
-        return result;
+        return store.toGrammarModel();
     }
 
     /**

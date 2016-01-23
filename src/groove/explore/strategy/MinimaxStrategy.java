@@ -485,9 +485,8 @@ public class MinimaxStrategy extends ClosingStrategy implements GTSListener {
 
         @Override
         public String toString() {
-            String result =
-                "[" + getNodeno() + ";" + (getMinMax() ? "min()" : "max()") + ":" + getText() + "]";
-            return result;
+            return "[" + getNodeno() + ";" + (getMinMax() ? "min()" : "max()") + ":" + getText()
+                + "]";
         }
 
         /**

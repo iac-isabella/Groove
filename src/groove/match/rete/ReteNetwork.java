@@ -990,8 +990,7 @@ public class ReteNetwork {
      * for the given rule <code>r</code>
      */
     public ProductionNode getProductionNodeFor(Rule r) {
-        ProductionNode result = this.productionNodes.get(r);
-        return result;
+        return this.productionNodes.get(r);
     }
 
     /**
@@ -1001,8 +1000,7 @@ public class ReteNetwork {
      * top-level matches for the given condition <code>c</code>
      */
     public ConditionChecker getConditionCheckerNodeFor(Condition c) {
-        ConditionChecker result = this.conditionCheckerNodes.get(c);
-        return result;
+        return this.conditionCheckerNodes.get(c);
     }
 
     /**
@@ -1358,8 +1356,7 @@ public class ReteNetwork {
             for (; i < combinedElements.length; i++) {
                 combinedElements[i] = right.getElements()[i - left.getElements().length];
             }
-            ReteStaticMapping result = new ReteStaticMapping(suc, combinedElements);
-            return result;
+            return new ReteStaticMapping(suc, combinedElements);
         }
 
         public static ReteStaticMapping combine(List<ReteStaticMapping> maps,
@@ -1376,8 +1373,7 @@ public class ReteNetwork {
             RuleElement[] combinedElements = new RuleElement[tempElementsList.size()];
             combinedElements = tempElementsList.toArray(combinedElements);
 
-            ReteStaticMapping result = new ReteStaticMapping(suc, combinedElements);
-            return result;
+            return new ReteStaticMapping(suc, combinedElements);
         }
 
         public static ReteStaticMapping combine(ReteStaticMapping oneMap,
@@ -1391,8 +1387,7 @@ public class ReteNetwork {
                 combinedElements[i] = left.getElements()[i];
             }
 
-            ReteStaticMapping result = new ReteStaticMapping(suc, combinedElements);
-            return result;
+            return new ReteStaticMapping(suc, combinedElements);
         }
 
         public static boolean properlyOverlap(ReteStaticMapping one, ReteStaticMapping theOther) {

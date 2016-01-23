@@ -1,17 +1,17 @@
 /*
  * GROOVE: GRaphs for Object Oriented VErification Copyright 2003--2007
  * University of Twente
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
- * 
+ *
  * $Id: AspectLabel.java 5480 2014-07-19 22:15:15Z rensink $
  */
 package groove.grammar.aspect;
@@ -154,7 +154,9 @@ public class AspectLabel extends ALabel implements Fixable {
         boolean notForEdge = !value.isForEdge(this.role);
         if (notForNode) {
             if (notForEdge) {
-                addError("Aspect %s not allowed in %s", value, roleDescription.get(this.role),
+                addError("Aspect %s not allowed in %s",
+                    value,
+                    roleDescription.get(this.role),
                     this.role);
             } else {
                 this.edgeOnly = value;
@@ -225,10 +227,8 @@ public class AspectLabel extends ALabel implements Fixable {
      * Indicates if the {@link #innerText} of this map equals that of another.
      */
     private boolean equalsText(AspectLabel other) {
-        boolean result =
-            this.innerText == null ? other.innerText == null
-                    : this.innerText.equals(other.innerText);
-        return result;
+        return this.innerText == null ? other.innerText == null
+            : this.innerText.equals(other.innerText);
     }
 
     /** Returns the list of aspects in this label. */
@@ -251,7 +251,7 @@ public class AspectLabel extends ALabel implements Fixable {
         return result;
     }
 
-    /** 
+    /**
      * Indicates whether this label is only suited for edges.
      * This is the case if either it contains an aspect that is not
      * suited for nodes, or the label text is non-empty.
@@ -260,7 +260,7 @@ public class AspectLabel extends ALabel implements Fixable {
         return this.edgeOnly != null || this.innerText != null && this.innerText.length() > 0;
     }
 
-    /** 
+    /**
      * Indicates whether this label is only suited for nodes.
      * This is the case if either it contains an aspect that is not suited
      * for edges, or if the label text is empty and the label is not edge-only.
@@ -289,9 +289,9 @@ public class AspectLabel extends ALabel implements Fixable {
     /** Node-only aspect value in this label, if any. */
     private Aspect nodeOnly;
 
-    /** 
+    /**
      * Sets the label text to a non-{@code null} value.
-     * This fixes the label, so that no aspect values can be added any more. 
+     * This fixes the label, so that no aspect values can be added any more.
      */
     public void setInnerText(String text) {
         testFixed(false);

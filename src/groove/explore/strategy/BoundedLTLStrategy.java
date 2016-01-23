@@ -1,17 +1,17 @@
 /*
  * GROOVE: GRaphs for Object Oriented VErification Copyright 2003--2007
  * University of Twente
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
- * 
+ *
  * $Id: DefaultBoundedModelCheckingStrategy.java,v 1.1 2008/03/04 14:44:25
  * kastenberg Exp $
  */
@@ -26,7 +26,7 @@ import groove.verify.ProductTransition;
 /**
  * This class provides some default implementations for a bounded model checking
  * strategy, such as setting the boundary and collecting the boundary graphs.
- * 
+ *
  * @author Harmen Kastenberg
  * @version $Revision: 5479 $
  */
@@ -153,10 +153,8 @@ public class BoundedLTLStrategy extends LTLStrategy {
      *         blue, or red, <tt>false</tt> otherwise
      */
     protected boolean isUnexplored(ProductState newState) {
-        boolean result =
-            newState.colour() != getRecord().cyan() && newState.colour() != getRecord().blue()
-                && newState.colour() != getRecord().red();
-        return result;
+        return newState.colour() != getRecord().cyan() && newState.colour() != getRecord().blue()
+            && newState.colour() != getRecord().red();
     }
 
     @Override

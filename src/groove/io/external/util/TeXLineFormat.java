@@ -69,8 +69,7 @@ public class TeXLineFormat extends LineFormat<TeXLineFormat.TeXBuilder> {
     /** Just returns the empty line for now. */
     @Override
     public TeXBuilder createHRule() {
-        TeXBuilder result = new TeXBuilder();
-        return result;
+        return new TeXBuilder();
     }
 
     @Override

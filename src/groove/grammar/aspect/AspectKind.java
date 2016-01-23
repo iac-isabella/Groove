@@ -1542,11 +1542,12 @@ public enum AspectKind {
          */
         Object relabel(Object content, TypeLabel oldLabel, TypeLabel newLabel) {
             Object result = content;
-            if (this.signature != null && content instanceof String) {
-                // this is a field name
-                if (oldLabel.getRole() == EdgeRole.BINARY && oldLabel.text().equals(content)) {
-                    result = newLabel.text();
-                }
+            boolean signatureCondition = this.signature != null;
+            boolean instanceCondition = content instanceof String;
+            boolean fieldNameCondition =
+                oldLabel.getRole() == EdgeRole.BINARY && oldLabel.text().equals(content);
+            if (signatureCondition && instanceCondition && fieldNameCondition) {
+                result = newLabel.text();
             }
             return result;
         }

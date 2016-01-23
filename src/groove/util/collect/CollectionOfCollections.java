@@ -48,7 +48,7 @@ public class CollectionOfCollections<T> extends AbstractCollection<T> {
 
     @Override
     public Iterator<T> iterator() {
-        Iterator<T> res = new Iterator<T>() {
+        return new Iterator<T>() {
             @Override
             public boolean hasNext() {
                 return forwardCollectionIter();
@@ -57,8 +57,7 @@ public class CollectionOfCollections<T> extends AbstractCollection<T> {
             @Override
             public T next() {
                 forwardCollectionIter();
-                T latest = this.elemIter.next();
-                return latest;
+                return this.elemIter.next();
             }
 
             @Override
@@ -83,7 +82,6 @@ public class CollectionOfCollections<T> extends AbstractCollection<T> {
             private Iterator<? extends T> elemIter;
             private T latest;
         };
-        return res;
     }
 
     @Override

@@ -1,17 +1,17 @@
 /*
  * GROOVE: GRaphs for Object Oriented VErification Copyright 2003--2007
  * University of Twente
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
- * 
+ *
  * $Id: PartitionRefiner.java 5479 2014-07-19 12:20:13Z rensink $
  */
 package groove.graph.iso;
@@ -118,9 +118,10 @@ public class PartitionRefiner extends CertificateStrategy {
         } while (goOn);
         recordIterateCount(this.iterateCount);
         if (TRACE) {
-            System.out.printf(
-                "First iteration done; %d partitions for %d nodes in %d iterations%n",
-                this.nodePartitionCount, this.nodeCertCount, this.iterateCount);
+            System.out.printf("First iteration done; %d partitions for %d nodes in %d iterations%n",
+                this.nodePartitionCount,
+                this.nodeCertCount,
+                this.iterateCount);
         }
     }
 
@@ -154,9 +155,10 @@ public class PartitionRefiner extends CertificateStrategy {
                 advanceEdgeCerts();
                 advanceNodeCerts(true);
                 if (TRACE) {
-                    System.out.printf(
-                        "Next iteration done; %d partitions for %d nodes in %d iterations%n",
-                        this.nodePartitionCount, this.nodeCertCount, this.iterateCount);
+                    System.out.printf("Next iteration done; %d partitions for %d nodes in %d iterations%n",
+                        this.nodePartitionCount,
+                        this.nodeCertCount,
+                        this.iterateCount);
                 }
             } while (true);// this.nodePartitionCount < this.nodeCertCount &&
             // this.nodePartitionCount > oldPartitionCount);
@@ -364,7 +366,7 @@ public class PartitionRefiner extends CertificateStrategy {
      * Superclass of graph element certificates.
      */
     public abstract static class MyCert<E extends Element> implements
-            CertificateStrategy.ElementCertificate<E> {
+        CertificateStrategy.ElementCertificate<E> {
         /** Constructs a certificate for a given graph element. */
         MyCert(E element) {
             this.element = element;
@@ -754,9 +756,7 @@ public class PartitionRefiner extends CertificateStrategy {
         @Override
         protected int computeNewValue() {
             int sourceHashCode = this.source.hashCode();
-            int result = (sourceHashCode << 8) + (sourceHashCode >> 24) + this.value;
-            // source.nextValue += result;
-            return result;
+            return (sourceHashCode << 8) + (sourceHashCode >> 24) + this.value;
         }
 
         /** The source certificate for the edge. */

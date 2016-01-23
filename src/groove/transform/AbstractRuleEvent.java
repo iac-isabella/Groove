@@ -38,7 +38,7 @@ import java.util.Iterator;
  * @version $Revision $
  */
 public abstract class AbstractRuleEvent<R extends Rule,C extends AbstractRuleEvent<R,C>.AbstractEventCache>
-        extends AbstractCacheHolder<C> implements RuleEvent {
+    extends AbstractCacheHolder<C> implements RuleEvent {
     /** Constructs an event for a given rule. */
     protected AbstractRuleEvent(CacheReference<C> template, R rule) {
         super(template);
@@ -180,8 +180,7 @@ public abstract class AbstractRuleEvent<R extends Rule,C extends AbstractRuleEve
                 return !hasResult();
             }
         };
-        Proof result = getRule().getEventMatcher().traverse(source, getAnchorMap(), matchVisitor);
-        return result;
+        return getRule().getEventMatcher().traverse(source, getAnchorMap(), matchVisitor);
     }
 
     /**

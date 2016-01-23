@@ -123,8 +123,7 @@ public class TypeToEcore extends TypeExporter<EObject> {
 
     // Mainly for InstanceToEcore
     public EStructuralFeature getEStructuralFeature(Field field) {
-        EStructuralFeature eFeature = (EStructuralFeature) getElement(field);
-        return eFeature;
+        return (EStructuralFeature) getElement(field);
     }
 
     //Does as the name says

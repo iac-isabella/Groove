@@ -169,13 +169,12 @@ public class JEdgeView extends EdgeView {
     @Override
     protected Point2D getNearestPoint(boolean source) {
         Point2D result = null;
-        if (getPointCount() == 2 && !isLoop()) {
-            if (!source && this.source instanceof PortView) {
-                VertexView sourceCellView = (VertexView) this.source.getParentView();
-                result =
-                    sourceCellView.getPerimeterPoint(this, null,
-                        getPointLocation(getPointCount() - 1));
-            }
+        boolean positionCondition = getPointCount() == 2 && !isLoop();
+        boolean instanceCondition = this.source instanceof PortView;
+        if (!source && positionCondition && instanceCondition) {
+            VertexView sourceCellView = (VertexView) this.source.getParentView();
+            result =
+                sourceCellView.getPerimeterPoint(this, null, getPointLocation(getPointCount() - 1));
         }
         if (result == null) {
             result = super.getNearestPoint(source);
@@ -405,7 +404,7 @@ public class JEdgeView extends EdgeView {
 
         @Override
         public Component getRendererComponent(org.jgraph.JGraph jGraph, CellView v, boolean sel,
-                boolean focus, boolean preview) {
+            boolean focus, boolean preview) {
 
             assert v instanceof JEdgeView : String.format("This renderer is only meant for %s",
                 JEdgeView.class);

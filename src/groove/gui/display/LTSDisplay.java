@@ -477,15 +477,14 @@ public class LTSDisplay extends Display implements SimulatorListener {
             }
             updateErrors();
         }
-        if (changes.contains(STATE) || changes.contains(MATCH)) {
-            if (getJModel() != null) {
-                GraphState state = source.getState();
-                GraphTransition transition = source.getTransition();
-                if (getJGraph().setActive(state, transition)) {
-                    getJGraph().doLayout(false);
-                }
-                getJGraph().scrollToActive();
+        boolean changesCondition = changes.contains(STATE) || changes.contains(MATCH);
+        if (changesCondition && getJModel() != null) {
+            GraphState state = source.getState();
+            GraphTransition transition = source.getTransition();
+            if (getJGraph().setActive(state, transition)) {
+                getJGraph().doLayout(false);
             }
+            getJGraph().scrollToActive();
         }
     }
 

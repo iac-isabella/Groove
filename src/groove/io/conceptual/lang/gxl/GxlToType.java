@@ -435,8 +435,7 @@ public class GxlToType extends TypeImporter {
     private Object visitEdge(TypeModel tm, NodeWrapper nodeWrapper, Id graphNamespace) {
         NodeType node = nodeWrapper.getNode();
         if (this.m_nodeValues.containsKey(node)) {
-            Object val = this.m_nodeValues.get(node);
-            return val;
+            return this.m_nodeValues.get(node);
         }
 
         String name =
@@ -652,8 +651,7 @@ public class GxlToType extends TypeImporter {
         }
 
         if ("Enum".equals(type)) {
-            Enum e = visitEnum(tm, nodeWrapper, graphNamespace);
-            return e;
+            return visitEnum(tm, nodeWrapper, graphNamespace);
         }
 
         assert (false);
@@ -821,9 +819,7 @@ public class GxlToType extends TypeImporter {
                         values.add(v);
                     }
                 }
-                TupleValue tv =
-                    new TupleValue((Tuple) type, values.toArray(new Value[values.size()]));
-                return tv;
+                return new TupleValue((Tuple) type, values.toArray(new Value[values.size()]));
             } else {
                 addMessage(new Message(
                     "Trying to parse tuple value while expected type is " + type, MessageType.ERROR));

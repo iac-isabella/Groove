@@ -1,17 +1,17 @@
 /*
  * GROOVE: GRaphs for Object Oriented VErification Copyright 2003--2007
  * University of Twente
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
- * 
+ *
  * $Id: MultiLinedEditor.java 5479 2014-07-19 12:20:13Z rensink $
  */
 package groove.gui.jgraph;
@@ -66,9 +66,8 @@ public class MultiLinedEditor extends DefaultGraphCellEditor {
      */
     @Override
     public Component getGraphCellEditorComponent(org.jgraph.JGraph graph, Object cell,
-            boolean isSelected) {
-        Component component = super.getGraphCellEditorComponent(graph, cell, isSelected);
-        return component;
+        boolean isSelected) {
+        return super.getGraphCellEditorComponent(graph, cell, isSelected);
     }
 
     @Override
@@ -92,14 +91,14 @@ public class MultiLinedEditor extends DefaultGraphCellEditor {
 
     /** Internal editor implementation. */
     private static class RealCellEditor extends AbstractCellEditor implements GraphCellEditor,
-            CaretListener {
+        CaretListener {
         /**
          * Initialises the editor component with the edit string of the user
          * object of <tt>value</tt> (which is required to be a {@link JCell}).
          */
         @Override
         public Component getGraphCellEditorComponent(org.jgraph.JGraph graph, Object value,
-                boolean isSelected) {
+            boolean isSelected) {
             AspectJCell jCell = (AspectJCell) value;
             // fill the set of labels for autocompletion
             this.labels.clear();
@@ -346,7 +345,9 @@ public class MultiLinedEditor extends DefaultGraphCellEditor {
                 }
                 w = Math.max(minw, Math.min(w, maxw));
                 getEditingComponent().setBounds(MultiLinedEditor.this.offsetX,
-                    MultiLinedEditor.this.offsetY, w, size.height);
+                    MultiLinedEditor.this.offsetY,
+                    w,
+                    size.height);
 
                 // reset container's size based on a potentially new preferred size
                 // of the editing component

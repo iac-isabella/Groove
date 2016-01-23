@@ -433,16 +433,13 @@ public class CheckboxTree extends JTree {
         @Override
         public Component getTreeCellEditorComponent(JTree tree, Object value, boolean selected,
             boolean expanded, boolean leaf, int row) {
-            Component result =
-                this.editor.getTreeCellRendererComponent(tree,
-                    value,
-                    selected,
-                    expanded,
-                    leaf,
-                    row,
-                    false);
-
-            return result;
+            return this.editor.getTreeCellRendererComponent(tree,
+                value,
+                selected,
+                expanded,
+                leaf,
+                row,
+                false);
         }
 
         /**

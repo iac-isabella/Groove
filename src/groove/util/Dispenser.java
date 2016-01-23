@@ -22,7 +22,7 @@ import java.util.NoSuchElementException;
  * @version $Revision $
  */
 public abstract class Dispenser {
-    /** 
+    /**
      * Returns a number, according to the policy of this dispenser.
      * This will result in a {@link NoSuchElementException} if
      * {@link #hasNext()} is {@code false}.
@@ -30,14 +30,13 @@ public abstract class Dispenser {
      */
     public final int getNext() throws NoSuchElementException {
         if (hasNext()) {
-            int result = this.last = computeNext();
-            return result;
+            return this.last = computeNext();
         } else {
             throw new NoSuchElementException();
         }
     }
 
-    /** 
+    /**
      * Returns the value of the last successful call to {@link #getNext()},
      * or {@code -1} if {@link #getNext()} has never been called.
      */
@@ -53,7 +52,7 @@ public abstract class Dispenser {
      */
     protected abstract int computeNext();
 
-    /** 
+    /**
      * Indicates if this dispenser has a next number to return.
      * @return if {@code false}, any subsequent call to {@link #getNext()}
      * will fail

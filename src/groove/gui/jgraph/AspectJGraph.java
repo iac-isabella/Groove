@@ -781,8 +781,7 @@ public final class AspectJGraph extends JGraph<AspectGraph> {
      * Creates and returns a fresh line style menu for this j-graph.
      */
     public JMenu createLineStyleMenu() {
-        JMenu result = new SetLineStyleMenu();
-        return result;
+        return new SetLineStyleMenu();
     }
 
     /**

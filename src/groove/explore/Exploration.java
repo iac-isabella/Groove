@@ -268,10 +268,8 @@ public class Exploration {
      * will return an exploration equal to this one.
      */
     public String toParsableString() {
-        String result =
-            StrategyEnumerator.toParsableStrategy(this.strategy) + " "
-                + AcceptorEnumerator.toParsableAcceptor(this.acceptor) + " " + this.bound;
-        return result;
+        return StrategyEnumerator.toParsableStrategy(this.strategy) + " "
+            + AcceptorEnumerator.toParsableAcceptor(this.acceptor) + " " + this.bound;
     }
 
     @Override

@@ -365,9 +365,7 @@ public enum NodeShape {
                 endX = bounds.getMinX();
                 endY = cy;
             }
-            Point2D result =
-                lineIntersection(px, py, dx, dy, startX, startY, endX - startX, endY - startY);
-            return result;
+            return lineIntersection(px, py, dx, dy, startX, startY, endX - startX, endY - startY);
         }
 
         /* Overridden for diamond shapes. */

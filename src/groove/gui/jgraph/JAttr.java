@@ -137,10 +137,8 @@ public class JAttr {
             int rx = b.width - fx;
             int ry = b.height - fy;
             float r = (float) Math.sqrt(rx * rx + ry * ry);
-            Paint newPaint =
-                new RadialGradientPaint(cx, cy, r, fx, fy, new float[] {0f, 1f}, getGradient(c),
-                    CycleMethod.NO_CYCLE);
-            return newPaint;
+            return new RadialGradientPaint(cx, cy, r, fx, fy, new float[] {0f, 1f}, getGradient(c),
+                CycleMethod.NO_CYCLE);
         }
     }
 

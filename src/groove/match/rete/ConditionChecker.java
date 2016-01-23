@@ -242,8 +242,7 @@ public class ConditionChecker extends ReteNetworkNode implements ReteStateSubscr
      * <code>false</code> otherwise.
      */
     protected boolean isInhibited(AbstractReteMatch m) {
-        boolean result = this.inhibitionMap.contains(m);
-        return result;
+        return this.inhibitionMap.contains(m);
     }
 
     /**

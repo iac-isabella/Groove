@@ -158,7 +158,7 @@ public class LoadGrammarAction extends SimulatorAction {
         return true;
     }
 
-    /** 
+    /**
      * Helper method for doLoadGrammar. Asks the user to select a new name for
      * saving the grammar after it has been loaded (and converted).
      */
@@ -247,13 +247,11 @@ public class LoadGrammarAction extends SimulatorAction {
             AspectGraph oldGraph = oldGraphMap.get(oldName);
             AspectGraph newGraph = oldGraph.clone();
             newGraph.setName(newName);
-            if (kind == ResourceKind.RULE) {
+            if (kind == ResourceKind.RULE && GraphInfo.getTransitionLabel(newGraph) == null) {
                 // store old name as transition label
                 // if there was no explicit transition label
                 // so the name change does not affect the LTS
-                if (GraphInfo.getTransitionLabel(newGraph) == null) {
-                    GraphInfo.setTransitionLabel(newGraph, oldName);
-                }
+                GraphInfo.setTransitionLabel(newGraph, oldName);
             }
             newGraph.setFixed();
             newGraphs.add(newGraph);
@@ -281,7 +279,12 @@ public class LoadGrammarAction extends SimulatorAction {
         return JOptionPane.showOptionDialog(getFrame(),
             "Warning: the grammar contains resources with "
                 + "invalid (since grammar version 3.1) names.\n"
-                + "These will be renamed automatically.", "Warning: invalid identifiers",
-            JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, "Continue") == JOptionPane.OK_OPTION;
+                + "These will be renamed automatically.",
+            "Warning: invalid identifiers",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.WARNING_MESSAGE,
+            null,
+            options,
+            "Continue") == JOptionPane.OK_OPTION;
     }
 }
