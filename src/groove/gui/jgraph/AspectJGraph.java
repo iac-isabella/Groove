@@ -741,7 +741,8 @@ public final class AspectJGraph extends JGraph<AspectGraph> {
     public JCellEditAction getSetLineStyleAction(LineStyle lineStyle) {
         JCellEditAction result = this.setLineStyleActionMap.get(lineStyle);
         if (result == null) {
-            this.setLineStyleActionMap.put(lineStyle, result = new SetLineStyleAction(lineStyle));
+            result = new SetLineStyleAction(lineStyle);
+            this.setLineStyleActionMap.put(lineStyle, result);
             addAccelerator(result);
         }
         return result;

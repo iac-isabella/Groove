@@ -158,7 +158,8 @@ public class ForestLayouter extends AbstractLayouter {
             // add the cell to the count map
             Set<LayoutNode> inDegreeSet = inDegreeMap.get(inEdgeCount);
             if (inDegreeSet == null) {
-                inDegreeMap.put(inEdgeCount, inDegreeSet = new LinkedHashSet<LayoutNode>());
+                inDegreeSet = new LinkedHashSet<LayoutNode>();
+                inDegreeMap.put(inEdgeCount, inDegreeSet);
             }
             inDegreeSet.add(layoutEntry.getValue());
         }

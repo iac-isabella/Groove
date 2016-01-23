@@ -153,7 +153,8 @@ public class JAttr {
             Color outC =
                 new Color((int) (c.getRed() * factor), (int) (c.getGreen() * factor),
                     (int) (c.getBlue() * factor), c.getAlpha());
-            gradientMap.put(c, result = new Color[] {inC, outC});
+            result = new Color[] {inC, outC};
+            gradientMap.put(c, result);
         }
         return result;
     }

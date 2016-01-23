@@ -1,17 +1,17 @@
 /*
  * GROOVE: GRaphs for Object Oriented VErification Copyright 2003--2007
  * University of Twente
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
- * 
+ *
  * $Id: StringDialog.java 5480 2014-07-19 22:15:15Z rensink $
  */
 package groove.gui.dialog;
@@ -172,8 +172,7 @@ public abstract class StringDialog {
                 @Override
                 public void itemStateChanged(ItemEvent e) {
                     if (StringDialog.this.choiceBox.getSelectedIndex() != 0) {
-                        getTextArea().setText(
-                            (String) StringDialog.this.choiceBox.getSelectedItem());
+                        getTextArea().setText((String) StringDialog.this.choiceBox.getSelectedItem());
                         getTextArea().selectAll();
                         getTextArea().requestFocus();
                     }
@@ -215,7 +214,7 @@ public abstract class StringDialog {
     /** Attempts to parse the given text.
      * Calls {@link #parse(String)} for the actual parsing.
      * @param text the text to be parsed as a property
-     * @return {@code null} if the text cannot be parsed, 
+     * @return {@code null} if the text cannot be parsed,
      * or the parsed result otherwise
      */
     private String parseText(String text) {
@@ -279,7 +278,8 @@ public abstract class StringDialog {
     /** Returns the label displaying the current error in entered string (if any). */
     private JLabel getErrorLabel() {
         if (this.errorLabel == null) {
-            JLabel result = this.errorLabel = new JLabel();
+            this.errorLabel = new JLabel();
+            JLabel result = this.errorLabel;
             result.setBorder(BorderFactory.createEmptyBorder(3, 0, 0, 0));
             result.setForeground(Color.RED);
             result.setPreferredSize(new Dimension(200, 25));
@@ -299,7 +299,7 @@ public abstract class StringDialog {
     private final String title;
 
     /**
-     * Sets the result of the dialog from the 
+     * Sets the result of the dialog from the
      * selection of the choice box.
      * Also adds the result to the history.
      */

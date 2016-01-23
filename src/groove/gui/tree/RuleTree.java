@@ -300,7 +300,8 @@ public class RuleTree extends AbstractResourceTree {
             int priority = recipe.getPriority();
             Set<ActionEntry> recipes = result.get(priority);
             if (recipes == null) {
-                result.put(priority, recipes = new HashSet<ActionEntry>());
+                recipes = new HashSet<ActionEntry>();
+                result.put(priority, recipes);
             }
             recipes.add(new RecipeEntry(recipe));
         }
@@ -310,7 +311,8 @@ public class RuleTree extends AbstractResourceTree {
                 int priority = rule.getPriority();
                 Set<ActionEntry> rules = result.get(priority);
                 if (rules == null) {
-                    result.put(priority, rules = new HashSet<ActionEntry>());
+                    rules = new HashSet<ActionEntry>();
+                    result.put(priority, rules);
                 }
                 rules.add(new RuleEntry(rule));
             }
@@ -332,7 +334,8 @@ public class RuleTree extends AbstractResourceTree {
                 CheckPolicy policy = ruleModel.getPolicy();
                 Set<ActionEntry> rules = result.get(policy);
                 if (rules == null) {
-                    result.put(policy, rules = new HashSet<ActionEntry>());
+                    rules = new HashSet<ActionEntry>();
+                    result.put(policy, rules);
                 }
                 rules.add(new RuleEntry(ruleModel));
             }
@@ -746,10 +749,8 @@ public class RuleTree extends AbstractResourceTree {
                 }
                 if (evt.getClickCount() == 1 && toDisplay != null) {
                     getSimulatorModel().setDisplay(toDisplay);
-                } else if (evt.getClickCount() == 2 && toDisplay != null) {
-                    if (toDisplay.hasResource()) {
-                        getActions().getEditAction(toDisplay.getResource()).execute();
-                    }
+                } else if (evt.getClickCount() == 2 && toDisplay != null && toDisplay.hasResource()) {
+                    getActions().getEditAction(toDisplay.getResource()).execute();
                 }
             }
             maybeShowPopup(evt);
@@ -770,11 +771,11 @@ public class RuleTree extends AbstractResourceTree {
                 return;
             }
             Object selectedNode = path.getLastPathComponent();
-            if (selectedNode instanceof MatchTreeNode
-                || selectedNode instanceof RecipeTransitionTreeNode) {
-                if (evt.getClickCount() == 2) {
-                    getActions().getApplyMatchAction().execute();
-                }
+            boolean preCondition =
+                selectedNode instanceof MatchTreeNode
+                    || selectedNode instanceof RecipeTransitionTreeNode;
+            if (preCondition && evt.getClickCount() == 2) {
+                getActions().getApplyMatchAction().execute();
             }
         }
 

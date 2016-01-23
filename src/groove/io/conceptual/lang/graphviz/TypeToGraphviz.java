@@ -104,10 +104,9 @@ public class TypeToGraphviz extends TypeExporter<Node> {
         classNode.getId().setId(getNodeId());
 
         for (Property p : this.m_currentTypeModel.getProperties()) {
-            if (p instanceof AbstractProperty) {
-                if (((AbstractProperty) p).getAbstractClass() == class1) {
-                    classNode.setAttribute("style", "dashed");
-                }
+            if (p instanceof AbstractProperty
+                && ((AbstractProperty) p).getAbstractClass() == class1) {
+                classNode.setAttribute("style", "dashed");
             }
         }
 
@@ -136,10 +135,9 @@ public class TypeToGraphviz extends TypeExporter<Node> {
                 fieldEdge.setAttribute("headlabel", f.getLowerBound() + ".." + f.getUpperBound());
 
                 for (Property p : this.m_currentTypeModel.getProperties()) {
-                    if (p instanceof ContainmentProperty) {
-                        if (((ContainmentProperty) p).getField() == f) {
-                            fieldEdge.setAttribute("arrowtail", "diamond");
-                        }
+                    if (p instanceof ContainmentProperty
+                        && ((ContainmentProperty) p).getField() == f) {
+                        fieldEdge.setAttribute("arrowtail", "diamond");
                     }
                 }
 
@@ -154,10 +152,9 @@ public class TypeToGraphviz extends TypeExporter<Node> {
                 label += f.getName();
 
                 for (Property p : this.m_currentTypeModel.getProperties()) {
-                    if (p instanceof DefaultValueProperty) {
-                        if (((DefaultValueProperty) p).getField() == f) {
-                            label += " = " + ((DefaultValueProperty) p).getDefaultValue();
-                        }
+                    if (p instanceof DefaultValueProperty
+                        && ((DefaultValueProperty) p).getField() == f) {
+                        label += " = " + ((DefaultValueProperty) p).getDefaultValue();
                     }
                 }
 

@@ -1,15 +1,15 @@
 /* GROOVE: GRaphs for Object Oriented VErification
  * Copyright 2003--2011 University of Twente
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- * http://www.apache.org/licenses/LICENSE-2.0 
- * 
- * Unless required by applicable law or agreed to in writing, 
- * software distributed under the License is distributed on an 
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
- * either express or implied. See the License for the specific 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  *
  * $Id: TypeFilter.java 5479 2014-07-19 12:20:13Z rensink $
@@ -31,13 +31,13 @@ import java.util.Map;
 /**
  * Class that maintains a set of filtered entries
  * (either edge labels or type elements) as well as an inverse
- * mapping of those labels to {@link JCell}s bearing 
+ * mapping of those labels to {@link JCell}s bearing
  * the entries.
  * @author Arend Rensink
  * @version $Revision $
  */
 public class TypeFilter extends LabelFilter<AspectGraph> {
-    /** 
+    /**
      * Clears the entire filter, and resets it to label- or type-based.
      */
     @Override
@@ -57,21 +57,22 @@ public class TypeFilter extends LabelFilter<AspectGraph> {
             TypeLabel keyLabel = key.label();
             result = this.nodeTypeEntryMap.get(keyLabel);
             if (result == null) {
-                this.nodeTypeEntryMap.put(keyLabel, result = createEntry(key));
+                result = createEntry(key);
+                this.nodeTypeEntryMap.put(keyLabel, result);
             }
         } else if (element instanceof TypeEdge) {
             TypeEdge key = (TypeEdge) element;
             TypeLabel nodeKeyLabel = key.source().label();
-            Map<TypeLabel,TypeEntry> entryMap =
-                this.edgeTypeEntryMap.get(nodeKeyLabel);
+            Map<TypeLabel,TypeEntry> entryMap = this.edgeTypeEntryMap.get(nodeKeyLabel);
             if (entryMap == null) {
-                this.edgeTypeEntryMap.put(nodeKeyLabel, entryMap =
-                    new HashMap<TypeLabel,TypeEntry>());
+                entryMap = new HashMap<TypeLabel,TypeEntry>();
+                this.edgeTypeEntryMap.put(nodeKeyLabel, entryMap);
             }
             TypeLabel edgeKeyLabel = key.label();
             result = entryMap.get(edgeKeyLabel);
             if (result == null) {
-                entryMap.put(edgeKeyLabel, result = createEntry(key));
+                result = createEntry(key);
+                entryMap.put(edgeKeyLabel, result);
             }
         }
         return result;
@@ -96,8 +97,7 @@ public class TypeFilter extends LabelFilter<AspectGraph> {
     }
 
     /** Mapping from known node type labels to corresponding node type entries. */
-    private final Map<TypeLabel,TypeEntry> nodeTypeEntryMap =
-        new HashMap<TypeLabel,TypeEntry>();
+    private final Map<TypeLabel,TypeEntry> nodeTypeEntryMap = new HashMap<TypeLabel,TypeEntry>();
     /** Mapping from known node type labels and edge type labels to corresponding edge type entries. */
     private final Map<TypeLabel,Map<TypeLabel,TypeEntry>> edgeTypeEntryMap =
         new HashMap<TypeLabel,Map<TypeLabel,TypeEntry>>();
@@ -134,8 +134,7 @@ public class TypeFilter extends LabelFilter<AspectGraph> {
             }
             TypeEdge edge = (TypeEdge) type;
             TypeEdge otherEdge = (TypeEdge) otherType;
-            int result =
-                edge.source().label().compareTo(otherEdge.source().label());
+            int result = edge.source().label().compareTo(otherEdge.source().label());
             if (result == 0) {
                 result = edge.label().compareTo(otherEdge.label());
             }
@@ -148,8 +147,7 @@ public class TypeFilter extends LabelFilter<AspectGraph> {
                 return this.type.hashCode();
             } else {
                 TypeEdge edge = (TypeEdge) this.type;
-                return edge.source().label().hashCode()
-                    ^ edge.label().hashCode();
+                return edge.source().label().hashCode() ^ edge.label().hashCode();
             }
         }
 
@@ -161,7 +159,7 @@ public class TypeFilter extends LabelFilter<AspectGraph> {
             if (!(obj instanceof TypeEntry)) {
                 return false;
             }
-            // test for label equality to avoid 
+            // test for label equality to avoid
             // comparing type elements from different type graphs
             TypeEntry other = (TypeEntry) obj;
             if (!this.type.label().equals(other.type.label())) {

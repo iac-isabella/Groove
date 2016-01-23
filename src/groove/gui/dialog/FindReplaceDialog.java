@@ -1,17 +1,17 @@
 /*
  * GROOVE: GRaphs for Object Oriented VErification Copyright 2003--2007
  * University of Twente
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
- * 
+ *
  * $Id: FindReplaceDialog.java 5480 2014-07-19 22:15:15Z rensink $
  */
 package groove.gui.dialog;
@@ -259,7 +259,8 @@ public class FindReplaceDialog {
     /** Returns the text field in which the user is to enter his input. */
     private JComboBox getOldField() {
         if (this.oldField == null) {
-            final JComboBox result = this.oldField = getLabelComboBox(this.typeGraph);
+            this.oldField = getLabelComboBox(this.typeGraph);
+            final JComboBox result = this.oldField;
             result.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -299,7 +300,8 @@ public class FindReplaceDialog {
     /** Returns the label displaying the current error in the renaming (if any). */
     private JLabel getErrorLabel() {
         if (this.errorLabel == null) {
-            JLabel result = this.errorLabel = new JLabel();
+            this.errorLabel = new JLabel();
+            JLabel result = this.errorLabel;
             result.setForeground(Color.RED);
             result.setMinimumSize(getReplaceButton().getPreferredSize());
         }
@@ -312,7 +314,8 @@ public class FindReplaceDialog {
     /** Returns the combo box for the old label's type. */
     private JLabel getOldTypeLabel() {
         if (this.oldTypeLabel == null) {
-            final JLabel result = this.oldTypeLabel = new JLabel();
+            this.oldTypeLabel = new JLabel();
+            final JLabel result = this.oldTypeLabel;
             result.setText(getOldLabel().getRole().getDescription(true));
             result.setPreferredSize(getNewTypeCombobox().getPreferredSize());
             result.setBorder(new EtchedBorder());
@@ -332,11 +335,14 @@ public class FindReplaceDialog {
         result.setRenderer(new DefaultListCellRenderer() {
             @Override
             public Component getListCellRendererComponent(JList list, Object value, int index,
-                    boolean isSelected, boolean cellHasFocus) {
+                boolean isSelected, boolean cellHasFocus) {
                 if (value instanceof TypeLabel) {
                     value = HTMLConverter.HTML_TAG.on(((TypeLabel) value).toLine().toHTMLString());
                 }
-                return super.getListCellRendererComponent(list, value, index, isSelected,
+                return super.getListCellRendererComponent(list,
+                    value,
+                    index,
+                    isSelected,
                     cellHasFocus);
             }
         });
@@ -377,7 +383,8 @@ public class FindReplaceDialog {
     /** Returns the combobox for the new label's type. */
     private JComboBox getNewTypeCombobox() {
         if (this.newTypeChoice == null) {
-            final JComboBox result = this.newTypeChoice = new JComboBox();
+            this.newTypeChoice = new JComboBox();
+            final JComboBox result = this.newTypeChoice;
             for (EdgeRole kind : EdgeRole.values()) {
                 result.addItem(kind.getDescription(true));
             }

@@ -817,7 +817,8 @@ public class Options implements Cloneable {
     public static String getShowTabOption(ResourceKind kind) {
         String result = showTabOptionMap.get(kind);
         if (result == null) {
-            showTabOptionMap.put(kind, result = String.format("Show %ss", kind.getDescription()));
+            result = String.format("Show %ss", kind.getDescription());
+            showTabOptionMap.put(kind, result);
         }
         return result;
     }
@@ -832,7 +833,9 @@ public class Options implements Cloneable {
 
     /** Set of resource kinds for which the display tab is optional. */
     private static final Set<ResourceKind> optionalTabs = EnumSet.of(ResourceKind.CONTROL,
-        ResourceKind.PROLOG, ResourceKind.TYPE, ResourceKind.GROOVY);
+        ResourceKind.PROLOG,
+        ResourceKind.TYPE,
+        ResourceKind.GROOVY);
 
     /** Show anchors option */
     public static final String SHOW_ANCHORS_OPTION = "Show anchors";
@@ -899,17 +902,19 @@ public class Options implements Cloneable {
             result = StringHandler.splitExpr(storedValue, ",");
         } catch (FormatException e) {
             assert false : String.format("Format error in user preference string %s: %s",
-                storedValue, e.getMessage());
+                storedValue,
+                e.getMessage());
         }
         for (int i = 0; i < result.length; i++) {
             try {
                 String newValue = StringHandler.toUnquoted(result[i], '"');
-                assert result[i] != null : String.format(
-                    "User preference string %s is not correctly quoted", result[i]);
+                assert result[i] != null : String.format("User preference string %s is not correctly quoted",
+                    result[i]);
                 result[i] = newValue;
             } catch (FormatException e) {
                 assert false : String.format("Format error in user preference string %s: %s",
-                    result[i], e.getMessage());
+                    result[i],
+                    e.getMessage());
             }
         }
         return result;

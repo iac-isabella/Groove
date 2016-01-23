@@ -191,7 +191,8 @@ public class PlanSearchStrategy implements SearchStrategy {
         Integer result = this.nodeIxMap.get(node);
         if (result == null) {
             testFixed(false);
-            this.nodeIxMap.put(node, result = this.nodeIxMap.size());
+            result = this.nodeIxMap.size();
+            this.nodeIxMap.put(node, result);
         }
         return result;
     }
@@ -206,7 +207,8 @@ public class PlanSearchStrategy implements SearchStrategy {
         Integer value = this.edgeIxMap.get(edge);
         if (value == null) {
             testFixed(false);
-            this.edgeIxMap.put(edge, value = this.edgeIxMap.size());
+            value = this.edgeIxMap.size();
+            this.edgeIxMap.put(edge, value);
         }
         return value;
     }
@@ -221,7 +223,8 @@ public class PlanSearchStrategy implements SearchStrategy {
         Integer value = this.varIxMap.get(var);
         if (value == null) {
             testFixed(false);
-            this.varIxMap.put(var, value = this.varIxMap.size());
+            value = this.varIxMap.size();
+            this.varIxMap.put(var, value);
         }
         return value;
     }
@@ -236,7 +239,8 @@ public class PlanSearchStrategy implements SearchStrategy {
         Integer value = this.condIxMap.get(cond);
         if (value == null) {
             testFixed(false);
-            this.condIxMap.put(cond, value = this.condIxMap.size());
+            value = this.condIxMap.size();
+            this.condIxMap.put(cond, value);
         }
         return value;
     }
@@ -478,12 +482,8 @@ public class PlanSearchStrategy implements SearchStrategy {
 
         /** Sets the node image for the node key with a given index. */
         final boolean putNode(int index, HostNode image) {
-            if (CHECK_IMAGES) {
-                if (image instanceof DefaultHostNode && !this.host.containsNode(image)) {
-                    assert false : String.format("Node %s does not occur in graph %s",
-                        image,
-                        this.host);
-                }
+            if (CHECK_IMAGES && image instanceof DefaultHostNode && !this.host.containsNode(image)) {
+                assert false : String.format("Node %s does not occur in graph %s", image, this.host);
             }
             RuleNode nodeKey = PlanSearchStrategy.this.nodeKeys[index];
             assert image == null || this.nodeSeeds[index] == null : String.format("Assignment %s=%s replaces pre-matched image %s",
@@ -523,12 +523,8 @@ public class PlanSearchStrategy implements SearchStrategy {
 
         /** Sets the edge image for the edge key with a given index. */
         final boolean putEdge(int index, HostEdge image) {
-            if (CHECK_IMAGES) {
-                if (image != null && !this.host.containsEdge(image)) {
-                    assert false : String.format("Edge %s does not occur in graph %s",
-                        image,
-                        this.host);
-                }
+            if (CHECK_IMAGES && image != null && !this.host.containsEdge(image)) {
+                assert false : String.format("Edge %s does not occur in graph %s", image, this.host);
             }
             this.edgeImages[index] = image;
             return true;

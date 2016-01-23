@@ -129,7 +129,9 @@ public class Config {
                 this.m_suffixList.add(this.m_xmlConfig.getGlobal().getStrings().getProperPostfix());
             }
             if (!this.m_xmlConfig.getGlobal().getStrings().getNullablePostfix().isEmpty()) {
-                this.m_suffixList.add(this.m_xmlConfig.getGlobal().getStrings().getNullablePostfix());
+                this.m_suffixList.add(this.m_xmlConfig.getGlobal()
+                    .getStrings()
+                    .getNullablePostfix());
             }
             if (!this.m_xmlConfig.getGlobal().getStrings().getEnumPostfix().isEmpty()) {
                 this.m_suffixList.add(this.m_xmlConfig.getGlobal().getStrings().getEnumPostfix());
@@ -227,21 +229,20 @@ public class Config {
             if (this.m_xmlConfig.getTypeModel().getFields().isOpposites()
                 && this.m_activeTypeModel != null) {
                 for (Property p : this.m_activeTypeModel.getProperties()) {
-                    if (p instanceof OppositeProperty) {
-                        if (((OppositeProperty) p).getField1() == f) {
-                            return true;
-                        }
+                    if (p instanceof OppositeProperty && ((OppositeProperty) p).getField1() == f) {
+                        return true;
                     }
                 }
             }
 
-            if (getConfig().getGlobal().getNullable() == NullableType.NONE
-                && (f.getType() instanceof Container)
-                && ((Container) f.getType()).getType() instanceof Class) {
-                if (f.getLowerBound() == 0 && f.getUpperBound() == 1) {
-                    //If 0..1 container, then intermediate always required as otherwise nullable class cannot be detected
-                    return true;
-                }
+            boolean instanceCondition =
+                f.getType() instanceof Container
+                    && ((Container) f.getType()).getType() instanceof Class
+                    && f.getType() instanceof Container;
+            if (getConfig().getGlobal().getNullable() == NullableType.NONE && instanceCondition
+                && f.getLowerBound() == 0 && f.getUpperBound() == 1) {
+                //If 0..1 container, then intermediate always required as otherwise nullable class cannot be detected
+                return true;
             }
 
             if (recursive && f.getType() instanceof Container) {

@@ -46,7 +46,8 @@ public class TextFieldEditor extends ContentEditor {
         super(dialog, holder, key, kind);
         setLayout(new BorderLayout());
         assert kind.getContentType() != Null.class;
-        JLabel label = this.label = new JLabel(StringHandler.toUpper(kind.getContentName()) + ": ");
+        this.label = new JLabel(StringHandler.toUpper(kind.getContentName()) + ": ");
+        JLabel label = this.label;
         add(label, BorderLayout.WEST);
         add(getTextField(), BorderLayout.CENTER);
         this.contentParser = kind.parser();

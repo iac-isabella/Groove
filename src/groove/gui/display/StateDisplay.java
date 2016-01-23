@@ -406,8 +406,9 @@ public class StateDisplay extends Display implements SimulatorListener {
                 if (getJGraph().isShowAnchors()) {
                     result.append(String.format("with match '%s'", match.getEvent()));
                 } else {
-                    result.append(String.format("with match of <i>%s</i>",
-                        match.getEvent().getRule().getFullName()));
+                    result.append(String.format("with match of <i>%s</i>", match.getEvent()
+                        .getRule()
+                        .getFullName()));
                 }
             }
             if (brackets) {
@@ -734,7 +735,8 @@ public class StateDisplay extends Display implements SimulatorListener {
     private HostToAspectMap getAspectMap(GraphState state) {
         HostToAspectMap result = this.stateToAspectMap.get(state);
         if (result == null) {
-            this.stateToAspectMap.put(state, result = GraphConverter.toAspectMap(state.getGraph()));
+            result = GraphConverter.toAspectMap(state.getGraph());
+            this.stateToAspectMap.put(state, result);
         }
         return result;
     }

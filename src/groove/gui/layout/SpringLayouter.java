@@ -215,8 +215,10 @@ public class SpringLayouter extends AbstractLayouter {
             LayoutNode key = this.layoutables[i];
             Point2D.Float delta = this.deltas[i];
             if (delta != null) {
-                float dx = delta.x *= this.damper;
-                float dy = delta.y *= this.damper;
+                delta.x *= this.damper;
+                float dx = delta.x;
+                delta.y *= this.damper;
+                float dy = delta.y;
                 delta.setLocation(dx / 2, dy / 2);
                 if (Math.abs(dx) > SMALL_VALUE || Math.abs(dy) > SMALL_VALUE) {
                     float distMoved = Math.abs(dx) + Math.abs(dy);

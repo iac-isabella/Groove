@@ -161,7 +161,8 @@ public class LTSDisplay extends Display implements SimulatorListener {
 
     private JPanel getFilterPanel() {
         if (this.filterPanel == null) {
-            final JPanel result = this.filterPanel = new JPanel();
+            this.filterPanel = new JPanel();
+            final JPanel result = this.filterPanel;
             result.setLayout(new BoxLayout(result, BoxLayout.X_AXIS));
             result.add(Box.createRigidArea(new Dimension(5, 0)));
             result.add(new JLabel("Filter: "));
@@ -177,7 +178,8 @@ public class LTSDisplay extends Display implements SimulatorListener {
     private JComboBox getFilterChooser() {
         if (this.filterChooser == null) {
             this.filterListening = true;
-            final JComboBox result = this.filterChooser = new JComboBox(Filter.values());
+            this.filterChooser = new JComboBox(Filter.values());
+            final JComboBox result = this.filterChooser;
             result.setMaximumSize(new Dimension(result.getPreferredSize().width, 1000));
             result.addItemListener(new ItemListener() {
                 @Override

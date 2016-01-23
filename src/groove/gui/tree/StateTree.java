@@ -388,8 +388,8 @@ public class StateTree extends JTree implements SimulatorListener {
             Action action = match.getAction();
             Set<GraphTransitionKey> ruleMatches = matchMap.get(action);
             if (ruleMatches == null) {
-                matchMap.put(action, ruleMatches =
-                    new TreeSet<GraphTransitionKey>(GraphTransitionKey.COMPARATOR));
+                ruleMatches = new TreeSet<GraphTransitionKey>(GraphTransitionKey.COMPARATOR);
+                matchMap.put(action, ruleMatches);
             }
             ruleMatches.add(match);
         }
@@ -698,10 +698,10 @@ public class StateTree extends JTree implements SimulatorListener {
         @Override
         public void mousePressed(MouseEvent evt) {
             TreePath path = getPathForLocation(evt.getX(), evt.getY());
-            if (path != null) {
-                if (evt.getButton() == MouseEvent.BUTTON3 && !isRowSelected(getRowForPath(path))) {
-                    setSelectionPath(path);
-                }
+            boolean guiCondition =
+                evt.getButton() == MouseEvent.BUTTON3 && !isRowSelected(getRowForPath(path));
+            if (path != null && guiCondition) {
+                setSelectionPath(path);
             }
             maybeShowPopup(evt);
         }

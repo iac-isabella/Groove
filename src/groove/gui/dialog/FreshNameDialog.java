@@ -208,7 +208,8 @@ public abstract class FreshNameDialog<Name> {
 
     private JLabel getErrorLabel() {
         if (this.errorLabel == null) {
-            JLabel result = this.errorLabel = new JLabel();
+            this.errorLabel = new JLabel();
+            JLabel result = this.errorLabel;
             result.setForeground(Color.RED);
             result.setMinimumSize(getOkButton().getPreferredSize());
         }

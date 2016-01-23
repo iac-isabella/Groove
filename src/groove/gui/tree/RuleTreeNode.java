@@ -91,8 +91,8 @@ class RuleTreeNode extends ResourceTreeNode implements ActionTreeNode {
     @Override
     public String getTip() {
         StringBuilder result = new StringBuilder();
-        result.append(getRule().getRole() == Role.TRANSFORMER ? "Rule" : getRule().getRole().text(
-            true));
+        result.append(getRule().getRole() == Role.TRANSFORMER ? "Rule" : getRule().getRole()
+            .text(true));
         result.append(" ");
         result.append(HTMLConverter.ITALIC_TAG.on(getName()));
         AspectGraph source = getRule().getSource();
@@ -121,8 +121,11 @@ class RuleTreeNode extends ResourceTreeNode implements ActionTreeNode {
             result.append(HTMLConverter.HTML_LINEBREAK);
             result.append("Not enabled stand-alone because it is invoked from ");
             result.append(recipes.size() == 1 ? "recipe " : "recipes ");
-            result.append(Groove.toString(getRule().getRecipes().toArray(), "<i>", "</i>",
-                "</i>, <i>", "</i> and <i>"));
+            result.append(Groove.toString(getRule().getRecipes().toArray(),
+                "<i>",
+                "</i>",
+                "</i>, <i>",
+                "</i> and <i>"));
         } else if (!isTried()) {
             result.append(HTMLConverter.HTML_LINEBREAK);
             result.append("Not scheduled in this state, due to rule priorities or control");
@@ -216,9 +219,12 @@ class RuleTreeNode extends ResourceTreeNode implements ActionTreeNode {
     private static final Map<Role,Icon> roleNormalIconMap;
     private static final Map<Role,Icon> roleInjectiveIconMap;
     static {
-        Map<Role,String> suffixMap = roleSuffixMap = new EnumMap<Role,String>(Role.class);
-        Map<Role,Icon> normalIconMap = roleNormalIconMap = new EnumMap<Role,Icon>(Role.class);
-        Map<Role,Icon> injectiveIconMap = roleInjectiveIconMap = new EnumMap<Role,Icon>(Role.class);
+        roleSuffixMap = new EnumMap<Role,String>(Role.class);
+        Map<Role,String> suffixMap = roleSuffixMap;
+        roleNormalIconMap = new EnumMap<Role,Icon>(Role.class);
+        Map<Role,Icon> normalIconMap = roleNormalIconMap;
+        roleInjectiveIconMap = new EnumMap<Role,Icon>(Role.class);
+        Map<Role,Icon> injectiveIconMap = roleInjectiveIconMap;
         for (Role role : Role.values()) {
             suffixMap.put(role, " : " + HTMLConverter.STRONG_TAG.on(role.toString()));
             Icon normalIcon = null;

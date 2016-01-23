@@ -146,25 +146,22 @@ public class JVertexView extends VertexView {
         // in manhattan line style, we shift the target point so it is
         // in horizontal or vertical reach of the node
         VisualMap edgeVisuals = ((JEdgeView) edge).getCell().getVisuals();
-        if (edgeVisuals.getLineStyle() == LineStyle.MANHATTAN && edgeVisuals.getPoints().size() > 2) {
-            if ((qx < left || qx > right) && (qy < top || qy > bottom)) {
-                if (this == edge.getSource().getParentView()) {
-                    // move qy into horizontal reach
-                    double dy = qy - cy;
-                    double room = bounds.getHeight() * (1 - 2 / DROP_FRACTION) * 0.5;
-                    qy =
-                        cy + room * Math.signum(dy)
-                            * Math.min(Math.abs(dy) / MAX_RATIO_DISTANCE, 1);
-                } else {
-                    // move qx into vertical reach
-                    double dx = qx - cx;
-                    double room = bounds.getWidth() * (1 - 2 / DROP_FRACTION) * 0.5;
-                    qx =
-                        cx + room * Math.signum(dx)
-                            * Math.min(Math.abs(dx) / MAX_RATIO_DISTANCE, 1);
-                }
-                q = new Point2D.Double(qx, qy);
+        boolean edgeCondition =
+            edgeVisuals.getLineStyle() == LineStyle.MANHATTAN && edgeVisuals.getPoints().size() > 2;
+        boolean qCondition = (qx < left || qx > right) && (qy < top || qy > bottom);
+        if (edgeCondition && qCondition) {
+            if (this == edge.getSource().getParentView()) {
+                // move qy into horizontal reach
+                double dy = qy - cy;
+                double room = bounds.getHeight() * (1 - 2 / DROP_FRACTION) * 0.5;
+                qy = cy + room * Math.signum(dy) * Math.min(Math.abs(dy) / MAX_RATIO_DISTANCE, 1);
+            } else {
+                // move qx into vertical reach
+                double dx = qx - cx;
+                double room = bounds.getWidth() * (1 - 2 / DROP_FRACTION) * 0.5;
+                qx = cx + room * Math.signum(dx) * Math.min(Math.abs(dx) / MAX_RATIO_DISTANCE, 1);
             }
+            q = new Point2D.Double(qx, qy);
         }
         if (p == null || p.getX() == cx && p.getY() == cy) {
             // be smart about positioning the perimeter point if q is within
@@ -302,11 +299,12 @@ public class JVertexView extends VertexView {
         @Override
         public MyRenderer getRendererComponent(org.jgraph.JGraph graph, CellView view, boolean sel,
             boolean focus, boolean preview) {
-            assert view instanceof JVertexView : String.format(
-                "This renderer is only meant for %s", JVertexView.class);
+            assert view instanceof JVertexView : String.format("This renderer is only meant for %s",
+                JVertexView.class);
             this.view = (JVertexView) view;
             this.cell = this.view.getCell();
-            VisualMap visuals = this.visuals = this.view.getCellVisuals();
+            this.visuals = this.view.getCellVisuals();
+            VisualMap visuals = this.visuals;
             this.adornment = this.visuals.getAdornment();
             if (this.adornment == null) {
                 this.adornHeight = 0;
@@ -343,9 +341,9 @@ public class JVertexView extends VertexView {
             if (emph) {
                 float darken = .95f;
                 background =
-                    new Color(Math.max((int) (background.getRed() * darken), 0), Math.max(
-                        (int) (background.getGreen() * darken), 0), Math.max(
-                        (int) (background.getBlue() * darken), 0), background.getAlpha());
+                    new Color(Math.max((int) (background.getRed() * darken), 0),
+                        Math.max((int) (background.getGreen() * darken), 0),
+                        Math.max((int) (background.getBlue() * darken), 0), background.getAlpha());
             }
             if (background == null ? getBackground() != null : !background.equals(getBackground())) {
                 setBackground(background);
@@ -453,8 +451,9 @@ public class JVertexView extends VertexView {
         private Border createEmptyBorder() {
             Insets i = computeInsets();
             return i == null ? null : BorderFactory.createEmptyBorder(i.top + EXTRA_BORDER_SPACE,
-                i.left + EXTRA_BORDER_SPACE, i.bottom + EXTRA_BORDER_SPACE, i.right
-                    + EXTRA_BORDER_SPACE);
+                i.left + EXTRA_BORDER_SPACE,
+                i.bottom + EXTRA_BORDER_SPACE,
+                i.right + EXTRA_BORDER_SPACE);
         }
 
         /**

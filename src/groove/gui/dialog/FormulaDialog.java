@@ -1,17 +1,17 @@
 /*
  * GROOVE: GRaphs for Object Oriented VErification Copyright 2003--2007
  * University of Twente
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
- * 
+ *
  * $Id: FormulaDialog.java 5480 2014-07-19 22:15:15Z rensink $
  */
 package groove.gui.dialog;
@@ -215,7 +215,7 @@ public abstract class FormulaDialog {
     /** Attempts to parse the given text.
      * Calls {@link #parse(String)} for the actual parsing.
      * @param text the text to be parsed as a property
-     * @return {@code null} if the text cannot be parsed, 
+     * @return {@code null} if the text cannot be parsed,
      * or the parsed result otherwise
      */
     private String parseText(String text) {
@@ -279,7 +279,8 @@ public abstract class FormulaDialog {
     /** Returns the label displaying the current error in entered string (if any). */
     private JLabel getErrorLabel() {
         if (this.errorLabel == null) {
-            JLabel result = this.errorLabel = new JLabel();
+            this.errorLabel = new JLabel();
+            JLabel result = this.errorLabel;
             result.setForeground(Color.RED);
             result.setMinimumSize(getOkButton().getPreferredSize());
         }
@@ -297,7 +298,7 @@ public abstract class FormulaDialog {
     private final String title;
 
     /**
-     * Sets the result of the dialog from the 
+     * Sets the result of the dialog from the
      * selection of the choice box.
      * Also adds the result to the history.
      */
@@ -363,9 +364,9 @@ public abstract class FormulaDialog {
     /** Maximum number of persistently stored entries. */
     private static final int MAX_PERSISTENT_SIZE = 10;
 
-    /** 
+    /**
      * Overrides the {@link JComboBox#configureEditor(ComboBoxEditor, Object)}
-     * method to avoid confusing the editor. 
+     * method to avoid confusing the editor.
      */
     private static class MyComboBox extends JComboBox {
         @Override
@@ -391,7 +392,7 @@ public abstract class FormulaDialog {
         @Override
         public void setSelectedItem(Object anItem) {
             this.selectedItem = anItem;
-            // also set this item in the editor, however without changing the 
+            // also set this item in the editor, however without changing the
             // data model
             if (anItem != null) {
                 this.ignoreChange = true;
@@ -453,7 +454,7 @@ public abstract class FormulaDialog {
             }
         }
 
-        /** 
+        /**
          * Flag controlling whether the model should really be
          * set to dirty. This enables the changes due to a #setSelectedItem(Object)
          * to be ignored.
@@ -530,7 +531,7 @@ public abstract class FormulaDialog {
 
         @Override
         public Component getListCellRendererComponent(JList list, Object value, int index,
-                boolean isSelected, boolean cellHasFocus) {
+            boolean isSelected, boolean cellHasFocus) {
             Component result =
                 super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
             if (result == this) {

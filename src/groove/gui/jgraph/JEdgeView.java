@@ -408,10 +408,11 @@ public class JEdgeView extends EdgeView {
 
             assert v instanceof JEdgeView : String.format("This renderer is only meant for %s",
                 JEdgeView.class);
-
-            JEdgeView view = this.jView = (JEdgeView) v;
+            this.jView = (JEdgeView) v;
+            JEdgeView view = this.jView;
             this.cell = this.jView.getCell();
-            VisualMap visuals = this.visuals = this.cell.getVisuals();
+            this.visuals = this.cell.getVisuals();
+            VisualMap visuals = this.visuals;
             this.line2color = visuals.getInnerLine();
             this.twoLines = this.line2color != null;
             this.error = visuals.isError();

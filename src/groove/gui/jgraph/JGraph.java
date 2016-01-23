@@ -286,8 +286,8 @@ public abstract class JGraph<G extends Graph> extends org.jgraph.JGraph {
      * May return {@code null} if the simulator is not set.
      */
     private GrammarProperties getProperties() {
-        return getSimulatorModel() == null ? null
-            : getSimulatorModel().getGrammar().getProperties();
+        return getSimulatorModel() == null ? null : getSimulatorModel().getGrammar()
+            .getProperties();
     }
 
     /*
@@ -379,7 +379,9 @@ public abstract class JGraph<G extends Graph> extends org.jgraph.JGraph {
                     // adjust the x,y corner so that the center stays in place
                     double shiftX = (bounds.getWidth() - d.getWidth() - inset) / 2;
                     double shiftY = (bounds.getHeight() - d.getHeight() - inset) / 2;
-                    bounds.setFrame(bounds.getX() + shiftX, bounds.getY() + shiftY, d.getWidth(),
+                    bounds.setFrame(bounds.getX() + shiftX,
+                        bounds.getY() + shiftY,
+                        d.getWidth(),
                         d.getHeight());
                     // Remove resize attribute
                     snap(bounds);
@@ -544,11 +546,10 @@ public abstract class JGraph<G extends Graph> extends org.jgraph.JGraph {
             JCell<G> jCell = (JCell<G>) jCellView.getCell();
             boolean typeCorrect =
                 vertex ? jCell instanceof JVertex : edge ? jCell instanceof JEdge : true;
-            if (typeCorrect && !jCell.isGrayedOut()) {
-                // now see if this jCell is sufficiently close to the point
-                if (jCellView.intersects(this, xyArea)) {
-                    result = jCell;
-                }
+            boolean preCondition = typeCorrect && !jCell.isGrayedOut();
+            // now see if this jCell is sufficiently close to the point
+            if (preCondition && jCellView.intersects(this, xyArea)) {
+                result = jCell;
             }
         }
         return result;
@@ -1311,7 +1312,8 @@ public abstract class JGraph<G extends Graph> extends org.jgraph.JGraph {
     public final VisualValue<?> getVisualValue(VisualKey key) {
         VisualValue<?> result = this.visualValueMap.get(key);
         if (result == null) {
-            this.visualValueMap.put(key, result = getFactory().newVisualValue(key));
+            result = getFactory().newVisualValue(key);
+            this.visualValueMap.put(key, result);
         }
         return result;
     }

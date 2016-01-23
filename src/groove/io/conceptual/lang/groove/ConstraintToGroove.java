@@ -725,96 +725,99 @@ public class ConstraintToGroove extends TypeExporter<AbsNode> {
         // Uniqueness: Create field->value type path times two, this will match same value used twice in case of intermediate
         // Class not needed, intermediate node is unique within type graph
         // If no intermediate, no problem
-        if (this.m_cfg.getConfig().getTypeModel().getConstraints().isCheckUniqueness()) {
-            if (this.m_cfg.useIntermediate(field)
-                && field.getType() instanceof Container
-                && (((Container) field.getType()).getContainerType() == Kind.SET || ((Container) field.getType()).getContainerType() == Kind.ORD)) {
-                GrammarGraph prevGraph = this.m_currentGraph;
-                this.m_currentGraph =
-                    getUniqueGraph("Unique_" + field.getName(), GraphRole.RULE, CONSTRAINT_NS);
+        boolean conditionMCFG =
+            this.m_cfg.getConfig().getTypeModel().getConstraints().isCheckUniqueness()
+                && this.m_cfg.useIntermediate(field);
+        boolean containerCondition =
+            ((Container) field.getType()).getContainerType() == Kind.SET
+                || ((Container) field.getType()).getContainerType() == Kind.ORD;
+        if (conditionMCFG && containerCondition && field.getType() instanceof Container) {
+            GrammarGraph prevGraph = this.m_currentGraph;
+            this.m_currentGraph =
+                getUniqueGraph("Unique_" + field.getName(), GraphRole.RULE, CONSTRAINT_NS);
 
-                this.m_allowDuplicates = true;
-                this.m_recursiveTypes = false;
+            this.m_allowDuplicates = true;
+            this.m_recursiveTypes = false;
 
-                AbsNode classNode = getElement(field.getDefiningClass());
-                AbsNode interNode = getElement(field);
-                AbsNode interNode2 = getElement(field);
-                AbsNode typeNode = null;
-                if (((Container) field.getType()).getType() instanceof Container) {
-                    typeNode =
-                        getElement(((Container) field.getType()).getType(),
-                            this.m_cfg.getContainerName(this.m_cfg.getName(field),
-                                (Container) field.getType()));
-                } else {
-                    typeNode = getElement(((Container) field.getType()).getType());
-                }
-
-                String valName = this.m_cfg.getStrings().getValueEdge();
-                new AbsEdge(classNode, interNode, field.getName().toString());
-                new AbsEdge(classNode, interNode2, field.getName().toString());
-                new AbsEdge(interNode, typeNode, valName);
-                new AbsEdge(interNode2, typeNode, valName);
-                new AbsEdge(interNode, interNode2, "!=");
-
-                this.m_allowDuplicates = false;
-                this.m_recursiveTypes = true;
-
-                this.m_currentGraph = prevGraph;
+            AbsNode classNode = getElement(field.getDefiningClass());
+            AbsNode interNode = getElement(field);
+            AbsNode interNode2 = getElement(field);
+            AbsNode typeNode = null;
+            if (((Container) field.getType()).getType() instanceof Container) {
+                typeNode =
+                    getElement(((Container) field.getType()).getType(),
+                        this.m_cfg.getContainerName(this.m_cfg.getName(field),
+                            (Container) field.getType()));
+            } else {
+                typeNode = getElement(((Container) field.getType()).getType());
             }
+
+            String valName = this.m_cfg.getStrings().getValueEdge();
+            new AbsEdge(classNode, interNode, field.getName().toString());
+            new AbsEdge(classNode, interNode2, field.getName().toString());
+            new AbsEdge(interNode, typeNode, valName);
+            new AbsEdge(interNode2, typeNode, valName);
+            new AbsEdge(interNode, interNode2, "!=");
+
+            this.m_allowDuplicates = false;
+            this.m_recursiveTypes = true;
+
+            this.m_currentGraph = prevGraph;
         }
 
         // Ordering, check if indices are well ordered, or next edges don't have two heads (rest is checked by multiplicities)
-        if (this.m_cfg.getConfig().getTypeModel().getConstraints().isCheckOrdering()) {
-            if (field.getType() instanceof Container
-                && (((Container) field.getType()).getContainerType() == Kind.ORD || ((Container) field.getType()).getContainerType() == Kind.SEQ)) {
-                GrammarGraph prevGraph = this.m_currentGraph;
-                this.m_currentGraph =
-                    getUniqueGraph("Ordered_" + field.getName(), GraphRole.RULE, CONSTRAINT_NS);
+        containerCondition =
+            ((Container) field.getType()).getContainerType() == Kind.ORD
+                || ((Container) field.getType()).getContainerType() == Kind.SEQ;
+        if (this.m_cfg.getConfig().getTypeModel().getConstraints().isCheckOrdering()
+            && field.getType() instanceof Container && containerCondition) {
+            GrammarGraph prevGraph = this.m_currentGraph;
+            this.m_currentGraph =
+                getUniqueGraph("Ordered_" + field.getName(), GraphRole.RULE, CONSTRAINT_NS);
 
-                this.m_allowDuplicates = true;
-                this.m_recursiveTypes = false;
+            this.m_allowDuplicates = true;
+            this.m_recursiveTypes = false;
 
-                AbsNode classNode = getElement(field.getDefiningClass());
-                AbsNode val1Node = getElement(field);
-                AbsNode val2Node = getElement(field);
+            AbsNode classNode = getElement(field.getDefiningClass());
+            AbsNode val1Node = getElement(field);
+            AbsNode val2Node = getElement(field);
 
-                new AbsEdge(classNode, val1Node, field.getName().toString());
-                new AbsEdge(classNode, val2Node, field.getName().toString());
-                new AbsEdge(val1Node, val2Node, "!=");
+            new AbsEdge(classNode, val1Node, field.getName().toString());
+            new AbsEdge(classNode, val2Node, field.getName().toString());
+            new AbsEdge(val1Node, val2Node, "!=");
 
-                if (this.m_cfg.getConfig()
-                    .getTypeModel()
-                    .getFields()
-                    .getContainers()
-                    .getOrdering()
-                    .getType() == OrderType.INDEX) {
-                    // Check if two nodes exist with same index value
-                    String indexName = this.m_cfg.getStrings().getIndexEdge();
-                    AbsNode indexNode = new AbsNode("int:");
-                    new AbsEdge(val1Node, indexNode, indexName);
-                    new AbsEdge(val2Node, indexNode, indexName);
-                } else if (this.m_cfg.getConfig()
-                    .getTypeModel()
-                    .getFields()
-                    .getContainers()
-                    .getOrdering()
-                    .getType() == OrderType.EDGE) {
-                    // Check if two nodes exist that are head
-                    String nextName = this.m_cfg.getStrings().getNextEdge();
-                    AbsNode val3Node = getElement(field);
-                    val3Node.addName("not:");
-                    AbsNode val4Node = getElement(field);
-                    val4Node.addName("not:");
+            if (this.m_cfg.getConfig()
+                .getTypeModel()
+                .getFields()
+                .getContainers()
+                .getOrdering()
+                .getType() == OrderType.INDEX) {
+                // Check if two nodes exist with same index value
+                String indexName = this.m_cfg.getStrings().getIndexEdge();
+                AbsNode indexNode = new AbsNode("int:");
+                new AbsEdge(val1Node, indexNode, indexName);
+                new AbsEdge(val2Node, indexNode, indexName);
+            } else if (this.m_cfg.getConfig()
+                .getTypeModel()
+                .getFields()
+                .getContainers()
+                .getOrdering()
+                .getType() == OrderType.EDGE) {
+                // Check if two nodes exist that are head
+                String nextName = this.m_cfg.getStrings().getNextEdge();
+                AbsNode val3Node = getElement(field);
+                val3Node.addName("not:");
+                AbsNode val4Node = getElement(field);
+                val4Node.addName("not:");
 
-                    new AbsEdge(val3Node, val1Node, nextName);
-                    new AbsEdge(val4Node, val2Node, nextName);
-                }
-
-                this.m_allowDuplicates = false;
-                this.m_recursiveTypes = true;
-
-                this.m_currentGraph = prevGraph;
+                new AbsEdge(val3Node, val1Node, nextName);
+                new AbsEdge(val4Node, val2Node, nextName);
             }
+
+            this.m_allowDuplicates = false;
+            this.m_recursiveTypes = true;
+
+            this.m_currentGraph = prevGraph;
         }
     }
 

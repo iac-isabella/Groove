@@ -1,17 +1,17 @@
 /*
  * GROOVE: GRaphs for Object Oriented VErification Copyright 2003--2007
  * University of Twente
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
- * 
+ *
  * $Id: SimplePaigeTarjanMcKay.java 5479 2014-07-19 12:20:13Z rensink $
  */
 package groove.graph.iso;
@@ -123,9 +123,10 @@ public class SimplePaigeTarjanMcKay extends CertificateStrategy {
         // first iteration
         split(splitters);
         if (TRACE) {
-            System.out.printf(
-                "First iteration done; %d partitions for %d nodes in %d iterations%n",
-                this.nodePartitionCount, this.nodeCertCount, this.iterateCount);
+            System.out.printf("First iteration done; %d partitions for %d nodes in %d iterations%n",
+                this.nodePartitionCount,
+                this.nodeCertCount,
+                this.iterateCount);
         }
     }
 
@@ -541,7 +542,7 @@ public class SimplePaigeTarjanMcKay extends CertificateStrategy {
 
     static class MyEdge2Cert extends MyEdge1Cert {
         MyEdge2Cert(SimplePaigeTarjanMcKay strategy, Edge edge, MyNodeCert sourceCert,
-                MyNodeCert targetCert) {
+            MyNodeCert targetCert) {
             super(edge, sourceCert);
             this.targetCert = targetCert;
             sourceCert.addOutgoing(this);
@@ -632,7 +633,8 @@ public class SimplePaigeTarjanMcKay extends CertificateStrategy {
          */
         final boolean startSplit() {
             if (!this.splitting) {
-                return this.splitting = true;
+                this.splitting = true;
+                return this.splitting;
             } else {
                 return false;
             }
@@ -658,8 +660,8 @@ public class SimplePaigeTarjanMcKay extends CertificateStrategy {
                     if (block == null || block.value != node.getValue()) {
                         block = blockMap.get(node.getValue());
                         if (block == null) {
-                            blockMap.put(node.getValue(),
-                                block = new Block(this.strategy, node.getValue()));
+                            block = new Block(this.strategy, node.getValue());
+                            blockMap.put(node.getValue(), block);
                         }
                     }
                     block.append(node);
@@ -680,8 +682,9 @@ public class SimplePaigeTarjanMcKay extends CertificateStrategy {
 
         /** Merges this block with another with the same hash code. */
         void merge(Block other) {
-            assert this.value == other.value : String.format(
-                "Merging blocks %s and %s with distinct hash codes", this, other);
+            assert this.value == other.value : String.format("Merging blocks %s and %s with distinct hash codes",
+                this,
+                other);
             for (MyNodeCert otherNode : other.getNodes()) {
                 otherNode.setBlock(this);
                 this.nodes.add(otherNode);

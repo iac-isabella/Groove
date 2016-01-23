@@ -148,17 +148,14 @@ public class GxlToType extends TypeImporter {
             // Maps all graph elements in graph to a specific GraphClass node
             Map<NodeType,Set<NodeWrapper>> graphElements = new HashMap<NodeType,Set<NodeWrapper>>();
             for (GraphElementType elem : graph.getNodeOrEdgeOrRel()) {
-                if (elem instanceof NodeType) {
-                    if ("GraphClass".equals(GxlUtil.getElemType(elem))) {
-                        graphElements.put((NodeType) elem, new HashSet<NodeWrapper>());
+                if (elem instanceof NodeType && "GraphClass".equals(GxlUtil.getElemType(elem))) {
+                    graphElements.put((NodeType) elem, new HashSet<NodeWrapper>());
 
-                        // Grab all the contained elements
-                        for (EdgeWrapper ew : nodes.get(elem).getEdges()) {
-                            if (ew.getType().equals("contains")) {
-                                graphElements.get(elem).add(ew.getTarget());
-                            }
+                    // Grab all the contained elements
+                    for (EdgeWrapper ew : nodes.get(elem).getEdges()) {
+                        if (ew.getType().equals("contains")) {
+                            graphElements.get(elem).add(ew.getTarget());
                         }
-
                     }
                 }
             }
@@ -501,10 +498,8 @@ public class GxlToType extends TypeImporter {
                 (String) GxlUtil.getAttribute(nodeWrapper.getNode(),
                     "aggregate",
                     GxlUtil.AttrTypeEnum.ENUM);
-            if (eVal != null) {
-                if (eVal.equals("to")) {
-                    reverseAggregate = true;
-                }
+            if (eVal != null && eVal.equals("to")) {
+                reverseAggregate = true;
             }
         }
 

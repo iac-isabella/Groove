@@ -263,7 +263,8 @@ public class Bisimulator extends CertificateStrategy {
          * @see #computeNewValue()
          */
         protected int setNewValue() {
-            return this.value = computeNewValue();
+            this.value = computeNewValue();
+            return this.value;
         }
 
         /**

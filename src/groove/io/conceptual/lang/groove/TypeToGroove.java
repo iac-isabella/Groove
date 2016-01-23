@@ -88,15 +88,13 @@ public class TypeToGroove extends TypeExporter<AbsNode> {
         }
 
         // If not using the nullable/proper class system, don't instantiate nullable classes
-        if (this.m_cfg.getConfig().getGlobal().getNullable() == NullableType.NONE) {
-            if (!c.isProper()) {
-                // Simply revert to the proper instance
-                AbsNode classNode = getElement(c.getProperClass());
-                if (!hasElement(c)) {
-                    setElement(c, classNode);
-                }
-                return;
+        if (this.m_cfg.getConfig().getGlobal().getNullable() == NullableType.NONE && !c.isProper()) {
+            // Simply revert to the proper instance
+            AbsNode classNode = getElement(c.getProperClass());
+            if (!hasElement(c)) {
+                setElement(c, classNode);
             }
+            return;
         }
 
         AbsNode classNode = new AbsNode(this.m_cfg.getName(c));
@@ -126,11 +124,12 @@ public class TypeToGroove extends TypeExporter<AbsNode> {
 
             String edgeLabel = "";
             int lowerBound = f.getLowerBound();
-            if (lowerBound == 0 && f.getUpperBound() == 1 && f.getType() instanceof Class) {
+            boolean preCondition =
+                lowerBound == 0 && f.getUpperBound() == 1 && f.getType() instanceof Class;
+            if (preCondition
+                && this.m_cfg.getConfig().getGlobal().getNullable() != NullableType.NONE) {
                 // Nullable, but in GROOVE always Nil value (unless turned off)
-                if (this.m_cfg.getConfig().getGlobal().getNullable() != NullableType.NONE) {
-                    lowerBound = 1;
-                }
+                lowerBound = 1;
             }
 
             // When using intermediates, ensure each intermediate is linked to one field

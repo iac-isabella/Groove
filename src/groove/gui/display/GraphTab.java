@@ -205,7 +205,8 @@ public final class GraphTab extends ResourceTab implements UndoableEditListener 
                 if (DEBUG) {
                     GraphPreviewDialog.showGraph(graph.normalise(null));
                 }
-                this.jModelMap.put(name, jModel = getJGraph().newModel());
+                jModel = getJGraph().newModel();
+                this.jModelMap.put(name, jModel);
                 loadGraphIntoJModel(jModel, graph);
             }
         }

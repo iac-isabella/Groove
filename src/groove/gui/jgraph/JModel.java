@@ -368,13 +368,11 @@ public abstract class JModel<G extends Graph> extends DefaultGraphModel {
         // check if edge was processed earlier
         JVertex<G> sourceJVertex = getJCellForNode(edge.source());
         assert sourceJVertex != null : "No vertex for source node of " + edge;
-        if (result == null) {
-            // try to add the edge as vertex label to its source vertex
-            if (sourceJVertex.isCompatible(edge)) {
-                sourceJVertex.addEdge(edge);
-                // yes, the edge could be added here; we're done
-                result = sourceJVertex;
-            }
+        // try to add the edge as vertex label to its source vertex
+        if (result == null && sourceJVertex.isCompatible(edge)) {
+            sourceJVertex.addEdge(edge);
+            // yes, the edge could be added here; we're done
+            result = sourceJVertex;
         }
         if (result == null) {
             // try to add the edge to an existing JEdge
@@ -426,7 +424,8 @@ public abstract class JModel<G extends Graph> extends DefaultGraphModel {
     private void addFreshOutJEdge(JVertex<G> jVertex, JEdge<G> jEdge) {
         Set<JEdge<G>> jEdges = this.freshOutJEdges.get(jVertex);
         if (jEdges == null) {
-            this.freshOutJEdges.put(jVertex, jEdges = new HashSet<JEdge<G>>());
+            jEdges = new HashSet<JEdge<G>>();
+            this.freshOutJEdges.put(jVertex, jEdges);
         }
         jEdges.add(jEdge);
     }
